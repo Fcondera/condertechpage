@@ -1,0 +1,21 @@
+# robots.txt para ConderTech
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.condertech.com.br/sitemap.xml
+
+# Diretórios permitidos
+Allow: /sobre
+Allow: /estoque
+Allow: /ecommerce
+Allow: /landing
+Allow: /uiux
+Allow: /sistemainterno
+Allow: /plataformaensino
+Allow: /sistemapedidos
+
+# Bloquear arquivos desnecessários
+Disallow: /src/
+Disallow: /*.json$
+Disallow: /*.map$

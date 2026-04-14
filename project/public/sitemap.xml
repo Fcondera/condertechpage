@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Página Principal -->
+  <url>
+    <loc>https://www.condertech.com.br/</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Sobre -->
+  <url>
+    <loc>https://www.condertech.com.br/sobre</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Portfólio - Gerenciador de Estoque -->
+  <url>
+    <loc>https://www.condertech.com.br/estoque</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Portfólio - E-commerce -->
+  <url>
+    <loc>https://www.condertech.com.br/ecommerce</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Portfólio - Landing Page -->
+  <url>
+    <loc>https://www.condertech.com.br/landing</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Portfólio - UI/UX -->
+  <url>
+    <loc>https://www.condertech.com.br/uiux</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Portfólio - Sistema Interno -->
+  <url>
+    <loc>https://www.condertech.com.br/sistemainterno</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Portfólio - Plataforma de Ensino -->
+  <url>
+    <loc>https://www.condertech.com.br/plataformaensino</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Portfólio - Sistema de Pedidos -->
+  <url>
+    <loc>https://www.condertech.com.br/sistemapedidos</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>
