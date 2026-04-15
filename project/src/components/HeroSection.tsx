@@ -156,50 +156,18 @@ const HeroSection = () => {
             ></div>
           </div>
 
-          {/* Coluna direita: Esfera */}
+          {/* Coluna direita: Frase */}
           <div
             ref={orbRef}
-            className="relative flex justify-center lg:justify-end lg:-mr-10 xl:-mr-16"
+            className="relative flex justify-center lg:justify-end lg:-mr-4 xl:-mr-8"
           >
-            <div className="relative h-[250px] w-[250px] sm:h-[330px] sm:w-[330px] lg:h-[420px] lg:w-[420px] xl:h-[470px] xl:w-[470px] overflow-hidden rounded-full bg-[radial-gradient(circle_at_32%_26%,rgba(34,34,34,0.72)_0%,rgba(24,24,24,0.96)_22%,rgba(10,10,10,0.99)_54%,#000_78%,#000_100%)] shadow-[0_35px_80px_rgba(0,0,0,0.38),0_12px_24px_rgba(0,0,0,0.16),inset_-45px_-55px_90px_rgba(0,0,0,0.92)]">
-              <div className="absolute right-[12%] top-[18%] h-[28%] w-[28%] rounded-full bg-black/55 blur-2xl" />
-              <div className="absolute bottom-[10%] left-[14%] h-[22%] w-[50%] rounded-full bg-black/60 blur-3xl" />
-              <div className="absolute inset-[11%] opacity-30 mix-blend-screen">
-                <svg
-                  viewBox="0 0 1000 1000"
-                  className="h-full w-full"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true"
-                >
-                  <g
-                    stroke="rgba(255,255,255,0.44)"
-                    strokeWidth="9"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M126 298C167 274 224 250 274 255C321 260 349 283 359 310C367 332 391 336 421 328C451 320 474 298 505 293C545 287 584 299 609 320C639 346 672 355 712 350C752 345 788 332 837 343C880 353 915 378 934 405" />
-                    <path d="M184 365C200 341 233 327 269 333C304 339 327 356 337 386C348 418 331 449 300 469C270 489 243 514 236 548C228 587 249 612 285 625" />
-                    <path d="M425 372C448 357 483 351 514 358C544 365 572 382 587 404C601 425 626 432 656 427C691 421 724 406 757 411C793 417 821 441 836 476C849 508 846 542 831 574C816 606 795 623 788 647" />
-                    <path d="M517 425C498 445 491 472 499 497C507 522 529 539 554 545C577 551 590 566 592 590C595 618 586 646 572 672C557 700 549 726 561 748" />
-                    <path d="M696 646C723 632 757 632 785 646C811 659 825 683 827 711C829 740 815 760 789 773C761 786 727 790 699 778C670 766 652 742 650 715C648 690 662 665 696 646Z" />
-                    <path d="M335 575C367 562 403 565 428 582C452 598 464 623 461 651C457 684 437 706 407 721C379 735 357 754 352 782C347 808 353 828 370 851" />
-                    <path d="M476 278C493 258 523 244 554 244C585 244 614 256 629 276" />
-                    <path d="M590 310C610 292 640 281 671 282C706 283 736 297 756 321" />
-                  </g>
-                </svg>
-              </div>
-
-              <div className="relative z-10 flex h-full items-center justify-center px-10 sm:px-14 lg:px-16 text-center">
-                <p
-                  ref={subtitleRef}
-                  className="font-general-sans text-lg leading-[1.2] text-white sm:text-2xl lg:text-[2.15rem] lg:leading-[1.18]"
-                >
-                  Desenvolvimento sob medida e planos estrategicos para escalar
-                  sua operacao com tecnologia de ponta.
-                </p>
-              </div>
-            </div>
+            <p
+              ref={subtitleRef}
+              className="font-clash max-w-[18ch] text-center text-2xl font-semibold leading-[1.08] tracking-tight text-black sm:text-4xl lg:text-[3.2rem]"
+            >
+              Desenvolvimento sob medida e planos estrategicos para escalar sua
+              operacao com tecnologia de ponta.
+            </p>
           </div>
         </div>
       </div>
