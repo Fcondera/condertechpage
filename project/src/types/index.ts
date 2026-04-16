@@ -8,7 +8,12 @@ export interface Portfolio {
 export interface Service {
   icon: React.ComponentType<{ className?: string }>;
   title: string;
+  industry: string;
+  eyebrow: string;
   description: string;
+  details: string;
+  image: string;
+  highlights: string[];
   route: string;
 }
 

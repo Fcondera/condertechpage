@@ -1,58 +1,40 @@
-﻿import { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
-gsap.registerPlugin(SplitText, ScrollTrigger, ScrollToPlugin);
+gsap.registerPlugin(SplitText, ScrollTrigger);
 
 const HeroSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
-  const ctaRef = useRef<HTMLDivElement>(null);
   const scrollIndicatorRef = useRef<HTMLDivElement>(null);
-  const orbRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const title = titleRef.current;
     const subtitle = subtitleRef.current;
-    const cta = ctaRef.current;
     const section = sectionRef.current;
     const scrollIndicator = scrollIndicatorRef.current;
-    const orb = orbRef.current;
     if (!title || !section) return;
 
-    // --- Entrada: SplitText por chars ---
     const split = new SplitText(title, { type: "words,chars" });
-
     const entryTl = gsap.timeline({ defaults: { ease: "power4.out" } });
 
     entryTl.from(split.chars, {
-      y: 80,
+      y: 70,
       opacity: 0,
-      duration: 0.7,
-      stagger: 0.022,
+      duration: 0.65,
+      stagger: 0.02,
     });
 
     if (subtitle) {
-      entryTl.from(subtitle, { y: 30, opacity: 0, duration: 0.6 }, "-=0.3");
-    }
-    if (cta) {
-      entryTl.from(cta, { y: 20, opacity: 0, duration: 0.5 }, "-=0.25");
-    }
-    if (orb) {
-      entryTl.from(
-        orb,
-        { x: 48, scale: 0.92, opacity: 0, duration: 0.7 },
-        "-=0.4",
-      );
+      entryTl.from(subtitle, { y: 24, opacity: 0, duration: 0.55 }, "-=0.3");
     }
     if (scrollIndicator) {
-      entryTl.from(scrollIndicator, { opacity: 0, duration: 0.4 }, "-=0.1");
+      entryTl.from(scrollIndicator, { opacity: 0, duration: 0.35 }, "-=0.1");
     }
 
-    // --- Scroll: cada char some individualmente ao rolar ---
     gsap.fromTo(
       split.chars,
       { opacity: 1, y: 0 },
@@ -60,10 +42,7 @@ const HeroSection = () => {
         y: -60,
         opacity: 0,
         ease: "none",
-        stagger: {
-          each: 0.018,
-          from: "start",
-        },
+        stagger: { each: 0.018, from: "start" },
         scrollTrigger: {
           trigger: section,
           start: "2% top",
@@ -73,13 +52,12 @@ const HeroSection = () => {
       },
     );
 
-    // --- Scroll: subtítulo e CTA somem junto ---
     if (subtitle) {
       gsap.fromTo(
         subtitle,
         { opacity: 1, y: 0 },
         {
-          y: -30,
+          y: -28,
           opacity: 0,
           ease: "none",
           scrollTrigger: {
@@ -91,26 +69,7 @@ const HeroSection = () => {
         },
       );
     }
-    if (cta) {
-      gsap.fromTo(
-        cta,
-        { opacity: 1, y: 0 },
-        {
-          y: -20,
-          opacity: 0,
-          ease: "none",
-          scrollTrigger: {
-            trigger: section,
-            start: "12% top",
-            end: "45% top",
-            scrub: 1,
-          },
-        },
-      );
-    }
 
-    // --- Scroll: DotPattern parallax inverso (desce mais devagar) ---
-    // --- Scroll: esconde indicador de scroll ---
     if (scrollIndicator) {
       gsap.to(scrollIndicator, {
         opacity: 0,
@@ -134,53 +93,52 @@ const HeroSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden px-2 sm:px-4"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-white px-3 pb-10 pt-24 sm:px-5 sm:pt-20 lg:pb-14"
     >
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(360px,620px)] gap-8 lg:gap-4 items-center">
-          {/* Coluna esquerda: Texto */}
-          <div className="flex flex-col justify-center lg:pr-10">
+      <div className="absolute inset-0">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/image/hero.01ctch.png')",
+          }}
+        />
+        <div className="absolute inset-0 bg-[rgba(0,0,0,0.84)]" />
+      </div>
+
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-3 sm:px-6">
+        <div className="py-8 lg:py-14">
+          <div className="flex flex-col justify-center">
             <div className="overflow-hidden">
               <h1
                 ref={titleRef}
-                className="font-cabinet text-3xl sm:text-5xl md:text-6xl lg:text-6xl font-bold text-black mb-4 sm:mb-6 leading-tight text-left"
+                className="max-w-[11.5ch] font-clash text-[2.45rem] font-semibold leading-[0.9] tracking-[-0.045em] text-white sm:text-[3.8rem] md:text-[4.6rem] lg:text-[5.45rem]"
               >
-                Da ideia ao código: Transformamos sua visão em sistemas de alta
-                performance.{" "}
+                Produtos digitais que dominam
+                <span className="text-[#d6b183]"> todo o ecossistema</span>
+                do agro ao varejo.
               </h1>
             </div>
 
-            <div
-              ref={ctaRef}
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-start"
-            ></div>
-          </div>
-
-          {/* Coluna direita: Frase */}
-          <div
-            ref={orbRef}
-            className="relative flex justify-center lg:justify-end lg:-mr-4 xl:-mr-8"
-          >
             <p
               ref={subtitleRef}
-              className="font-clash max-w-[18ch] text-center text-2xl font-semibold leading-[1.08] tracking-tight text-black sm:text-4xl lg:text-[3.2rem]"
+              className="mt-6 max-w-2xl font-switzer text-sm leading-7 text-white sm:text-lg sm:leading-8"
             >
-              Desenvolvimento sob medida e planos estrategicos para escalar sua
-              operacao com tecnologia de ponta.
+              Da estrategia ao deploy, desenhamos interfaces, e-commerces e
+              sistemas internos sob medida para vender mais, operar com
+              previsibilidade e escalar com clareza.
             </p>
           </div>
         </div>
       </div>
 
-      {/* Indicador de scroll */}
       <div
         ref={scrollIndicatorRef}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1"
+        className="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-1 sm:bottom-8"
       >
-        <span className="text-xs text-gray-400 tracking-widest uppercase">
+        <span className="text-[0.62rem] uppercase tracking-[0.28em] text-white/58 sm:text-xs sm:tracking-[0.3em]">
           Scroll
         </span>
-        <div className="w-px h-10 bg-gradient-to-b from-gray-400 to-transparent animate-pulse" />
+        <div className="h-8 w-px animate-pulse bg-gradient-to-b from-white/50 to-transparent sm:h-10" />
       </div>
     </section>
   );

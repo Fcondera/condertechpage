@@ -41,22 +41,14 @@ const Navbar = () => {
       }`}
     >
       <div className="w-full max-w-7xl mx-auto px-2 sm:px-4 md:px-8">
-        <div className="flex items-center justify-between h-12 sm:h-14 md:h-16 lg:h-18">
-          <Link href="/" aria-label="ConderTech Home">
-            <img
-              src="/image/logo02.png"
-              alt="ConderTech"
-              className="h-6 sm:h-7 md:h-8 lg:h-10"
-            />
-          </Link>
-
+        <div className="flex items-center justify-end h-12 sm:h-14 md:h-16 lg:h-18">
           <div className="hidden md:flex items-center gap-4 lg:gap-8">
             {NAV_LINKS.map((link) =>
               link.href.startsWith("/") ? (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="font-cabinet text-[15px] md:text-[17px] font-semibold tracking-[-0.02em] transition-colors duration-300 text-black hover:text-gray-600"
+                  className="font-cabinet text-[15px] md:text-[17px] font-semibold tracking-[-0.02em] transition-colors duration-300 text-white hover:text-white/70"
                   role="link"
                   aria-label={`Navegue para ${link.name}`}
                 >
@@ -66,7 +58,7 @@ const Navbar = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="font-cabinet text-[15px] md:text-[17px] font-semibold tracking-[-0.02em] transition-colors duration-300 text-black hover:text-gray-600"
+                  className="font-cabinet text-[15px] md:text-[17px] font-semibold tracking-[-0.02em] transition-colors duration-300 text-white hover:text-white/70"
                   role="link"
                   aria-label={`Navegue para ${link.name}`}
                 >
@@ -83,16 +75,16 @@ const Navbar = () => {
             aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? (
-              <X className="w-5 h-5 text-black" />
+              <X className="w-5 h-5 text-white" />
             ) : (
-              <Menu className="w-5 h-5 sm:w-6 sm:h-6 text-black" />
+              <Menu className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             )}
           </button>
         </div>
 
         {isMobileMenuOpen && (
           <div
-            className="md:hidden bg-white/95 backdrop-blur-sm rounded-lg shadow-lg mb-4 overflow-hidden w-full border border-gray-200"
+            className="md:hidden bg-black/85 backdrop-blur-sm rounded-lg shadow-lg mb-4 overflow-hidden w-full border border-white/15"
             role="navigation"
             aria-label="Mobile Navigation"
           >
@@ -102,7 +94,7 @@ const Navbar = () => {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className="font-cabinet block px-4 py-2 sm:py-3 text-sm sm:text-base font-semibold tracking-[-0.02em] text-black hover:bg-gray-100 hover:text-gray-700 transition-colors"
+                    className="font-cabinet block px-4 py-2 sm:py-3 text-sm sm:text-base font-semibold tracking-[-0.02em] text-white hover:bg-white/10 hover:text-white/70 transition-colors"
                     onClick={close}
                   >
                     {link.name}
@@ -111,7 +103,7 @@ const Navbar = () => {
                   <a
                     key={link.name}
                     href={link.href}
-                    className="font-cabinet block px-4 py-2 sm:py-3 text-sm sm:text-base font-semibold tracking-[-0.02em] text-black hover:bg-gray-100 hover:text-gray-700 transition-colors"
+                    className="font-cabinet block px-4 py-2 sm:py-3 text-sm sm:text-base font-semibold tracking-[-0.02em] text-white hover:bg-white/10 hover:text-white/70 transition-colors"
                     onClick={close}
                   >
                     {link.name}
