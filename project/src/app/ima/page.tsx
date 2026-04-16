@@ -30,11 +30,7 @@ export default function ImaPage() {
     >
       {/* Header */}
       <header className="flex items-center px-6 py-5 sm:px-10">
-        <span
-          className={`${anton.className} text-xl tracking-wide uppercase text-neutral-900`}
-        >
-          CONDERTECH
-        </span>
+        <img src="/image/logo02.png" alt="ConderTech" className="h-7 sm:h-9" />
       </header>
 
       {/* Hero */}
