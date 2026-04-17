@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase/server";
+import { getSupabase } from "@/lib/supabase/server";
 
 interface LeadPayload {
   name: string;
@@ -37,7 +37,7 @@ export async function POST(request: Request) {
       whatsapp: body.whatsapp.trim(),
     };
 
-    const { data, error } = await supabase
+    const { data, error } = await getSupabase()
       .from("leads")
       .insert([lead])
       .select();
