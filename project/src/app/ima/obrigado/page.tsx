@@ -8,6 +8,7 @@ const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 const PDF_URL =
   "https://zimgmqvqgawcnzdyrncv.supabase.co/storage/v1/object/public/materiais/guias-pdfs/guia-condertech.pdf";
+const PDF_DOWNLOAD_URL = `${PDF_URL}?download=guia-condertech.pdf`;
 
 const whatsappMessage =
   "Olá, quero tirar os gargalos da minha empresa e melhorar os processos com suas tecnologias.";
@@ -43,9 +44,8 @@ export default function ObrigadoPage() {
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             <a
-              href={PDF_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={PDF_DOWNLOAD_URL}
+              target="_self"
               className={`${anton.className} inline-flex items-center justify-center gap-2 rounded-lg border border-neutral-900 px-5 py-3 text-sm uppercase tracking-wide text-neutral-900 transition hover:scale-[1.02]`}
             >
               <Download className="h-4 w-4" />
