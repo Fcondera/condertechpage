@@ -15,7 +15,9 @@ const HIDDEN_CHROME_ROUTES = new Set(["/orcamento", "/ima"]);
 
 export default function SiteLayout({ children }: SiteLayoutProps) {
   const pathname = usePathname();
-  const hideChrome = pathname ? HIDDEN_CHROME_ROUTES.has(pathname) : false;
+  const hideChrome = pathname
+    ? pathname.startsWith("/ima") || HIDDEN_CHROME_ROUTES.has(pathname)
+    : false;
 
   return (
     <ErrorBoundary>

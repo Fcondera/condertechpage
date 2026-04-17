@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useState, type FormEvent } from "react";
 
 interface LeadFormProps {
@@ -7,10 +8,9 @@ interface LeadFormProps {
 }
 
 export default function LeadForm({ antonClass }: LeadFormProps) {
+  const router = useRouter();
   const [form, setForm] = useState({ name: "", email: "", whatsapp: "" });
-  const [status, setStatus] = useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -25,33 +25,11 @@ export default function LeadForm({ antonClass }: LeadFormProps) {
 
       if (!res.ok) throw new Error("Erro ao enviar");
 
-      setStatus("success");
-      setForm({ name: "", email: "", whatsapp: "" });
+      router.push("/ima/obrigado");
     } catch {
       setStatus("error");
     }
   };
-
-  if (status === "success") {
-    return (
-      <div className="rounded-xl bg-green-50 p-6 text-center">
-        <p className="text-lg font-semibold text-green-800">
-          Acesso liberado! 🎉
-        </p>
-        <p className="mt-2 text-sm text-green-700">
-          Verifique seu e-mail ou clique no botão abaixo para baixar o guia.
-        </p>
-        <a
-          href="/docs/guia-mvp.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`${antonClass} mt-4 inline-block rounded-lg bg-[#FF0000] px-8 py-3 text-sm uppercase tracking-wide text-white transition-transform hover:scale-105`}
-        >
-          Baixar o Guia Agora
-        </a>
-      </div>
-    );
-  }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
