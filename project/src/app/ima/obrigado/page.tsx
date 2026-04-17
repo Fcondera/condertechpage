@@ -7,8 +7,7 @@ const anton = Anton({ weight: "400", subsets: ["latin"], display: "swap" });
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 const PDF_URL =
-  process.env.NEXT_PUBLIC_GUIDE_PDF_URL ||
-  "https://SEU-PROJETO.supabase.co/storage/v1/object/public/materiais/guia-mvp.pdf";
+  "https://zimgmqvqgawcnzdyrncv.supabase.co/storage/v1/object/public/materiais/guias-pdfs/guia-condertech.pdf";
 
 const whatsappMessage =
   "Olá, quero tirar os gargalos da minha empresa e melhorar os processos com suas tecnologias.";
@@ -27,7 +26,7 @@ export default function ObrigadoPage() {
       <section className="mx-auto max-w-2xl px-6 pb-20 pt-10 sm:pt-16">
         <div className="rounded-2xl border border-neutral-200 bg-white p-8 shadow-[0_8px_40px_rgba(0,0,0,0.06)] sm:p-10">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#FF0000]">
-            Lead recebido com sucesso
+            contato recebido
           </p>
 
           <h1

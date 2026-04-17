@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { supabase } from "@/lib/supabase/server";
 
 interface LeadPayload {
   name: string;
@@ -34,34 +35,37 @@ export async function POST(request: Request) {
       name: body.name.trim(),
       email: body.email.trim().toLowerCase(),
       whatsapp: body.whatsapp.trim(),
-      createdAt: new Date().toISOString(),
     };
 
-    // ---------- Integração ----------
-    // Substitua este bloco pela integração real:
-    //
-    // Opção 1: Supabase
-    // import { createClient } from '@supabase/supabase-js'
-    // const supabase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_KEY!)
-    // await supabase.from('leads').insert(lead)
-    //
-    // Opção 2: Webhook n8n
-    // await fetch(process.env.N8N_WEBHOOK_URL!, {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(lead),
-    // })
-    //
-    // Opção 3: Resend (enviar PDF por e-mail)
-    // import { Resend } from 'resend'
-    // const resend = new Resend(process.env.RESEND_API_KEY!)
-    // await resend.emails.send({ ... })
-    // ------------------------------------
+    const { data, error } = await supabase
+      .from("leads")
+      .insert([lead])
+      .select();
 
-    console.log("[LEAD CAPTURADO]", lead);
+    if (error) {
+      console.error("Erro ao inserir lead no Supabase:", error);
+      return NextResponse.json(
+        { error: "Erro ao salvar lead. Tente novamente." },
+        { status: 500 },
+      );
+    }
 
-    return NextResponse.json({ success: true });
-  } catch {
+    console.log("Lead inserido com sucesso:", data);
+
+    if (process.env.N8N_WEBHOOK_URL) {
+      fetch(process.env.N8N_WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(lead),
+      }).catch((err) => console.error("Erro webhook n8n:", err));
+    }
+
+    return NextResponse.json(
+      { success: true, message: "Lead capturado com sucesso!" },
+      { status: 201 },
+    );
+  } catch (error) {
+    console.error("Erro ao processar requisição:", error);
     return NextResponse.json(
       { error: "Erro interno do servidor." },
       { status: 500 },
