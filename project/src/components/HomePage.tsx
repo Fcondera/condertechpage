@@ -1,5 +1,6 @@
 "use client";
 
+import AboutSection from "@components/AboutSection";
 import ContactSection from "@components/ContactSection";
 import DotPattern from "@components/DotPattern";
 import FAQSection from "@components/FAQSection";
@@ -17,6 +18,7 @@ export default function HomePage() {
         <HeroSection />
         <ServicesSection />
         <WhyChooseSection />
+        <AboutSection />
         <PlansSection />
         <PortfolioSection />
         <FAQSection />

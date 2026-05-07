@@ -4,13 +4,13 @@ import { INSTAGRAM_URL, COMPANY_NAME } from "@constants/navigation";
 const CONTACT_INFO = {
   email: "condertech@gmail.com",
   phone: "+55 (47) 9273-9983",
-  location: "Blumenau, SC",
+  location: "Blumenau, SC - Polo Tecnológico.",
 };
 
 const FOOTER_LINKS = [
-  { title: "Serviços", href: "/#servicos" },
-  { title: "Portfólio", href: "/#portfolio" },
-  { title: "Sobre", href: "/sobre" },
+  { title: "Soluções", href: "/#servicos" },
+  { title: "Termos de Uso", href: "/termos-de-uso" },
+  { title: "Governança de Dados (LGPD)", href: "/governanca-de-dados" },
 ];
 
 const Footer = () => (
@@ -26,8 +26,7 @@ const Footer = () => (
             />
           </div>
           <p className="text-xs sm:text-base text-gray-600 leading-relaxed max-w-md">
-            Transformamos ideias em experiências digitais excepcionais.
-            Especializados em desenvolvimento web moderno e soluções inovadoras.
+            Onde a física do software alinha o seu sucesso.
           </p>
           {/* Removido ícone duplicado do Instagram, mantendo apenas na área de contato */}
         </div>

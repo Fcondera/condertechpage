@@ -1,30 +1,24 @@
-import { Zap, Shield, Smartphone, Headphones } from "lucide-react";
+import { BrainCircuit, ShieldCheck, Users } from "lucide-react";
 import { useGsapReveal } from "@hooks/useGsapReveal";
 
 const benefits = [
   {
-    icon: Zap,
-    title: "Performance",
+    icon: Users,
+    title: "Engenharia de Squads",
     description:
-      "Sites ultra-rápidos com otimização avançada e carregamento instantâneo.",
+      "Times de elite integrados à sua cultura técnica para acelerar o roadmap sem inércia.",
   },
   {
-    icon: Shield,
-    title: "Segurança",
+    icon: ShieldCheck,
+    title: "Governança & Blindagem",
     description:
-      "Proteção máxima com certificados SSL e práticas de segurança rigorosas.",
+      "Arquiteturas resilientes em conformidade com padrões globais de segurança e auditoria de dados.",
   },
   {
-    icon: Smartphone,
-    title: "Design Responsivo",
+    icon: BrainCircuit,
+    title: "IA Aplicada ao ROI",
     description:
-      "Experiência perfeita em todos os dispositivos, do mobile ao desktop.",
-  },
-  {
-    icon: Headphones,
-    title: "Suporte Técnico",
-    description:
-      "Atendimento especializado e suporte contínuo para seu projeto.",
+      "Inteligência Artificial focada em eficiência operacional e geração de lucro real, não apenas inovação visual.",
   },
 ];
 
@@ -36,25 +30,27 @@ const WhyChooseSection = () => {
   });
 
   return (
-    <section className="py-10 sm:py-20 bg-transparent">
-      <div className="w-full max-w-5xl mx-auto px-2 sm:px-6">
-        <div ref={titleRef} className="text-center mb-8 sm:mb-16">
+    <section className="bg-transparent py-14 sm:py-24">
+      <div className="mx-auto w-full max-w-5xl px-3 sm:px-6">
+        <div ref={titleRef} className="mb-10 text-center sm:mb-20">
+          <p className="font-switzer text-xs font-semibold uppercase tracking-[0.3em] text-[#8d6a44]">
+            Diferenciais
+          </p>
           <h2 className="font-cabinet text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-            Por que empresas inteligentes escolhem a{" "}
-            <span className="text-spotify-green">ConderTech?</span>
+            Por que a <span className="text-spotify-green">ConderTech?</span>
           </h2>
         </div>
 
         <div
           ref={contentRef}
-          className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 max-w-3xl mx-auto"
+          className="mx-auto grid max-w-5xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 sm:gap-8"
         >
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="flex items-start gap-3 sm:gap-6 p-3 sm:p-6 rounded-lg sm:rounded-2xl bg-white border border-gray-200 shadow-lg hover:shadow-xl hover:border-spotify-green/40 transition-all duration-300"
+              className="flex items-start gap-4 rounded-lg border border-gray-200 bg-white p-5 shadow-lg transition-all duration-300 hover:border-spotify-green/40 hover:shadow-xl sm:gap-6 sm:rounded-2xl sm:p-7"
             >
-              <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 bg-spotify-green rounded-lg sm:rounded-xl flex items-center justify-center">
+              <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-spotify-green sm:h-14 sm:w-14 sm:rounded-xl">
                 <benefit.icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
               </div>
               <div>

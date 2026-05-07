@@ -113,19 +113,18 @@ const HeroSection = () => {
                 ref={titleRef}
                 className="max-w-[11.5ch] font-clash text-[2.45rem] font-semibold leading-[0.9] tracking-[-0.045em] text-white sm:text-[3.8rem] md:text-[4.6rem] lg:text-[5.45rem]"
               >
-                Produtos digitais que dominam
-                <span className="text-[#d6b183]"> todo o ecossistema</span>
-                do agro ao varejo.
+                O Eixo Magnético da
+                <span className="text-[#d6b183]"> Evolução Digital.</span>
               </h1>
             </div>
 
             <p
               ref={subtitleRef}
-              className="mt-6 max-w-2xl font-switzer text-sm leading-7 text-white sm:text-lg sm:leading-8"
+              className="mt-8 max-w-3xl font-switzer text-sm leading-7 text-white sm:text-lg sm:leading-8"
             >
-              Da estrategia ao deploy, desenhamos interfaces, e-commerces e
-              sistemas internos sob medida para vender mais, operar com
-              previsibilidade e escalar com clareza.
+              Engenharia de Software e Inteligência Artificial para líderes que
+              demandam escala, previsibilidade e segurança absoluta em suas
+              operações críticas.
             </p>
           </div>
         </div>

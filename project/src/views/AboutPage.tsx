@@ -33,68 +33,61 @@ const AboutPage = () => {
         <div className="w-full max-w-7xl mx-auto px-2 sm:px-4 md:px-8 py-8 sm:py-20">
           <div className="w-full max-w-4xl mx-auto">
             <h1 className="font-cabinet text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 sm:mb-8">
-              Quem <span className="text-spotify-green">Somos</span>
+              A espinha dorsal digital para{" "}
+              <span className="text-spotify-green">empresas de elite</span>
             </h1>
 
             <div className="space-y-4 sm:space-y-6 text-gray-700 leading-relaxed">
               <p className="text-sm sm:text-base md:text-lg lg:text-xl">
-                Somos uma empresa especializada em{" "}
-                <span className="font-semibold text-spotify-green">
-                  desenvolvimento de software
-                </span>{" "}
-                com foco em criar soluções digitais inovadoras e de alta
-                performance. Atuamos no mercado transformando ideias em produtos
-                tecnológicos que geram valor real para nossos clientes.
+                Nascida no coração do polo tecnológico de Blumenau, a ConderTech
+                projeta a espinha dorsal digital de empresas de elite.
+                Combinamos o rigor da engenharia com a agilidade da inovação
+                global para criar sistemas que são, simultaneamente, potentes e
+                resilientes.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 my-8 sm:my-12">
                 <div className="p-4 sm:p-6 md:p-8 bg-gray-50 rounded-lg border border-gray-200 h-full flex flex-col justify-between">
                   <h3 className="text-lg sm:text-2xl font-bold text-spotify-green mb-3 sm:mb-4">
-                    Nossa Missão
+                    Engenharia de Squads
                   </h3>
                   <p className="text-sm sm:text-base">
-                    Transformar ideias em experiências digitais excepcionais,
-                    entregando software de qualidade que impulsiona o
-                    crescimento dos nossos clientes.
+                    Times de elite integrados à sua cultura técnica para
+                    acelerar o roadmap sem inércia.
                   </p>
                 </div>
 
                 <div className="p-4 sm:p-8 bg-gray-50 rounded-lg border border-gray-200">
                   <h3 className="text-lg sm:text-2xl font-bold text-spotify-green mb-3 sm:mb-4">
-                    Nossa Visão
+                    Governança & Blindagem
                   </h3>
                   <p className="text-sm sm:text-base">
-                    Ser referência em desenvolvimento de software no Brasil,
-                    conhecido pela excelência técnica e inovação contínua em
-                    nossas soluções.
+                    Arquiteturas resilientes em conformidade com padrões globais
+                    de segurança e auditoria de dados.
                   </p>
                 </div>
 
                 <div className="p-4 sm:p-8 bg-gray-50 rounded-lg border border-gray-200">
                   <h3 className="text-lg sm:text-2xl font-bold text-spotify-green mb-3 sm:mb-4">
-                    Nossos Valores
+                    IA Aplicada ao ROI
                   </h3>
                   <p className="text-sm sm:text-base">
-                    Qualidade, inovação, transparência e compromisso com o
-                    sucesso dos nossos clientes são os pilares que guiam todas
-                    as nossas ações.
+                    Inteligência Artificial focada em eficiência operacional e
+                    geração de lucro real, não apenas inovação visual.
                   </p>
                 </div>
               </div>
 
               <p className="text-sm sm:text-base md:text-lg lg:text-xl">
-                Com uma equipe multidisciplinar de desenvolvedores, designers e
-                especialistas em tecnologia, criamos soluções customizadas que
-                atendem às necessidades específicas de cada projeto. Desde
-                aplicações web modernas até sistemas complexos, trabalhamos com
-                as tecnologias mais atuais e as melhores práticas do mercado.
+                Não entregamos apenas código; entregamos o controle do futuro do
+                seu negócio, com sistemas desenhados para escala,
+                previsibilidade e segurança operacional.
               </p>
 
               <p className="text-sm sm:text-base md:text-lg lg:text-xl">
-                Acreditamos que o sucesso de nossos clientes é o nosso sucesso.
-                Por isso, mantemos um relacionamento próximo e transparente,
-                garantindo que cada projeto seja executado com excelência,
-                dentro do prazo e orçamento estabelecidos.
+                Atuamos lado a lado com líderes que precisam transformar
+                operação em vantagem competitiva, conectando software,
+                governança e inteligência aplicada em ativos digitais críticos.
               </p>
 
               <div className="border-t border-b border-gray-200 py-8 sm:py-12 my-8 sm:my-12">
@@ -107,7 +100,7 @@ const AboutPage = () => {
                       ✓
                     </span>
                     <span className="text-xs sm:text-sm md:text-base lg:text-lg">
-                      Equipe técnica altamente qualificada e experiente
+                      Squads de elite acoplados ao seu contexto técnico
                     </span>
                   </li>
                   <li className="flex items-start gap-3 sm:gap-4">
@@ -115,7 +108,7 @@ const AboutPage = () => {
                       ✓
                     </span>
                     <span className="text-sm sm:text-base md:text-lg">
-                      Tecnologias modernas e escaláveis
+                      Arquiteturas resilientes para operações críticas
                     </span>
                   </li>
                   <li className="flex items-start gap-3 sm:gap-4">
@@ -123,7 +116,7 @@ const AboutPage = () => {
                       ✓
                     </span>
                     <span className="text-sm sm:text-base md:text-lg">
-                      Projetos entregues com qualidade e performance
+                      Inteligência aplicada com foco em eficiência e lucro
                     </span>
                   </li>
                   <li className="flex items-start gap-3 sm:gap-4">
@@ -131,7 +124,7 @@ const AboutPage = () => {
                       ✓
                     </span>
                     <span className="text-sm sm:text-base md:text-lg">
-                      Suporte e manutenção contínua
+                      Governança e auditoria de dados desde a fundação
                     </span>
                   </li>
                   <li className="flex items-start gap-3 sm:gap-4">
@@ -139,7 +132,7 @@ const AboutPage = () => {
                       ✓
                     </span>
                     <span className="text-sm sm:text-base md:text-lg">
-                      Comunicação clara e transparência total
+                      Decisão em tempo real orientada por dados confiáveis
                     </span>
                   </li>
                   <li className="flex items-start gap-3 sm:gap-4">
@@ -147,7 +140,7 @@ const AboutPage = () => {
                       ✓
                     </span>
                     <span className="text-sm sm:text-base md:text-lg">
-                      Soluções customizadas para seu negócio
+                      Software sob medida para contextos de alta exigência
                     </span>
                   </li>
                 </ul>
@@ -158,9 +151,8 @@ const AboutPage = () => {
                   Pronto para começar seu projeto?
                 </h2>
                 <p className="mb-4 sm:mb-6 text-xs sm:text-sm md:text-base">
-                  Entre em contato conosco e descubra como podemos ajudar sua
-                  empresa a alcançar novos patamares através da tecnologia e
-                  inovação.
+                  Converse com a ConderTech para estruturar sua próxima fase de
+                  escala com engenharia de software e IA aplicada ao negócio.
                 </p>
                 <a
                   href="#contato"

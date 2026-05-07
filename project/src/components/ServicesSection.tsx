@@ -17,17 +17,16 @@ const ServicesSection = () => {
       <div className="grain-overlay pointer-events-none absolute inset-0 opacity-65" />
 
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6">
-        <div ref={titleRef} className="mb-14 max-w-5xl sm:mb-20">
+        <div ref={titleRef} className="mb-16 max-w-5xl sm:mb-24">
           <p className="font-switzer text-xs font-semibold uppercase tracking-[0.3em] text-[#8d6a44]">
-            Servicos por industria
+            Verticais de negócio
           </p>
           <h2 className="mt-4 max-w-[14ch] font-clash text-4xl font-semibold leading-[0.92] tracking-[-0.045em] text-black sm:text-5xl lg:text-[4.2rem]">
-            Solucoes para todo ecossistema de negocio.
+            Engenharia aplicada a operações que exigem escala e precisão.
           </h2>
           <p className="mt-5 max-w-3xl font-switzer text-base leading-7 text-black sm:text-lg sm:leading-8">
-            Conectamos estrategia, interface e software para operar com
-            excelencia em agro, industria, varejo, logistica, servicos e
-            plataformas digitais.
+            Estruturamos sistemas para ambientes onde volumetria, governança e
+            previsibilidade são fatores de vantagem competitiva.
           </p>
         </div>
       </div>

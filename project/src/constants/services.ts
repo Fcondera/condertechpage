@@ -1,75 +1,51 @@
-import { Globe, ShoppingCart, Settings, Palette } from "lucide-react";
+import { Globe, ShoppingCart, Settings } from "lucide-react";
 import type { Service } from "../types";
 
 export const SERVICES: Service[] = [
   {
     icon: Globe,
-    industry: "Agro e Industria",
-    eyebrow: "Sites institucionais e landing pages",
-    title: "Presenca Digital de Alta Conversao",
+    industry: "Agro & Indústria",
+    eyebrow: "Cadeias complexas sob controle",
+    title: "Agro & Indústria",
     description:
-      "Estruturamos presenca digital para empresas do agro e da industria, com paginas rapidas, claras e orientadas a geracao de demanda.",
+      "Monitoramento de ativos, controle de produção e inteligência embarcada para cadeias complexas.",
     details:
-      "Aplicamos estrategia de posicionamento, SEO tecnico e narrativa comercial para transformar trafego em reuniao comercial.",
+      "Projetamos plataformas resilientes para conectar chão de fábrica, sensores, indicadores e decisão operacional em uma única arquitetura.",
     image:
       "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1920&q=80",
-    highlights: ["SEO e performance", "Landing pages", "Geracao de leads"],
-    route: "/landing",
+    highlights: [
+      "Ativos conectados",
+      "Produção em tempo real",
+      "Inteligência embarcada",
+    ],
+    route: "/estoque",
   },
   {
     icon: ShoppingCart,
-    industry: "Varejo e D2C",
-    eyebrow: "Comercio digital e operacao de vendas",
-    title: "E-commerce e Escala de Receita",
+    industry: "Varejo & E-commerce",
+    eyebrow: "Conversão e recorrência em alta escala",
+    title: "Varejo & E-commerce",
     description:
-      "Desenvolvemos e-commerces com foco em margem, ticket medio e recorrencia para marcas que precisam crescer com previsibilidade.",
+      "Arquiteturas transacionais de alta volumetria focadas em máxima conversão e recorrência.",
     details:
-      "Desenhamos catalogo, checkout, promocoes e integracoes para dar fluidez a jornada e reduzir abandono de carrinho.",
+      "Da vitrine ao pós-venda, estruturamos jornadas comerciais robustas para suportar picos, automações e crescimento sem atrito.",
     image:
       "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1920&q=80",
-    highlights: ["Checkout fluido", "Catalogo escalavel", "Integracoes de pagamento"],
+    highlights: ["Alta volumetria", "Máxima conversão", "Recorrência"],
     route: "/ecommerce",
   },
   {
     icon: Settings,
-    industry: "Industria e Logistica",
-    eyebrow: "Sistemas internos sob medida",
-    title: "Sistemas Operacionais e Gestao",
+    industry: "Operações Críticas",
+    eyebrow: "Governança e decisão em tempo real",
+    title: "Operações Críticas",
     description:
-      "Criamos sistemas internos para operacao critica, conectando areas e reduzindo gargalos de processo em tempo real.",
+      "Sistemas sob medida (ERPs e Dashboards) para governança e tomada de decisão em tempo real.",
     details:
-      "De paineis gerenciais a automacoes de rotina, entregamos software que acompanha a realidade da operacao e melhora decisao.",
+      "Desenvolvemos ERPs, painéis executivos e fluxos de aprovação com confiabilidade operacional para ambientes em que erro custa caro.",
     image:
       "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1920&q=80",
-    highlights: ["Dashboards", "Automacao", "Permissoes e fluxos"],
+    highlights: ["ERPs sob medida", "Dashboards críticos", "Tomada de decisão"],
     route: "/sistemainterno",
-  },
-  {
-    icon: Palette,
-    industry: "SaaS, Fintech e Servicos",
-    eyebrow: "UI/UX para produto digital",
-    title: "Design de Produto e Experiencia",
-    description:
-      "Construimos interfaces fortes para negocios digitais que querem aumentar percepcao de valor e melhorar conversao.",
-    details:
-      "Definimos arquitetura de interface, sistema visual e fluxo de uso para reduzir friccao e aumentar retencao.",
-    image:
-      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1920&q=80",
-    highlights: ["Design system", "UX orientado a KPI", "Consistencia visual"],
-    route: "/uiux",
-  },
-  {
-    icon: Settings,
-    industry: "Atacado, Distribuicao e Agro",
-    eyebrow: "Controle de estoque e operacao",
-    title: "Gestao de Estoque e Movimentacao",
-    description:
-      "Implementamos gestao de estoque para operacoes com alto giro, reduzindo rupturas e melhorando previsibilidade de compra.",
-    details:
-      "Centralizamos entradas, saidas, alertas e indicadores para dar visibilidade completa de ponta a ponta na operacao.",
-    image:
-      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1920&q=80",
-    highlights: ["Alertas criticos", "Rastreabilidade", "Visao em tempo real"],
-    route: "/estoque",
   },
 ];

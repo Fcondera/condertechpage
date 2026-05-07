@@ -5,65 +5,28 @@ const AboutSection = () => {
   const contentRef = useGsapReveal<HTMLDivElement>({ delay: 0.15 });
 
   return (
-    <section className="py-12 sm:py-20 bg-white">
-      <div className="w-full max-w-7xl mx-auto px-2 sm:px-4 md:px-8">
-        <div className="w-full max-w-4xl mx-auto">
+    <section className="bg-white py-16 sm:py-28">
+      <div className="mx-auto w-full max-w-7xl px-3 sm:px-6 md:px-8">
+        <div className="mx-auto w-full max-w-4xl">
           <div ref={titleRef}>
-            <h2 className="font-cabinet text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-8 text-center">
-              Quem <span className="text-spotify-green">Somos</span>
+            <p className="text-center font-switzer text-xs font-semibold uppercase tracking-[0.3em] text-[#8d6a44]">
+              Sobre
+            </p>
+            <h2 className="mt-4 text-center font-cabinet text-2xl font-bold text-gray-900 sm:text-4xl md:text-5xl">
+              A espinha dorsal digital para operações de elite.
             </h2>
           </div>
           <div
             ref={contentRef}
-            className="space-y-6 sm:space-y-8 text-gray-900 leading-relaxed text-center"
+            className="mx-auto mt-10 max-w-3xl space-y-8 text-center text-gray-900"
           >
-            <p className="text-sm sm:text-base md:text-lg">
-              Somos uma empresa especializada em{" "}
-              <span className="font-semibold text-spotify-green">
-                desenvolvimento de software
-              </span>{" "}
-              com foco em criar soluções digitais inovadoras e de alta
-              performance. Atuamos no mercado transformando ideias em produtos
-              tecnológicos que geram valor real para nossos clientes.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-6 sm:gap-8 my-6 sm:my-8">
-              <div>
-                <h3 className="text-base sm:text-xl font-bold text-spotify-green mb-2">
-                  Nossa Missão
-                </h3>
-                <p className="text-xs sm:text-base text-gray-800">
-                  Transformar ideias em experiências digitais excepcionais,
-                  entregando software de qualidade que impulsiona o crescimento
-                  dos nossos clientes.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-base sm:text-xl font-bold text-spotify-green mb-2">
-                  Nossa Visão
-                </h3>
-                <p className="text-xs sm:text-base text-gray-800">
-                  Ser referência em desenvolvimento de software no Brasil,
-                  conhecido pela excelência técnica e inovação contínua em
-                  nossas soluções.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-base sm:text-xl font-bold text-spotify-green mb-2">
-                  Nossos Valores
-                </h3>
-                <p className="text-xs sm:text-base text-gray-800">
-                  Qualidade, inovação, transparência e compromisso com o sucesso
-                  dos nossos clientes são os pilares que guiam todas as nossas
-                  ações.
-                </p>
-              </div>
-            </div>
-            <p className="text-sm sm:text-base md:text-lg">
-              Com uma equipe multidisciplinar de desenvolvedores, designers e
-              especialistas em tecnologia, criamos soluções customizadas que
-              atendem às necessidades específicas de cada projeto. Desde
-              aplicações web modernas até sistemas complexos, trabalhamos com as
-              tecnologias mais atuais e as melhores práticas do mercado.
+            <p className="text-base leading-8 text-gray-700 sm:text-lg sm:leading-9">
+              Nascida no coração do polo tecnológico de Blumenau, a ConderTech
+              projeta a espinha dorsal digital de empresas de elite. Combinamos
+              o rigor da engenharia com a agilidade da inovação global para
+              criar sistemas que são, simultaneamente, potentes e resilientes.
+              Não entregamos apenas código; entregamos o controle do futuro do
+              seu negócio.
             </p>
           </div>
         </div>
