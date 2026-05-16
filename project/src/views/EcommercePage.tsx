@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Check, Store, ShoppingBag, MapPin, TrendingUp, Users, Package } from "lucide-react";
+import { Check, Store, ShoppingBag, MapPin, TrendingUp, Package } from "lucide-react";
 
 // Ícones SVG de produtos regionais
 const ProductIcons = () => (
@@ -397,39 +397,6 @@ export default function EcommercePage() {
           animation: float-delayed 7s ease-in-out infinite;
         }
       `}</style>
-    </div>
-  );
-}
-        </div>
-        <div className="flex-1 flex items-center justify-center">
-          <img
-            src="/image/02.png"
-            alt="Dashboard do E-commerce Moderno"
-            className="rounded-2xl shadow-lg w-full max-w-xs sm:max-w-full object-cover max-h-60 sm:max-h-96 cursor-zoom-in"
-            onClick={() => setModalOpen(true)}
-            title="Clique para ampliar"
-          />
-          <ImageModal
-            src="/image/02.png"
-            open={modalOpen}
-            onClose={() => setModalOpen(false)}
-            alt="Dashboard do E-commerce Moderno"
-          />
-        </div>
-      </div>
-      <div className="w-full max-w-4xl mt-8 sm:mt-12 bg-white/70 rounded-2xl shadow p-4 sm:p-8">
-        <h2 className="font-cabinet text-xl sm:text-2xl font-semibold text-gray-900 mb-4">
-          Depoimento de Cliente
-        </h2>
-        <blockquote className="italic text-gray-700 border-l-4 border-spotify-green pl-3 sm:pl-4">
-          “A plataforma de E-commerce da ConderTech facilitou muito nossa gestão
-          de vendas e produtos. O checkout é rápido e seguro!”
-          <br />
-          <span className="not-italic font-semibold text-gray-900">
-            — Cliente Satisfeito
-          </span>
-        </blockquote>
-      </div>
     </div>
   );
 }
