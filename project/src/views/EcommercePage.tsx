@@ -8,7 +8,6 @@ import {
   MapPin,
   TrendingUp,
   Package,
-  ArrowRight,
   Zap,
   Shield,
   BarChart3,
