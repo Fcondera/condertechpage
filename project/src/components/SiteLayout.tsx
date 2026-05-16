@@ -11,7 +11,7 @@ interface SiteLayoutProps {
   children: ReactNode;
 }
 
-const HIDDEN_CHROME_ROUTES = new Set(["/orcamento", "/ima"]);
+const HIDDEN_CHROME_ROUTES = new Set(["/orcamento", "/ima", "/ecommerce"]);
 
 export default function SiteLayout({ children }: SiteLayoutProps) {
   const pathname = usePathname();
