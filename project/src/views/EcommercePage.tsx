@@ -397,6 +397,9 @@ export default function EcommercePage() {
           animation: float-delayed 7s ease-in-out infinite;
         }
       `}</style>
+    </div>
+  );
+}
         </div>
         <div className="flex-1 flex items-center justify-center">
           <img
