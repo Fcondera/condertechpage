@@ -17,6 +17,13 @@ import {
 export default function EcommercePage() {
   return (
     <div className="min-h-screen bg-white">
+      {/* Logo Header */}
+      <header className="border-b border-slate-100">
+        <div className="container mx-auto px-4 py-4">
+          <img src="/image/logo02.png" alt="CONDERTECH" className="h-8" />
+        </div>
+      </header>
+
       {/* Hero Section */}
       <section className="relative bg-white border-b border-gray-100">
         <div className="container mx-auto px-4 py-16 md:py-24">
@@ -36,34 +43,17 @@ export default function EcommercePage() {
                 apareça no marketplace regional da sua cidade. Tudo em uma única
                 plataforma.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <a
-                  href="https://wa.me/5592982054683"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-slate-900 text-white font-semibold rounded-lg hover:bg-slate-800 transition-colors shadow-sm"
-                >
-                  Falar com Especialista
-                  <ArrowRight className="w-5 h-5" />
-                </a>
-                <a
-                  href="#planos"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-slate-900 font-semibold rounded-lg border-2 border-slate-200 hover:border-slate-300 transition-colors"
-                >
-                  Ver Planos
-                </a>
-              </div>
               <div className="flex items-center gap-8 text-sm text-slate-600">
                 <div className="flex items-center gap-2">
-                  <Check className="w-5 h-5 text-green-600" />
+                  <Check className="w-5 h-5 text-slate-900" />
                   <span>Setup em 48h</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Check className="w-5 h-5 text-green-600" />
+                  <Check className="w-5 h-5 text-slate-900" />
                   <span>Sem taxas de setup</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Check className="w-5 h-5 text-green-600" />
+                  <Check className="w-5 h-5 text-slate-900" />
                   <span>Suporte dedicado</span>
                 </div>
               </div>
@@ -89,17 +79,17 @@ export default function EcommercePage() {
                       <span className="text-slate-600">
                         Catálogo de produtos
                       </span>
-                      <Check className="w-4 h-4 text-green-600" />
+                      <Check className="w-4 h-4 text-slate-900" />
                     </div>
                     <div className="flex items-center justify-between text-sm">
                       <span className="text-slate-600">Checkout integrado</span>
-                      <Check className="w-4 h-4 text-green-600" />
+                      <Check className="w-4 h-4 text-slate-900" />
                     </div>
                     <div className="flex items-center justify-between text-sm">
                       <span className="text-slate-600">
                         Painel administrativo
                       </span>
-                      <Check className="w-4 h-4 text-green-600" />
+                      <Check className="w-4 h-4 text-slate-900" />
                     </div>
                   </div>
                 </div>
@@ -271,15 +261,15 @@ export default function EcommercePage() {
                   </div>
                   <div className="space-y-3">
                     <div className="flex items-center gap-2 text-sm text-slate-700">
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                      <div className="w-2 h-2 bg-slate-900 rounded-full"></div>
                       <span>Mais visibilidade orgânica</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-slate-700">
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                      <div className="w-2 h-2 bg-slate-900 rounded-full"></div>
                       <span>Tráfego compartilhado</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-slate-700">
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                      <div className="w-2 h-2 bg-slate-900 rounded-full"></div>
                       <span>Descoberta facilitada</span>
                     </div>
                   </div>
@@ -303,7 +293,7 @@ export default function EcommercePage() {
                       "Serviços locais",
                     ].map((item, idx) => (
                       <li key={idx} className="flex items-center gap-2 text-sm">
-                        <Check className="w-4 h-4 text-green-600 flex-shrink-0" />
+                        <Check className="w-4 h-4 text-slate-900 flex-shrink-0" />
                         <span className="text-slate-700">{item}</span>
                       </li>
                     ))}
@@ -431,7 +421,7 @@ export default function EcommercePage() {
                     "Painel administrativo",
                   ].map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3 text-sm">
-                      <Check className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                      <Check className="w-4 h-4 text-slate-900 flex-shrink-0 mt-0.5" />
                       <span className="text-slate-700">{item}</span>
                     </li>
                   ))}
@@ -521,7 +511,7 @@ export default function EcommercePage() {
                     "Suporte prioritário",
                   ].map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3 text-sm">
-                      <Check className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                      <Check className="w-4 h-4 text-slate-900 flex-shrink-0 mt-0.5" />
                       <span className="text-slate-700">{item}</span>
                     </li>
                   ))}
@@ -664,23 +654,7 @@ export default function EcommercePage() {
               Sua empresa pronta para vender online dentro do maior ecossistema
               regional da cidade. Configure em 48h.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://wa.me/5592982054683"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-slate-900 font-bold rounded-lg hover:bg-slate-50 transition-colors shadow-lg"
-              >
-                Falar com Especialista
-                <ArrowRight className="w-5 h-5" />
-              </a>
-              <a
-                href="#planos"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 text-white font-semibold rounded-lg border-2 border-white/20 hover:bg-white/20 transition-colors"
-              >
-                Ver Planos e Preços
-              </a>
-            </div>
+
             <div className="mt-10 pt-10 border-t border-white/10">
               <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
                 <div>
