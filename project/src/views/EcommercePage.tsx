@@ -17,23 +17,15 @@ export default function EcommercePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Logo Header */}
-      <header className="border-b border-slate-100">
-        <div className="container mx-auto px-4 py-4">
-          <img src="/image/logo02.png" alt="CONDERTECH" className="h-8" />
-        </div>
-      </header>
+      <div className="container mx-auto px-4 pt-6 pb-2">
+        <img src="/image/logo02.png" alt="CONDERTECH" className="h-6" />
+      </div>
 
       {/* Hero Section */}
-      <section className="relative bg-white border-b border-gray-100">
-        <div className="container mx-auto px-4 py-16 md:py-24">
+      <section className="relative bg-white">
+        <div className="container mx-auto px-4 py-12 md:py-16">
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
             <div>
-              <div className="inline-flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-full px-4 py-2 mb-6">
-                <Zap className="w-4 h-4 text-red-600" />
-                <span className="text-sm font-medium text-slate-700">
-                  Plataforma completa de e-commerce regional
-                </span>
-              </div>
               <h1 className="font-cabinet text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight">
                 Venda online com sua loja e marketplace regional
               </h1>
