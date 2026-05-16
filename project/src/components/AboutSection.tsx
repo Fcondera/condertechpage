@@ -82,8 +82,8 @@ const AboutSection = () => {
           >
             {pillars.map((pillar, index) => (
               <div key={index} className="text-center">
-                <div className="mx-auto mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-[#d6b183]/10">
-                  <pillar.icon className="h-8 w-8 text-[#d6b183]" />
+                <div className="mx-auto mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-spotify-green/10">
+                  <pillar.icon className="h-8 w-8 text-spotify-green" />
                 </div>
                 <h3 className="mb-3 font-clash text-xl font-semibold text-gray-900">
                   {pillar.title}

@@ -86,12 +86,12 @@ const IndustriesSection = () => {
           {industries.map((industry, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 transition-all duration-300 hover:border-[#d6b183]/40 hover:shadow-xl"
+              className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 transition-all duration-300 hover:border-spotify-green/40 hover:shadow-xl"
             >
-              <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-[#d6b183]/5 transition-all duration-300 group-hover:scale-150" />
+              <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-spotify-green/5 transition-all duration-300 group-hover:scale-150" />
               <div className="relative">
-                <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-[#d6b183]/10 transition-all duration-300 group-hover:bg-[#d6b183] group-hover:scale-110">
-                  <industry.icon className="h-7 w-7 text-[#d6b183] transition-all duration-300 group-hover:text-white" />
+                <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-spotify-green/10 transition-all duration-300 group-hover:bg-spotify-green group-hover:scale-110">
+                  <industry.icon className="h-7 w-7 text-spotify-green transition-all duration-300 group-hover:text-white" />
                 </div>
                 <h3 className="mb-3 font-clash text-xl font-semibold text-gray-900">
                   {industry.name}
@@ -109,7 +109,7 @@ const IndustriesSection = () => {
             Seu setor não está listado?
             <a
               href="https://wa.me/5592982054683"
-              className="ml-2 font-semibold text-[#d6b183] hover:underline"
+              className="ml-2 font-semibold text-spotify-green hover:underline"
               target="_blank"
               rel="noopener noreferrer"
             >

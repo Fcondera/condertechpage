@@ -88,12 +88,12 @@ const ProcessSection = () => {
                   <div
                     className={`${!isEven ? "lg:col-start-1" : "lg:col-start-2"}`}
                   >
-                    <div className="rounded-2xl border border-gray-200 bg-gradient-to-br from-white to-gray-50 p-8 shadow-lg transition-all duration-300 hover:border-[#d6b183]/40 hover:shadow-xl">
+                    <div className="rounded-2xl border border-gray-200 bg-gradient-to-br from-white to-gray-50 p-8 shadow-lg transition-all duration-300 hover:border-spotify-green/40 hover:shadow-xl">
                       <div
                         className={`flex items-start gap-4 ${!isEven ? "lg:flex-row-reverse lg:justify-end" : ""}`}
                       >
-                        <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl bg-[#d6b183]/10">
-                          <step.icon className="h-7 w-7 text-[#d6b183]" />
+                        <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl bg-spotify-green/10">
+                          <step.icon className="h-7 w-7 text-spotify-green" />
                         </div>
                         <div className="flex-1">
                           <div className="mb-2 font-clash text-sm font-bold text-gray-400">
@@ -126,7 +126,7 @@ const ProcessSection = () => {
                   </div>
 
                   {/* Number indicator - desktop only */}
-                  <div className="absolute left-1/2 top-8 hidden h-12 w-12 -translate-x-1/2 items-center justify-center rounded-full border-4 border-white bg-[#d6b183] font-clash text-xl font-bold text-white shadow-lg lg:flex">
+                  <div className="absolute left-1/2 top-8 hidden h-12 w-12 -translate-x-1/2 items-center justify-center rounded-full border-4 border-white bg-spotify-green font-clash text-xl font-bold text-white shadow-lg lg:flex">
                     {index + 1}
                   </div>
                 </div>
@@ -143,7 +143,7 @@ const ProcessSection = () => {
             href="https://wa.me/5592982054683"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block rounded-full bg-[#d6b183] px-8 py-4 font-switzer text-base font-semibold uppercase tracking-wider text-white transition-all duration-300 hover:bg-[#c4a06e] hover:shadow-xl"
+            className="inline-block rounded-full bg-spotify-green px-8 py-4 font-switzer text-base font-semibold uppercase tracking-wider text-white transition-all duration-300 hover:bg-spotify-green/90 hover:shadow-xl"
           >
             Agendar Consultoria Gratuita
           </a>

@@ -16,94 +16,44 @@ import {
 export default function EcommercePage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Logo Header */}
-      <div className="container mx-auto px-4 pt-6 pb-2">
-        <img src="/image/logo02.png" alt="CONDERTECH" className="h-6" />
-      </div>
-
       {/* Hero Section */}
       <section className="relative bg-white">
         <div className="container mx-auto px-4 py-12 md:py-16">
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
             <div>
-              <h1 className="font-cabinet text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight">
-                Venda online com sua loja e marketplace regional
+              <img
+                src="/image/logo02.png"
+                alt="CONDERTECH"
+                className="h-14 md:h-20 mb-6"
+              />
+              <h1 className="font-cabinet text-4xl md:text-5xl lg:text-6xl font-medium text-black mb-6 leading-tight">
+                Lucre ate{" "}
+                <span className="text-red-500 italic font-semibold tracking-wide md:tracking-wider">
+                  R$10mil por mês
+                </span>{" "}
+                <span className="text-red-500 italic font-semibold tracking-wide md:tracking-wider">
+                  com uma loja online
+                </span>
+                , sem precisar ter dor de cabeça.
               </h1>
-              <p className="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed">
-                Crie sua loja virtual profissional, receba pedidos online e
-                apareça no marketplace regional da sua cidade. Tudo em uma única
-                plataforma.
+              <p className="text-base md:text-lg font-light text-slate-700 mb-10 leading-relaxed max-w-3xl">
+                com a condertech venda produto na sua cidade com checkout
+                integrado, catálago inteligente e painel administrativo
+                completo.
               </p>
-              <div className="flex items-center gap-8 text-sm text-slate-600">
-                <div className="flex items-center gap-2">
-                  <Check className="w-5 h-5 text-slate-900" />
-                  <span>Setup em 48h</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Check className="w-5 h-5 text-slate-900" />
-                  <span>Sem taxas de setup</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Check className="w-5 h-5 text-slate-900" />
-                  <span>Suporte dedicado</span>
-                </div>
-              </div>
+              <button
+                type="button"
+                className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-[rgb(124,179,66)] text-white text-lg font-semibold shadow-md hover:bg-[rgb(104,159,46)] transition-colors"
+              >
+                Quero falar com especialista
+              </button>
             </div>
             <div className="relative">
-              <div className="relative bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-sm">
-                <div className="bg-white rounded-xl p-6 shadow-md mb-4">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-slate-900 rounded-lg flex items-center justify-center">
-                      <Store className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <div className="text-sm font-semibold text-slate-900">
-                        Sua Loja Virtual
-                      </div>
-                      <div className="text-xs text-slate-500">
-                        Profissional e completa
-                      </div>
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-slate-600">
-                        Catálogo de produtos
-                      </span>
-                      <Check className="w-4 h-4 text-slate-900" />
-                    </div>
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-slate-600">Checkout integrado</span>
-                      <Check className="w-4 h-4 text-slate-900" />
-                    </div>
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-slate-600">
-                        Painel administrativo
-                      </span>
-                      <Check className="w-4 h-4 text-slate-900" />
-                    </div>
-                  </div>
-                </div>
-                <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-xl p-6 shadow-md text-white">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center">
-                      <MapPin className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <div className="text-sm font-semibold">
-                        Marketplace Regional
-                      </div>
-                      <div className="text-xs text-white/70">
-                        Visibilidade para toda cidade
-                      </div>
-                    </div>
-                  </div>
-                  <div className="text-2xl font-bold mb-2">+500%</div>
-                  <div className="text-sm text-white/80">
-                    Mais alcance na sua região
-                  </div>
-                </div>
-              </div>
+              <img
+                src="/image/hero-01.jpeg"
+                alt="Preview da plataforma de ecommerce"
+                className="w-full h-auto max-h-[560px] object-contain"
+              />
             </div>
           </div>
         </div>
