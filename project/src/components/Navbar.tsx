@@ -36,19 +36,34 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 bg-white shadow-md transition-transform duration-300 ${
         isVisible || isMobileMenuOpen ? "translate-y-0" : "-translate-y-full"
       }`}
     >
       <div className="w-full max-w-7xl mx-auto px-2 sm:px-4 md:px-8">
-        <div className="flex items-center justify-end h-12 sm:h-14 md:h-16 lg:h-18">
+        <div className="flex items-center justify-between h-16 sm:h-18 md:h-20">
+          {/* Logo */}
+          <Link
+            href="/"
+            className="flex items-center"
+            aria-label="ConderTech Home"
+          >
+            <img
+              src="/image/logo02.png"
+              alt="ConderTech Logo"
+              className="h-10 sm:h-12 md:h-14 w-auto"
+            />
+          </Link>
+
+          {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-4 lg:gap-8">
             {NAV_LINKS.map((link) =>
               link.href.startsWith("/") ? (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="font-cabinet text-[15px] md:text-[17px] font-semibold tracking-[-0.02em] transition-colors duration-300 text-white hover:text-white/70"
+                  className="font-cabinet text-[15px] md:text-[17px] font-semibold tracking-[-0.02em] transition-colors duration-300 text-gray-900 hover:text-gray-600"
+                  style={{ textShadow: "0 1px 2px rgba(0, 0, 0, 0.1)" }}
                   role="link"
                   aria-label={`Navegue para ${link.name}`}
                 >
@@ -58,7 +73,8 @@ const Navbar = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="font-cabinet text-[15px] md:text-[17px] font-semibold tracking-[-0.02em] transition-colors duration-300 text-white hover:text-white/70"
+                  className="font-cabinet text-[15px] md:text-[17px] font-semibold tracking-[-0.02em] transition-colors duration-300 text-gray-900 hover:text-gray-600"
+                  style={{ textShadow: "0 1px 2px rgba(0, 0, 0, 0.1)" }}
                   role="link"
                   aria-label={`Navegue para ${link.name}`}
                 >
@@ -68,6 +84,7 @@ const Navbar = () => {
             )}
           </div>
 
+          {/* Mobile Menu Button */}
           <button
             className="md:hidden p-2"
             onClick={toggle}
@@ -75,16 +92,17 @@ const Navbar = () => {
             aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? (
-              <X className="w-5 h-5 text-white" />
+              <X className="w-5 h-5 text-gray-900" />
             ) : (
-              <Menu className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+              <Menu className="w-5 h-5 sm:w-6 sm:h-6 text-gray-900" />
             )}
           </button>
         </div>
 
+        {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div
-            className="md:hidden bg-black/85 backdrop-blur-sm rounded-lg shadow-lg mb-4 overflow-hidden w-full border border-white/15"
+            className="md:hidden bg-white border-t border-gray-200 shadow-lg mb-4 overflow-hidden w-full"
             role="navigation"
             aria-label="Mobile Navigation"
           >
@@ -94,7 +112,7 @@ const Navbar = () => {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className="font-cabinet block px-4 py-2 sm:py-3 text-sm sm:text-base font-semibold tracking-[-0.02em] text-white hover:bg-white/10 hover:text-white/70 transition-colors"
+                    className="font-cabinet block px-4 py-2 sm:py-3 text-sm sm:text-base font-semibold tracking-[-0.02em] text-gray-900 hover:bg-gray-50 hover:text-gray-600 transition-colors"
                     onClick={close}
                   >
                     {link.name}
@@ -103,7 +121,7 @@ const Navbar = () => {
                   <a
                     key={link.name}
                     href={link.href}
-                    className="font-cabinet block px-4 py-2 sm:py-3 text-sm sm:text-base font-semibold tracking-[-0.02em] text-white hover:bg-white/10 hover:text-white/70 transition-colors"
+                    className="font-cabinet block px-4 py-2 sm:py-3 text-sm sm:text-base font-semibold tracking-[-0.02em] text-gray-900 hover:bg-gray-50 hover:text-gray-600 transition-colors"
                     onClick={close}
                   >
                     {link.name}

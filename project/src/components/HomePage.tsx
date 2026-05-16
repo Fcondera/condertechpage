@@ -5,9 +5,10 @@ import ContactSection from "@components/ContactSection";
 import DotPattern from "@components/DotPattern";
 import FAQSection from "@components/FAQSection";
 import HeroSection from "@components/HeroSection";
-import PlansSection from "@components/PlansSection";
-import PortfolioSection from "@components/PortfolioSection";
+import IndustriesSection from "@components/IndustriesSection";
+import ProcessSection from "@components/ProcessSection";
 import ServicesSection from "@components/ServicesSection";
+import StatsSection from "@components/StatsSection";
 import WhyChooseSection from "@components/WhyChooseSection";
 
 export default function HomePage() {
@@ -16,11 +17,12 @@ export default function HomePage() {
       <DotPattern />
       <div className="relative z-10">
         <HeroSection />
+        <StatsSection />
         <ServicesSection />
         <WhyChooseSection />
         <AboutSection />
-        <PlansSection />
-        <PortfolioSection />
+        <ProcessSection />
+        <IndustriesSection />
         <FAQSection />
         <ContactSection />
       </div>
