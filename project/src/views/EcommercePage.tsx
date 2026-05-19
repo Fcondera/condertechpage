@@ -14,6 +14,8 @@ import {
 } from "lucide-react";
 
 export default function EcommercePage() {
+  const [showPersonalizado, setShowPersonalizado] = React.useState(false);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -27,7 +29,7 @@ export default function EcommercePage() {
                 className="h-14 md:h-20 mb-6"
               />
               <h1 className="font-cabinet text-4xl md:text-5xl lg:text-6xl font-medium text-black mb-6 leading-tight">
-                Lucre ate{" "}
+                Lucre até{" "}
                 <span className="text-red-500 italic font-semibold tracking-wide md:tracking-wider">
                   R$10mil por mês
                 </span>{" "}
@@ -37,7 +39,7 @@ export default function EcommercePage() {
                 , sem precisar ter dor de cabeça.
               </h1>
               <p className="text-base md:text-lg font-light text-slate-700 mb-10 leading-relaxed max-w-3xl">
-                com a condertech venda produto na sua cidade com checkout
+                Com a condertech venda produto na sua cidade com checkout
                 integrado, catálago inteligente e painel administrativo
                 completo.
               </p>
@@ -60,34 +62,43 @@ export default function EcommercePage() {
       </section>
 
       {/* O que é */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <div className="inline-block bg-red-50 text-red-600 text-sm font-semibold px-4 py-2 rounded-full mb-6">
-                  Solução completa
+                <div className="flex justify-center mb-6">
+                  <div className="spark-border rounded-full p-[2px]">
+                    <div className="inline-flex items-center gap-2 bg-slate-100 rounded-full px-4 py-2">
+                      <span className="text-sm font-medium text-slate-900">
+                        Começar é rápido e simples
+                      </span>
+                    </div>
+                  </div>
                 </div>
-                <h2 className="font-cabinet text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-                  O que é a CONDERTECH Ecommerce
+                <h2 className="font-cabinet text-3xl md:text-4xl font-medium text-black mb-6">
+                  O que é a condertech Ecommerce?
                 </h2>
                 <p className="text-lg text-slate-600 mb-6 leading-relaxed">
-                  Uma plataforma completa criada para empresas que querem vender
-                  online de forma profissional sem precisar investir milhares em
-                  desenvolvimento.
+                  Uma plataforma completa criada para pequenos empresas e
+                  empreendedores que querem vender online de forma profissional
+                  sem precisar investir milhares em desenvolvimento.
                 </p>
                 <p className="text-lg text-slate-600 mb-8 leading-relaxed">
                   Enquanto outras plataformas entregam apenas uma loja virtual,
-                  a CONDERTECH conecta sua empresa dentro de um ecossistema
-                  regional inteligente.
+                  a condertech conecta sua empresa dentro de um ecossistema
+                  regional, com uma ótima base de clientes e visibilidade local
+                  para sua marca.
                 </p>
                 <div className="flex items-start gap-3 p-4 bg-white border border-slate-200 rounded-lg">
-                  <Shield className="w-6 h-6 text-slate-900 flex-shrink-0 mt-1" />
+                  <div className="w-10 h-10 flex items-center justify-center flex-shrink-0 mt-1">
+                    <Shield className="w-5 h-5 text-red-500" />
+                  </div>
                   <div>
-                    <div className="font-semibold text-slate-900 mb-1">
+                    <div className="font-medium text-slate-900 mb-1">
                       Estrutura empresarial
                     </div>
-                    <div className="text-sm text-slate-600">
+                    <div className="text-sm font-medium text-slate-600">
                       Tecnologia profissional com suporte dedicado e
                       atualizações constantes.
                     </div>
@@ -96,7 +107,7 @@ export default function EcommercePage() {
               </div>
               <div>
                 <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-                  <h3 className="text-xl font-bold text-slate-900 mb-6">
+                  <h3 className="text-xl font-medium text-slate-900 mb-6">
                     Sua empresa ganha:
                   </h3>
                   <div className="space-y-4">
@@ -131,14 +142,16 @@ export default function EcommercePage() {
                         key={idx}
                         className="flex items-start gap-4 pb-4 border-b border-slate-100 last:border-0"
                       >
-                        <div className="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center flex-shrink-0">
-                          <item.icon className="w-5 h-5 text-white" />
+                        <div className="w-10 h-10 flex items-center justify-center flex-shrink-0">
+                          <item.icon className="w-5 h-5 text-red-500" />
                         </div>
                         <div>
-                          <p className="font-semibold text-slate-900 mb-1">
+                          <p className="font-medium text-slate-900 mb-1">
                             {item.text}
                           </p>
-                          <p className="text-sm text-slate-600">{item.desc}</p>
+                          <p className="text-sm font-medium text-slate-600">
+                            {item.desc}
+                          </p>
                         </div>
                       </div>
                     ))}
@@ -151,7 +164,7 @@ export default function EcommercePage() {
       </section>
 
       {/* Marketplace Regional */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white [&_*]:!font-medium">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
@@ -188,8 +201,8 @@ export default function EcommercePage() {
                 </div>
                 <div className="bg-white rounded-xl p-6 border border-slate-200">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 bg-slate-900 rounded-lg flex items-center justify-center">
-                      <BarChart3 className="w-6 h-6 text-white" />
+                    <div className="w-12 h-12 flex items-center justify-center">
+                      <BarChart3 className="w-6 h-6 text-red-500" />
                     </div>
                     <div>
                       <div className="text-2xl font-bold text-slate-900">
@@ -266,12 +279,12 @@ export default function EcommercePage() {
       </section>
 
       {/* Como Funciona */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-20 bg-white [&_*]:!font-medium">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="font-cabinet text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                Como Funciona
+                Como Funciona?
               </h2>
               <p className="text-lg text-slate-600">
                 Processo simples e rápido em 4 etapas
@@ -305,7 +318,7 @@ export default function EcommercePage() {
                   key={idx}
                   className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
                 >
-                  <div className="w-12 h-12 bg-slate-900 text-white rounded-lg flex items-center justify-center text-xl font-bold mb-4">
+                  <div className="w-12 h-12 bg-red-500 text-white rounded-lg flex items-center justify-center text-xl font-bold mb-4">
                     {item.step}
                   </div>
                   <h3 className="text-base font-bold text-slate-900 mb-2">
@@ -325,161 +338,235 @@ export default function EcommercePage() {
       <section id="planos" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="font-cabinet text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                Planos e Preços
+            <div className="mb-16">
+              <h2 className="font-cabinet text-4xl md:text-6xl font-medium text-slate-900 mb-8 leading-tight">
+                Planos e preços para o{" "}
+                <span className="text-red-500 italic">seu negócio.</span>
               </h2>
-              <p className="text-lg text-slate-600">
-                Escolha o plano ideal para o tamanho da sua operação
-              </p>
-            </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
-              {/* START */}
-              <div className="bg-white rounded-2xl p-8 border-2 border-slate-200 hover:border-slate-300 transition-colors">
-                <div className="mb-6">
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">
-                    Start
-                  </h3>
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-4xl font-bold text-slate-900">
-                      R$79
-                    </span>
-                    <span className="text-slate-500">/mês</span>
-                  </div>
+              <div className="max-w-2xl rounded-full p-2 bg-white shadow-[0_0_0_1px_rgba(15,23,42,0.08)]">
+                <div className="grid grid-cols-2 gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setShowPersonalizado(false)}
+                    className={`inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold transition-colors ${
+                      !showPersonalizado
+                        ? "bg-[rgb(124,179,66)] text-white hover:bg-[rgb(104,159,46)]"
+                        : "bg-[rgb(240,248,232)] text-slate-900 hover:bg-[rgb(232,243,220)]"
+                    }`}
+                  >
+                    Planos
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setShowPersonalizado(true)}
+                    className={`inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold transition-colors ${
+                      showPersonalizado
+                        ? "bg-[rgb(212,175,55)] text-white hover:bg-[rgb(190,154,38)]"
+                        : "bg-[rgb(252,247,228)] text-slate-900 hover:bg-[rgb(248,239,206)]"
+                    }`}
+                  >
+                    Personalizado
+                  </button>
                 </div>
-                <p className="text-slate-600 mb-6 text-sm">
-                  Ideal para pequenos negócios começarem a vender online.
-                </p>
-
-                <ul className="space-y-3 mb-8">
-                  {[
-                    "Loja virtual completa",
-                    "Checkout PIX e cartão",
-                    "Até 150 produtos",
-                    "WhatsApp integrado",
-                    "Marketplace regional",
-                    "Painel administrativo",
-                  ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-sm">
-                      <Check className="w-4 h-4 text-slate-900 flex-shrink-0 mt-0.5" />
-                      <span className="text-slate-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <a
-                  href="https://wa.me/5592982054683"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full py-3 px-6 bg-slate-900 text-white font-semibold rounded-lg text-center hover:bg-slate-800 transition-colors text-sm"
-                >
-                  Começar Agora
-                </a>
-              </div>
-
-              {/* BUSINESS - Destaque */}
-              <div className="bg-slate-900 rounded-2xl p-8 border-2 border-slate-900 relative transform md:scale-105 shadow-lg">
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-red-600 text-white px-4 py-1 rounded-full text-xs font-bold">
-                  RECOMENDADO
-                </div>
-                <div className="mb-6">
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    Business
-                  </h3>
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-4xl font-bold text-white">R$197</span>
-                    <span className="text-white/70">/mês</span>
-                  </div>
-                </div>
-                <p className="text-white/80 mb-6 text-sm">
-                  Nosso plano mais recomendado para empresas em crescimento.
-                </p>
-
-                <ul className="space-y-3 mb-8">
-                  {[
-                    "Tudo do Start",
-                    "Dashboard avançado",
-                    "Recuperação de carrinho",
-                    "Meta Pixel integrado",
-                    "Google Shopping",
-                    "Instagram Shop",
-                    "CRM básico incluso",
-                    "Destaque regional",
-                  ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-sm">
-                      <Check className="w-4 h-4 text-white flex-shrink-0 mt-0.5" />
-                      <span className="text-white">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <a
-                  href="https://wa.me/5592982054683"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full py-3 px-6 bg-white text-slate-900 font-semibold rounded-lg text-center hover:bg-slate-50 transition-colors text-sm"
-                >
-                  Começar Agora
-                </a>
-              </div>
-
-              {/* ENTERPRISE */}
-              <div className="bg-white rounded-2xl p-8 border-2 border-slate-200 hover:border-slate-300 transition-colors">
-                <div className="mb-6">
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">
-                    Enterprise
-                  </h3>
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-4xl font-bold text-slate-900">
-                      R$497
-                    </span>
-                    <span className="text-slate-500">/mês</span>
-                  </div>
-                </div>
-                <p className="text-slate-600 mb-6 text-sm">
-                  Para operações maiores e empresas que querem escalar.
-                </p>
-
-                <ul className="space-y-3 mb-8">
-                  {[
-                    "Tudo do Business",
-                    "Multiestoque avançado",
-                    "Dashboard executivo",
-                    "Aplicativo próprio",
-                    "Analytics avançado",
-                    "Marketplace premium",
-                    "Suporte prioritário",
-                  ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-sm">
-                      <Check className="w-4 h-4 text-slate-900 flex-shrink-0 mt-0.5" />
-                      <span className="text-slate-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <a
-                  href="https://wa.me/5592982054683"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full py-3 px-6 bg-slate-900 text-white font-semibold rounded-lg text-center hover:bg-slate-800 transition-colors text-sm"
-                >
-                  Começar Agora
-                </a>
               </div>
             </div>
+
+            {!showPersonalizado && (
+              <div id="planos-grid" className="grid md:grid-cols-3 gap-6">
+                {/* START */}
+                <div className="bg-white rounded-2xl p-8 border-2 border-slate-200 hover:border-slate-300 transition-colors">
+                  <div className="mb-6">
+                    <h3 className="text-xl font-bold text-slate-900 mb-2">
+                      Start
+                    </h3>
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-4xl font-bold text-slate-900">
+                        R$79
+                      </span>
+                      <span className="text-slate-500">/mês</span>
+                    </div>
+                  </div>
+                  <p className="text-slate-600 mb-6 text-sm">
+                    Ideal para pequenos negócios começarem a vender online.
+                  </p>
+
+                  <ul className="space-y-3 mb-8">
+                    {[
+                      "Loja virtual completa",
+                      "Checkout PIX e cartão",
+                      "Até 150 produtos",
+                      "WhatsApp integrado",
+                      "Marketplace regional",
+                      "Painel administrativo",
+                    ].map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-3 text-sm">
+                        <Check className="w-4 h-4 text-slate-900 flex-shrink-0 mt-0.5" />
+                        <span className="text-slate-700">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <a
+                    href="https://wa.me/5592982054683"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full py-3 px-6 bg-[rgb(124,179,66)] text-white font-semibold rounded-full text-center hover:bg-[rgb(104,159,46)] transition-colors text-sm shadow-[inset_0_-2px_6px_rgba(0,0,0,0.22)]"
+                  >
+                    Começar Agora
+                  </a>
+                </div>
+
+                {/* BUSINESS - Destaque */}
+                <div className="bg-[rgb(124,179,66)] rounded-2xl p-8 border-2 border-[rgb(124,179,66)] relative z-10 transform md:scale-105 shadow-lg overflow-visible">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[rgb(104,159,46)] text-white px-4 py-1 rounded-full text-xs font-bold z-20">
+                    RECOMENDADO
+                  </div>
+                  <div className="mb-6">
+                    <h3 className="text-xl font-bold text-white mb-2">
+                      Business
+                    </h3>
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-4xl font-bold text-white">
+                        R$197
+                      </span>
+                      <span className="text-white/70">/mês</span>
+                    </div>
+                  </div>
+                  <p className="text-white/80 mb-6 text-sm">
+                    Nosso plano mais recomendado para empresas em crescimento.
+                  </p>
+
+                  <ul className="space-y-3 mb-8">
+                    {[
+                      "Tudo do Start",
+                      "Dashboard avançado",
+                      "Recuperação de carrinho",
+                      "Meta Pixel integrado",
+                      "Google Shopping",
+                      "Instagram Shop",
+                      "CRM básico incluso",
+                      "Destaque regional",
+                    ].map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-3 text-sm">
+                        <Check className="w-4 h-4 text-white flex-shrink-0 mt-0.5" />
+                        <span className="text-white">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <a
+                    href="https://wa.me/5592982054683"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full py-3 px-6 bg-[rgb(124,179,66)] text-white font-semibold rounded-full text-center hover:bg-[rgb(104,159,46)] transition-colors text-sm shadow-[inset_0_-2px_6px_rgba(0,0,0,0.22)]"
+                  >
+                    Começar Agora
+                  </a>
+                </div>
+
+                {/* ENTERPRISE */}
+                <div className="bg-white rounded-2xl p-8 border-2 border-slate-200 hover:border-slate-300 transition-colors">
+                  <div className="mb-6">
+                    <h3 className="text-xl font-bold text-slate-900 mb-2">
+                      Enterprise
+                    </h3>
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-4xl font-bold text-slate-900">
+                        R$497
+                      </span>
+                      <span className="text-slate-500">/mês</span>
+                    </div>
+                  </div>
+                  <p className="text-slate-600 mb-6 text-sm">
+                    Para operações maiores e empresas que querem escalar.
+                  </p>
+
+                  <ul className="space-y-3 mb-8">
+                    {[
+                      "Tudo do Business",
+                      "Multiestoque avançado",
+                      "Dashboard executivo",
+                      "Aplicativo próprio",
+                      "Analytics avançado",
+                      "Marketplace premium",
+                      "Suporte prioritário",
+                    ].map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-3 text-sm">
+                        <Check className="w-4 h-4 text-slate-900 flex-shrink-0 mt-0.5" />
+                        <span className="text-slate-700">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <a
+                    href="https://wa.me/5592982054683"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full py-3 px-6 bg-[rgb(124,179,66)] text-white font-semibold rounded-full text-center hover:bg-[rgb(104,159,46)] transition-colors text-sm shadow-[inset_0_-2px_6px_rgba(0,0,0,0.22)]"
+                  >
+                    Começar Agora
+                  </a>
+                </div>
+              </div>
+            )}
+
+            {showPersonalizado && (
+              <div className="mt-6">
+                <div className="bg-[linear-gradient(135deg,rgb(247,226,153),rgb(212,175,55))] rounded-2xl p-8 border-2 border-[rgb(190,154,38)] transition-colors shadow-md">
+                  <div className="mb-6">
+                    <h3 className="text-xl font-bold text-slate-900 mb-2">
+                      Personalizado
+                    </h3>
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-4xl font-bold text-slate-900">
+                        Sob medida
+                      </span>
+                    </div>
+                  </div>
+                  <p className="text-slate-800 mb-6 text-sm">
+                    Plano criado para sua operação, com escopo, integrações e
+                    funcionalidades definidas junto com a sua equipe.
+                  </p>
+
+                  <ul className="space-y-3 mb-8">
+                    {[
+                      "Diagnóstico do seu negócio",
+                      "Arquitetura personalizada",
+                      "Integrações específicas",
+                      "Fluxos sob demanda",
+                      "Roadmap de evolução",
+                      "Suporte estratégico",
+                    ].map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-3 text-sm">
+                        <Check className="w-4 h-4 text-slate-900 flex-shrink-0 mt-0.5" />
+                        <span className="text-slate-800">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <a
+                    href="https://wa.me/5592982054683"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full py-3 px-6 bg-[rgb(161,122,36)] text-white font-semibold rounded-full text-center hover:bg-[rgb(141,106,30)] transition-colors text-sm"
+                  >
+                    Solicitar Plano
+                  </a>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>
 
       {/* Por Que a CONDERTECH */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-20 bg-white [&_*]:!font-medium">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="font-cabinet text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                Por Que Escolher a CONDERTECH
-              </h2>
+              <h2 className="font-cabinet text-3xl md:text-4xl font-bold text-slate-900 mb-4"></h2>
+              Por que escolher a condertech?
               <p className="text-lg text-slate-600">
                 Tecnologia profissional com estrutura empresarial
               </p>
@@ -522,8 +609,8 @@ export default function EcommercePage() {
                   key={idx}
                   className="bg-white p-6 rounded-xl border border-slate-200 hover:shadow-md transition-shadow"
                 >
-                  <div className="w-12 h-12 bg-slate-900 rounded-lg flex items-center justify-center mb-4">
-                    <item.icon className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 flex items-center justify-center mb-4">
+                    <item.icon className="w-6 h-6 text-red-500" />
                   </div>
                   <h3 className="text-base font-bold text-slate-900 mb-2">
                     {item.title}
@@ -539,15 +626,15 @@ export default function EcommercePage() {
       </section>
 
       {/* Para Quem É */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white [&_*]:!font-medium">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="font-cabinet text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                Para Quem É Esta Solução
+                Para quem é essa solução?
               </h2>
               <p className="text-lg text-slate-600">
-                A CONDERTECH Ecommerce é ideal para diversos tipos de negócios:
+                A Condertech Ecommerce é ideal para diversos tipos de negócios:
               </p>
             </div>
 
@@ -559,7 +646,7 @@ export default function EcommercePage() {
                 "Cosméticos",
                 "Conveniências",
                 "Farmácias",
-                "Autopecas",
+                "Autopeças",
                 "Assistência técnica",
                 "Eletrônicos",
                 "Livrarias",
@@ -579,36 +666,45 @@ export default function EcommercePage() {
       </section>
 
       {/* CTA Final */}
-      <section className="py-24 bg-slate-900">
+      <section className="py-24 bg-white [&_*]:!font-medium">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 mb-6">
-              <Store className="w-4 h-4 text-white" />
-              <span className="text-sm font-medium text-white">
-                Começar é rápido e simples
-              </span>
+            <div className="flex justify-center mb-6">
+              <div className="spark-border rounded-full p-[2px]">
+                <div className="inline-flex items-center gap-2 bg-slate-100 rounded-full px-4 py-2">
+                  <span className="text-sm font-medium text-slate-900">
+                    Começar é rápido e simples
+                  </span>
+                </div>
+              </div>
             </div>
-            <h2 className="font-cabinet text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+            <h2 className="font-cabinet text-3xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
               Pronto para começar sua operação digital?
             </h2>
-            <p className="text-lg md:text-xl text-white/80 mb-10 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl mx-auto">
               Sua empresa pronta para vender online dentro do maior ecossistema
               regional da cidade. Configure em 48h.
             </p>
 
-            <div className="mt-10 pt-10 border-t border-white/10">
+            <div className="mt-10 pt-10 border-t border-slate-200">
               <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
                 <div>
-                  <div className="text-3xl font-bold text-white mb-1">48h</div>
-                  <div className="text-sm text-white/60">Setup completo</div>
+                  <div className="text-3xl font-bold text-slate-900 mb-1">
+                    48h
+                  </div>
+                  <div className="text-sm text-slate-500">Setup completo</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-white mb-1">R$0</div>
-                  <div className="text-sm text-white/60">Taxa de setup</div>
+                  <div className="text-3xl font-bold text-slate-900 mb-1">
+                    R$0
+                  </div>
+                  <div className="text-sm text-slate-500">Taxa de setup</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-white mb-1">24/7</div>
-                  <div className="text-sm text-white/60">
+                  <div className="text-3xl font-bold text-slate-900 mb-1">
+                    24/7
+                  </div>
+                  <div className="text-sm text-slate-500">
                     Suporte disponível
                   </div>
                 </div>
@@ -617,6 +713,70 @@ export default function EcommercePage() {
           </div>
         </div>
       </section>
+
+      <style jsx>{`
+        .spark-border {
+          position: relative;
+          overflow: hidden;
+          box-shadow: 0 0 0 1px rgba(248, 113, 113, 0.25);
+          animation: sparkPulse 1.2s ease-in-out infinite;
+        }
+
+        .spark-border::before {
+          content: "";
+          position: absolute;
+          inset: -120%;
+          background: conic-gradient(
+            transparent 0deg,
+            transparent 300deg,
+            rgba(239, 68, 68, 0.9) 320deg,
+            rgba(255, 255, 255, 1) 340deg,
+            rgba(239, 68, 68, 0.9) 360deg
+          );
+          animation: sparkSpin 1.2s linear infinite;
+        }
+
+        .spark-border::after {
+          content: "";
+          position: absolute;
+          inset: -120%;
+          background: conic-gradient(
+            transparent 0deg,
+            transparent 305deg,
+            rgba(252, 165, 165, 0.5) 334deg,
+            rgba(248, 113, 113, 0.85) 355deg,
+            transparent 360deg
+          );
+          filter: blur(2px);
+          animation: sparkSpin 1.2s linear infinite;
+        }
+
+        .spark-border > div {
+          position: relative;
+          z-index: 1;
+          background: #f1f5f9;
+        }
+
+        @keyframes sparkSpin {
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        @keyframes sparkPulse {
+          0%,
+          100% {
+            box-shadow:
+              0 0 0 1px rgba(248, 113, 113, 0.2),
+              0 0 10px rgba(239, 68, 68, 0.18);
+          }
+          50% {
+            box-shadow:
+              0 0 0 1px rgba(248, 113, 113, 0.35),
+              0 0 16px rgba(239, 68, 68, 0.35);
+          }
+        }
+      `}</style>
     </div>
   );
 }
