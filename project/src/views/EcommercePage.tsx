@@ -76,8 +76,11 @@ export default function EcommercePage() {
                     </div>
                   </div>
                 </div>
-                <h2 className="font-cabinet text-3xl md:text-4xl font-medium text-black mb-6">
-                  O que é a condertech Ecommerce?
+                <h2 className="font-cabinet text-3xl md:text-4xl font-medium text-black mb-6 leading-tight">
+                  O que é a{" "}
+                  <span className="text-red-500 italic">
+                    condertech Ecommerce?
+                  </span>
                 </h2>
                 <p className="text-lg text-slate-600 mb-6 leading-relaxed">
                   Uma plataforma completa criada para pequenos empresas e
@@ -90,20 +93,11 @@ export default function EcommercePage() {
                   regional, com uma ótima base de clientes e visibilidade local
                   para sua marca.
                 </p>
-                <div className="flex items-start gap-3 p-4 bg-white border border-slate-200 rounded-lg">
-                  <div className="w-10 h-10 flex items-center justify-center flex-shrink-0 mt-1">
-                    <Shield className="w-5 h-5 text-red-500" />
-                  </div>
-                  <div>
-                    <div className="font-medium text-slate-900 mb-1">
-                      Estrutura empresarial
-                    </div>
-                    <div className="text-sm font-medium text-slate-600">
-                      Tecnologia profissional com suporte dedicado e
-                      atualizações constantes.
-                    </div>
-                  </div>
-                </div>
+                <img
+                  src="/image/hero-03.jpeg"
+                  alt="Estrutura empresarial CONDERTECH"
+                  className="w-full h-auto object-contain"
+                />
               </div>
               <div>
                 <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
@@ -175,6 +169,14 @@ export default function EcommercePage() {
                 Sua empresa aparecendo para toda sua cidade com visibilidade
                 profissional.
               </p>
+            </div>
+
+            <div className="mb-10">
+              <img
+                src="/image/hero-02.jpeg"
+                alt="Marketplace regional CONDERTECH"
+                className="w-full max-w-4xl mx-auto h-auto rounded-xl object-contain"
+              />
             </div>
 
             <div className="bg-slate-50 rounded-2xl p-8 md:p-12 border border-slate-200 mb-10">
@@ -283,8 +285,8 @@ export default function EcommercePage() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="font-cabinet text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                Como Funciona?
+              <h2 className="font-cabinet text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">
+                Como <span className="text-red-500 italic">funciona?</span>
               </h2>
               <p className="text-lg text-slate-600">
                 Processo simples e rápido em 4 etapas
@@ -565,61 +567,62 @@ export default function EcommercePage() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="font-cabinet text-3xl md:text-4xl font-bold text-slate-900 mb-4"></h2>
-              Por que escolher a condertech?
+              <h2 className="font-cabinet text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">
+                Por que escolher a{" "}
+                <span className="text-red-500 italic">condertech?</span>
+              </h2>
               <p className="text-lg text-slate-600">
                 Tecnologia profissional com estrutura empresarial
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                {
-                  icon: Shield,
-                  title: "Estrutura profissional",
-                  desc: "Sua empresa pronta para operar online com tecnologia de ponta.",
-                },
-                {
-                  icon: MapPin,
-                  title: "Marketplace regional",
-                  desc: "Mais visibilidade e alcance para sua marca na região.",
-                },
-                {
-                  icon: ShoppingBag,
-                  title: "Checkout completo",
-                  desc: "PIX e cartão integrados com segurança certificada.",
-                },
-                {
-                  icon: TrendingUp,
-                  title: "Crescimento escalável",
-                  desc: "Comece simples e evolua conforme sua operação cresce.",
-                },
-                {
-                  icon: Zap,
-                  title: "Performance otimizada",
-                  desc: "Plataforma rápida e confiável para seus clientes.",
-                },
-                {
-                  icon: BarChart3,
-                  title: "Analytics integrado",
-                  desc: "Acompanhe métricas e tome decisões baseadas em dados.",
-                },
-              ].map((item, idx) => (
-                <div
-                  key={idx}
-                  className="bg-white p-6 rounded-xl border border-slate-200 hover:shadow-md transition-shadow"
-                >
-                  <div className="w-12 h-12 flex items-center justify-center mb-4">
-                    <item.icon className="w-6 h-6 text-red-500" />
-                  </div>
-                  <h3 className="text-base font-bold text-slate-900 mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    {item.desc}
-                  </p>
+            <div className="max-w-3xl mx-auto">
+              <img
+                src="/image/hero-04.jpeg"
+                alt="Resumo visual dos diferenciais Condertech"
+                className="w-full h-auto object-contain mb-6"
+              />
+              <div className="bg-white p-8 rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
+                <div className="w-12 h-12 flex items-center justify-center mb-4">
+                  <Shield className="w-6 h-6 text-red-500" />
                 </div>
-              ))}
+                <h3 className="text-xl font-bold text-slate-900 mb-4">
+                  Estrutura completa para crescer
+                </h3>
+                <ul className="space-y-3">
+                  {[
+                    {
+                      icon: Shield,
+                      text: "Estrutura profissional pronta para operar",
+                    },
+                    {
+                      icon: MapPin,
+                      text: "Marketplace regional para ampliar alcance",
+                    },
+                    {
+                      icon: ShoppingBag,
+                      text: "Checkout completo com PIX e cartão",
+                    },
+                    {
+                      icon: Zap,
+                      text: "Performance otimizada para seus clientes",
+                    },
+                    {
+                      icon: TrendingUp,
+                      text: "Crescimento escalável conforme sua operação",
+                    },
+                    {
+                      icon: BarChart3,
+                      text: "Analytics integrado para decisões mais rápidas",
+                    },
+                  ].map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-3 text-sm">
+                      <item.icon className="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5" />
+                      <span className="text-slate-700">{item.text}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -630,8 +633,9 @@ export default function EcommercePage() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="font-cabinet text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                Para quem é essa solução?
+              <h2 className="font-cabinet text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">
+                Para quem é essa{" "}
+                <span className="text-red-500 italic">solução?</span>
               </h2>
               <p className="text-lg text-slate-600">
                 A Condertech Ecommerce é ideal para diversos tipos de negócios:
