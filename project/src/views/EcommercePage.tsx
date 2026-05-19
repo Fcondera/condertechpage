@@ -202,77 +202,65 @@ export default function EcommercePage() {
                   </div>
                 </div>
                 <div className="bg-white rounded-xl p-6 border border-slate-200">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 flex items-center justify-center">
-                      <BarChart3 className="w-6 h-6 text-red-500" />
+                  <div className="flex items-center gap-3 mb-5">
+                    <BarChart3 className="w-6 h-6 text-red-500 flex-shrink-0" />
+                    <div>
+                      <span className="text-xl font-bold text-slate-900">
+                        5x mais
+                      </span>
+                      <span className="text-sm text-slate-600 ml-1">
+                        alcance na região
+                      </span>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-x-6 gap-y-2">
+                    <div>
+                      <p className="text-xs font-semibold text-slate-500 uppercase mb-2">
+                        Clientes encontram
+                      </p>
+                      <ul className="space-y-1.5">
+                        {[
+                          "Restaurantes",
+                          "Marmitarias",
+                          "Lojas de roupas",
+                          "Cosméticos",
+                          "Conveniências",
+                          "Farmácias",
+                          "Eletrônicos",
+                          "Serviços locais",
+                        ].map((item, idx) => (
+                          <li
+                            key={idx}
+                            className="flex items-center gap-2 text-sm"
+                          >
+                            <Check className="w-3.5 h-3.5 text-slate-900 flex-shrink-0" />
+                            <span className="text-slate-700">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                     <div>
-                      <div className="text-2xl font-bold text-slate-900">
-                        5x mais
-                      </div>
-                      <div className="text-sm text-slate-600">
-                        alcance na região
-                      </div>
+                      <p className="text-xs font-semibold text-slate-500 uppercase mb-2">
+                        Isso gera
+                      </p>
+                      <ul className="space-y-1.5">
+                        {[
+                          "Mais visibilidade orgânica",
+                          "Tráfego compartilhado",
+                          "Descoberta facilitada",
+                          "Crescimento regional",
+                        ].map((item, idx) => (
+                          <li
+                            key={idx}
+                            className="flex items-center gap-2 text-sm"
+                          >
+                            <TrendingUp className="w-3.5 h-3.5 text-slate-900 flex-shrink-0" />
+                            <span className="text-slate-700">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2 text-sm text-slate-700">
-                      <div className="w-2 h-2 bg-slate-900 rounded-full"></div>
-                      <span>Mais visibilidade orgânica</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-slate-700">
-                      <div className="w-2 h-2 bg-slate-900 rounded-full"></div>
-                      <span>Tráfego compartilhado</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-slate-700">
-                      <div className="w-2 h-2 bg-slate-900 rounded-full"></div>
-                      <span>Descoberta facilitada</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-white rounded-xl p-6 border border-slate-200">
-                  <h3 className="text-base font-bold text-slate-900 mb-4">
-                    Os clientes conseguem encontrar:
-                  </h3>
-                  <ul className="space-y-2">
-                    {[
-                      "Restaurantes",
-                      "Marmitarias",
-                      "Lojas de roupas",
-                      "Cosméticos",
-                      "Conveniências",
-                      "Farmácias",
-                      "Eletrônicos",
-                      "Serviços locais",
-                    ].map((item, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-sm">
-                        <Check className="w-4 h-4 text-slate-900 flex-shrink-0" />
-                        <span className="text-slate-700">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="bg-white rounded-xl p-6 border border-slate-200">
-                  <h3 className="text-base font-bold text-slate-900 mb-4">
-                    Isso gera:
-                  </h3>
-                  <ul className="space-y-2">
-                    {[
-                      "Mais visibilidade",
-                      "Tráfego compartilhado",
-                      "Descoberta de empresas",
-                      "Crescimento regional",
-                    ].map((item, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-sm">
-                        <TrendingUp className="w-4 h-4 text-slate-900 flex-shrink-0" />
-                        <span className="text-slate-700">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
               </div>
             </div>
@@ -318,10 +306,21 @@ export default function EcommercePage() {
               ].map((item, idx) => (
                 <div
                   key={idx}
-                  className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
+                  className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow flex flex-col items-center text-center"
                 >
-                  <div className="w-12 h-12 bg-red-500 text-white rounded-lg flex items-center justify-center text-xl font-bold mb-4">
-                    {item.step}
+                  <div className="relative w-14 h-14 mb-5 flex items-center justify-center">
+                    {/* camada da faísca girando */}
+                    <div className="step-spark absolute inset-0 rounded-full" />
+                    {/* círculo preto com número */}
+                    <div
+                      className="absolute inset-[3px] rounded-full bg-red-500 flex items-center justify-center text-white text-lg font-bold z-10"
+                      style={{
+                        boxShadow:
+                          "0 0 14px 4px rgba(255,255,255,0.55) inset, 0 0 8px 2px rgba(255,255,255,0.3)",
+                      }}
+                    >
+                      {item.step}
+                    </div>
                   </div>
                   <h3 className="text-base font-bold text-slate-900 mb-2">
                     {item.title}
@@ -375,9 +374,13 @@ export default function EcommercePage() {
             </div>
 
             {!showPersonalizado && (
-              <div id="planos-grid" className="grid md:grid-cols-3 gap-6">
+              <div
+                id="planos-grid"
+                className="flex md:grid md:grid-cols-3 gap-6 overflow-x-auto pb-4 md:pb-0 snap-x snap-mandatory -mx-4 px-4 md:mx-0 md:px-0"
+                style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+              >
                 {/* START */}
-                <div className="bg-white rounded-2xl p-8 border-2 border-slate-200 hover:border-slate-300 transition-colors">
+                <div className="bg-white rounded-2xl p-8 border-2 border-slate-200 hover:border-slate-300 transition-colors flex-shrink-0 w-[80vw] md:w-auto snap-start">
                   <div className="mb-6">
                     <h3 className="text-xl font-bold text-slate-900 mb-2">
                       Start
@@ -420,7 +423,7 @@ export default function EcommercePage() {
                 </div>
 
                 {/* BUSINESS - Destaque */}
-                <div className="bg-[rgb(124,179,66)] rounded-2xl p-8 border-2 border-[rgb(124,179,66)] relative z-10 transform md:scale-105 shadow-lg overflow-visible">
+                <div className="bg-[rgb(124,179,66)] rounded-2xl p-8 border-2 border-[rgb(124,179,66)] relative z-10 transform md:scale-105 shadow-lg overflow-visible flex-shrink-0 w-[80vw] md:w-auto snap-start">
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[rgb(104,159,46)] text-white px-4 py-1 rounded-full text-xs font-bold z-20">
                     RECOMENDADO
                   </div>
@@ -468,7 +471,7 @@ export default function EcommercePage() {
                 </div>
 
                 {/* ENTERPRISE */}
-                <div className="bg-white rounded-2xl p-8 border-2 border-slate-200 hover:border-slate-300 transition-colors">
+                <div className="bg-white rounded-2xl p-8 border-2 border-slate-200 hover:border-slate-300 transition-colors flex-shrink-0 w-[80vw] md:w-auto snap-start">
                   <div className="mb-6">
                     <h3 className="text-xl font-bold text-slate-900 mb-2">
                       Enterprise
@@ -583,9 +586,6 @@ export default function EcommercePage() {
                 className="w-full h-auto object-contain mb-6"
               />
               <div className="bg-white p-8 rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 flex items-center justify-center mb-4">
-                  <Shield className="w-6 h-6 text-red-500" />
-                </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-4">
                   Estrutura completa para crescer
                 </h3>
@@ -779,6 +779,41 @@ export default function EcommercePage() {
               0 0 0 1px rgba(248, 113, 113, 0.35),
               0 0 16px rgba(239, 68, 68, 0.35);
           }
+        }
+
+        /* faísca nos steps */
+        .step-spark {
+          overflow: hidden;
+          border-radius: 9999px;
+        }
+
+        .step-spark::before {
+          content: "";
+          position: absolute;
+          inset: -100%;
+          background: conic-gradient(
+            transparent 0deg,
+            transparent 300deg,
+            rgba(239, 68, 68, 0.95) 325deg,
+            rgba(255, 255, 255, 1) 342deg,
+            rgba(239, 68, 68, 0.95) 360deg
+          );
+          animation: sparkSpin 1.4s linear infinite;
+        }
+
+        .step-spark::after {
+          content: "";
+          position: absolute;
+          inset: -100%;
+          background: conic-gradient(
+            transparent 0deg,
+            transparent 308deg,
+            rgba(252, 165, 165, 0.55) 336deg,
+            rgba(248, 113, 113, 0.9) 356deg,
+            transparent 360deg
+          );
+          filter: blur(2px);
+          animation: sparkSpin 1.4s linear infinite;
         }
       `}</style>
     </div>
