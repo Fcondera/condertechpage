@@ -24,7 +24,7 @@ export default function EcommercePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
             <div>
               <img
-                src="/image/logo02.png"
+                src="/image/hero-05.png"
                 alt="CONDERTECH"
                 className="h-14 md:h-20 mb-6"
               />
@@ -374,146 +374,156 @@ export default function EcommercePage() {
             </div>
 
             {!showPersonalizado && (
-              <div
-                id="planos-grid"
-                className="flex md:grid md:grid-cols-3 gap-6 overflow-x-auto pb-4 md:pb-0 snap-x snap-mandatory -mx-4 px-4 md:mx-0 md:px-0"
-                style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-              >
-                {/* START */}
-                <div className="bg-white rounded-2xl p-8 border-2 border-slate-200 hover:border-slate-300 transition-colors flex-shrink-0 w-[80vw] md:w-auto snap-start">
-                  <div className="mb-6">
-                    <h3 className="text-xl font-bold text-slate-900 mb-2">
-                      Start
-                    </h3>
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-4xl font-bold text-slate-900">
-                        R$79
-                      </span>
-                      <span className="text-slate-500">/mês</span>
+              <>
+                <div
+                  id="planos-grid"
+                  className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 pr-8 md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0 md:pr-0"
+                >
+                  {/* START */}
+                  <div className="w-[82vw] max-w-[320px] shrink-0 snap-start bg-white rounded-2xl p-8 border-2 border-slate-200 hover:border-slate-300 transition-colors md:w-auto md:max-w-none md:min-w-0 md:shrink md:flex-1">
+                    <div className="mb-6">
+                      <h3 className="text-xl font-bold text-slate-900 mb-2">
+                        Start
+                      </h3>
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-4xl font-bold text-slate-900">
+                          R$79
+                        </span>
+                        <span className="text-slate-500">/mês</span>
+                      </div>
                     </div>
+                    <p className="text-slate-600 mb-6 text-sm">
+                      Ideal para pequenos negócios começarem a vender online.
+                    </p>
+
+                    <ul className="space-y-3 mb-8">
+                      {[
+                        "Loja virtual completa",
+                        "Checkout PIX e cartão",
+                        "Até 150 produtos",
+                        "WhatsApp integrado",
+                        "Marketplace regional",
+                        "Painel administrativo",
+                      ].map((item, idx) => (
+                        <li
+                          key={idx}
+                          className="flex items-start gap-3 text-sm"
+                        >
+                          <Check className="w-4 h-4 text-slate-900 flex-shrink-0 mt-0.5" />
+                          <span className="text-slate-700">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <a
+                      href="https://wa.me/5592982054683"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full py-3 px-6 bg-[rgb(124,179,66)] text-white font-semibold rounded-full text-center hover:bg-[rgb(104,159,46)] transition-colors text-sm shadow-[inset_0_-2px_6px_rgba(0,0,0,0.22)]"
+                    >
+                      Começar Agora
+                    </a>
                   </div>
-                  <p className="text-slate-600 mb-6 text-sm">
-                    Ideal para pequenos negócios começarem a vender online.
-                  </p>
 
-                  <ul className="space-y-3 mb-8">
-                    {[
-                      "Loja virtual completa",
-                      "Checkout PIX e cartão",
-                      "Até 150 produtos",
-                      "WhatsApp integrado",
-                      "Marketplace regional",
-                      "Painel administrativo",
-                    ].map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-sm">
-                        <Check className="w-4 h-4 text-slate-900 flex-shrink-0 mt-0.5" />
-                        <span className="text-slate-700">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <a
-                    href="https://wa.me/5592982054683"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block w-full py-3 px-6 bg-[rgb(124,179,66)] text-white font-semibold rounded-full text-center hover:bg-[rgb(104,159,46)] transition-colors text-sm shadow-[inset_0_-2px_6px_rgba(0,0,0,0.22)]"
-                  >
-                    Começar Agora
-                  </a>
-                </div>
-
-                {/* BUSINESS - Destaque */}
-                <div className="bg-[rgb(124,179,66)] rounded-2xl p-8 border-2 border-[rgb(124,179,66)] relative z-10 transform md:scale-105 shadow-lg overflow-visible flex-shrink-0 w-[80vw] md:w-auto snap-start">
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[rgb(104,159,46)] text-white px-4 py-1 rounded-full text-xs font-bold z-20">
-                    RECOMENDADO
-                  </div>
-                  <div className="mb-6">
-                    <h3 className="text-xl font-bold text-white mb-2">
-                      Business
-                    </h3>
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-4xl font-bold text-white">
-                        R$197
-                      </span>
-                      <span className="text-white/70">/mês</span>
+                  {/* BUSINESS - Destaque */}
+                  <div className="w-[82vw] max-w-[320px] shrink-0 snap-start bg-[rgb(124,179,66)] rounded-2xl p-8 border-2 border-[rgb(124,179,66)] relative z-10 md:w-auto md:max-w-none md:min-w-0 md:shrink md:flex-1 md:transform md:scale-105 shadow-lg overflow-visible">
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[rgb(104,159,46)] text-white px-4 py-1 rounded-full text-xs font-bold z-20">
+                      RECOMENDADO
                     </div>
-                  </div>
-                  <p className="text-white/80 mb-6 text-sm">
-                    Nosso plano mais recomendado para empresas em crescimento.
-                  </p>
-
-                  <ul className="space-y-3 mb-8">
-                    {[
-                      "Tudo do Start",
-                      "Dashboard avançado",
-                      "Recuperação de carrinho",
-                      "Meta Pixel integrado",
-                      "Google Shopping",
-                      "Instagram Shop",
-                      "CRM básico incluso",
-                      "Destaque regional",
-                    ].map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-sm">
-                        <Check className="w-4 h-4 text-white flex-shrink-0 mt-0.5" />
-                        <span className="text-white">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <a
-                    href="https://wa.me/5592982054683"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block w-full py-3 px-6 bg-[rgb(124,179,66)] text-white font-semibold rounded-full text-center hover:bg-[rgb(104,159,46)] transition-colors text-sm shadow-[inset_0_-2px_6px_rgba(0,0,0,0.22)]"
-                  >
-                    Começar Agora
-                  </a>
-                </div>
-
-                {/* ENTERPRISE */}
-                <div className="bg-white rounded-2xl p-8 border-2 border-slate-200 hover:border-slate-300 transition-colors flex-shrink-0 w-[80vw] md:w-auto snap-start">
-                  <div className="mb-6">
-                    <h3 className="text-xl font-bold text-slate-900 mb-2">
-                      Enterprise
-                    </h3>
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-4xl font-bold text-slate-900">
-                        R$497
-                      </span>
-                      <span className="text-slate-500">/mês</span>
+                    <div className="mb-6">
+                      <h3 className="text-xl font-bold text-white mb-2">
+                        Business
+                      </h3>
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-4xl font-bold text-white">
+                          R$197
+                        </span>
+                        <span className="text-white/70">/mês</span>
+                      </div>
                     </div>
+                    <p className="text-white/80 mb-6 text-sm">
+                      Nosso plano mais recomendado para empresas em crescimento.
+                    </p>
+
+                    <ul className="space-y-3 mb-8">
+                      {[
+                        "Tudo do Start",
+                        "Dashboard avançado",
+                        "Recuperação de carrinho",
+                        "Meta Pixel integrado",
+                        "Google Shopping",
+                        "Instagram Shop",
+                        "CRM básico incluso",
+                        "Destaque regional",
+                      ].map((item, idx) => (
+                        <li
+                          key={idx}
+                          className="flex items-start gap-3 text-sm"
+                        >
+                          <Check className="w-4 h-4 text-white flex-shrink-0 mt-0.5" />
+                          <span className="text-white">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <a
+                      href="https://wa.me/5592982054683"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full py-3 px-6 bg-[rgb(124,179,66)] text-white font-semibold rounded-full text-center hover:bg-[rgb(104,159,46)] transition-colors text-sm shadow-[inset_0_-2px_6px_rgba(0,0,0,0.22)]"
+                    >
+                      Começar Agora
+                    </a>
                   </div>
-                  <p className="text-slate-600 mb-6 text-sm">
-                    Para operações maiores e empresas que querem escalar.
-                  </p>
 
-                  <ul className="space-y-3 mb-8">
-                    {[
-                      "Tudo do Business",
-                      "Multiestoque avançado",
-                      "Dashboard executivo",
-                      "Aplicativo próprio",
-                      "Analytics avançado",
-                      "Marketplace premium",
-                      "Suporte prioritário",
-                    ].map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-sm">
-                        <Check className="w-4 h-4 text-slate-900 flex-shrink-0 mt-0.5" />
-                        <span className="text-slate-700">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  {/* ENTERPRISE */}
+                  <div className="w-[82vw] max-w-[320px] shrink-0 snap-start bg-white rounded-2xl p-8 border-2 border-slate-200 hover:border-slate-300 transition-colors md:w-auto md:max-w-none md:min-w-0 md:shrink md:flex-1">
+                    <div className="mb-6">
+                      <h3 className="text-xl font-bold text-slate-900 mb-2">
+                        Enterprise
+                      </h3>
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-4xl font-bold text-slate-900">
+                          R$497
+                        </span>
+                        <span className="text-slate-500">/mês</span>
+                      </div>
+                    </div>
+                    <p className="text-slate-600 mb-6 text-sm">
+                      Para operações maiores e empresas que querem escalar.
+                    </p>
 
-                  <a
-                    href="https://wa.me/5592982054683"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block w-full py-3 px-6 bg-[rgb(124,179,66)] text-white font-semibold rounded-full text-center hover:bg-[rgb(104,159,46)] transition-colors text-sm shadow-[inset_0_-2px_6px_rgba(0,0,0,0.22)]"
-                  >
-                    Começar Agora
-                  </a>
+                    <ul className="space-y-3 mb-8">
+                      {[
+                        "Tudo do Business",
+                        "Multiestoque avançado",
+                        "Dashboard executivo",
+                        "Aplicativo próprio",
+                        "Analytics avançado",
+                        "Marketplace premium",
+                        "Suporte prioritário",
+                      ].map((item, idx) => (
+                        <li
+                          key={idx}
+                          className="flex items-start gap-3 text-sm"
+                        >
+                          <Check className="w-4 h-4 text-slate-900 flex-shrink-0 mt-0.5" />
+                          <span className="text-slate-700">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <a
+                      href="https://wa.me/5592982054683"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full py-3 px-6 bg-[rgb(124,179,66)] text-white font-semibold rounded-full text-center hover:bg-[rgb(104,159,46)] transition-colors text-sm shadow-[inset_0_-2px_6px_rgba(0,0,0,0.22)]"
+                    >
+                      Começar Agora
+                    </a>
+                  </div>
                 </div>
-              </div>
+              </>
             )}
 
             {showPersonalizado && (
@@ -561,6 +571,14 @@ export default function EcommercePage() {
                 </div>
               </div>
             )}
+
+            <div className="mt-12 max-w-4xl mx-auto">
+              <img
+                src="/image/ecme-06.PNG"
+                alt="Demonstração do ecommerce"
+                className="w-full h-auto object-contain rounded-xl shadow-md"
+              />
+            </div>
           </div>
         </div>
       </section>
