@@ -128,7 +128,7 @@ const IndustriesSection = () => {
   });
 
   return (
-    <section className="bg-[#fafafa] py-20 sm:py-28">
+    <section className="bg-white py-20 sm:py-28">
       <div className="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <div ref={titleRef} className="mb-14 pb-10">

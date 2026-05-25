@@ -38,8 +38,22 @@ const ContactSection = () => {
   const contentRef = useGsapReveal<HTMLDivElement>({ delay: 0.15 });
 
   return (
-    <section id="contato" className="bg-[#090909] py-20 sm:py-28">
-      <div className="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
+    <section
+      id="contato"
+      className="relative overflow-hidden bg-[#383E42] py-20 sm:py-28"
+    >
+      {/* Grain overlay */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.06]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+          backgroundRepeat: "repeat",
+          backgroundSize: "180px",
+        }}
+      />
+      {/* Radial glow */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_40%,rgba(255,255,255,0.05),transparent)]" />
+      <div className="relative mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-24">
           {/* Left column */}
           <div ref={titleRef}>
