@@ -20,9 +20,9 @@ const Footer = () => (
         <div className="col-span-1 sm:col-span-2 md:col-span-2">
           <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
             <img
-              src="/image/logo02.png"
+              src="/image/navbar-01.svg"
               alt={COMPANY_NAME}
-              className="h-10 sm:h-12 md:h-16"
+              className="h-14 sm:h-16 md:h-20"
             />
           </div>
           <p className="text-xs sm:text-base text-gray-600 leading-relaxed max-w-md">

@@ -6,6 +6,7 @@ import ErrorBoundary from "@components/ErrorBoundary";
 import Footer from "@components/Footer";
 import Navbar from "@components/Navbar";
 import WhatsAppButton from "@components/WhatsAppButton";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
 interface SiteLayoutProps {
   children: ReactNode;
@@ -21,12 +22,14 @@ export default function SiteLayout({ children }: SiteLayoutProps) {
 
   return (
     <ErrorBoundary>
-      <div className="font-inter">
-        {!hideChrome && <Navbar />}
-        {children}
-        {!hideChrome && <Footer />}
-        {!hideChrome && <WhatsAppButton />}
-      </div>
+      <LanguageProvider>
+        <div className="font-inter">
+          {!hideChrome && <Navbar />}
+          {children}
+          {!hideChrome && <Footer />}
+          {!hideChrome && <WhatsAppButton />}
+        </div>
+      </LanguageProvider>
     </ErrorBoundary>
   );
 }

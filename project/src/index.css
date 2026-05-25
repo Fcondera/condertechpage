@@ -4,17 +4,22 @@
 
 @layer base {
   :root {
-    --page-bg: #f3efe7;
-    --page-ink: #11100d;
-    --page-muted: #5a5248;
-    --page-accent: #d6b183;
+    --brand-black: #090909;
+    --brand-gray: #252525;
+    --brand-red: #e22d2e;
+    --brand-dark-red: #601311;
+    --brand-white: #ffffff;
+    --brand-off: #fafafa;
+    --brand-border: #e5e5e5;
   }
 
   body {
-    font-family: "Switzer", "General Sans", "Inter", sans-serif;
-    background-color: var(--page-bg);
-    color: var(--page-ink);
+    font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+    background-color: #ffffff;
+    color: #090909;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   * {

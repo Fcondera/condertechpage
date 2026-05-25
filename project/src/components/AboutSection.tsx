@@ -1,28 +1,56 @@
 import { useGsapReveal } from "@hooks/useGsapReveal";
-import { Target, Rocket, Shield } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const pillars = [
-  {
-    icon: Target,
-    title: "Precisão Cirúrgica",
-    description:
-      "Cada linha de código é estrategicamente projetada para resolver problemas reais de negócio, não apenas funcionar.",
-  },
-  {
-    icon: Rocket,
-    title: "Velocidade Controlada",
-    description:
-      "Entregamos rápido sem comprometer qualidade. Metodologias ágeis aplicadas com disciplina de engenharia.",
-  },
-  {
-    icon: Shield,
-    title: "Segurança como Base",
-    description:
-      "Arquiteturas resilientes desde o primeiro commit. Compliance e governança não são opcionais.",
-  },
+const pillarIcons = [
+  // Target / precision
+  <svg
+    key="target"
+    width="36"
+    height="36"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="#e22d2e"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <circle cx="12" cy="12" r="10" />
+    <circle cx="12" cy="12" r="6" />
+    <circle cx="12" cy="12" r="2" />
+  </svg>,
+  // Lightning / speed
+  <svg
+    key="lightning"
+    width="36"
+    height="36"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="#e22d2e"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+  </svg>,
+  // Lock / security
+  <svg
+    key="lock"
+    width="36"
+    height="36"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="#e22d2e"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+  </svg>,
 ];
 
 const AboutSection = () => {
+  const { t } = useLanguage();
   const titleRef = useGsapReveal<HTMLDivElement>();
   const contentRef = useGsapReveal<HTMLDivElement>({ delay: 0.15 });
   const pillarsRef = useGsapReveal<HTMLDivElement>({
@@ -31,69 +59,45 @@ const AboutSection = () => {
   });
 
   return (
-    <section className="bg-white py-16 sm:py-28">
-      <div className="mx-auto w-full max-w-7xl px-3 sm:px-6 md:px-8">
-        <div className="mx-auto w-full max-w-5xl">
-          <div ref={titleRef}>
-            <p className="text-center font-switzer text-xs font-semibold uppercase tracking-[0.3em] text-[#8d6a44]">
-              Sobre
-            </p>
-            <h2 className="mt-4 text-center font-clash text-3xl font-semibold leading-tight tracking-[-0.045em] text-gray-900 sm:text-4xl lg:text-5xl">
-              A espinha dorsal digital para operações de elite
-            </h2>
-          </div>
+    <section className="bg-[#fafafa] py-20 sm:py-28">
+      <div className="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
+        {/* Header */}
+        <div ref={titleRef} className="mb-14">
+          <p className="mb-4 font-inter text-xs font-semibold uppercase tracking-[0.3em] text-[#e22d2e]">
+            {t.about.eyebrow}
+          </p>
+          <h2 className="max-w-[22ch] font-inter text-3xl font-medium leading-tight text-[#383E42] sm:text-4xl lg:text-5xl">
+            {t.about.headline1}{" "}
+            <span className="italic text-[#e22d2e]">{t.about.accent}</span>
+          </h2>
+        </div>
 
-          <div
-            ref={contentRef}
-            className="mx-auto mt-10 max-w-3xl space-y-6 text-center"
-          >
-            <p className="text-base leading-8 text-gray-700 sm:text-lg sm:leading-9">
-              Nascida no coração do polo tecnológico de Blumenau, a{" "}
-              <span className="font-semibold text-gray-900">ConderTech</span>{" "}
-              projeta a espinha dorsal digital de empresas de elite. Combinamos
-              o rigor da engenharia com a agilidade da inovação global para
-              criar sistemas que são, simultaneamente, potentes e resilientes.
-            </p>
+        {/* Body text */}
+        <div ref={contentRef} className="mb-16 max-w-3xl space-y-6">
+          <p className="font-inter text-base leading-8 text-slate-600 sm:text-lg sm:leading-9">
+            {t.about.body1}
+          </p>
+          <p className="font-inter text-base leading-8 text-slate-600 sm:text-lg sm:leading-9">
+            {t.about.body2}
+          </p>
+        </div>
 
-            <p className="text-base leading-8 text-gray-700 sm:text-lg sm:leading-9">
-              Não entregamos apenas código;{" "}
-              <span className="font-semibold text-gray-900">
-                entregamos o controle do futuro do seu negócio
-              </span>
-              . Nossa missão é transformar desafios complexos em soluções
-              elegantes que escalam com sua operação.
-            </p>
-
-            <p className="text-base leading-8 text-gray-700 sm:text-lg sm:leading-9">
-              Trabalhamos com empresas que entendem que tecnologia não é custo,
-              é investimento estratégico. Que velocidade sem direção é
-              desperdício. E que{" "}
-              <span className="font-semibold text-gray-900">
-                escala sem governança é risco
-              </span>
-              .
-            </p>
-          </div>
-
-          {/* Pilares */}
-          <div
-            ref={pillarsRef}
-            className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3"
-          >
-            {pillars.map((pillar, index) => (
-              <div key={index} className="text-center">
-                <div className="mx-auto mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-spotify-green/10">
-                  <pillar.icon className="h-8 w-8 text-spotify-green" />
-                </div>
-                <h3 className="mb-3 font-clash text-xl font-semibold text-gray-900">
-                  {pillar.title}
-                </h3>
-                <p className="font-switzer text-sm leading-relaxed text-gray-600">
-                  {pillar.description}
-                </p>
-              </div>
-            ))}
-          </div>
+        {/* Pilares */}
+        <div ref={pillarsRef} className="grid grid-cols-1 gap-8 sm:grid-cols-3">
+          {t.about.pillars.map((pillar, i) => (
+            <div
+              key={pillar.title}
+              className="py-10 sm:px-10 sm:py-0 first:pl-0 last:pr-0"
+            >
+              <div className="mb-6">{pillarIcons[i]}</div>
+              <h3 className="mb-3 font-inter text-lg font-medium text-[#383E42]">
+                {pillar.title}
+              </h3>
+              <p className="font-inter text-sm font-light leading-relaxed text-slate-600">
+                {pillar.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
