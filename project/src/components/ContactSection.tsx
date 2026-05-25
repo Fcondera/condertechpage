@@ -57,9 +57,6 @@ const ContactSection = () => {
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-24">
           {/* Left column */}
           <div ref={titleRef}>
-            <p className="mb-4 font-inter text-xs font-semibold uppercase tracking-[0.3em] text-[#e22d2e]">
-              {t.contact.eyebrow}
-            </p>
             <h2 className="mb-8 font-inter text-3xl font-medium leading-tight text-white sm:text-4xl lg:text-5xl">
               {t.contact.headline1}{" "}
               <span className="italic text-[#e22d2e]">{t.contact.accent}</span>

@@ -15,9 +15,6 @@ const ServicesSection = () => {
       <div className="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <div ref={titleRef} className="mb-16 pb-10">
-          <p className="mb-4 font-inter text-xs font-semibold uppercase tracking-[0.3em] text-[#e22d2e]">
-            {t.services.eyebrow}
-          </p>
           <h2 className="max-w-[20ch] font-inter text-3xl font-medium leading-tight text-[#383E42] sm:text-4xl lg:text-5xl">
             {t.services.headline1}{" "}
             <span className="italic text-[#e22d2e]">{t.services.accent}</span>

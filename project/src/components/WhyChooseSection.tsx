@@ -62,9 +62,6 @@ const WhyChooseSection = () => {
     <section className="bg-white py-16 sm:py-24">
       <div className="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
         <div ref={titleRef} className="mb-14 pb-10">
-          <p className="mb-4 font-inter text-xs font-semibold uppercase tracking-[0.3em] text-[#e22d2e]">
-            {t.whyChoose.eyebrow}
-          </p>
           <h2 className="max-w-[22ch] font-inter text-3xl font-medium leading-tight text-[#383E42] sm:text-4xl lg:text-5xl">
             {t.whyChoose.headline1}{" "}
             <span className="italic text-[#e22d2e]">{t.whyChoose.accent}</span>

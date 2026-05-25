@@ -14,91 +14,117 @@ interface Service {
 /* ─── Ícones SVG inline ──────────────────────────────────── */
 const ShieldIcon = () => (
   <svg
-    viewBox="0 0 24 24"
+    viewBox="0 0 48 48"
     fill="none"
     stroke="currentColor"
-    strokeWidth={1.8}
-    className="w-10 h-10"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    strokeWidth={1.7}
+    className="w-14 h-14"
   >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
-    />
-    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4" />
+    {/* Escudo */}
+    <path d="M24 4L40 10V24C40 34.5 32.5 41.5 24 44C15.5 41.5 8 34.5 8 24V10L24 4Z" />
+    {/* Corpo do cadeado */}
+    <rect x="17.5" y="25" width="13" height="10" rx="2" />
+    {/* Arco do cadeado */}
+    <path d="M20.5 25V21C20.5 18 27.5 18 27.5 21V25" />
+    {/* Buraco da chave */}
+    <circle cx="24" cy="29.5" r="1.8" fill="currentColor" stroke="none" />
+    <line x1="24" y1="31.3" x2="24" y2="33.5" strokeWidth={2} />
   </svg>
 );
 
 const CartIcon = () => (
   <svg
-    viewBox="0 0 24 24"
+    viewBox="0 0 48 48"
     fill="none"
     stroke="currentColor"
-    strokeWidth={1.8}
-    className="w-10 h-10"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    strokeWidth={1.7}
+    className="w-14 h-14"
   >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"
-    />
-    <line x1="3" y1="6" x2="21" y2="6" strokeLinecap="round" />
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M16 10a4 4 0 01-8 0"
-    />
+    {/* Sacola */}
+    <path d="M16 21V17C16 11.477 19.582 7 24 7C28.418 7 32 11.477 32 17V21" />
+    <path d="M6 21H42L38.5 41H9.5L6 21Z" />
+    {/* Checkmark */}
+    <path d="M19 31L22.5 34.5L30 27" strokeWidth={2.2} />
   </svg>
 );
 
 const CodeIcon = () => (
   <svg
-    viewBox="0 0 24 24"
+    viewBox="0 0 48 48"
     fill="none"
     stroke="currentColor"
-    strokeWidth={1.8}
-    className="w-10 h-10"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    strokeWidth={1.7}
+    className="w-14 h-14"
   >
-    <polyline
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      points="16 18 22 12 16 6"
-    />
-    <polyline
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      points="8 6 2 12 8 18"
-    />
-    <line x1="12" y1="2" x2="12" y2="22" strokeLinecap="round" />
+    {/* Monitor */}
+    <rect x="4" y="7" width="40" height="28" rx="3" />
+    <line x1="4" y1="30" x2="44" y2="30" />
+    <line x1="20" y1="42" x2="28" y2="42" />
+    <line x1="24" y1="35" x2="24" y2="42" />
+    {/* Código */}
+    <path d="M16 21L11.5 24L16 27" />
+    <path d="M32 21L36.5 24L32 27" />
+    <line x1="22" y1="18" x2="26" y2="30" />
   </svg>
 );
 
 const ServerIcon = () => (
   <svg
-    viewBox="0 0 24 24"
+    viewBox="0 0 48 48"
     fill="none"
     stroke="currentColor"
-    strokeWidth={1.8}
-    className="w-10 h-10"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    strokeWidth={1.7}
+    className="w-14 h-14"
   >
-    <rect x="2" y="2" width="20" height="8" rx="2" />
-    <rect x="2" y="14" width="20" height="8" rx="2" />
-    <line
-      x1="6"
-      y1="6"
-      x2="6.01"
-      y2="6"
-      strokeWidth={2.5}
-      strokeLinecap="round"
-    />
-    <line
-      x1="6"
-      y1="18"
-      x2="6.01"
-      y2="18"
-      strokeWidth={2.5}
-      strokeLinecap="round"
-    />
+    {/* Rack de servidores */}
+    <rect x="5" y="7" width="38" height="10" rx="2" />
+    <rect x="5" y="21" width="38" height="10" rx="2" />
+    <rect x="5" y="35" width="38" height="8" rx="2" />
+    {/* LEDs */}
+    <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none" />
+    <circle cx="12" cy="26" r="2" fill="currentColor" stroke="none" />
+    <circle cx="12" cy="39" r="2" fill="currentColor" stroke="none" />
+    {/* Barras de status */}
+    <line x1="20" y1="12" x2="38" y2="12" />
+    <line x1="20" y1="26" x2="38" y2="26" />
+    <line x1="20" y1="39" x2="31" y2="39" />
+  </svg>
+);
+
+const GovIcon = () => (
+  <svg
+    viewBox="0 0 48 48"
+    fill="none"
+    stroke="currentColor"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    strokeWidth={1.7}
+    className="w-14 h-14"
+  >
+    {/* Cúpula */}
+    <path d="M8 20C8 20 10 12 24 10C38 12 40 20 40 20" />
+    {/* Base da cúpula */}
+    <line x1="6" y1="20" x2="42" y2="20" />
+    {/* Colunas */}
+    <line x1="12" y1="20" x2="12" y2="36" />
+    <line x1="20" y1="20" x2="20" y2="36" />
+    <line x1="28" y1="20" x2="28" y2="36" />
+    <line x1="36" y1="20" x2="36" y2="36" />
+    {/* Degraus */}
+    <line x1="8" y1="36" x2="40" y2="36" />
+    <line x1="5" y1="40" x2="43" y2="40" />
+    <line x1="4" y1="44" x2="44" y2="44" />
+    {/* Pináculo */}
+    <line x1="24" y1="6" x2="24" y2="10" />
+    <circle cx="24" cy="5" r="1.5" fill="currentColor" stroke="none" />
   </svg>
 );
 
@@ -108,29 +134,34 @@ const SERVICES: Service[] = [
     id: 0,
     title: "Segurança",
     description:
-      "Soluções pensadas para proteger dados, acessos e operações críticas.",
+      "Temos a melhor equipe de cibersegurança para proteger seus dados e sistemas.",
     icon: <ShieldIcon />,
   },
   {
     id: 1,
     title: "E-commerce",
-    description:
-      "Lojas virtuais modernas, rápidas e preparadas para vender mais.",
+    description: "Tenha sua loja escalável com a Condertech.",
     icon: <CartIcon />,
   },
   {
     id: 2,
     title: "Sistemas Personalizados",
-    description:
-      "Desenvolvimento sob medida para processos específicos da empresa.",
+    description: "Desenvolvimento personalizado para sua empresa.",
     icon: <CodeIcon />,
   },
   {
     id: 3,
     title: "Infraestrutura",
     description:
-      "Estrutura digital segura, escalável e preparada para crescimento.",
+      "Migração, Estrutura segura, escalável e preparada para crescimento.",
     icon: <ServerIcon />,
+  },
+  {
+    id: 4,
+    title: "Governo",
+    description:
+      "Conte com a condertech para gerenciar desafios da administração pública.",
+    icon: <GovIcon />,
   },
 ];
 
@@ -185,12 +216,9 @@ const ServicesCarousel3D = () => {
       <div className="relative mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <div className="mb-16 text-center">
-          <p className="mb-3 font-inter text-xs font-semibold uppercase tracking-[0.3em] text-[#e22d2e]">
-            O que fazemos
-          </p>
           <h2 className="font-inter text-3xl font-medium text-white sm:text-4xl lg:text-5xl">
-            Quais são nossos{" "}
-            <span className="italic text-[#e22d2e]">serviços?</span>
+            Soluções especializadas para o seu{" "}
+            <span className="italic text-[#e22d2e]">segmento</span>
           </h2>
         </div>
 
@@ -237,23 +265,18 @@ const ServicesCarousel3D = () => {
                     <div className="absolute top-0 left-8 right-8 h-[2px] rounded-full bg-[#e22d2e]" />
                   )}
 
-                  {/* Ícone */}
-                  <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-xl bg-[#e22d2e]/10 text-[#e22d2e]">
+                  {/* Ícone centralizado */}
+                  <div className="mb-6 mx-auto flex h-20 w-20 items-center justify-center text-[#e22d2e]">
                     {service.icon}
                   </div>
 
-                  {/* Número */}
-                  <span className="mb-2 block font-inter text-xs font-semibold uppercase tracking-[0.25em] text-[#e22d2e]">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-
-                  {/* Título */}
-                  <h3 className="mb-3 font-inter text-xl font-semibold text-[#383E42]">
+                  {/* Título centralizado */}
+                  <h3 className="mb-3 font-inter text-xl font-semibold text-[#383E42] text-center">
                     {service.title}
                   </h3>
 
-                  {/* Descrição */}
-                  <p className="font-inter text-sm font-light leading-relaxed text-slate-500">
+                  {/* Descrição centralizada */}
+                  <p className="font-inter text-sm font-light leading-relaxed text-slate-500 text-center">
                     {service.description}
                   </p>
                 </div>
