@@ -27,6 +27,7 @@ interface Testimonial {
   id: number;
   text: string;
   name: string;
+  avatar: string;
 }
 
 interface Feature {
@@ -191,21 +192,29 @@ const TESTIMONIALS: Testimonial[] = [
     id: 1,
     text: "Melhor decisão que tomamos. A landing page ficou bonita, rápida e realmente representa a nossa marca.",
     name: "Beatriz Rocha",
+    avatar:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=80&q=80",
   },
   {
     id: 2,
     text: "Comunicação clara e prazos cumpridos. Raro encontrar uma empresa de tecnologia tão organizada.",
     name: "Diego Martins",
+    avatar:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=80&q=80",
   },
   {
     id: 3,
     text: "Profissionalismo, qualidade técnica e visão estratégica. Parceiros de longo prazo.",
     name: "Ana Beatriz Costa",
+    avatar:
+      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&q=80",
   },
   {
     id: 4,
     text: "O site ficou moderno, responsivo e muito melhor do que imaginávamos. Superaram todas as expectativas!",
     name: "Rafael Almeida",
+    avatar:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=80&q=80",
   },
 ];
 
@@ -235,9 +244,9 @@ function MonitorMockup({ project }: { project: Project }) {
       </div>
 
       {/* Haste */}
-      <div className="w-6 h-4 bg-[#2c2c2e]" />
+      <div className="w-4 sm:w-6 h-2 sm:h-4 bg-[#2c2c2e]" />
       {/* Base */}
-      <div className="h-1.5 w-24 rounded-full bg-[#2c2c2e]" />
+      <div className="h-1 sm:h-1.5 w-16 sm:w-24 rounded-full bg-[#2c2c2e]" />
     </div>
   );
 }
@@ -251,7 +260,7 @@ function ProjectCard({ project }: { project: Project }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 12 }}
       transition={{ duration: 0.3 }}
-      className="group relative bg-white rounded-2xl border border-[#e8e8e8] p-5 cursor-pointer
+      className="group relative bg-white rounded-2xl border border-[#e8e8e8] p-3 sm:p-5 cursor-pointer
                  hover:shadow-[0_20px_60px_rgba(0,0,0,0.1)] hover:border-[#e22d2e]/25
                  transition-all duration-300"
     >
@@ -262,16 +271,16 @@ function ProjectCard({ project }: { project: Project }) {
       <MonitorMockup project={project} />
 
       {/* Info */}
-      <div className="mt-5 flex items-start justify-between gap-3">
+      <div className="mt-3 sm:mt-5 flex items-start justify-between gap-2">
         <div className="min-w-0">
-          <h3 className="font-inter text-[15px] font-semibold text-[#383E42] mb-1 leading-snug">
+          <h3 className="font-inter text-[13px] sm:text-[15px] font-semibold text-[#383E42] mb-0.5 sm:mb-1 leading-snug">
             {project.name}
           </h3>
-          <p className="font-inter text-sm font-light text-slate-500 leading-relaxed">
+          <p className="hidden sm:block font-inter text-sm font-light text-slate-500 leading-relaxed">
             {project.description}
           </p>
         </div>
-        <ExternalLink className="w-4 h-4 shrink-0 mt-1 text-slate-300 group-hover:text-[#e22d2e] transition-colors duration-200" />
+        <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 mt-0.5 sm:mt-1 text-slate-300 group-hover:text-[#e22d2e] transition-colors duration-200" />
       </div>
     </motion.article>
   );
@@ -328,11 +337,12 @@ function TestimonialCard({
 
       {/* Autor */}
       <div className="flex items-center gap-3">
-        <div className="w-8 h-8 rounded-full bg-[#e22d2e]/10 flex items-center justify-center shrink-0">
-          <span className="font-inter text-xs font-bold text-[#e22d2e]">
-            {testimonial.name.charAt(0)}
-          </span>
-        </div>
+        <img
+          src={testimonial.avatar}
+          alt={testimonial.name}
+          className="w-9 h-9 rounded-full object-cover shrink-0"
+          loading="lazy"
+        />
         <div>
           <p className="font-inter text-sm font-semibold text-[#383E42] leading-none mb-0.5">
             {testimonial.name}
@@ -447,7 +457,7 @@ export default function LandingPagesPortfolioPage() {
             </motion.div>
 
             {/* Grid de cards */}
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-6 xl:grid-cols-4">
               {PROJECTS.map((project) => (
                 <ProjectCard key={project.id} project={project} />
               ))}
@@ -497,14 +507,20 @@ export default function LandingPagesPortfolioPage() {
               </p>
             </motion.div>
 
-            {/* Grid de depoimentos */}
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {/* Carrossel mobile / grid desktop */}
+            <div
+              className="flex gap-4 overflow-x-auto pb-3 snap-x snap-mandatory
+                         lg:grid lg:grid-cols-4 lg:gap-5 lg:overflow-visible lg:pb-0
+                         -mx-6 sm:-mx-8 lg:mx-0 px-6 sm:px-8 lg:px-0"
+              style={{ scrollbarWidth: "none" } as React.CSSProperties}
+            >
               {TESTIMONIALS.map((testimonial, index) => (
-                <TestimonialCard
+                <div
                   key={testimonial.id}
-                  testimonial={testimonial}
-                  index={index}
-                />
+                  className="snap-start shrink-0 w-[82vw] sm:w-[44vw] lg:w-auto"
+                >
+                  <TestimonialCard testimonial={testimonial} index={index} />
+                </div>
               ))}
             </div>
           </div>

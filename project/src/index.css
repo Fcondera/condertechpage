@@ -1,6 +1,14 @@
+@import "swiper/css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Swiper progress bar — serviços */
+.services-progress .swiper-pagination-progressbar-fill {
+  background: #e22d2e;
+  border-radius: 999px;
+}
 
 @layer base {
   :root {
