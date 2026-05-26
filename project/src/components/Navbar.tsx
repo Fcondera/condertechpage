@@ -51,9 +51,9 @@ const Navbar = () => {
               aria-label="ConderTech Home"
             >
               <img
-                src="/image/navbar-01.svg"
+                src="/image/hero-lpg-01.png"
                 alt="ConderTech Logo"
-                className="h-12 sm:h-14 w-auto"
+                className="h-8 sm:h-9 w-auto"
               />
             </Link>
 
@@ -117,9 +117,9 @@ const Navbar = () => {
                     <img
                       src={`https://flagcdn.com/w40/${f.code}.png`}
                       alt={f.label}
-                      width={32}
-                      height={32}
-                      className="w-8 h-8 rounded-full object-cover ring-1 ring-gray-300"
+                      width={24}
+                      height={24}
+                      className="w-6 h-6 rounded-full object-cover ring-1 ring-gray-300"
                     />
                     <span className="hidden lg:inline font-inter text-xs font-medium text-[#444]">
                       {f.label}
@@ -153,7 +153,7 @@ const Navbar = () => {
             aria-label="ConderTech Home"
           >
             <img
-              src="/image/navbar-01.svg"
+              src="/image/hero-lpg-01.png"
               alt="ConderTech"
               className="h-7 w-auto"
             />
