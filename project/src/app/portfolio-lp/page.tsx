@@ -1,25 +1,47 @@
 "use client";
 
 import { motion } from "framer-motion";
+import type { LucideIcon } from "lucide-react";
 import {
+  Award,
   CheckCircle2,
+  Clock,
   ExternalLink,
   Star,
-  Users,
   Target,
-  Award,
-  Clock,
+  Users,
 } from "lucide-react";
 
+/* ─── Types ───────────────────────────────────────────────────────────────── */
+interface Project {
+  id: number;
+  name: string;
+  category: string;
+  description: string;
+  accentColor: string;
+  image: string;
+  link: string;
+}
+
+interface Testimonial {
+  id: number;
+  text: string;
+  name: string;
+}
+
+interface Feature {
+  Icon: LucideIcon;
+  label: string;
+}
+
 /* ─── PromoBanner ────────────────────────────────────────────────────────── */
-const PROMO_ITEMS = [
+const PROMO_ITEMS: string[] = [
   "Site completo por $97",
   "Hospedagem inclusa",
   "Oferta até 18 de julho",
 ];
 
 function PromoBanner() {
-  // 8 cópias garante loop contínuo sem gap em qualquer tamanho de tela
   const track = Array.from({ length: 8 }, () => PROMO_ITEMS).flat();
 
   return (
@@ -80,7 +102,7 @@ function PromoBanner() {
           }}
         />
 
-        {/* Track único — desktop e mobile */}
+        {/* Track único */}
         <div className="promo-track flex whitespace-nowrap items-center">
           {track.map((text, i) => {
             const parts = text.split(/(\$97|18 de julho)/g);
@@ -111,14 +133,14 @@ function PromoBanner() {
 const GRAIN_BG = `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`;
 
 /* ─── Dados ───────────────────────────────────────────────────────────────── */
-const FEATURES = [
+const FEATURES: Feature[] = [
   { Icon: Users, label: "Equipe Especializada" },
   { Icon: Target, label: "Foco em Resultados" },
   { Icon: Award, label: "Compromisso com Qualidade" },
   { Icon: Clock, label: "Entrega no Prazo" },
 ];
 
-const PROJECTS = [
+const PROJECTS: Project[] = [
   {
     id: 1,
     name: "Clínica Vitalis",
@@ -164,7 +186,7 @@ const PROJECTS = [
   },
 ];
 
-const TESTIMONIALS = [
+const TESTIMONIALS: Testimonial[] = [
   {
     id: 1,
     text: "Melhor decisão que tomamos. A landing page ficou bonita, rápida e realmente representa a nossa marca.",
@@ -188,7 +210,7 @@ const TESTIMONIALS = [
 ];
 
 /* ─── MonitorMockup ───────────────────────────────────────────────────────── */
-function MonitorMockup({ project }) {
+function MonitorMockup({ project }: { project: Project }) {
   return (
     <div className="flex flex-col items-center select-none w-full">
       {/* Tela + moldura */}
@@ -221,7 +243,7 @@ function MonitorMockup({ project }) {
 }
 
 /* ─── ProjectCard ─────────────────────────────────────────────────────────── */
-function ProjectCard({ project }) {
+function ProjectCard({ project }: { project: Project }) {
   return (
     <motion.article
       layout
@@ -256,7 +278,13 @@ function ProjectCard({ project }) {
 }
 
 /* ─── TestimonialCard ─────────────────────────────────────────────────────── */
-function TestimonialCard({ testimonial, index }) {
+function TestimonialCard({
+  testimonial,
+  index,
+}: {
+  testimonial: Testimonial;
+  index: number;
+}) {
   return (
     <motion.article
       initial={{ opacity: 0, y: 20 }}
@@ -413,7 +441,7 @@ export default function LandingPagesPortfolioPage() {
                 <span className="italic text-[#e22d2e]">Landing Pages</span>
               </h2>
               <p className="font-inter text-base font-light text-slate-500">
-                veja alguns dos site que nossa equipe desenvolveu para nossos
+                Veja alguns dos sites que nossa equipe desenvolveu para nossos
                 clientes.
               </p>
             </motion.div>
