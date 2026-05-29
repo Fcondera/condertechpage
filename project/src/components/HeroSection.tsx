@@ -34,7 +34,7 @@ const HeroSection = () => {
           {/* Right — image */}
           <div className="w-full lg:w-[45%] shrink-0">
             <img
-              src="/image/herolpg-01.png"
+              src="/image/hero01-lpgeral.jpeg"
               alt="Plataforma ConderTech"
               className="w-full h-auto max-h-[70vh] object-contain"
               loading="eager"
