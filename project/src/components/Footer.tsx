@@ -9,6 +9,8 @@ const CONTACT_INFO = {
 
 const FOOTER_LINKS = [
   { title: "Soluções", href: "/#servicos" },
+  { title: "Todas as soluções de tecnologia", href: "/solucoes-de-tecnologia" },
+  { title: "Cidades atendidas", href: "/cidades" },
   { title: "Termos de Uso", href: "/termos-de-uso" },
   { title: "Governança de Dados (LGPD)", href: "/governanca-de-dados" },
 ];
