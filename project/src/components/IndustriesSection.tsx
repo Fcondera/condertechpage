@@ -40,10 +40,10 @@ const CASES: CaseCard[] = [
   },
   {
     id: 2,
-    tag: "Inteligência Artificial",
-    title: "Motor de IA",
+    tag: "IA Personalizada",
+    title: "LLM/TAG",
     description:
-      "Aprendizado de máquina para análise preditiva, automação de decisões e processamento de linguagem natural.",
+      "Modelos de linguagem personalizados para tarefas específicas, como atendimento ao cliente, análise de dados e geração de conteúdo.",
     metric: "92%",
     metricLabel: "de precisão nos modelos",
     image:
@@ -52,9 +52,9 @@ const CASES: CaseCard[] = [
   {
     id: 3,
     tag: "Comércio Digital",
-    title: "Marketplace",
+    title: "E-commerce",
     description:
-      "Plataforma multi-vendor com gestão de vendedores, gateway de pagamento e controle de comissões em tempo real.",
+      "Plataforma de vendas online com integração de pagamentos, gestão de estoque e análise de comportamento do consumidor.",
     metric: "R$ 2M+",
     metricLabel: "em transações processadas",
     image:
@@ -62,7 +62,7 @@ const CASES: CaseCard[] = [
   },
   {
     id: 4,
-    tag: "Analytics",
+    tag: "Análise AI",
     title: "Dashboard Gerencial",
     description:
       "Central de KPIs com visualizações dinâmicas, alertas inteligentes e exportação de relatórios para diretoria.",
@@ -74,9 +74,9 @@ const CASES: CaseCard[] = [
   {
     id: 5,
     tag: "Processos",
-    title: "Automação RPA",
+    title: "Automação",
     description:
-      "Workflows inteligentes com RPA, integrações via API REST e gatilhos automáticos para processos críticos.",
+      "Automatização de fluxos de trabalho repetitivos, integração entre sistemas e redução de intervenção manual em processos críticos.",
     metric: "80%",
     metricLabel: "de tarefas automatizadas",
     image:
