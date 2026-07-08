@@ -1,7 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { useGsapReveal } from "@hooks/useGsapReveal";
+
+const SLIDE_DURATION = 4500;
 
 const showcases = [
   {
@@ -28,8 +33,25 @@ const showcases = [
 ];
 
 const LandingVisualSection = () => {
+  const [active, setActive] = useState(0);
   const titleRef = useGsapReveal<HTMLDivElement>();
   const cardsRef = useGsapReveal<HTMLDivElement>({ delay: 0.15, stagger: true });
+
+  useEffect(() => {
+    const timeout = window.setTimeout(() => {
+      setActive((current) => (current + 1) % showcases.length);
+    }, SLIDE_DURATION);
+
+    return () => window.clearTimeout(timeout);
+  }, [active]);
+
+  const goToPrevious = () => {
+    setActive((current) => (current - 1 + showcases.length) % showcases.length);
+  };
+
+  const goToNext = () => {
+    setActive((current) => (current + 1) % showcases.length);
+  };
 
   return (
     <section className="bg-[#f7f8fa] py-20 sm:py-28">
@@ -52,7 +74,90 @@ const LandingVisualSection = () => {
           </p>
         </div>
 
-        <div ref={cardsRef} className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div className="lg:hidden">
+          <div className="-mx-6 overflow-hidden px-6">
+            <div
+              className="flex transition-transform duration-500 ease-out"
+              style={{ transform: `translateX(-${active * 100}%)` }}
+            >
+              {showcases.map((item) => (
+                <div key={item.title} className="w-full shrink-0 pr-0">
+                  <Link
+                    href={item.href}
+                    className="group block overflow-hidden rounded-lg border border-slate-200 bg-white shadow-[0_18px_60px_rgba(15,23,42,0.10)]"
+                  >
+                    <div className="relative aspect-[4/3] overflow-hidden bg-white">
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        sizes="100vw"
+                        priority={active === showcases.indexOf(item)}
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <div className="mb-3 flex items-start justify-between gap-4">
+                        <h3 className="font-inter text-xl font-semibold text-[#383E42]">
+                          {item.title}
+                        </h3>
+                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-100 text-[#383E42]">
+                          <ArrowUpRight className="h-4 w-4" />
+                        </span>
+                      </div>
+                      <p className="font-inter text-sm leading-6 text-slate-600">
+                        {item.description}
+                      </p>
+                    </div>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-6 flex items-center gap-3">
+            {showcases.map((item, index) => (
+              <button
+                key={item.title}
+                onClick={() => setActive(index)}
+                aria-label={`Ver ${item.title}`}
+                className="h-1.5 flex-1 overflow-hidden rounded-full bg-slate-200"
+              >
+                <span
+                  key={active === index ? `active-${active}` : `idle-${index}`}
+                  className={`block h-full rounded-full bg-[#e22d2e] ${
+                    active === index ? "animate-[carouselProgress_4.5s_linear]" : ""
+                  }`}
+                  style={{ width: active > index ? "100%" : active === index ? "100%" : "0%" }}
+                />
+              </button>
+            ))}
+          </div>
+
+          <div className="mt-6 flex items-center justify-between">
+            <button
+              type="button"
+              onClick={goToPrevious}
+              aria-label="Imagem anterior"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-[#383E42]"
+            >
+              <ArrowLeft className="h-4 w-4" />
+            </button>
+            <span className="font-inter text-xs font-semibold uppercase tracking-widest text-slate-500">
+              {String(active + 1).padStart(2, "0")} / {String(showcases.length).padStart(2, "0")}
+            </span>
+            <button
+              type="button"
+              onClick={goToNext}
+              aria-label="Proxima imagem"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-[#383E42]"
+            >
+              <ArrowRight className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
+
+        <div ref={cardsRef} className="hidden grid-cols-3 gap-6 lg:grid">
           {showcases.map((item) => (
             <Link
               key={item.title}
@@ -85,6 +190,17 @@ const LandingVisualSection = () => {
           ))}
         </div>
       </div>
+
+      <style jsx global>{`
+        @keyframes carouselProgress {
+          from {
+            transform: translateX(-100%);
+          }
+          to {
+            transform: translateX(0);
+          }
+        }
+      `}</style>
     </section>
   );
 };
