@@ -65,11 +65,11 @@ const LandingVisualSection = () => {
   }, [active]);
 
   return (
-    <section className="bg-white py-16 sm:py-28">
+    <section className="bg-white py-14 sm:py-20">
       <div className="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
         <div
           ref={titleRef}
-          className="mb-8 lg:mb-12 lg:grid lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:gap-10"
+          className="mb-6 lg:mb-8 lg:grid lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:gap-10"
         >
           <div>
             <h2 className="max-w-[12ch] font-inter text-[28px] font-normal leading-[1.08] text-[#1f2f3d] sm:text-4xl lg:text-5xl">
@@ -91,12 +91,12 @@ const LandingVisualSection = () => {
             {showcases.map((item, index) => (
               <div key={item.title} className="w-full shrink-0">
                 <Link href={item.href} className="block">
-                  <div className="relative mx-auto mt-4 aspect-[4/3] w-full max-w-[340px] overflow-hidden bg-white sm:max-w-[720px] lg:max-w-[1040px] xl:max-w-[1120px]">
+                  <div className="relative mx-auto mt-2 aspect-[4/3] w-full max-w-[330px] overflow-hidden bg-white sm:max-w-[560px] lg:max-w-[720px] xl:max-w-[760px]">
                     <Image
                       src={item.image}
                       alt={item.title}
                       fill
-                      sizes="(min-width: 1280px) 1120px, (min-width: 1024px) 1040px, (min-width: 640px) 720px, 100vw"
+                      sizes="(min-width: 1280px) 760px, (min-width: 1024px) 720px, (min-width: 640px) 560px, 100vw"
                       priority={active === index}
                       className="object-contain"
                     />
