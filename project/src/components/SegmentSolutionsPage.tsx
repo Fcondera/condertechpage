@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
@@ -13,7 +13,7 @@ import {
   ShoppingBag,
 } from "lucide-react";
 
-type MobileMode = "carousel" | "stack";
+const SLIDE_DURATION = 4500;
 
 const services = [
   {
@@ -68,14 +68,16 @@ function getCardStyle(index: number, active: number) {
   };
 }
 
-export function SegmentSolutionsSection({
-  mobileMode = "carousel",
-  page = false,
-}: {
-  mobileMode?: MobileMode;
-  page?: boolean;
-}) {
+export function SegmentSolutionsSection() {
   const [active, setActive] = useState(1);
+
+  useEffect(() => {
+    const timeout = window.setTimeout(() => {
+      setActive((current) => (current + 1) % services.length);
+    }, SLIDE_DURATION);
+
+    return () => window.clearTimeout(timeout);
+  }, [active]);
 
   const prev = useCallback(() => {
     setActive((current) => (current - 1 + services.length) % services.length);
@@ -88,11 +90,7 @@ export function SegmentSolutionsSection({
   return (
     <section
       id="segmentos"
-      className={`relative overflow-hidden bg-[#383E42] text-white ${
-        page
-          ? "flex min-h-[calc(100vh-6rem)] items-center py-10 sm:py-16"
-          : "py-20 sm:py-28"
-      }`}
+      className="relative overflow-hidden bg-[#383E42] py-20 text-white sm:py-28"
     >
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.06]"
@@ -168,100 +166,82 @@ export function SegmentSolutionsSection({
           })}
         </div>
 
-        {mobileMode === "carousel" ? (
-          <div className="md:hidden">
-            <div className="-mx-5 overflow-hidden px-5">
-              <div
-                className="flex transition-transform duration-500 ease-out"
-                style={{ transform: `translateX(calc(50% - ${(active + 0.5) * 190}px))` }}
-              >
-                {services.map((service, index) => {
-                  const Icon = service.icon;
-                  const isActive = index === active;
+        <div className="md:hidden">
+          <div className="-mx-5 overflow-hidden px-5">
+            <div
+              className="flex transition-transform duration-500 ease-out"
+              style={{ transform: `translateX(calc(50% - ${(active + 0.5) * 190}px))` }}
+            >
+              {services.map((service, index) => {
+                const Icon = service.icon;
+                const isActive = index === active;
 
-                  return (
-                    <div
-                      key={service.title}
-                      className={`w-[190px] shrink-0 px-2 transition-all duration-500 ${
-                        isActive ? "scale-100 opacity-100" : "scale-90 opacity-45"
-                      }`}
-                    >
-                      <Link
-                        href={service.href}
-                        className="relative block min-h-[150px] rounded-lg bg-white px-4 py-6 text-center shadow-[0_20px_60px_rgba(0,0,0,0.35)]"
-                      >
-                        {isActive && (
-                          <span className="absolute left-6 right-6 top-0 h-[2px] rounded-full bg-[#e22d2e]" />
-                        )}
-                        <span className="mx-auto mb-4 flex h-9 w-9 items-center justify-center text-[#e22d2e]">
-                          <Icon className="h-7 w-7" strokeWidth={1.6} />
-                        </span>
-                        <h2 className="mb-2 font-inter text-sm font-semibold text-[#383E42]">
-                          {service.title}
-                        </h2>
-                        <p className="font-inter text-[10px] leading-4 text-slate-500">
-                          {service.description}
-                        </p>
-                      </Link>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            <div className="mt-10 flex items-center justify-center gap-5">
-              <button
-                onClick={prev}
-                aria-label="Anterior"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white/60"
-              >
-                <ArrowLeft className="h-3.5 w-3.5" />
-              </button>
-              <div className="flex items-center gap-2">
-                {services.map((service, index) => (
-                  <button
+                return (
+                  <div
                     key={service.title}
-                    onClick={() => setActive(index)}
-                    aria-label={`Ir para ${service.title}`}
-                    className={`rounded-full transition-all duration-300 ${
-                      index === active ? "h-2 w-5 bg-[#e22d2e]" : "h-2 w-2 bg-white/30"
+                    className={`w-[190px] shrink-0 px-2 transition-all duration-500 ${
+                      isActive ? "scale-100 opacity-100" : "scale-90 opacity-45"
                     }`}
-                  />
-                ))}
-              </div>
-              <button
-                onClick={next}
-                aria-label="Proximo"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white/60"
-              >
-                <ArrowRight className="h-3.5 w-3.5" />
-              </button>
+                  >
+                    <Link
+                      href={service.href}
+                      className="relative block min-h-[150px] rounded-lg bg-white px-4 py-6 text-center shadow-[0_20px_60px_rgba(0,0,0,0.35)]"
+                    >
+                      {isActive && (
+                        <span className="absolute left-6 right-6 top-0 h-[2px] rounded-full bg-[#e22d2e]" />
+                      )}
+                      <span className="mx-auto mb-4 flex h-9 w-9 items-center justify-center text-[#e22d2e]">
+                        <Icon className="h-7 w-7" strokeWidth={1.6} />
+                      </span>
+                      <h2 className="mb-2 font-inter text-sm font-semibold text-[#383E42]">
+                        {service.title}
+                      </h2>
+                      <p className="font-inter text-[10px] leading-4 text-slate-500">
+                        {service.description}
+                      </p>
+                    </Link>
+                  </div>
+                );
+              })}
             </div>
           </div>
-        ) : (
-          <div className="mx-auto grid max-w-[260px] grid-cols-1 gap-3 md:hidden">
-            {services.map((service) => {
-              const Icon = service.icon;
-              return (
-                <Link
+
+          <div className="mt-8 flex items-center justify-center gap-4">
+            <button
+              onClick={prev}
+              aria-label="Anterior"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white/60"
+            >
+              <ArrowLeft className="h-3.5 w-3.5" />
+            </button>
+            <div className="flex items-center gap-2">
+              {services.map((service, index) => (
+                <button
                   key={service.title}
-                  href={service.href}
-                  className="rounded-lg bg-white px-5 py-6 text-center shadow-[0_18px_50px_rgba(0,0,0,0.22)]"
+                  onClick={() => setActive(index)}
+                  aria-label={`Ir para ${service.title}`}
+                  className="h-2 overflow-hidden rounded-full bg-white/30 transition-all duration-300"
+                  style={{ width: index === active ? 24 : 8 }}
                 >
-                  <span className="mx-auto mb-4 flex h-9 w-9 items-center justify-center text-[#e22d2e]">
-                    <Icon className="h-7 w-7" strokeWidth={1.6} />
-                  </span>
-                  <h2 className="mb-2 font-inter text-sm font-semibold text-[#383E42]">
-                    {service.title}
-                  </h2>
-                  <p className="font-inter text-[10px] leading-4 text-slate-500">
-                    {service.description}
-                  </p>
-                </Link>
-              );
-            })}
+                  <span
+                    key={index === active ? `segment-progress-${active}` : `segment-idle-${index}`}
+                    className={`block h-full rounded-full bg-[#e22d2e] ${
+                      index === active ? "animate-[segmentProgress_4.5s_linear]" : ""
+                    }`}
+                    style={{ width: index === active ? "100%" : "0%" }}
+                  />
+                </button>
+              ))}
+            </div>
+            <button
+              onClick={next}
+              aria-label="Proximo"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white/60"
+            >
+              <ArrowRight className="h-3.5 w-3.5" />
+            </button>
           </div>
-        )}
+        </div>
 
         <div className="mt-10 hidden items-center justify-center gap-8 md:flex">
           <button
@@ -294,16 +274,18 @@ export function SegmentSolutionsSection({
           </button>
         </div>
       </div>
+      <style jsx global>{`
+        @keyframes segmentProgress {
+          from {
+            transform: translateX(-100%);
+          }
+          to {
+            transform: translateX(0);
+          }
+        }
+      `}</style>
     </section>
   );
 }
 
-const SegmentSolutionsPage = () => {
-  return (
-    <main className="min-h-screen overflow-hidden bg-[#383E42] pt-24 text-white">
-      <SegmentSolutionsSection page mobileMode="carousel" />
-    </main>
-  );
-};
-
-export default SegmentSolutionsPage;
+export default SegmentSolutionsSection;

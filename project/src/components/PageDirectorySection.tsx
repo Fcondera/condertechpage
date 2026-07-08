@@ -4,11 +4,6 @@ import { useGsapReveal } from "@hooks/useGsapReveal";
 
 const pages = [
   {
-    title: "Segmentos",
-    description: "Carrossel de solucoes especializadas para cada tipo de operacao.",
-    href: "/segmentos",
-  },
-  {
     title: "E-commerce",
     description: "Loja virtual moderna, escalavel e preparada para vender.",
     href: "/ecommerce",

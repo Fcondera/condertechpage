@@ -16,7 +16,7 @@ export default function HomePage() {
   return (
     <div className="bg-white">
       <HeroSection />
-      <SegmentSolutionsSection mobileMode="stack" />
+      <SegmentSolutionsSection />
       <WhySection />
       <ValueSection />
       <LandingVisualSection />
