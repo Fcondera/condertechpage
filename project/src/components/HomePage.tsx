@@ -9,6 +9,7 @@ import PageDirectorySection from "@components/PageDirectorySection";
 import PhilosophySection from "@components/PhilosophySection";
 import ProcessSection from "@components/ProcessSection";
 import ReliabilitySection from "@components/ReliabilitySection";
+import { SegmentSolutionsSection } from "@components/SegmentSolutionsPage";
 import ValueSection from "@components/ValueSection";
 import WhySection from "@components/WhySection";
 
@@ -16,6 +17,7 @@ export default function HomePage() {
   return (
     <div className="bg-white">
       <HeroSection />
+      <SegmentSolutionsSection mobileMode="stack" />
       <WhySection />
       <ValueSection />
       <LandingVisualSection />
