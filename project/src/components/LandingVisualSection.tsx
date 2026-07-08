@@ -30,6 +30,27 @@ const showcases = [
     image: "/image/lp-04.jpeg",
     href: "/sistemainterno",
   },
+  {
+    title: "Identidade e acesso protegidos",
+    description:
+      "Camadas de seguranca para usuarios, permissoes e informacoes sensiveis em ambientes digitais.",
+    image: "/image/lp-05.jpeg",
+    href: "/governanca-de-dados",
+  },
+  {
+    title: "Operacao sempre disponivel",
+    description:
+      "Infraestrutura monitorada para reduzir paradas, antecipar falhas e manter servicos criticos no ar.",
+    image: "/image/lp-06.jpeg",
+    href: "/solucoes-de-tecnologia",
+  },
+  {
+    title: "Arquitetura pronta para crescer",
+    description:
+      "Bases escalaveis, integracoes e dados organizados para acompanhar novas demandas do negocio.",
+    image: "/image/lp-07.jpeg",
+    href: "/solucoes-de-tecnologia",
+  },
 ];
 
 const LandingVisualSection = () => {
