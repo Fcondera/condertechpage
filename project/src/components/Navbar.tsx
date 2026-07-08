@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { useLanguage, type Lang } from "@/contexts/LanguageContext";
 
 const FLAGS: { lang: Lang; code: string; label: string }[] = [
@@ -13,7 +13,24 @@ const FLAGS: { lang: Lang; code: string; label: string }[] = [
 
 const Navbar = () => {
   const { lang, setLang, t } = useLanguage();
+  const [productsOpen, setProductsOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const productsRef = useRef<HTMLDivElement>(null);
+
+  // Close products dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        productsRef.current &&
+        !productsRef.current.contains(e.target as Node)
+      ) {
+        setProductsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const navLinks = [
     { label: t.nav.sobre, href: "/sobre" },
@@ -42,7 +59,35 @@ const Navbar = () => {
 
             {/* Desktop items */}
             <div className="flex items-center gap-7">
-              {/* Links */}
+              {/* Produtos dropdown */}
+              <div ref={productsRef} className="relative">
+                <button
+                  onClick={() => setProductsOpen((v) => !v)}
+                  className="flex items-center gap-1 font-inter text-sm font-medium text-[#252525] transition-colors duration-200 hover:text-[#e22d2e]"
+                  aria-expanded={productsOpen}
+                >
+                  {t.nav.produtos}
+                  <ChevronDown
+                    className={`w-3.5 h-3.5 transition-transform duration-200 ${productsOpen ? "rotate-180" : ""}`}
+                  />
+                </button>
+                {productsOpen && (
+                  <div className="absolute top-full left-0 mt-3 w-56 bg-white border border-[#e5e5e5] shadow-lg">
+                    {t.nav.items.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setProductsOpen(false)}
+                        className="block px-5 py-3 font-inter text-sm text-[#252525] hover:text-[#e22d2e] hover:bg-[#fafafa] transition-colors"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Other links */}
               {navLinks.map((link) => (
                 <a
                   key={link.href}
@@ -160,6 +205,33 @@ const Navbar = () => {
             role="navigation"
           >
             <div className="px-5 py-4">
+              {/* Produtos accordion */}
+              <div>
+                <button
+                  onClick={() => setMobileProductsOpen((v) => !v)}
+                  className="flex w-full items-center justify-between py-3 font-inter text-sm font-medium text-white border-b border-white/10"
+                >
+                  {t.nav.produtos}
+                  <ChevronDown
+                    className={`w-4 h-4 text-white/50 transition-transform duration-200 ${mobileProductsOpen ? "rotate-180" : ""}`}
+                  />
+                </button>
+                {mobileProductsOpen && (
+                  <div className="pl-4 border-b border-white/10">
+                    {t.nav.items.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setMobileOpen(false)}
+                        className="block py-2.5 font-inter text-sm text-white/60 hover:text-white transition-colors"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
               {navLinks.map((link) => (
                 <a
                   key={link.href}

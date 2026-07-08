@@ -1,25 +1,25 @@
 "use client";
 
+import AboutSection from "@components/AboutSection";
 import ContactSection from "@components/ContactSection";
-import DeliverySection from "@components/DeliverySection";
 import FAQSection from "@components/FAQSection";
 import HeroSection from "@components/HeroSection";
-import PhilosophySection from "@components/PhilosophySection";
+import IndustriesSection from "@components/IndustriesSection";
 import ProcessSection from "@components/ProcessSection";
-import ReliabilitySection from "@components/ReliabilitySection";
-import ValueSection from "@components/ValueSection";
-import WhySection from "@components/WhySection";
+import ServicesSection from "@components/ServicesSection";
+import ServicesCarousel3D from "@components/ServicesCarousel3D";
+import WhyChooseSection from "@components/WhyChooseSection";
 
 export default function HomePage() {
   return (
     <div className="bg-white">
       <HeroSection />
-      <WhySection />
-      <ValueSection />
-      <ReliabilitySection />
+      <ServicesCarousel3D />
+      <ServicesSection />
+      <WhyChooseSection />
+      <AboutSection />
       <ProcessSection />
-      <DeliverySection />
-      <PhilosophySection />
+      <IndustriesSection />
       <FAQSection />
       <ContactSection />
     </div>
