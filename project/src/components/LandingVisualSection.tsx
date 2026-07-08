@@ -3,51 +3,50 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ArrowUpRight } from "lucide-react";
 import { useGsapReveal } from "@hooks/useGsapReveal";
 
 const SLIDE_DURATION = 4500;
 
 const showcases = [
   {
-    title: "Seguranca operacional",
+    title: "Proteção total da sua empresa",
     description:
-      "Ambientes digitais com controle, rastreabilidade e protecao para dados, acessos e processos criticos.",
+      "Blindamos os dados do seu negócio, controlamos quem acessa o quê e garantimos que informações confidenciais fiquem trancadas a sete chaves.",
     image: "/image/lp-02.jpeg",
     href: "/governanca-de-dados",
   },
   {
-    title: "Crescimento com inteligencia",
+    title: "Decisões rápidas e automáticas",
     description:
-      "Indicadores, automacoes e IA aplicada para transformar dados em decisoes mais rapidas e previsiveis.",
+      "Transformamos seus dados de vendas e custos em relatórios automáticos. Chega de perder tempo preenchendo planilhas manualmente.",
     image: "/image/lp-03.jpeg",
     href: "/solucoes-de-tecnologia",
   },
   {
-    title: "Times e sistemas conectados",
+    title: "Sua equipe em total sintonia",
     description:
-      "Desenvolvimento sob medida para organizar operacoes, integrar equipes e reduzir gargalos do dia a dia.",
+      "Criamos ferramentas sob medida que conectam seus departamentos, eliminando erros de comunicação e os gargalos do dia a dia.",
     image: "/image/lp-04.jpeg",
     href: "/sistemainterno",
   },
   {
-    title: "Identidade e acesso protegidos",
+    title: "Acesso seguro de qualquer lugar",
     description:
-      "Camadas de seguranca para usuarios, permissoes e informacoes sensiveis em ambientes digitais.",
+      "Seus funcionários acessam o que precisam com segurança e permissões controladas, sem expor a empresa a riscos ou vazamentos.",
     image: "/image/lp-05.jpeg",
     href: "/governanca-de-dados",
   },
   {
-    title: "Operacao sempre disponivel",
+    title: "Seu sistema sempre funcionando",
     description:
-      "Infraestrutura monitorada para reduzir paradas, antecipar falhas e manter servicos criticos no ar.",
+      "Cuidamos da estrutura para que o seu sistema nunca caia, antecipando falhas antes que elas atrapalhem as suas vendas ou sua operação.",
     image: "/image/lp-06.jpeg",
     href: "/solucoes-de-tecnologia",
   },
   {
-    title: "Arquitetura pronta para crescer",
+    title: "Tecnologia pronta para o crescimento",
     description:
-      "Bases escalaveis, integracoes e dados organizados para acompanhar novas demandas do negocio.",
+      "Construímos sistemas que acompanham o ritmo do seu negócio. Sua empresa pode dobrar de tamanho e a tecnologia vai aguentar o tranco.",
     image: "/image/lp-07.jpeg",
     href: "/solucoes-de-tecnologia",
   },
@@ -56,7 +55,6 @@ const showcases = [
 const LandingVisualSection = () => {
   const [active, setActive] = useState(0);
   const titleRef = useGsapReveal<HTMLDivElement>();
-  const cardsRef = useGsapReveal<HTMLDivElement>({ delay: 0.15, stagger: true });
 
   useEffect(() => {
     const timeout = window.setTimeout(() => {
@@ -67,101 +65,74 @@ const LandingVisualSection = () => {
   }, [active]);
 
   return (
-    <section className="bg-white py-16 sm:py-28 lg:bg-[#f7f8fa]">
+    <section className="bg-white py-16 sm:py-28">
       <div className="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
         <div
           ref={titleRef}
-          className="mb-10 lg:mb-12 lg:grid lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:gap-6"
+          className="mb-8 lg:mb-12 lg:grid lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:gap-10"
         >
           <div>
-            <span className="mb-4 hidden font-inter text-xs font-semibold uppercase tracking-widest text-[#e22d2e] lg:block">
-              Experiencias digitais
-            </span>
-            <h2 className="hidden font-inter text-3xl font-medium leading-tight text-[#383E42] sm:text-4xl lg:block lg:text-5xl">
-              Solucoes visuais para operacoes que precisam evoluir.
-            </h2>
-            <h2 className="max-w-[12ch] font-inter text-[28px] font-normal leading-[1.08] text-[#1f2f3d] lg:hidden">
+            <h2 className="max-w-[12ch] font-inter text-[28px] font-normal leading-[1.08] text-[#1f2f3d] sm:text-4xl lg:text-5xl">
               Engenharia aplicada a operacoes que exigem{" "}
               <span className="italic text-[#e22d2e]">escala.</span>
             </h2>
           </div>
-          <p className="hidden max-w-2xl font-inter text-base leading-8 text-slate-600 lg:ml-auto lg:block">
+          <p className="mt-6 max-w-2xl font-inter text-sm leading-7 text-slate-600 sm:text-base lg:ml-auto lg:mt-0 lg:leading-8">
             Unimos estrategia, produto e engenharia para construir experiencias
             digitais mais claras, seguras e preparadas para crescimento.
           </p>
         </div>
 
-        <div className="lg:hidden">
-          <div className="overflow-hidden">
-            <div
-              className="flex transition-transform duration-500 ease-out"
-              style={{ transform: `translateX(-${active * 100}%)` }}
-            >
-              {showcases.map((item, index) => (
-                <div key={item.title} className="w-full shrink-0 pr-0">
-                  <Link
-                    href={item.href}
-                    className="block"
-                  >
-                    <div className="relative mx-auto mt-8 aspect-[4/3] w-full max-w-[330px] overflow-hidden bg-white">
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        fill
-                        sizes="100vw"
-                        priority={active === index}
-                        className="object-contain"
-                      />
-                    </div>
-                    <div className="mx-auto mt-2 max-w-[300px]">
-                      <p className="font-inter text-[11px] leading-5 text-slate-500">
-                        {item.description}
-                      </p>
-                    </div>
-                  </Link>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="mx-auto mt-5 h-px w-[190px] overflow-hidden bg-slate-200">
-            <span
-              key={`mobile-progress-${active}`}
-              className="block h-full w-full bg-[#e22d2e] animate-[carouselProgress_4.5s_linear]"
-            />
+        <div className="overflow-hidden">
+          <div
+            className="flex transition-transform duration-500 ease-out"
+            style={{ transform: `translateX(-${active * 100}%)` }}
+          >
+            {showcases.map((item, index) => (
+              <div key={item.title} className="w-full shrink-0">
+                <Link href={item.href} className="block">
+                  <div className="relative mx-auto mt-4 aspect-[4/3] w-full max-w-[330px] overflow-hidden bg-white sm:max-w-[620px] lg:max-w-[820px]">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      sizes="(min-width: 1024px) 820px, (min-width: 640px) 620px, 100vw"
+                      priority={active === index}
+                      className="object-contain"
+                    />
+                  </div>
+                  <div className="mx-auto mt-3 max-w-[300px] text-left sm:max-w-xl lg:max-w-2xl lg:text-center">
+                    <h3 className="font-inter text-base font-semibold leading-snug text-[#1f2f3d] sm:text-xl lg:text-2xl">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 font-inter text-[11px] leading-5 text-slate-500 sm:text-sm sm:leading-6">
+                      {item.description}
+                    </p>
+                  </div>
+                </Link>
+              </div>
+            ))}
           </div>
         </div>
 
-        <div ref={cardsRef} className="hidden grid-cols-3 gap-6 lg:grid">
-          {showcases.map((item) => (
-            <Link
+        <div className="mx-auto mt-6 h-px w-[190px] overflow-hidden bg-slate-200 sm:w-[260px]">
+          <span
+            key={`visual-progress-${active}`}
+            className="block h-full w-full bg-[#e22d2e] animate-[carouselProgress_4.5s_linear]"
+          />
+        </div>
+
+        <div className="mt-4 flex items-center justify-center gap-2">
+          {showcases.map((item, index) => (
+            <button
               key={item.title}
-              href={item.href}
-              className="group overflow-hidden rounded-lg border border-slate-200 bg-white shadow-[0_18px_60px_rgba(15,23,42,0.08)] transition-all duration-200 hover:-translate-y-1 hover:border-[#e22d2e]/40"
-            >
-              <div className="relative aspect-[4/3] overflow-hidden bg-white">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  sizes="(min-width: 1024px) 33vw, 100vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-6">
-                <div className="mb-3 flex items-start justify-between gap-4">
-                  <h3 className="font-inter text-xl font-semibold text-[#383E42]">
-                    {item.title}
-                  </h3>
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-100 text-[#383E42] transition-colors group-hover:bg-[#e22d2e] group-hover:text-white">
-                    <ArrowUpRight className="h-4 w-4" />
-                  </span>
-                </div>
-                <p className="font-inter text-sm leading-6 text-slate-600">
-                  {item.description}
-                </p>
-              </div>
-            </Link>
+              type="button"
+              onClick={() => setActive(index)}
+              aria-label={`Ver ${item.title}`}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                active === index ? "w-6 bg-[#e22d2e]" : "w-1.5 bg-slate-300"
+              }`}
+            />
           ))}
         </div>
       </div>
