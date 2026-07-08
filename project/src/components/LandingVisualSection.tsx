@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { useGsapReveal } from "@hooks/useGsapReveal";
 
 const SLIDE_DURATION = 4500;
@@ -45,67 +45,55 @@ const LandingVisualSection = () => {
     return () => window.clearTimeout(timeout);
   }, [active]);
 
-  const goToPrevious = () => {
-    setActive((current) => (current - 1 + showcases.length) % showcases.length);
-  };
-
-  const goToNext = () => {
-    setActive((current) => (current + 1) % showcases.length);
-  };
-
   return (
-    <section className="bg-[#f7f8fa] py-20 sm:py-28">
+    <section className="bg-white py-16 sm:py-28 lg:bg-[#f7f8fa]">
       <div className="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
         <div
           ref={titleRef}
-          className="mb-12 grid grid-cols-1 gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end"
+          className="mb-10 lg:mb-12 lg:grid lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:gap-6"
         >
           <div>
-            <span className="mb-4 block font-inter text-xs font-semibold uppercase tracking-widest text-[#e22d2e]">
+            <span className="mb-4 hidden font-inter text-xs font-semibold uppercase tracking-widest text-[#e22d2e] lg:block">
               Experiencias digitais
             </span>
-            <h2 className="font-inter text-3xl font-medium leading-tight text-[#383E42] sm:text-4xl lg:text-5xl">
+            <h2 className="hidden font-inter text-3xl font-medium leading-tight text-[#383E42] sm:text-4xl lg:block lg:text-5xl">
               Solucoes visuais para operacoes que precisam evoluir.
             </h2>
+            <h2 className="max-w-[12ch] font-inter text-[28px] font-normal leading-[1.08] text-[#1f2f3d] lg:hidden">
+              Engenharia aplicada a operacoes que exigem{" "}
+              <span className="italic text-[#e22d2e]">escala.</span>
+            </h2>
           </div>
-          <p className="max-w-2xl font-inter text-base leading-8 text-slate-600 lg:ml-auto">
+          <p className="hidden max-w-2xl font-inter text-base leading-8 text-slate-600 lg:ml-auto lg:block">
             Unimos estrategia, produto e engenharia para construir experiencias
             digitais mais claras, seguras e preparadas para crescimento.
           </p>
         </div>
 
         <div className="lg:hidden">
-          <div className="-mx-6 overflow-hidden px-6">
+          <div className="overflow-hidden">
             <div
               className="flex transition-transform duration-500 ease-out"
               style={{ transform: `translateX(-${active * 100}%)` }}
             >
-              {showcases.map((item) => (
+              {showcases.map((item, index) => (
                 <div key={item.title} className="w-full shrink-0 pr-0">
                   <Link
                     href={item.href}
-                    className="group block overflow-hidden rounded-lg border border-slate-200 bg-white shadow-[0_18px_60px_rgba(15,23,42,0.10)]"
+                    className="block"
                   >
-                    <div className="relative aspect-[4/3] overflow-hidden bg-white">
+                    <div className="relative mx-auto mt-8 aspect-[4/3] w-full max-w-[330px] overflow-hidden bg-white">
                       <Image
                         src={item.image}
                         alt={item.title}
                         fill
                         sizes="100vw"
-                        priority={active === showcases.indexOf(item)}
-                        className="object-cover"
+                        priority={active === index}
+                        className="object-contain"
                       />
                     </div>
-                    <div className="p-6">
-                      <div className="mb-3 flex items-start justify-between gap-4">
-                        <h3 className="font-inter text-xl font-semibold text-[#383E42]">
-                          {item.title}
-                        </h3>
-                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-100 text-[#383E42]">
-                          <ArrowUpRight className="h-4 w-4" />
-                        </span>
-                      </div>
-                      <p className="font-inter text-sm leading-6 text-slate-600">
+                    <div className="mx-auto mt-2 max-w-[300px]">
+                      <p className="font-inter text-[11px] leading-5 text-slate-500">
                         {item.description}
                       </p>
                     </div>
@@ -115,45 +103,11 @@ const LandingVisualSection = () => {
             </div>
           </div>
 
-          <div className="mt-6 flex items-center gap-3">
-            {showcases.map((item, index) => (
-              <button
-                key={item.title}
-                onClick={() => setActive(index)}
-                aria-label={`Ver ${item.title}`}
-                className="h-1.5 flex-1 overflow-hidden rounded-full bg-slate-200"
-              >
-                <span
-                  key={active === index ? `active-${active}` : `idle-${index}`}
-                  className={`block h-full rounded-full bg-[#e22d2e] ${
-                    active === index ? "animate-[carouselProgress_4.5s_linear]" : ""
-                  }`}
-                  style={{ width: active > index ? "100%" : active === index ? "100%" : "0%" }}
-                />
-              </button>
-            ))}
-          </div>
-
-          <div className="mt-6 flex items-center justify-between">
-            <button
-              type="button"
-              onClick={goToPrevious}
-              aria-label="Imagem anterior"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-[#383E42]"
-            >
-              <ArrowLeft className="h-4 w-4" />
-            </button>
-            <span className="font-inter text-xs font-semibold uppercase tracking-widest text-slate-500">
-              {String(active + 1).padStart(2, "0")} / {String(showcases.length).padStart(2, "0")}
-            </span>
-            <button
-              type="button"
-              onClick={goToNext}
-              aria-label="Proxima imagem"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-[#383E42]"
-            >
-              <ArrowRight className="h-4 w-4" />
-            </button>
+          <div className="mx-auto mt-5 h-px w-[190px] overflow-hidden bg-slate-200">
+            <span
+              key={`mobile-progress-${active}`}
+              className="block h-full w-full bg-[#e22d2e] animate-[carouselProgress_4.5s_linear]"
+            />
           </div>
         </div>
 
