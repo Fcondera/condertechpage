@@ -4,6 +4,7 @@ import ContactSection from "@components/ContactSection";
 import DeliverySection from "@components/DeliverySection";
 import FAQSection from "@components/FAQSection";
 import HeroSection from "@components/HeroSection";
+import PageDirectorySection from "@components/PageDirectorySection";
 import PhilosophySection from "@components/PhilosophySection";
 import ProcessSection from "@components/ProcessSection";
 import ReliabilitySection from "@components/ReliabilitySection";
@@ -16,6 +17,7 @@ export default function HomePage() {
       <HeroSection />
       <WhySection />
       <ValueSection />
+      <PageDirectorySection />
       <ReliabilitySection />
       <ProcessSection />
       <DeliverySection />

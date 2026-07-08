@@ -16,6 +16,7 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navLinks = [
+    { label: "Paginas", href: "/#paginas" },
     { label: t.nav.sobre, href: "/sobre" },
     { label: t.nav.faq, href: "/#faq" },
     { label: t.nav.contato, href: "/#contato" },
