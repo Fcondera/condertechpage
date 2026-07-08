@@ -14,13 +14,13 @@ const ProcessSection = () => {
       <div className="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <div ref={titleRef} className="mb-16 pb-10">
+          <span className="mb-4 block font-inter text-xs font-semibold uppercase tracking-widest text-[#e22d2e]">
+            {t.process.eyebrow}
+          </span>
           <h2 className="max-w-[22ch] font-inter text-3xl font-medium leading-tight text-[#383E42] sm:text-4xl lg:text-5xl">
             {t.process.headline1}{" "}
             <span className="italic text-[#e22d2e]">{t.process.accent}</span>
           </h2>
-          <p className="mt-5 max-w-2xl font-inter text-base font-light leading-relaxed text-slate-600 sm:text-lg">
-            {t.process.sub}
-          </p>
         </div>
 
         {/* Steps list */}
@@ -28,7 +28,7 @@ const ProcessSection = () => {
           {t.process.steps.map((step) => (
             <div
               key={step.number}
-              className="grid grid-cols-1 gap-6 py-10 lg:grid-cols-[80px_1fr_260px] lg:gap-12 lg:items-start"
+              className="grid grid-cols-1 gap-4 border-t border-slate-100 py-10 lg:grid-cols-[80px_1fr] lg:gap-12 lg:items-start"
             >
               {/* Number */}
               <span className="font-inter text-sm font-bold text-[#e22d2e] tracking-widest">
@@ -40,27 +40,9 @@ const ProcessSection = () => {
                 <h3 className="mb-3 font-inter text-xl font-medium text-[#383E42] sm:text-2xl">
                   {step.title}
                 </h3>
-                <p className="font-inter text-sm font-light leading-relaxed text-slate-600 sm:text-base">
+                <p className="max-w-2xl font-inter text-sm font-light leading-relaxed text-slate-600 sm:text-base">
                   {step.description}
                 </p>
-              </div>
-
-              {/* Deliverables */}
-              <div>
-                <p className="mb-3 font-inter text-xs font-semibold uppercase tracking-widest text-slate-600">
-                  {t.process.deliveries}
-                </p>
-                <ul className="space-y-2">
-                  {step.deliverables.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-center gap-2 font-inter text-sm text-slate-600"
-                    >
-                      <span className="h-1.5 w-1.5 flex-shrink-0 bg-[#e22d2e]" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
               </div>
             </div>
           ))}
