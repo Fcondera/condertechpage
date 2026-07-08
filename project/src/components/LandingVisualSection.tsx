@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useGsapReveal } from "@hooks/useGsapReveal";
 
-const SLIDE_DURATION = 4500;
+const SLIDE_DURATION = 2000;
 
 const showcases = [
   {
@@ -91,12 +91,12 @@ const LandingVisualSection = () => {
             {showcases.map((item, index) => (
               <div key={item.title} className="w-full shrink-0">
                 <Link href={item.href} className="block">
-                  <div className="relative mx-auto mt-4 aspect-[4/3] w-full max-w-[330px] overflow-hidden bg-white sm:max-w-[620px] lg:max-w-[820px]">
+                  <div className="relative mx-auto mt-4 aspect-[4/3] w-full max-w-[340px] overflow-hidden bg-white sm:max-w-[720px] lg:max-w-[1040px] xl:max-w-[1120px]">
                     <Image
                       src={item.image}
                       alt={item.title}
                       fill
-                      sizes="(min-width: 1024px) 820px, (min-width: 640px) 620px, 100vw"
+                      sizes="(min-width: 1280px) 1120px, (min-width: 1024px) 1040px, (min-width: 640px) 720px, 100vw"
                       priority={active === index}
                       className="object-contain"
                     />
@@ -118,7 +118,7 @@ const LandingVisualSection = () => {
         <div className="mx-auto mt-6 h-px w-[190px] overflow-hidden bg-slate-200 sm:w-[260px]">
           <span
             key={`visual-progress-${active}`}
-            className="block h-full w-full bg-[#e22d2e] animate-[carouselProgress_4.5s_linear]"
+            className="block h-full w-full bg-[#e22d2e] animate-[carouselProgress_2s_linear]"
           />
         </div>
 
