@@ -8,7 +8,7 @@ const CONTACT_INFO = {
 };
 
 const FOOTER_LINKS = [
-  { title: "Soluções", href: "/#servicos" },
+  { title: "Soluções", href: "/#solucoes" },
   { title: "Todas as soluções de tecnologia", href: "/solucoes-de-tecnologia" },
   { title: "Cidades atendidas", href: "/cidades" },
   { title: "Termos de Uso", href: "/termos-de-uso" },

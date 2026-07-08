@@ -7,215 +7,135 @@ export type Lang = "pt-BR" | "en" | "es";
 // ─── PT-BR (base) ────────────────────────────────────────────────────────────
 const ptBR = {
   nav: {
-    produtos: "Produtos",
-    portfolio: "Portfólio",
     sobre: "Sobre",
     faq: "FAQ",
     contato: "Contato",
     cta: "Falar Conosco",
-    items: [
-      { label: "E-commerce", href: "/ecommerce" },
-      { label: "Sites Institucionais", href: "/landing" },
-      { label: "Sistemas Internos", href: "/sistemainterno" },
-      { label: "Plataformas de Ensino", href: "/plataformaensino" },
-      { label: "Inteligência Artificial", href: "/ima" },
-      { label: "Consultoria", href: "/#contato" },
-    ],
   },
   hero: {
-    headline1: "Tecnologia que conecta empresas à",
-    accent: "inovação real.",
-    sub: "Desenvolvemos sistemas ERP, websites e soluções digitais com performance, eficiência e escalabilidade. Transformamos desafios em crescimento.",
-    stats: [
-      { value: "50+", label: "Empresas Atendidas" },
-      { value: "200+", label: "Projetos Entregues" },
-      { value: "5 anos", label: "No Mercado" },
-      { value: "99,9%", label: "Uptime Médio" },
-    ],
+    headline1: "Tecnologia sob medida para empresas que",
+    accent: "precisam crescer com controle",
+    question:
+      "Sua empresa evoluiu, mas os processos continuam lentos, manuais ou espalhados em vários sistemas?",
+    sub: "Desenvolvemos sistemas personalizados, automações e plataformas digitais que organizam operações, reduzem erros e ajudam empresas a crescer com mais eficiência, segurança e previsibilidade.",
+    note: "Cada negócio possui processos, desafios e objetivos diferentes. Por isso, acreditamos que a tecnologia deve se adaptar à sua empresa — e não o contrário.",
+    cta: "Falar com um Especialista",
   },
-  services: {
-    eyebrow: "Verticais de negócio",
-    headline1: "Engenharia aplicada a operações que exigem",
-    accent: "escala.",
-    cta: "Ver serviço",
+  why: {
+    eyebrow: "Sistemas sob medida",
+    headline1: "Por que um sistema",
+    accent: "personalizado?",
+    body1:
+      "Sistemas genéricos costumam obrigar a empresa a adaptar seus processos, contratar funcionalidades que nunca serão utilizadas e conviver com limitações que surgem conforme o negócio cresce.",
+    body2: "Um sistema personalizado é construído em torno da sua operação. Ele permite:",
+    benefits: [
+      "Processos alinhados à realidade da sua empresa",
+      "Menos atividades manuais e menos retrabalho",
+      "Informações centralizadas e confiáveis",
+      "Maior controle sobre dados e indicadores",
+      "Evolução contínua conforme as necessidades do negócio mudam",
+    ],
+    closing:
+      "A tecnologia deixa de ser um obstáculo e passa a ser uma ferramenta para acelerar decisões e aumentar a eficiência operacional.",
+  },
+  value: {
+    eyebrow: "Valor gerado",
+    headline1: "Como a tecnologia gera valor para o",
+    accent: "seu negócio",
     items: [
       {
-        eyebrow: "Varejo & E-commerce",
-        title: "Varejo & E-commerce",
+        title: "Mais velocidade operacional",
         description:
-          "Arquiteturas transacionais de alta volumetria focadas em máxima conversão e recorrência.",
-        highlights: ["Alta volumetria", "Máxima conversão", "Recorrência"],
-        route: "/ecommerce",
+          "Processos que antes dependiam de planilhas, e-mails ou controles paralelos passam a acontecer de forma integrada e automatizada.",
       },
       {
-        eyebrow: "Agro & Indústria",
-        title: "Agro & Indústria",
+        title: "Menos erros e mais confiabilidade",
         description:
-          "Monitoramento de ativos, controle de produção e inteligência embarcada para cadeias complexas.",
-        highlights: [
-          "Ativos conectados",
-          "Produção em tempo real",
-          "Inteligência embarcada",
-        ],
-        route: "/estoque",
+          "Regras de validação e automações reduzem inconsistências, retrabalho e falhas operacionais.",
       },
       {
-        eyebrow: "Operações Críticas",
-        title: "Operações Críticas",
+        title: "Dados organizados e seguros",
         description:
-          "Sistemas sob medida (ERPs e Dashboards) para governança e tomada de decisão em tempo real.",
-        highlights: [
-          "ERPs sob medida",
-          "Dashboards críticos",
-          "Tomada de decisão",
-        ],
-        route: "/sistemainterno",
+          "Informações centralizadas permitem que a empresa trabalhe com mais confiança e preserve o conhecimento do negócio.",
+      },
+      {
+        title: "Visibilidade do que realmente importa",
+        description:
+          "Transformamos dados operacionais em indicadores e métricas que apoiam decisões mais rápidas e estratégicas.",
+      },
+      {
+        title: "Crescimento sustentável",
+        description:
+          "Criamos sistemas preparados para acompanhar a evolução da operação sem gerar complexidade desnecessária.",
       },
     ],
   },
-  whyChoose: {
-    eyebrow: "Diferenciais",
-    headline1: "Por que a",
-    accent: "ConderTech?",
-    benefits: [
-      {
-        title: "Engenharia de Squads",
-        description:
-          "Times de elite integrados à sua cultura técnica para acelerar o roadmap sem inércia.",
-      },
-      {
-        title: "Governança & Blindagem",
-        description:
-          "Arquiteturas resilientes em conformidade com padrões globais de segurança e auditoria de dados.",
-      },
-      {
-        title: "IA Aplicada ao ROI",
-        description:
-          "Inteligência Artificial focada em eficiência operacional e geração de lucro real, não apenas inovação visual.",
-      },
+  reliability: {
+    eyebrow: "Confiabilidade",
+    headline1: "Sistemas preparados para operações que",
+    accent: "não podem parar",
+    intro: "Desenvolvemos soluções priorizando:",
+    items: [
+      "Segurança e proteção das informações",
+      "Privacidade e tratamento responsável dos dados",
+      "Estabilidade operacional",
+      "Arquiteturas preparadas para crescimento",
+      "Disponibilidade para operações críticas e complexas",
     ],
-  },
-  about: {
-    eyebrow: "Sobre",
-    headline1: "A espinha dorsal digital para operações de",
-    accent: "elite",
-    body1:
-      "A ConderTech nasceu da necessidade de um parceiro tecnológico que realmente entende operações empresariais complexas.",
-    body2:
-      "Não terceirizamos o pensamento estratégico — cada projeto recebe atenção total da nossa equipe sênior.",
-    pillars: [
-      {
-        title: "Precisão Cirúrgica",
-        description:
-          "Cada linha de código é estrategicamente projetada para resolver problemas reais de negócio, não apenas funcionar.",
-      },
-      {
-        title: "Velocidade Controlada",
-        description:
-          "Entregamos rápido sem comprometer qualidade. Metodologias ágeis aplicadas com disciplina de engenharia.",
-      },
-      {
-        title: "Segurança como Base",
-        description:
-          "Arquiteturas resilientes desde o primeiro commit. Compliance e governança não são opcionais.",
-      },
-    ],
+    closing:
+      "Acreditamos que um sistema deve transmitir confiança e se tornar uma base sólida para o crescimento do negócio.",
   },
   process: {
     eyebrow: "Metodologia",
     headline1: "Como",
     accent: "trabalhamos",
-    sub: "Um processo estruturado que elimina riscos e garante previsibilidade do primeiro contato até a operação em escala.",
-    deliveries: "Entregas:",
     cta_text: "Pronto para transformar sua operação?",
     cta_button: "Falar com especialista",
     steps: [
       {
         number: "01",
-        title: "Descoberta & Estratégia",
+        title: "Descoberta e entendimento do negócio",
         description:
-          "Imersão profunda no seu negócio. Mapeamos dores, objetivos e arquitetamos a solução ideal.",
-        deliverables: [
-          "Workshop estratégico",
-          "Análise de viabilidade",
-          "Documentação técnica",
-        ],
+          "Começamos entendendo a realidade da sua empresa, seus processos, dificuldades e objetivos. Nosso primeiro compromisso é compreender o problema antes de propor qualquer solução.",
       },
       {
         number: "02",
-        title: "Engenharia & Desenvolvimento",
+        title: "Planejamento da solução",
         description:
-          "Squads dedicados desenvolvem com metodologias ágeis, entregas incrementais e comunicação transparente.",
-        deliverables: [
-          "Sprints semanais",
-          "Code reviews rigorosos",
-          "Testes automatizados",
-        ],
+          "Mapeamos processos, definimos prioridades e construímos uma visão clara do sistema que será desenvolvido. Você participa das decisões e possui visibilidade sobre o caminho que será seguido.",
       },
       {
         number: "03",
-        title: "Deploy & Go-Live",
+        title: "Desenvolvimento incremental",
         description:
-          "Infraestrutura cloud resiliente, monitoramento 24/7 e migração de dados sem interrupção de operação.",
-        deliverables: [
-          "CI/CD configurado",
-          "Treinamento de equipes",
-          "Documentação completa",
-        ],
+          "Construímos o sistema em etapas curtas e evolutivas. Ao final de cada ciclo, apresentamos o que foi construído, coletamos feedback e validamos os próximos passos junto à sua equipe.",
       },
       {
         number: "04",
-        title: "Evolução Contínua",
+        title: "Evolução orientada por resultados",
         description:
-          "Suporte técnico especializado, melhorias incrementais e roadmap de evolução alinhado ao crescimento.",
-        deliverables: ["SLA garantido", "Updates regulares", "Novas features"],
+          "Acompanhamos a utilização do sistema e direcionamos a evolução com base nos resultados obtidos. Funcionalidades que geram valor são aprimoradas; as demais são reavaliadas.",
       },
     ],
   },
-  industries: {
-    eyebrow: "Setores",
-    headline1: "Experiência",
-    accent: "multissetorial",
-    items: [
-      {
-        name: "E-commerce",
-        description:
-          "Plataformas completas de vendas online com marketplace regional integrado",
-      },
-      {
-        name: "Educação",
-        description:
-          "Sistemas de gestão educacional e plataformas de ensino adaptativo",
-      },
-      {
-        name: "Financeiro",
-        description:
-          "Soluções seguras para fintechs e instituições financeiras",
-      },
-      {
-        name: "Saúde",
-        description:
-          "Sistemas de gestão hospitalar e clínicas com conformidade LGPD",
-      },
-      {
-        name: "Varejo",
-        description: "PDV integrado, gestão de estoque e analytics de vendas",
-      },
-      {
-        name: "Logística",
-        description:
-          "Rastreamento em tempo real e otimização de rotas e frotas",
-      },
-      {
-        name: "Indústria",
-        description:
-          "Automação de processos produtivos e integração com maquinário",
-      },
-      {
-        name: "Serviços",
-        description: "CRM customizado e plataformas de atendimento ao cliente",
-      },
-    ],
+  delivery: {
+    eyebrow: "Pós-entrega",
+    headline1: "A entrega é apenas o",
+    accent: "começo",
+    body1: "Não acreditamos em projetos que terminam quando o sistema entra em produção.",
+    body2:
+      "Acompanhamos nossos clientes após a entrega, oferecendo suporte, identificando oportunidades de melhoria e planejando novas evoluções conforme o negócio cresce.",
+    body3:
+      "Entendemos que empresas mudam, processos amadurecem e novos desafios surgem constantemente. Por isso, construímos sistemas preparados para evoluir.",
+  },
+  philosophy: {
+    eyebrow: "Nossa filosofia",
+    quote:
+      "A tecnologia só faz sentido quando gera resultados concretos para as pessoas e para as empresas.",
+    body1:
+      "Trabalhamos lado a lado com nossos clientes porque acreditamos em relações de longo prazo, evolução contínua e construção conjunta.",
+    body2:
+      "O crescimento dos nossos clientes representa o crescimento da ConderTech. Esse é um dos princípios que orienta cada projeto que desenvolvemos.",
   },
   faq: {
     eyebrow: "FAQ",
@@ -225,14 +145,15 @@ const ptBR = {
     cta: "Entre em Contato",
     items: [
       {
-        question: "Como funciona o modelo de trabalho da ConderTech?",
+        question:
+          "Como funciona o processo de desenvolvimento de um sistema personalizado?",
         answer:
-          "Atuamos como um squad recorrente sob demanda. Em vez de você montar e gerir um time interno, a ConderTech entra como estrutura técnica contínua para sustentar, evoluir e escalar o seu produto com acompanhamento estratégico.",
+          "Seguimos um processo estruturado: primeiro entendemos a fundo o seu negócio, depois planejamos a solução com você, desenvolvemos em ciclos curtos e incrementais com entregas parciais, e evoluímos o sistema com base em resultados reais de uso.",
       },
       {
-        question: "Vocês também fazem desenvolvimento personalizado?",
+        question: "O suporte termina quando o sistema é entregue?",
         answer:
-          "Sim. Além dos planos recorrentes, também desenvolvemos soluções sob medida para necessidades específicas, como sistemas internos, plataformas, automações, integrações, e-commerces e produtos digitais com escopo estratégico definido.",
+          "Não. Acompanhamos nossos clientes após a entrega, oferecendo suporte, identificando oportunidades de melhoria e planejando novas evoluções conforme o negócio cresce.",
       },
       {
         question: "A ConderTech cria agentes de IA e automações inteligentes?",
@@ -260,7 +181,7 @@ const ptBR = {
     eyebrow: "Contato",
     headline1: "Vamos começar seu",
     accent: "projeto?",
-    body: "Fale com nossa equipe. Entendemos seu negócio e apresentamos a solução mais adequada para o seu crescimento.",
+    body: "Fale com nossa equipe. Vamos entender a realidade da sua empresa e apresentar a solução mais adequada para o seu crescimento.",
     name_label: "Nome",
     name_placeholder: "Seu nome",
     email_label: "E-mail",
@@ -285,209 +206,135 @@ type T = typeof ptBR;
 // ─── EN ──────────────────────────────────────────────────────────────────────
 const en: T = {
   nav: {
-    produtos: "Products",
-    portfolio: "Portfolio",
     sobre: "About",
     faq: "FAQ",
     contato: "Contact",
     cta: "Talk to Us",
-    items: [
-      { label: "E-commerce", href: "/ecommerce" },
-      { label: "Institutional Websites", href: "/landing" },
-      { label: "Internal Systems", href: "/sistemainterno" },
-      { label: "Learning Platforms", href: "/plataformaensino" },
-      { label: "Artificial Intelligence", href: "/ima" },
-      { label: "Consulting", href: "/#contato" },
-    ],
   },
   hero: {
-    headline1: "Technology that connects companies to",
-    accent: "real innovation.",
-    sub: "We develop ERP systems, websites, and digital solutions with performance, efficiency, and scalability. We turn challenges into growth.",
-    stats: [
-      { value: "50+", label: "Companies Served" },
-      { value: "200+", label: "Projects Delivered" },
-      { value: "5 years", label: "In the Market" },
-      { value: "99.9%", label: "Avg. Uptime" },
-    ],
+    headline1: "Tailor-made technology for companies that",
+    accent: "need to grow with control",
+    question:
+      "Has your company grown, but your processes are still slow, manual, or scattered across multiple systems?",
+    sub: "We develop custom systems, automations, and digital platforms that organize operations, reduce errors, and help companies grow with more efficiency, security, and predictability.",
+    note: "Every business has different processes, challenges, and goals. That's why we believe technology should adapt to your company — not the other way around.",
+    cta: "Talk to a Specialist",
   },
-  services: {
-    eyebrow: "Business Verticals",
-    headline1: "Engineering applied to operations that demand",
-    accent: "scale.",
-    cta: "View service",
+  why: {
+    eyebrow: "Custom systems",
+    headline1: "Why a custom",
+    accent: "system?",
+    body1:
+      "Generic systems tend to force companies to adapt their processes, pay for features they'll never use, and live with limitations that emerge as the business grows.",
+    body2: "A custom system is built around your operation. It enables:",
+    benefits: [
+      "Processes aligned with your company's reality",
+      "Fewer manual tasks and less rework",
+      "Centralized, reliable information",
+      "Greater control over data and indicators",
+      "Continuous evolution as business needs change",
+    ],
+    closing:
+      "Technology stops being an obstacle and becomes a tool to speed up decisions and increase operational efficiency.",
+  },
+  value: {
+    eyebrow: "Value generated",
+    headline1: "How technology generates value for",
+    accent: "your business",
     items: [
       {
-        eyebrow: "Retail & E-commerce",
-        title: "Retail & E-commerce",
+        title: "More operational speed",
         description:
-          "High-volume transactional architectures focused on maximum conversion and recurrence.",
-        highlights: ["High volume", "Max conversion", "Recurrence"],
-        route: "/ecommerce",
+          "Processes that used to depend on spreadsheets, e-mails, or parallel controls now happen in an integrated, automated way.",
       },
       {
-        eyebrow: "Agro & Industry",
-        title: "Agro & Industry",
+        title: "Fewer errors, more reliability",
         description:
-          "Asset monitoring, production control, and embedded intelligence for complex supply chains.",
-        highlights: [
-          "Connected assets",
-          "Real-time production",
-          "Embedded intelligence",
-        ],
-        route: "/estoque",
+          "Validation rules and automations reduce inconsistencies, rework, and operational failures.",
       },
       {
-        eyebrow: "Critical Operations",
-        title: "Critical Operations",
+        title: "Organized, secure data",
         description:
-          "Custom-built systems (ERPs & Dashboards) for real-time governance and decision-making.",
-        highlights: ["Custom ERPs", "Critical dashboards", "Decision-making"],
-        route: "/sistemainterno",
+          "Centralized information lets the company operate with more confidence and preserve business knowledge.",
+      },
+      {
+        title: "Visibility into what really matters",
+        description:
+          "We turn operational data into indicators and metrics that support faster, more strategic decisions.",
+      },
+      {
+        title: "Sustainable growth",
+        description:
+          "We build systems prepared to keep up with the operation's growth without generating unnecessary complexity.",
       },
     ],
   },
-  whyChoose: {
-    eyebrow: "Our difference",
-    headline1: "Why",
-    accent: "ConderTech?",
-    benefits: [
-      {
-        title: "Squad Engineering",
-        description:
-          "Elite teams integrated into your technical culture to accelerate the roadmap without inertia.",
-      },
-      {
-        title: "Governance & Shield",
-        description:
-          "Resilient architectures compliant with global security and data audit standards.",
-      },
-      {
-        title: "AI Applied to ROI",
-        description:
-          "Artificial Intelligence focused on operational efficiency and real profit generation, not just visual innovation.",
-      },
+  reliability: {
+    eyebrow: "Reliability",
+    headline1: "Systems built for operations that",
+    accent: "can't stop",
+    intro: "We develop solutions prioritizing:",
+    items: [
+      "Security and protection of information",
+      "Privacy and responsible data handling",
+      "Operational stability",
+      "Architectures ready for growth",
+      "Availability for critical, complex operations",
     ],
-  },
-  about: {
-    eyebrow: "About",
-    headline1: "The digital backbone for",
-    accent: "elite operations",
-    body1:
-      "ConderTech was born from the need for a technology partner that truly understands complex business operations.",
-    body2:
-      "We don't outsource strategic thinking — every project receives full attention from our senior team.",
-    pillars: [
-      {
-        title: "Surgical Precision",
-        description:
-          "Every line of code is strategically designed to solve real business problems, not just to work.",
-      },
-      {
-        title: "Controlled Speed",
-        description:
-          "We deliver fast without compromising quality. Agile methodologies applied with engineering discipline.",
-      },
-      {
-        title: "Security as a Foundation",
-        description:
-          "Resilient architectures from the first commit. Compliance and governance are not optional.",
-      },
-    ],
+    closing:
+      "We believe a system should convey trust and become a solid foundation for business growth.",
   },
   process: {
     eyebrow: "Methodology",
     headline1: "How we",
     accent: "work",
-    sub: "A structured process that eliminates risk and guarantees predictability from first contact to scaled operations.",
-    deliveries: "Deliverables:",
     cta_text: "Ready to transform your operations?",
-    cta_button: "Talk to an expert",
+    cta_button: "Talk to a specialist",
     steps: [
       {
         number: "01",
-        title: "Discovery & Strategy",
+        title: "Discovery & understanding your business",
         description:
-          "Deep immersion into your business. We map pain points, objectives and architect the ideal solution.",
-        deliverables: [
-          "Strategic workshop",
-          "Feasibility analysis",
-          "Technical documentation",
-        ],
+          "We start by understanding your company's reality, processes, challenges, and goals. Our first commitment is to understand the problem before proposing any solution.",
       },
       {
         number: "02",
-        title: "Engineering & Development",
+        title: "Solution planning",
         description:
-          "Dedicated squads develop with agile methodologies, incremental deliveries and transparent communication.",
-        deliverables: [
-          "Weekly sprints",
-          "Rigorous code reviews",
-          "Automated testing",
-        ],
+          "We map processes, define priorities, and build a clear vision of the system to be developed. You take part in decisions and have visibility into the path ahead.",
       },
       {
         number: "03",
-        title: "Deploy & Go-Live",
+        title: "Incremental development",
         description:
-          "Resilient cloud infrastructure, 24/7 monitoring, and data migration without operational downtime.",
-        deliverables: [
-          "CI/CD configured",
-          "Team training",
-          "Full documentation",
-        ],
+          "We build the system in short, evolving cycles. At the end of each cycle, we present what was built, gather feedback, and validate next steps with your team.",
       },
       {
         number: "04",
-        title: "Continuous Evolution",
+        title: "Results-driven evolution",
         description:
-          "Specialized technical support, incremental improvements, and an evolution roadmap aligned with growth.",
-        deliverables: ["Guaranteed SLA", "Regular updates", "New features"],
+          "We track system usage and steer evolution based on real results. Features that deliver value are refined; those that don't are reassessed.",
       },
     ],
   },
-  industries: {
-    eyebrow: "Industries",
-    headline1: "Multi-sector",
-    accent: "experience",
-    items: [
-      {
-        name: "E-commerce",
-        description:
-          "Complete online sales platforms with integrated regional marketplace",
-      },
-      {
-        name: "Education",
-        description:
-          "Educational management systems and adaptive learning platforms",
-      },
-      {
-        name: "Finance",
-        description: "Secure solutions for fintechs and financial institutions",
-      },
-      {
-        name: "Healthcare",
-        description: "Hospital and clinic management systems with compliance",
-      },
-      {
-        name: "Retail",
-        description:
-          "Integrated POS, inventory management, and sales analytics",
-      },
-      {
-        name: "Logistics",
-        description: "Real-time tracking and route and fleet optimization",
-      },
-      {
-        name: "Industry",
-        description:
-          "Automation of productive processes and machinery integration",
-      },
-      {
-        name: "Services",
-        description: "Custom CRM and customer service platforms",
-      },
-    ],
+  delivery: {
+    eyebrow: "Post-delivery",
+    headline1: "Delivery is just the",
+    accent: "beginning",
+    body1: "We don't believe in projects that end when the system goes live.",
+    body2:
+      "We stay with our clients after delivery, offering support, identifying improvement opportunities, and planning new developments as the business grows.",
+    body3:
+      "We understand that companies change, processes mature, and new challenges constantly arise. That's why we build systems prepared to evolve.",
+  },
+  philosophy: {
+    eyebrow: "Our philosophy",
+    quote:
+      "Technology only makes sense when it generates real results for people and for companies.",
+    body1:
+      "We work side by side with our clients because we believe in long-term relationships, continuous evolution, and building together.",
+    body2:
+      "Our clients' growth represents ConderTech's growth. That is one of the principles guiding every project we develop.",
   },
   faq: {
     eyebrow: "Questions",
@@ -497,18 +344,17 @@ const en: T = {
     cta: "Contact Us",
     items: [
       {
-        question: "How does ConderTech's work model work?",
+        question: "How does the process of building a custom system work?",
         answer:
-          "We operate as an on-demand recurring squad. Instead of you building and managing an internal team, ConderTech enters as a continuous technical structure to sustain, evolve, and scale your product with strategic oversight.",
+          "We follow a structured process: first we deeply understand your business, then plan the solution together with you, develop in short incremental cycles with partial deliveries, and evolve the system based on real usage results.",
       },
       {
-        question: "Do you also do custom development?",
+        question: "Does support end once the system is delivered?",
         answer:
-          "Yes. In addition to recurring plans, we also develop custom solutions for specific needs, such as internal systems, platforms, automations, integrations, e-commerces, and digital products with defined strategic scope.",
+          "No. We stay with our clients after delivery, offering support, identifying improvement opportunities, and planning new developments as the business grows.",
       },
       {
-        question:
-          "Does ConderTech create AI agents and intelligent automations?",
+        question: "Does ConderTech build AI agents and intelligent automations?",
         answer:
           "Yes. We design and implement AI agents, automation workflows, integrations with generative models, and AI-powered operational solutions for customer service, productivity, internal support, and scale.",
       },
@@ -533,7 +379,7 @@ const en: T = {
     eyebrow: "Contact",
     headline1: "Let's start your",
     accent: "project?",
-    body: "Talk to our team. We understand your business and present the most suitable solution for your growth.",
+    body: "Talk to our team. We'll understand your company's reality and present the solution best suited to your growth.",
     name_label: "Name",
     name_placeholder: "Your name",
     email_label: "E-mail",
@@ -555,220 +401,135 @@ const en: T = {
 // ─── ES ──────────────────────────────────────────────────────────────────────
 const es: T = {
   nav: {
-    produtos: "Productos",
-    portfolio: "Portafolio",
     sobre: "Nosotros",
     faq: "Preguntas",
     contato: "Contacto",
     cta: "Hablar con Nosotros",
-    items: [
-      { label: "E-commerce", href: "/ecommerce" },
-      { label: "Sitios Institucionales", href: "/landing" },
-      { label: "Sistemas Internos", href: "/sistemainterno" },
-      { label: "Plataformas de Aprendizaje", href: "/plataformaensino" },
-      { label: "Inteligencia Artificial", href: "/ima" },
-      { label: "Consultoría", href: "/#contato" },
-    ],
   },
   hero: {
-    headline1: "Tecnología que conecta empresas a la",
-    accent: "innovación real.",
-    sub: "Desarrollamos sistemas ERP, sitios web y soluciones digitales con rendimiento, eficiencia y escalabilidad. Transformamos desafíos en crecimiento.",
-    stats: [
-      { value: "50+", label: "Empresas Atendidas" },
-      { value: "200+", label: "Proyectos Entregados" },
-      { value: "5 años", label: "En el Mercado" },
-      { value: "99,9%", label: "Uptime Promedio" },
-    ],
+    headline1: "Tecnología a medida para empresas que",
+    accent: "necesitan crecer con control",
+    question:
+      "¿Tu empresa creció, pero los procesos siguen siendo lentos, manuales o dispersos en varios sistemas?",
+    sub: "Desarrollamos sistemas personalizados, automatizaciones y plataformas digitales que organizan operaciones, reducen errores y ayudan a las empresas a crecer con más eficiencia, seguridad y previsibilidad.",
+    note: "Cada negocio tiene procesos, desafíos y objetivos diferentes. Por eso creemos que la tecnología debe adaptarse a tu empresa, y no al revés.",
+    cta: "Hablar con un Especialista",
   },
-  services: {
-    eyebrow: "Verticales de negocio",
-    headline1: "Ingeniería aplicada a operaciones que requieren",
-    accent: "escala.",
-    cta: "Ver servicio",
+  why: {
+    eyebrow: "Sistemas a medida",
+    headline1: "¿Por qué un sistema",
+    accent: "personalizado?",
+    body1:
+      "Los sistemas genéricos suelen obligar a la empresa a adaptar sus procesos, pagar por funciones que nunca usará y convivir con limitaciones que surgen a medida que el negocio crece.",
+    body2: "Un sistema personalizado se construye alrededor de tu operación. Permite:",
+    benefits: [
+      "Procesos alineados con la realidad de tu empresa",
+      "Menos tareas manuales y menos retrabajo",
+      "Información centralizada y confiable",
+      "Mayor control sobre datos e indicadores",
+      "Evolución continua conforme cambian las necesidades del negocio",
+    ],
+    closing:
+      "La tecnología deja de ser un obstáculo y se convierte en una herramienta para acelerar decisiones y aumentar la eficiencia operativa.",
+  },
+  value: {
+    eyebrow: "Valor generado",
+    headline1: "Cómo la tecnología genera valor para",
+    accent: "tu negocio",
     items: [
       {
-        eyebrow: "Comercio & E-commerce",
-        title: "Comercio & E-commerce",
+        title: "Más velocidad operativa",
         description:
-          "Arquitecturas transaccionales de alto volumen enfocadas en máxima conversión y recurrencia.",
-        highlights: ["Alto volumen", "Máxima conversión", "Recurrencia"],
-        route: "/ecommerce",
+          "Procesos que antes dependían de hojas de cálculo, correos o controles paralelos ahora ocurren de forma integrada y automatizada.",
       },
       {
-        eyebrow: "Agro & Industria",
-        title: "Agro & Industria",
+        title: "Menos errores y más confiabilidad",
         description:
-          "Monitoreo de activos, control de producción e inteligencia embebida para cadenas complejas.",
-        highlights: [
-          "Activos conectados",
-          "Producción en tiempo real",
-          "Inteligencia embebida",
-        ],
-        route: "/estoque",
+          "Reglas de validación y automatizaciones reducen inconsistencias, retrabajo y fallas operativas.",
       },
       {
-        eyebrow: "Operaciones Críticas",
-        title: "Operaciones Críticas",
+        title: "Datos organizados y seguros",
         description:
-          "Sistemas a medida (ERPs y Dashboards) para gobernanza y toma de decisiones en tiempo real.",
-        highlights: [
-          "ERPs a medida",
-          "Dashboards críticos",
-          "Toma de decisiones",
-        ],
-        route: "/sistemainterno",
+          "La información centralizada permite que la empresa trabaje con más confianza y preserve el conocimiento del negocio.",
+      },
+      {
+        title: "Visibilidad de lo que realmente importa",
+        description:
+          "Transformamos datos operativos en indicadores y métricas que apoyan decisiones más rápidas y estratégicas.",
+      },
+      {
+        title: "Crecimiento sostenible",
+        description:
+          "Creamos sistemas preparados para acompañar la evolución de la operación sin generar complejidad innecesaria.",
       },
     ],
   },
-  whyChoose: {
-    eyebrow: "Nuestra diferencia",
-    headline1: "¿Por qué",
-    accent: "ConderTech?",
-    benefits: [
-      {
-        title: "Ingeniería de Squads",
-        description:
-          "Equipos de élite integrados a tu cultura técnica para acelerar el roadmap sin inercia.",
-      },
-      {
-        title: "Gobernanza & Blindaje",
-        description:
-          "Arquitecturas resilientes en conformidad con estándares globales de seguridad y auditoría de datos.",
-      },
-      {
-        title: "IA Aplicada al ROI",
-        description:
-          "Inteligencia Artificial enfocada en eficiencia operacional y generación de beneficios reales.",
-      },
+  reliability: {
+    eyebrow: "Confiabilidad",
+    headline1: "Sistemas preparados para operaciones que",
+    accent: "no pueden detenerse",
+    intro: "Desarrollamos soluciones priorizando:",
+    items: [
+      "Seguridad y protección de la información",
+      "Privacidad y tratamiento responsable de los datos",
+      "Estabilidad operativa",
+      "Arquitecturas preparadas para crecer",
+      "Disponibilidad para operaciones críticas y complejas",
     ],
-  },
-  about: {
-    eyebrow: "Nosotros",
-    headline1: "La columna vertebral digital para operaciones de",
-    accent: "élite",
-    body1:
-      "ConderTech nació de la necesidad de un socio tecnológico que realmente entiende operaciones empresariales complejas.",
-    body2:
-      "No externalizamos el pensamiento estratégico — cada proyecto recibe atención total de nuestro equipo senior.",
-    pillars: [
-      {
-        title: "Precisión Quirúrgica",
-        description:
-          "Cada línea de código está estratégicamente diseñada para resolver problemas reales de negocio.",
-      },
-      {
-        title: "Velocidad Controlada",
-        description:
-          "Entregamos rápido sin comprometer la calidad. Metodologías ágiles con disciplina de ingeniería.",
-      },
-      {
-        title: "Seguridad como Base",
-        description:
-          "Arquitecturas resilientes desde el primer commit. El cumplimiento no es opcional.",
-      },
-    ],
+    closing:
+      "Creemos que un sistema debe transmitir confianza y convertirse en una base sólida para el crecimiento del negocio.",
   },
   process: {
     eyebrow: "Metodología",
     headline1: "Cómo",
     accent: "trabajamos",
-    sub: "Un proceso estructurado que elimina riesgos y garantiza previsibilidad desde el primer contacto hasta la operación a escala.",
-    deliveries: "Entregas:",
     cta_text: "¿Listo para transformar tu operación?",
     cta_button: "Hablar con un experto",
     steps: [
       {
         number: "01",
-        title: "Descubrimiento & Estrategia",
+        title: "Descubrimiento y comprensión del negocio",
         description:
-          "Inmersión profunda en tu negocio. Mapeamos dolores, objetivos y diseñamos la solución ideal.",
-        deliverables: [
-          "Taller estratégico",
-          "Análisis de viabilidad",
-          "Documentación técnica",
-        ],
+          "Empezamos entendiendo la realidad de tu empresa, sus procesos, dificultades y objetivos. Nuestro primer compromiso es comprender el problema antes de proponer cualquier solución.",
       },
       {
         number: "02",
-        title: "Ingeniería & Desarrollo",
+        title: "Planificación de la solución",
         description:
-          "Squads dedicados desarrollan con metodologías ágiles, entregas incrementales y comunicación transparente.",
-        deliverables: [
-          "Sprints semanales",
-          "Revisiones de código",
-          "Tests automatizados",
-        ],
+          "Mapeamos procesos, definimos prioridades y construimos una visión clara del sistema que se desarrollará. Tú participas en las decisiones y tienes visibilidad del camino a seguir.",
       },
       {
         number: "03",
-        title: "Deploy & Go-Live",
+        title: "Desarrollo incremental",
         description:
-          "Infraestructura cloud resiliente, monitoreo 24/7 y migración de datos sin interrupción operativa.",
-        deliverables: [
-          "CI/CD configurado",
-          "Capacitación de equipos",
-          "Documentación completa",
-        ],
+          "Construimos el sistema en etapas cortas y evolutivas. Al final de cada ciclo, presentamos lo construido, recogemos feedback y validamos los próximos pasos junto a tu equipo.",
       },
       {
         number: "04",
-        title: "Evolución Continua",
+        title: "Evolución orientada a resultados",
         description:
-          "Soporte técnico especializado, mejoras incrementales y roadmap de evolución alineado al crecimiento.",
-        deliverables: [
-          "SLA garantizado",
-          "Actualizaciones regulares",
-          "Nuevas funciones",
-        ],
+          "Monitoreamos el uso del sistema y orientamos la evolución según los resultados obtenidos. Las funciones que generan valor se mejoran; las demás se reevalúan.",
       },
     ],
   },
-  industries: {
-    eyebrow: "Sectores",
-    headline1: "Experiencia",
-    accent: "multisectorial",
-    items: [
-      {
-        name: "E-commerce",
-        description:
-          "Plataformas completas de ventas online con marketplace integrado",
-      },
-      {
-        name: "Educación",
-        description:
-          "Sistemas de gestión educativa y plataformas de aprendizaje adaptativo",
-      },
-      {
-        name: "Financiero",
-        description:
-          "Soluciones seguras para fintechs e instituciones financieras",
-      },
-      {
-        name: "Salud",
-        description:
-          "Sistemas de gestión hospitalaria y clínicas con cumplimiento normativo",
-      },
-      {
-        name: "Comercio",
-        description:
-          "TPV integrado, gestión de inventario y análisis de ventas",
-      },
-      {
-        name: "Logística",
-        description:
-          "Seguimiento en tiempo real y optimización de rutas y flotas",
-      },
-      {
-        name: "Industria",
-        description:
-          "Automatización de procesos productivos e integración con maquinaria",
-      },
-      {
-        name: "Servicios",
-        description: "CRM personalizado y plataformas de atención al cliente",
-      },
-    ],
+  delivery: {
+    eyebrow: "Posentrega",
+    headline1: "La entrega es solo el",
+    accent: "comienzo",
+    body1: "No creemos en proyectos que terminan cuando el sistema entra en producción.",
+    body2:
+      "Acompañamos a nuestros clientes después de la entrega, ofreciendo soporte, identificando oportunidades de mejora y planificando nuevas evoluciones conforme crece el negocio.",
+    body3:
+      "Entendemos que las empresas cambian, los procesos maduran y surgen constantemente nuevos desafíos. Por eso construimos sistemas preparados para evolucionar.",
+  },
+  philosophy: {
+    eyebrow: "Nuestra filosofía",
+    quote:
+      "La tecnología solo tiene sentido cuando genera resultados concretos para las personas y las empresas.",
+    body1:
+      "Trabajamos codo a codo con nuestros clientes porque creemos en relaciones a largo plazo, evolución continua y construcción conjunta.",
+    body2:
+      "El crecimiento de nuestros clientes representa el crecimiento de ConderTech. Este es uno de los principios que guía cada proyecto que desarrollamos.",
   },
   faq: {
     eyebrow: "Dudas",
@@ -778,18 +539,18 @@ const es: T = {
     cta: "Contáctanos",
     items: [
       {
-        question: "¿Cómo funciona el modelo de trabajo de ConderTech?",
-        answer:
-          "Operamos como un squad recurrente bajo demanda. En lugar de que armes y gestiones un equipo interno, ConderTech entra como estructura técnica continua para sostener, evolucionar y escalar tu producto con seguimiento estratégico.",
-      },
-      {
-        question: "¿También hacen desarrollo personalizado?",
-        answer:
-          "Sí. Además de los planes recurrentes, también desarrollamos soluciones a medida para necesidades específicas, como sistemas internos, plataformas, automatizaciones, integraciones y e-commerces.",
-      },
-      {
         question:
-          "¿ConderTech crea agentes de IA y automatizaciones inteligentes?",
+          "¿Cómo funciona el proceso de desarrollo de un sistema personalizado?",
+        answer:
+          "Seguimos un proceso estructurado: primero entendemos a fondo tu negocio, luego planificamos la solución contigo, desarrollamos en ciclos cortos e incrementales con entregas parciales, y evolucionamos el sistema según resultados reales de uso.",
+      },
+      {
+        question: "¿El soporte termina cuando se entrega el sistema?",
+        answer:
+          "No. Acompañamos a nuestros clientes después de la entrega, ofreciendo soporte, identificando oportunidades de mejora y planificando nuevas evoluciones conforme crece el negocio.",
+      },
+      {
+        question: "¿ConderTech crea agentes de IA y automatizaciones inteligentes?",
         answer:
           "Sí. Diseñamos e implementamos agentes de IA, flujos de automatización e integraciones con modelos generativos para atención, productividad y escala operacional.",
       },
@@ -804,9 +565,9 @@ const es: T = {
           "Después del primer contacto, realizamos una reunión de Discovery para entender profundamente tu situación. Con base en esto, entregamos una propuesta técnica detallada con alcance, plazo e inversión.",
       },
       {
-        question: "¿Atienden empresas de cualquier lugar?",
+        question: "¿Atienden empresas de cualquier lugar de Brasil?",
         answer:
-          "Sí. Operamos de forma remota con empresas de diferentes regiones. Mantenemos comunicación estructurada y cadencia de ejecución para garantizar previsibilidad, calidad y velocidad en las entregas.",
+          "Sí. Operamos de forma remota con empresas de diferentes regiones de Brasil. Mantenemos comunicación estructurada, rutina de seguimiento y cadencia de ejecución para garantizar previsibilidad, calidad y velocidad en las entregas.",
       },
     ],
   },
@@ -814,7 +575,7 @@ const es: T = {
     eyebrow: "Contacto",
     headline1: "¿Empecemos tu",
     accent: "proyecto?",
-    body: "Habla con nuestro equipo. Entendemos tu negocio y presentamos la solución más adecuada para tu crecimiento.",
+    body: "Habla con nuestro equipo. Entenderemos la realidad de tu empresa y presentaremos la solución más adecuada para tu crecimiento.",
     name_label: "Nombre",
     name_placeholder: "Tu nombre",
     email_label: "E-mail",
