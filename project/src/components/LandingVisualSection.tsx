@@ -73,14 +73,10 @@ const LandingVisualSection = () => {
         >
           <div>
             <h2 className="max-w-[12ch] font-inter text-[28px] font-normal leading-[1.08] text-[#1f2f3d] sm:text-4xl lg:text-5xl">
-              Engenharia aplicada a operacoes que exigem{" "}
-              <span className="italic text-[#e22d2e]">escala.</span>
+              Tecnologia de alto nível para operações que{" "}
+              <span className="italic text-[#e22d2e]">não podem parar.</span>
             </h2>
           </div>
-          <p className="mt-6 max-w-2xl font-inter text-sm leading-7 text-slate-600 sm:text-base lg:ml-auto lg:mt-0 lg:leading-8">
-            Unimos estrategia, produto e engenharia para construir experiencias
-            digitais mais claras, seguras e preparadas para crescimento.
-          </p>
         </div>
 
         <div className="overflow-hidden">
@@ -91,12 +87,12 @@ const LandingVisualSection = () => {
             {showcases.map((item, index) => (
               <div key={item.title} className="w-full shrink-0">
                 <Link href={item.href} className="block">
-                  <div className="relative mx-auto mt-2 aspect-[4/3] w-full max-w-[330px] overflow-hidden bg-white sm:max-w-[560px] lg:max-w-[720px] xl:max-w-[760px]">
+                  <div className="relative mx-auto mt-1 aspect-[4/3] w-full max-w-[280px] overflow-hidden bg-white sm:max-w-[420px] lg:max-w-[520px] xl:max-w-[560px]">
                     <Image
                       src={item.image}
                       alt={item.title}
                       fill
-                      sizes="(min-width: 1280px) 760px, (min-width: 1024px) 720px, (min-width: 640px) 560px, 100vw"
+                      sizes="(min-width: 1280px) 560px, (min-width: 1024px) 520px, (min-width: 640px) 420px, 100vw"
                       priority={active === index}
                       className="object-contain"
                     />
