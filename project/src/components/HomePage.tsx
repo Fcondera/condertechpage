@@ -5,7 +5,6 @@ import DeliverySection from "@components/DeliverySection";
 import FAQSection from "@components/FAQSection";
 import HeroSection from "@components/HeroSection";
 import LandingVisualSection from "@components/LandingVisualSection";
-import PageDirectorySection from "@components/PageDirectorySection";
 import PhilosophySection from "@components/PhilosophySection";
 import ProcessSection from "@components/ProcessSection";
 import ReliabilitySection from "@components/ReliabilitySection";
@@ -21,7 +20,6 @@ export default function HomePage() {
       <WhySection />
       <ValueSection />
       <LandingVisualSection />
-      <PageDirectorySection />
       <ReliabilitySection />
       <ProcessSection />
       <DeliverySection />
