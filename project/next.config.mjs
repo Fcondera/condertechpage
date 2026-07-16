@@ -9,6 +9,16 @@ const nextConfig = {
         destination: "/empresa-de-tecnologia/:cidade",
         permanent: true,
       },
+      {
+        source: "/pt-br",
+        destination: "/",
+        permanent: false,
+      },
+      {
+        source: "/pt-br/:path*",
+        destination: "/:path*",
+        permanent: false,
+      },
     ];
   },
 };

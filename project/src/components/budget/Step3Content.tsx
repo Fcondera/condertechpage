@@ -2,6 +2,7 @@
  * Etapa 3: Informações sobre conteúdo
  */
 
+import { useLanguage } from "../../contexts/LanguageContext";
 import { OptionCard } from "./OptionCard";
 import { StepNavigation } from "./StepNavigation";
 
@@ -22,23 +23,24 @@ export function Step3Content({
   onNext,
   onPrevious,
 }: Step3ContentProps) {
+  const { t } = useLanguage();
   const canProceed = numberOfPages > 0 && needsSEO !== null;
 
   return (
     <div className="max-w-3xl mx-auto">
       <div className="text-center mb-6 sm:mb-8">
         <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3">
-          Conteúdo e estrutura
+          {t.budget.step3.heading}
         </h2>
         <p className="text-gray-600 dark:text-gray-400">
-          Defina a quantidade de páginas e recursos de SEO
+          {t.budget.step3.subtext}
         </p>
       </div>
 
       {/* Pergunta 1: Número de páginas */}
       <div className="mb-8">
         <h3 className="text-base sm:text-xl font-semibold text-gray-800 dark:text-gray-200 mb-3 sm:mb-4">
-          Quantas páginas seu site terá?
+          {t.budget.step3.pagesQuestion}
         </h3>
         <div className="bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 p-4 sm:p-6">
           <div className="flex items-center gap-4 mb-4">
@@ -54,7 +56,9 @@ export function Step3Content({
                 {numberOfPages}
               </div>
               <div className="text-sm text-gray-600 dark:text-gray-400">
-                {numberOfPages === 1 ? "página" : "páginas"}
+                {numberOfPages === 1
+                  ? t.budget.step3.pageSingular
+                  : t.budget.step3.pagePlural}
               </div>
             </div>
 
@@ -68,8 +72,8 @@ export function Step3Content({
 
           <div className="text-sm text-gray-600 dark:text-gray-400 text-center">
             {numberOfPages <= 3
-              ? "Incluído no preço base"
-              : `Páginas extras: +R$ ${(numberOfPages - 3) * 300}`}
+              ? t.budget.step3.includedInBase
+              : t.budget.step3.extraPages((numberOfPages - 3) * 300)}
           </div>
         </div>
       </div>
@@ -77,18 +81,18 @@ export function Step3Content({
       {/* Pergunta 2: SEO */}
       <div className="mb-8">
         <h3 className="text-base sm:text-xl font-semibold text-gray-800 dark:text-gray-200 mb-3 sm:mb-4">
-          Precisa de otimização SEO inicial?
+          {t.budget.step3.seoQuestion}
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           <OptionCard
-            title="Não precisa"
-            description="Podemos fazer depois se necessário"
+            title={t.budget.step3.seoNo.title}
+            description={t.budget.step3.seoNo.description}
             selected={needsSEO === false}
             onClick={() => onSelectSEO(false)}
           />
           <OptionCard
-            title="Sim, preciso de SEO"
-            description="Otimização completa para buscadores (+R$ 1.500)"
+            title={t.budget.step3.seoYes.title}
+            description={t.budget.step3.seoYes.description}
             selected={needsSEO === true}
             onClick={() => onSelectSEO(true)}
           />

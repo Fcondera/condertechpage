@@ -2,6 +2,7 @@
  * Etapa 6: Descrição do projeto
  */
 
+import { useLanguage } from "../../contexts/LanguageContext";
 import { StepNavigation } from "./StepNavigation";
 
 interface Step6DescriptionProps {
@@ -17,6 +18,7 @@ export function Step6Description({
   onNext,
   onPrevious,
 }: Step6DescriptionProps) {
+  const { t } = useLanguage();
   const minLength = 10;
   const maxLength = 1000;
   const currentLength = description.length;
@@ -26,10 +28,10 @@ export function Step6Description({
     <div className="max-w-3xl mx-auto">
       <div className="text-center mb-6 sm:mb-8">
         <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3">
-          Descreva seu projeto
+          {t.budget.step6.heading}
         </h2>
         <p className="text-gray-600 dark:text-gray-400">
-          Conte-nos mais sobre sua visão e objetivos
+          {t.budget.step6.subtext}
         </p>
       </div>
 
@@ -39,13 +41,13 @@ export function Step6Description({
             htmlFor="description"
             className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
           >
-            Descrição do projeto
+            {t.budget.step6.label}
           </label>
           <textarea
             id="description"
             value={description}
             onChange={(e) => onChangeDescription(e.target.value)}
-            placeholder="Ex: Preciso de um site institucional para minha empresa de consultoria. O objetivo é apresentar nossos serviços, publicar cases de sucesso e captar novos clientes..."
+            placeholder={t.budget.step6.placeholder}
             rows={8}
             maxLength={maxLength}
             className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:border-blue-500 dark:focus:border-blue-400 focus:outline-none transition-colors resize-none"
@@ -62,8 +64,8 @@ export function Step6Description({
             `}
             >
               {currentLength < minLength
-                ? `Mínimo ${minLength} caracteres (faltam ${minLength - currentLength})`
-                : "Descrição válida"}
+                ? t.budget.step6.minChars(minLength, minLength - currentLength)
+                : t.budget.step6.validDescription}
             </span>
             <span className="text-gray-600 dark:text-gray-400">
               {currentLength} / {maxLength}
@@ -74,14 +76,12 @@ export function Step6Description({
         {/* Dicas */}
         <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
           <h4 className="font-semibold text-blue-800 dark:text-blue-300 mb-2">
-            Dicas para uma boa descrição:
+            {t.budget.step6.tipsHeading}
           </h4>
           <ul className="text-sm text-blue-700 dark:text-blue-400 space-y-1 list-disc list-inside">
-            <li>Qual é o objetivo principal do projeto?</li>
-            <li>Quem é seu público-alvo?</li>
-            <li>Tem alguma referência ou inspiração?</li>
-            <li>Há algum prazo específico?</li>
-            <li>Alguma funcionalidade específica não listada?</li>
+            {t.budget.step6.tips.map((tip, idx) => (
+              <li key={idx}>{tip}</li>
+            ))}
           </ul>
         </div>
       </div>
@@ -90,7 +90,7 @@ export function Step6Description({
         onNext={onNext}
         onPrevious={onPrevious}
         canProceed={canProceed}
-        nextLabel="Ver Orçamento"
+        nextLabel={t.budget.step6.nextLabel}
       />
     </div>
   );

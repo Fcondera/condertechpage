@@ -1,10 +1,11 @@
 "use client";
 
 /**
- * Página principal do Simulador de Orçamento Condertech
+ * Página principal do Simulador de Orçamento ConderTech
  */
 
 import { useEffect } from "react";
+import { useLanguage } from "../contexts/LanguageContext";
 import { useBudgetForm } from "../hooks/useBudgetForm";
 import { calculatePrice } from "../utils/budgetCalculator";
 import { ThemeToggle } from "../components/budget/ThemeToggle";
@@ -19,6 +20,8 @@ import { Step7Result } from "../components/budget/Step7Result";
 import { ProjectType, Features } from "../types/budget";
 
 export default function BudgetSimulatorPage() {
+  const { t } = useLanguage();
+
   // Força tema claro enquanto a página estiver aberta
   useEffect(() => {
     const root = document.documentElement;
@@ -42,7 +45,7 @@ export default function BudgetSimulatorPage() {
   } = useBudgetForm();
 
   // Calcula o resultado do orçamento
-  const budgetResult = calculatePrice(formData);
+  const budgetResult = calculatePrice(formData, t.budget);
 
   // Renderiza a etapa atual
   const renderStep = () => {
@@ -143,10 +146,10 @@ export default function BudgetSimulatorPage() {
         <div className="flex justify-between items-center">
           <div>
             <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
-              Simulador de Orçamento
+              {t.budget.header.title}
             </h1>
             <p className="text-gray-600 dark:text-gray-400 mt-1 text-sm sm:text-base">
-              Condertech - Soluções Digitais
+              {t.budget.header.subtitle}
             </p>
           </div>
           <ThemeToggle />
@@ -171,10 +174,8 @@ export default function BudgetSimulatorPage() {
 
         {/* Footer */}
         <div className="text-center mt-8 text-gray-600 dark:text-gray-400 text-sm">
-          <p>© 2020 Condertech - Todos os direitos reservados</p>
-          <p className="mt-1">
-            Os valores apresentados são estimativas e podem variar
-          </p>
+          <p>{t.budget.footer.rights}</p>
+          <p className="mt-1">{t.budget.footer.note}</p>
         </div>
       </div>
     </div>

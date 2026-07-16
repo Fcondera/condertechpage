@@ -3,15 +3,17 @@
  */
 
 import { useTheme } from "../../hooks/useTheme";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 export function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
+  const { t } = useLanguage();
 
   return (
     <button
       onClick={toggleTheme}
       className="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-      aria-label="Alternar tema"
+      aria-label={t.budget.themeToggle}
     >
       {theme === "light" ? (
         <svg

@@ -1,58 +1,27 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useGsapReveal } from "@hooks/useGsapReveal";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const SLIDE_DURATION = 2000;
 
-const showcases = [
-  {
-    title: "Proteção total da sua empresa",
-    description:
-      "Blindamos os dados do seu negócio, controlamos quem acessa o quê e garantimos que informações confidenciais fiquem trancadas a sete chaves.",
-    image: "/image/lp-02.jpeg",
-    href: "/governanca-de-dados",
-  },
-  {
-    title: "Decisões rápidas e automáticas",
-    description:
-      "Transformamos seus dados de vendas e custos em relatórios automáticos. Chega de perder tempo preenchendo planilhas manualmente.",
-    image: "/image/lp-03.jpeg",
-    href: "/solucoes-de-tecnologia",
-  },
-  {
-    title: "Sua equipe em total sintonia",
-    description:
-      "Criamos ferramentas sob medida que conectam seus departamentos, eliminando erros de comunicação e os gargalos do dia a dia.",
-    image: "/image/lp-04.jpeg",
-    href: "/sistemainterno",
-  },
-  {
-    title: "Acesso seguro de qualquer lugar",
-    description:
-      "Seus funcionários acessam o que precisam com segurança e permissões controladas, sem expor a empresa a riscos ou vazamentos.",
-    image: "/image/lp-05.jpeg",
-    href: "/governanca-de-dados",
-  },
-  {
-    title: "Seu sistema sempre funcionando",
-    description:
-      "Cuidamos da estrutura para que o seu sistema nunca caia, antecipando falhas antes que elas atrapalhem as suas vendas ou sua operação.",
-    image: "/image/lp-06.jpeg",
-    href: "/solucoes-de-tecnologia",
-  },
-  {
-    title: "Tecnologia pronta para o crescimento",
-    description:
-      "Construímos sistemas que acompanham o ritmo do seu negócio. Sua empresa pode dobrar de tamanho e a tecnologia vai aguentar o tranco.",
-    image: "/image/lp-07.jpeg",
-    href: "/solucoes-de-tecnologia",
-  },
+const showcaseImages = [
+  "/image/lp-02.jpeg",
+  "/image/lp-03.jpeg",
+  "/image/lp-04.jpeg",
+  "/image/lp-05.jpeg",
+  "/image/lp-06.jpeg",
+  "/image/lp-07.jpeg",
 ];
 
 const LandingVisualSection = () => {
+  const { t } = useLanguage();
+  const showcases = t.visual.showcases.map((item, idx) => ({
+    ...item,
+    image: showcaseImages[idx],
+  }));
   const [active, setActive] = useState(0);
   const titleRef = useGsapReveal<HTMLDivElement>();
 
@@ -73,8 +42,8 @@ const LandingVisualSection = () => {
         >
           <div>
             <h2 className="max-w-[12ch] font-inter text-[28px] font-normal leading-[1.08] text-[#1f2f3d] sm:text-4xl lg:text-5xl">
-              Tecnologia de alto nível para operações que{" "}
-              <span className="italic text-[#e22d2e]">não podem parar.</span>
+              {t.visual.headline1}{" "}
+              <span className="italic text-[#e22d2e]">{t.visual.accent}</span>
             </h2>
           </div>
         </div>
@@ -86,26 +55,24 @@ const LandingVisualSection = () => {
           >
             {showcases.map((item, index) => (
               <div key={item.title} className="w-full shrink-0">
-                <Link href={item.href} className="block">
-                  <div className="relative mx-auto mt-1 aspect-[4/3] w-full max-w-[280px] overflow-hidden bg-white sm:max-w-[420px] lg:max-w-[520px] xl:max-w-[560px]">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      sizes="(min-width: 1280px) 560px, (min-width: 1024px) 520px, (min-width: 640px) 420px, 100vw"
-                      priority={active === index}
-                      className="object-contain"
-                    />
-                  </div>
-                  <div className="mx-auto mt-3 max-w-[300px] text-left sm:max-w-xl lg:max-w-2xl lg:text-center">
-                    <h3 className="font-inter text-base font-semibold leading-snug text-[#1f2f3d] sm:text-xl lg:text-2xl">
-                      {item.title}
-                    </h3>
-                    <p className="mt-2 font-inter text-[11px] leading-5 text-slate-500 sm:text-sm sm:leading-6">
-                      {item.description}
-                    </p>
-                  </div>
-                </Link>
+                <div className="relative mx-auto mt-1 aspect-[4/3] w-full max-w-[280px] overflow-hidden bg-white sm:max-w-[420px] lg:max-w-[520px] xl:max-w-[560px]">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    sizes="(min-width: 1280px) 560px, (min-width: 1024px) 520px, (min-width: 640px) 420px, 100vw"
+                    priority={active === index}
+                    className="object-contain"
+                  />
+                </div>
+                <div className="mx-auto mt-3 max-w-[300px] text-left sm:max-w-xl lg:max-w-2xl lg:text-center">
+                  <h3 className="font-inter text-base font-semibold leading-snug text-[#1f2f3d] sm:text-xl lg:text-2xl">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 font-inter text-[11px] leading-5 text-slate-500 sm:text-sm sm:leading-6">
+                    {item.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>

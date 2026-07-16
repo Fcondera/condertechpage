@@ -2,6 +2,7 @@
  * Etapa 5: Tipo de empresa/segmento
  */
 
+import { useLanguage } from "../../contexts/LanguageContext";
 import { StepNavigation } from "./StepNavigation";
 
 interface Step5BusinessTypeProps {
@@ -11,43 +12,23 @@ interface Step5BusinessTypeProps {
   onPrevious: () => void;
 }
 
-// Segmentos de negócio disponíveis
-const businessSegments = [
-  "Tecnologia",
-  "Saúde e Bem-estar",
-  "Educação",
-  "E-commerce / Varejo",
-  "Alimentação / Restaurantes",
-  "Serviços Profissionais",
-  "Construção / Engenharia",
-  "Moda / Beleza",
-  "Turismo / Hotelaria",
-  "Finanças / Consultoria",
-  "Indústria",
-  "Agronegócio",
-  "Entretenimento",
-  "Imobiliário",
-  "Automotivo",
-  "ONGs / Instituições",
-  "Outro",
-];
-
 export function Step5BusinessType({
   businessType,
   onChangeBusinessType,
   onNext,
   onPrevious,
 }: Step5BusinessTypeProps) {
+  const { t } = useLanguage();
   const canProceed = businessType.trim().length > 0;
 
   return (
     <div className="max-w-3xl mx-auto">
       <div className="text-center mb-6 sm:mb-8">
         <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3">
-          Qual o segmento da sua empresa?
+          {t.budget.step5.heading}
         </h2>
         <p className="text-gray-600 dark:text-gray-400">
-          Isso nos ajuda a personalizar melhor sua proposta
+          {t.budget.step5.subtext}
         </p>
       </div>
 
@@ -58,7 +39,7 @@ export function Step5BusinessType({
             htmlFor="business-type"
             className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
           >
-            Selecione o segmento
+            {t.budget.step5.selectLabel}
           </label>
           <select
             id="business-type"
@@ -66,8 +47,8 @@ export function Step5BusinessType({
             onChange={(e) => onChangeBusinessType(e.target.value)}
             className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:border-blue-500 dark:focus:border-blue-400 focus:outline-none transition-colors"
           >
-            <option value="">Selecione uma opção...</option>
-            {businessSegments.map((segment) => (
+            <option value="">{t.budget.step5.placeholder}</option>
+            {t.budget.step5.segments.map((segment) => (
               <option key={segment} value={segment}>
                 {segment}
               </option>
@@ -81,7 +62,7 @@ export function Step5BusinessType({
             <div className="flex items-center gap-3">
               <div>
                 <p className="font-semibold text-green-800 dark:text-green-300">
-                  Segmento selecionado
+                  {t.budget.step5.selectedLabel}
                 </p>
                 <p className="text-sm text-green-700 dark:text-green-400">
                   {businessType}

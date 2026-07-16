@@ -7,6 +7,7 @@ import Footer from "@components/Footer";
 import Navbar from "@components/Navbar";
 import WhatsAppButton from "@components/WhatsAppButton";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { stripLocalePrefix } from "@/utils/locale";
 
 interface SiteLayoutProps {
   children: ReactNode;
@@ -17,11 +18,12 @@ const HIDDEN_NAVBAR_ONLY_ROUTES = new Set(["/portfolio-lp"]);
 
 export default function SiteLayout({ children }: SiteLayoutProps) {
   const pathname = usePathname();
+  const bare = pathname ? stripLocalePrefix(pathname).bare : "";
   const hideChrome = pathname
-    ? pathname.startsWith("/ima") || HIDDEN_CHROME_ROUTES.has(pathname)
+    ? bare.startsWith("/ima") || HIDDEN_CHROME_ROUTES.has(bare)
     : false;
   const hideNavbar =
-    hideChrome || (pathname ? HIDDEN_NAVBAR_ONLY_ROUTES.has(pathname) : false);
+    hideChrome || (pathname ? HIDDEN_NAVBAR_ONLY_ROUTES.has(bare) : false);
 
   return (
     <ErrorBoundary>
