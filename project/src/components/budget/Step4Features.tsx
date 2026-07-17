@@ -3,6 +3,7 @@
  */
 
 import { Features } from "../../types/budget";
+import { useLanguage } from "../../contexts/LanguageContext";
 import { StepNavigation } from "./StepNavigation";
 
 interface Step4FeaturesProps {
@@ -12,32 +13,19 @@ interface Step4FeaturesProps {
   onPrevious: () => void;
 }
 
-// Lista de funcionalidades disponíveis
-const availableFeatures = [
-  {
-    id: "whatsapp" as keyof Features,
-    title: "Integração WhatsApp",
-    description: "Botão flutuante com link direto para seu WhatsApp Business",
-    price: 200,
-  },
-  {
-    id: "blog" as keyof Features,
-    title: "Sistema de Blog",
-    description: "Blog completo com gerenciador de posts e categorias",
-    price: 1500,
-  },
-  {
-    id: "membersArea" as keyof Features,
-    title: "Área de Membros",
-    description: "Sistema de login e área restrita para usuários",
-    price: 5000,
-  },
-  {
-    id: "onlinePayment" as keyof Features,
-    title: "Pagamento Online",
-    description: "Integração com gateways de pagamento (Stripe, PayPal, etc)",
-    price: 3000,
-  },
+// Preço de cada funcionalidade disponível
+const featurePrices: Record<keyof Features, number> = {
+  whatsapp: 200,
+  blog: 1500,
+  membersArea: 5000,
+  onlinePayment: 3000,
+};
+
+const featureIds: (keyof Features)[] = [
+  "whatsapp",
+  "blog",
+  "membersArea",
+  "onlinePayment",
 ];
 
 export function Step4Features({
@@ -46,14 +34,22 @@ export function Step4Features({
   onNext,
   onPrevious,
 }: Step4FeaturesProps) {
+  const { t } = useLanguage();
+  const availableFeatures = featureIds.map((id) => ({
+    id,
+    title: t.budget.step4.features[id].title,
+    description: t.budget.step4.features[id].description,
+    price: featurePrices[id],
+  }));
+
   return (
     <div className="max-w-3xl mx-auto">
       <div className="text-center mb-6 sm:mb-8">
         <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3">
-          Funcionalidades extras
+          {t.budget.step4.heading}
         </h2>
         <p className="text-gray-600 dark:text-gray-400">
-          Selecione as funcionalidades que deseja adicionar (opcional)
+          {t.budget.step4.subtext}
         </p>
       </div>
 
@@ -143,8 +139,7 @@ export function Step4Features({
 
       <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
         <p className="text-sm text-blue-700 dark:text-blue-300">
-          <strong>Dica:</strong> Você pode adicionar ou remover funcionalidades
-          depois do orçamento inicial
+          <strong>{t.budget.step4.tipLabel}</strong> {t.budget.step4.tip}
         </p>
       </div>
 

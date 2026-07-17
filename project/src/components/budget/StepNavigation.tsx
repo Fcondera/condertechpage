@@ -2,6 +2,8 @@
  * Componente de navegação entre etapas
  */
 
+import { useLanguage } from "../../contexts/LanguageContext";
+
 interface StepNavigationProps {
   onNext: () => void;
   onPrevious?: () => void;
@@ -14,9 +16,12 @@ export function StepNavigation({
   onNext,
   onPrevious,
   canProceed = true,
-  nextLabel = "Próximo",
+  nextLabel,
   showPrevious = true,
 }: StepNavigationProps) {
+  const { t } = useLanguage();
+  const resolvedNextLabel = nextLabel ?? t.budget.nav.next;
+
   return (
     <div className="flex justify-between items-center gap-3 sm:gap-4 mt-6 sm:mt-8">
       {showPrevious && onPrevious ? (
@@ -24,7 +29,7 @@ export function StepNavigation({
           onClick={onPrevious}
           className="px-6 py-3 rounded-lg border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
         >
-          ← Voltar
+          ← {t.budget.nav.back}
         </button>
       ) : (
         <div />
@@ -42,7 +47,7 @@ export function StepNavigation({
           }
         `}
       >
-        {nextLabel} →
+        {resolvedNextLabel} →
       </button>
     </div>
   );

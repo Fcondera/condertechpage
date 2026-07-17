@@ -32,12 +32,12 @@ export default function CitiesPage() {
           municipais do IBGE de 2025.
         </p>
         <div className="mt-10 flex flex-wrap gap-4">
-          <a
+          <Link
             href="/#contato"
             className="rounded-full bg-[#e22d2e] px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#601311]"
           >
             Falar sobre meu projeto
-          </a>
+          </Link>
           <a
             href="https://www.ibge.gov.br/estatisticas/sociais/populacao/9103-estimativas-de-populacao.html"
             target="_blank"

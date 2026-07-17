@@ -1,21 +1,33 @@
+import Link from "next/link";
 import { Mail, Phone, MapPin, Instagram } from "lucide-react";
 import { INSTAGRAM_URL, COMPANY_NAME } from "@constants/navigation";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { getLocalizedPath } from "@/utils/locale";
 
 const CONTACT_INFO = {
   email: "condertech@gmail.com",
   phone: "+55 (47) 9273-9983",
-  location: "Blumenau, SC - Polo Tecnológico.",
+  location: "Blumenau, SC.",
 };
 
-const FOOTER_LINKS = [
-  { title: "Soluções", href: "/#solucoes" },
-  { title: "Todas as soluções de tecnologia", href: "/solucoes-de-tecnologia" },
-  { title: "Cidades atendidas", href: "/cidades" },
-  { title: "Termos de Uso", href: "/termos-de-uso" },
-  { title: "Governança de Dados (LGPD)", href: "/governanca-de-dados" },
-];
+const Footer = () => {
+  const { lang, t } = useLanguage();
+  const FOOTER_LINKS = [
+    {
+      title: t.footer.links.solutions,
+      href: `${getLocalizedPath(lang, "/")}#solucoes`,
+    },
+    {
+      title: t.footer.links.terms,
+      href: getLocalizedPath(lang, "/termos-de-uso"),
+    },
+    {
+      title: t.footer.links.governance,
+      href: getLocalizedPath(lang, "/governanca-de-dados"),
+    },
+  ];
 
-const Footer = () => (
+  return (
   <footer className="bg-white border-t border-gray-200">
     <div className="w-full max-w-7xl mx-auto px-2 sm:px-4 md:px-8 py-8 sm:py-12">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
@@ -28,20 +40,20 @@ const Footer = () => (
             />
           </div>
           <p className="text-xs sm:text-base text-gray-600 leading-relaxed max-w-md">
-            Onde a física do software alinha o seu sucesso.
+            {t.footer.tagline}
           </p>
           {/* Removido ícone duplicado do Instagram, mantendo apenas na área de contato */}
         </div>
 
         <div>
           <h4 className="text-sm sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-6">
-            Contato
+            {t.footer.contactHeading}
           </h4>
           <div className="space-y-2 sm:space-y-4">
             <a
               href={`mailto:${CONTACT_INFO.email}`}
               className="flex items-center gap-2 sm:gap-3 text-xs sm:text-base text-gray-700 hover:text-spotify-green transition-colors"
-              aria-label={`Enviar e-mail para ${CONTACT_INFO.email}`}
+              aria-label={t.footer.emailAriaLabel(CONTACT_INFO.email)}
             >
               <Mail
                 className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0"
@@ -52,7 +64,7 @@ const Footer = () => (
             <a
               href={`tel:${CONTACT_INFO.phone.replace(/\D/g, "")}`}
               className="flex items-center gap-3 text-sm sm:text-base text-gray-700 hover:text-spotify-green transition-colors"
-              aria-label={`Ligar para ${CONTACT_INFO.phone}`}
+              aria-label={t.footer.phoneAriaLabel(CONTACT_INFO.phone)}
             >
               <Phone
                 className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0"
@@ -72,27 +84,27 @@ const Footer = () => (
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 text-sm sm:text-base text-gray-700 hover:text-spotify-green transition-colors"
-              aria-label="Seguir ConderTech no Instagram"
+              aria-label={t.footer.instagramAriaLabel}
             >
               <Instagram className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
-              <span>Instagram</span>
+              <span>{t.footer.instagramLabel}</span>
             </a>
           </div>
         </div>
 
         <div>
           <h4 className="text-sm sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-6">
-            Links
+            {t.footer.linksHeading}
           </h4>
           <div className="space-y-1 sm:space-y-3">
             {FOOTER_LINKS.map((link, index) => (
-              <a
+              <Link
                 key={index}
                 href={link.href}
                 className="block text-xs sm:text-base text-gray-600 hover:text-spotify-green transition-colors"
               >
                 {link.title}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
@@ -100,11 +112,12 @@ const Footer = () => (
 
       <div className="border-t border-gray-200 mt-8 sm:mt-12 pt-6 sm:pt-8 text-center">
         <p className="text-xs sm:text-sm text-gray-600">
-          © 2020 {COMPANY_NAME}. Todos os direitos reservados.
+          {t.footer.rights(COMPANY_NAME)}
         </p>
       </div>
     </div>
   </footer>
-);
+  );
+};
 
 export default Footer;

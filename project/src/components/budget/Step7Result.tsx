@@ -4,6 +4,7 @@
 
 import { useState } from "react";
 import { BudgetResult, BudgetFormData } from "../../types/budget";
+import { useLanguage } from "../../contexts/LanguageContext";
 import {
   formatCurrency,
   formatBudgetWhatsApp,
@@ -21,6 +22,7 @@ export function Step7Result({
   onReset,
   onUpdateFormData,
 }: Step7ResultProps) {
+  const { t } = useLanguage();
   const [clientName, setClientName] = useState(result.formData.clientName);
   const [clientType, setClientType] = useState<"pf" | "pj">(
     result.formData.clientType,
@@ -29,7 +31,7 @@ export function Step7Result({
 
   const handleSendWhatsApp = () => {
     if (!clientName.trim()) {
-      setError("Por favor, informe seu nome ou o nome da empresa.");
+      setError(t.budget.step7.nameError);
       return;
     }
     setError("");
@@ -44,7 +46,7 @@ export function Step7Result({
       },
     };
 
-    const message = formatBudgetWhatsApp(updatedResult);
+    const message = formatBudgetWhatsApp(updatedResult, t.budget);
     window.open(`https://wa.me/${CONTACT_PHONE}?text=${message}`, "_blank");
   };
 
@@ -55,10 +57,10 @@ export function Step7Result({
       {/* Header */}
       <div className="text-center mb-6 animate-fade-in">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3">
-          Seu orçamento está pronto!
+          {t.budget.step7.heading}
         </h2>
         <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg">
-          Confira os detalhes e escolha como prosseguir
+          {t.budget.step7.subtext}
         </p>
       </div>
 
@@ -74,22 +76,22 @@ export function Step7Result({
               <div className="text-center">
                 <div className="mb-2">
                   <span className="inline-block bg-white text-yellow-700 font-bold px-4 py-1 rounded-full text-sm shadow-lg border border-yellow-400">
-                    Oferta exclusiva para primeira contratação: 50% de desconto
+                    {t.budget.step7.discountBadge}
                   </span>
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold mb-4 opacity-90">
-                  Feche agora por apenas
+                  {t.budget.step7.closeNowTitle}
                 </h3>
                 <div className="flex flex-col items-center justify-center gap-2 mb-2">
                   <div className="text-base sm:text-lg opacity-80 line-through">
-                    De {formatCurrency(originalPrice)}
+                    {t.budget.step7.from} {formatCurrency(originalPrice)}
                   </div>
                   <div className="text-3xl sm:text-5xl font-extrabold text-white drop-shadow-lg">
                     {formatCurrency(discountPrice)}
                   </div>
                 </div>
                 <div className="text-xs sm:text-sm opacity-90 mt-2">
-                  Valor fixo para fechar agora. Aproveite!
+                  {t.budget.step7.fixedPriceNote}
                 </div>
               </div>
             </div>
@@ -99,12 +101,12 @@ export function Step7Result({
             <div className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl p-5 sm:p-8 mb-6 text-white shadow-2xl">
               <div className="text-center">
                 <h3 className="text-lg sm:text-xl font-medium mb-4 opacity-90">
-                  Investimento estimado
+                  {t.budget.step7.estimatedInvestment}
                 </h3>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mb-2">
                   <div>
                     <div className="text-sm sm:text-lg opacity-75">
-                      A partir de
+                      {t.budget.step7.startingFrom}
                     </div>
                     <div className="text-2xl sm:text-4xl font-bold">
                       {formatCurrency(result.minPrice)}
@@ -114,15 +116,16 @@ export function Step7Result({
                     →
                   </div>
                   <div>
-                    <div className="text-sm sm:text-lg opacity-75">Até</div>
+                    <div className="text-sm sm:text-lg opacity-75">
+                      {t.budget.step7.upTo}
+                    </div>
                     <div className="text-2xl sm:text-4xl font-bold">
                       {formatCurrency(result.maxPrice)}
                     </div>
                   </div>
                 </div>
                 <div className="text-xs sm:text-sm opacity-75 mt-4">
-                  Prazo estimado:{" "}
-                  <strong>{result.estimatedDays} dias úteis</strong>
+                  {t.budget.step7.estimatedDeadline(result.estimatedDays)}
                 </div>
               </div>
             </div>
@@ -134,7 +137,7 @@ export function Step7Result({
       {/* Incluso no projeto */}
       <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 sm:p-6 mb-6 border-2 border-gray-200 dark:border-gray-700">
         <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4">
-          O que está incluso
+          {t.budget.step7.includedHeading}
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {result.includedItems.map((item, index) => (
@@ -152,7 +155,7 @@ export function Step7Result({
       {/* Formulário de identificação */}
       <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 sm:p-6 mb-6 border-2 border-gray-200 dark:border-gray-700">
         <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-4">
-          Para enviar o orçamento, informe:
+          {t.budget.step7.formHeading}
         </h3>
 
         {/* Tipo de cliente */}
@@ -166,7 +169,7 @@ export function Step7Result({
                 : "border-gray-200 text-gray-500 hover:border-gray-300 dark:border-gray-600"
             }`}
           >
-            Pessoa Física
+            {t.budget.step7.personTypePF}
           </button>
           <button
             type="button"
@@ -177,7 +180,7 @@ export function Step7Result({
                 : "border-gray-200 text-gray-500 hover:border-gray-300 dark:border-gray-600"
             }`}
           >
-            Pessoa Jurídica
+            {t.budget.step7.personTypePJ}
           </button>
         </div>
 
@@ -191,7 +194,9 @@ export function Step7Result({
             onUpdateFormData({ clientName: e.target.value, clientType });
           }}
           placeholder={
-            clientType === "pj" ? "Nome da empresa" : "Seu nome completo"
+            clientType === "pj"
+              ? t.budget.step7.namePlaceholderPJ
+              : t.budget.step7.namePlaceholderPF
           }
           className={`w-full px-4 py-3 rounded-xl border-2 text-gray-900 dark:text-white bg-white dark:bg-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all ${
             error ? "border-red-400" : "border-gray-200 dark:border-gray-600"
@@ -206,14 +211,14 @@ export function Step7Result({
           href={paymentLink}
           className="flex items-center justify-center gap-2 px-6 py-3.5 sm:px-8 sm:py-4 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-xl text-center text-sm sm:text-base"
         >
-          Fechar Agora
+          {t.budget.step7.closeNow}
         </a>
 
         <button
           onClick={handleSendWhatsApp}
           className="flex items-center justify-center gap-2 px-6 py-3.5 sm:px-8 sm:py-4 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-xl text-sm sm:text-base"
         >
-          Solicitar pelo WhatsApp
+          {t.budget.step7.requestWhatsapp}
         </button>
       </div>
 
@@ -223,7 +228,7 @@ export function Step7Result({
           onClick={onReset}
           className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 underline transition-colors"
         >
-          ← Fazer novo orçamento
+          ← {t.budget.step7.newBudget}
         </button>
       </div>
     </div>

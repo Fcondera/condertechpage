@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useLanguage, type Lang } from "@/contexts/LanguageContext";
+import { getLocalizedPath } from "@/utils/locale";
 
 const FLAGS: { lang: Lang; code: string; label: string }[] = [
   { lang: "pt-BR", code: "br", label: "PT" },
@@ -16,10 +17,11 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navLinks = [
-    { label: t.nav.sobre, href: "/sobre" },
-    { label: t.nav.faq, href: "/#faq" },
-    { label: t.nav.contato, href: "/#contato" },
+    { label: t.nav.sobre, href: getLocalizedPath(lang, "/sobre") },
+    { label: t.nav.faq, href: `${getLocalizedPath(lang, "/")}#faq` },
+    { label: t.nav.contato, href: `${getLocalizedPath(lang, "/")}#contato` },
   ];
+  const homeHref = getLocalizedPath(lang, "/");
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50">
@@ -29,7 +31,7 @@ const Navbar = () => {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link
-              href="/"
+              href={homeHref}
               className="flex items-center shrink-0"
               aria-label="ConderTech Home"
             >
@@ -44,13 +46,13 @@ const Navbar = () => {
             <div className="flex items-center gap-7">
               {/* Links */}
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.href}
                   href={link.href}
                   className="font-inter text-sm font-medium text-[#252525] transition-colors duration-200 hover:text-[#e22d2e]"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
 
               {/* Separator */}
@@ -103,7 +105,7 @@ const Navbar = () => {
         <div className="flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-[0_4px_24px_rgba(0,0,0,0.12)] border border-[#e5e5e5]">
           {/* Logo */}
           <Link
-            href="/"
+            href={homeHref}
             className="flex items-center shrink-0"
             aria-label="ConderTech Home"
           >
@@ -161,14 +163,14 @@ const Navbar = () => {
           >
             <div className="px-5 py-4">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
                   className="block py-3 font-inter text-sm font-medium text-white hover:text-[#e22d2e] border-b border-white/10 transition-colors"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
 
               <div className="pt-4">

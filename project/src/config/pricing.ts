@@ -13,31 +13,26 @@ export const PROJECT_PRICES: Record<ProjectType, PriceConfig> = {
     basePrice: 1200,
     maxPrice: 3500,
     estimatedDays: 20,
-    description: "Site institucional profissional",
   },
   "landing-page": {
     basePrice: 600,
     maxPrice: 1800,
     estimatedDays: 10,
-    description: "Landing page de alta conversão",
   },
   ecommerce: {
     basePrice: 3000,
     maxPrice: 9000,
     estimatedDays: 45,
-    description: "Loja virtual completa",
   },
   "custom-system": {
     basePrice: 5000,
     maxPrice: 18000,
     estimatedDays: 60,
-    description: "Sistema personalizado",
   },
   "mobile-app": {
     basePrice: 8000,
     maxPrice: 28000,
     estimatedDays: 90,
-    description: "Aplicativo mobile nativo",
   },
 };
 

@@ -2,6 +2,8 @@
  * Componente de barra de progresso
  */
 
+import { useLanguage } from "../../contexts/LanguageContext";
+
 interface ProgressBarProps {
   progress: number;
   currentStep: number;
@@ -13,11 +15,14 @@ export function ProgressBar({
   currentStep,
   totalSteps,
 }: ProgressBarProps) {
+  const { t } = useLanguage();
+
   return (
     <div className="w-full mb-8">
       <div className="flex justify-between items-center mb-2">
         <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-          Etapa {currentStep} de {totalSteps - 1}
+          {t.budget.progress.step} {currentStep} {t.budget.progress.of}{" "}
+          {totalSteps - 1}
         </span>
         <span className="text-sm font-medium text-blue-600 dark:text-blue-400">
           {Math.round(progress)}%

@@ -6,10 +6,11 @@ import { useGsapReveal } from "@hooks/useGsapReveal";
 import { formatWhatsAppMessage, isValidEmail } from "@utils/helpers";
 import { CONTACT_PHONE } from "@constants/navigation";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { getLocalizedPath } from "@/utils/locale";
 
 const ContactSection = () => {
   const router = useRouter();
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const { values, errors, setErrors, handleChange, reset } = useForm({
     name: "",
     email: "",
@@ -69,7 +70,7 @@ const ContactSection = () => {
 
             <button
               type="button"
-              onClick={() => router.push("/orcamento")}
+              onClick={() => router.push(getLocalizedPath(lang, "/orcamento"))}
               className="inline-flex items-center gap-3 border border-white/20 rounded-full px-8 py-4 font-inter text-sm font-semibold uppercase tracking-widest text-white transition-colors duration-200 hover:border-[#e22d2e] hover:text-[#e22d2e]"
               aria-label="Simular orçamento online"
             >

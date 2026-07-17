@@ -3,6 +3,7 @@
  */
 
 import { BudgetFormData, BudgetResult } from "../types/budget";
+import type { Translations } from "../contexts/LanguageContext";
 import {
   PROJECT_PRICES,
   DESIGN_COSTS,
@@ -13,12 +14,18 @@ import {
   FEATURE_DAYS,
 } from "../config/pricing";
 
+type BudgetTranslations = Translations["budget"];
+
 /**
  * Calcula o orçamento baseado nos dados do formulário
  * @param formData - Dados preenchidos pelo usuário
+ * @param t - Traduções do simulador de orçamento
  * @returns Resultado com preço mínimo, máximo, prazo e itens inclusos
  */
-export function calculatePrice(formData: BudgetFormData): BudgetResult {
+export function calculatePrice(
+  formData: BudgetFormData,
+  t: BudgetTranslations,
+): BudgetResult {
   // Se não tiver tipo de projeto, retorna valores zerados
   if (!formData.projectType) {
     return {
@@ -35,20 +42,22 @@ export function calculatePrice(formData: BudgetFormData): BudgetResult {
   let minPrice = projectConfig.basePrice;
   let maxPrice = projectConfig.maxPrice;
   let estimatedDays = projectConfig.estimatedDays;
-  const includedItems: string[] = [projectConfig.description];
+  const includedItems: string[] = [
+    t.included.projectDescriptions[formData.projectType],
+  ];
 
   // Adiciona custo de logo se não tiver
   if (formData.hasLogo === false) {
     minPrice += DESIGN_COSTS.noLogo;
     maxPrice += DESIGN_COSTS.noLogo;
-    includedItems.push("Criação de logotipo profissional");
+    includedItems.push(t.included.logoCreation);
   }
 
   // Adiciona custo de design premium
   if (formData.premiumDesign === true) {
     minPrice += DESIGN_COSTS.premiumDesign;
     maxPrice += DESIGN_COSTS.premiumDesign;
-    includedItems.push("Design premium diferenciado");
+    includedItems.push(t.included.premiumDesign);
   }
 
   // Adiciona custo por páginas extras
@@ -57,9 +66,9 @@ export function calculatePrice(formData: BudgetFormData): BudgetResult {
     const pageCost = extraPages * COST_PER_PAGE;
     minPrice += pageCost;
     maxPrice += pageCost;
-    includedItems.push(`${formData.numberOfPages} páginas customizadas`);
+    includedItems.push(t.included.customPages(formData.numberOfPages));
   } else if (formData.numberOfPages > 0) {
-    includedItems.push(`${formData.numberOfPages} páginas incluídas`);
+    includedItems.push(t.included.includedPages(formData.numberOfPages));
   }
 
   // Adiciona custo de SEO
@@ -67,7 +76,7 @@ export function calculatePrice(formData: BudgetFormData): BudgetResult {
     minPrice += SEO_COST;
     maxPrice += SEO_COST;
     estimatedDays += 5;
-    includedItems.push("Otimização SEO inicial completa");
+    includedItems.push(t.included.seo);
   }
 
   // Adiciona custos de funcionalidades
@@ -75,36 +84,36 @@ export function calculatePrice(formData: BudgetFormData): BudgetResult {
     minPrice += FEATURE_COSTS.whatsapp;
     maxPrice += FEATURE_COSTS.whatsapp;
     estimatedDays += FEATURE_DAYS.whatsapp;
-    includedItems.push("Integração com WhatsApp Business");
+    includedItems.push(t.included.whatsappIntegration);
   }
 
   if (formData.features.blog) {
     minPrice += FEATURE_COSTS.blog;
     maxPrice += FEATURE_COSTS.blog;
     estimatedDays += FEATURE_DAYS.blog;
-    includedItems.push("Sistema de blog completo");
+    includedItems.push(t.included.blogSystem);
   }
 
   if (formData.features.membersArea) {
     minPrice += FEATURE_COSTS.membersArea;
     maxPrice += FEATURE_COSTS.membersArea;
     estimatedDays += FEATURE_DAYS.membersArea;
-    includedItems.push("Área de membros com login");
+    includedItems.push(t.included.membersArea);
   }
 
   if (formData.features.onlinePayment) {
     minPrice += FEATURE_COSTS.onlinePayment;
     maxPrice += FEATURE_COSTS.onlinePayment;
     estimatedDays += FEATURE_DAYS.onlinePayment;
-    includedItems.push("Integração com pagamento online");
+    includedItems.push(t.included.onlinePayment);
   }
 
   // Adiciona itens padrão inclusos
   includedItems.push(
-    "Hospedagem por 12 meses",
-    "Suporte técnico por 3 meses",
-    "Certificado SSL grátis",
-    "Design responsivo",
+    t.included.hosting,
+    t.included.support,
+    t.included.ssl,
+    t.included.responsive,
   );
 
   return {
@@ -129,47 +138,46 @@ export function formatCurrency(value: number): string {
 /**
  * Monta mensagem de orçamento formatada para WhatsApp
  */
-export function formatBudgetWhatsApp(result: BudgetResult): string {
+export function formatBudgetWhatsApp(
+  result: BudgetResult,
+  t: BudgetTranslations,
+): string {
   const { formData, minPrice, maxPrice, estimatedDays } = result;
+  const w = t.whatsapp;
 
-  const clientLabel = formData.clientType === "pj" ? "Empresa" : "Nome";
-
-  const projectLabels: Record<string, string> = {
-    institutional: "Site Institucional",
-    "landing-page": "Landing Page",
-    ecommerce: "E-commerce",
-    "custom-system": "Sistema Personalizado",
-    "mobile-app": "Aplicativo Mobile",
-  };
+  const clientLabel = formData.clientType === "pj" ? w.companyLabel : w.nameLabel;
+  const projectLabel = formData.projectType
+    ? t.step1.types[formData.projectType].title
+    : "-";
 
   const lines = [
-    `Olá! Gostaria de solicitar um orçamento.`,
+    w.greeting,
     ``,
     `*${clientLabel}:* ${formData.clientName}`,
-    `*Tipo de projeto:* ${projectLabels[formData.projectType ?? ""] ?? "-"}`,
-    `*Páginas:* ${formData.numberOfPages}`,
-    `*Possui logo:* ${formData.hasLogo ? "Sim" : "Não"}`,
-    `*Design premium:* ${formData.premiumDesign ? "Sim" : "Não"}`,
-    `*SEO:* ${formData.needsSEO ? "Sim" : "Não"}`,
+    `*${w.projectTypeLabel}:* ${projectLabel}`,
+    `*${w.pagesLabel}:* ${formData.numberOfPages}`,
+    `*${w.hasLogoLabel}:* ${formData.hasLogo ? w.yes : w.no}`,
+    `*${w.premiumLabel}:* ${formData.premiumDesign ? w.yes : w.no}`,
+    `*${w.seoLabel}:* ${formData.needsSEO ? w.yes : w.no}`,
     ``,
-    `*Funcionalidades:*`,
-    formData.features.whatsapp ? `  - WhatsApp Business` : null,
-    formData.features.blog ? `  - Blog` : null,
-    formData.features.membersArea ? `  - Área de membros` : null,
-    formData.features.onlinePayment ? `  - Pagamento online` : null,
+    `*${w.featuresLabel}:*`,
+    formData.features.whatsapp ? `  - ${w.featureWhatsapp}` : null,
+    formData.features.blog ? `  - ${w.featureBlog}` : null,
+    formData.features.membersArea ? `  - ${w.featureMembersArea}` : null,
+    formData.features.onlinePayment ? `  - ${w.featureOnlinePayment}` : null,
     !formData.features.whatsapp &&
     !formData.features.blog &&
     !formData.features.membersArea &&
     !formData.features.onlinePayment
-      ? `  - Nenhuma funcionalidade extra`
+      ? `  - ${w.noExtraFeatures}`
       : null,
     ``,
     formData.projectDescription
-      ? `*Descrição:* ${formData.projectDescription}`
+      ? `*${w.descriptionLabel}:* ${formData.projectDescription}`
       : null,
     ``,
-    `*Investimento estimado:* ${formatCurrency(minPrice)} – ${formatCurrency(maxPrice)}`,
-    `*Prazo estimado:* ${estimatedDays} dias úteis`,
+    `*${w.investmentLabel}:* ${formatCurrency(minPrice)} – ${formatCurrency(maxPrice)}`,
+    `*${w.deadlineLabel}:* ${estimatedDays} ${w.daysUnit}`,
   ];
 
   return encodeURIComponent(lines.filter((l) => l !== null).join("\n"));

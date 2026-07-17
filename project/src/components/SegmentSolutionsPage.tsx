@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   ArrowLeft,
@@ -12,42 +11,11 @@ import {
   ShieldCheck,
   ShoppingBag,
 } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const SLIDE_DURATION = 4500;
 
-const services = [
-  {
-    title: "Seguranca",
-    description:
-      "Temos a melhor equipe de ciberseguranca para proteger seus dados e sistemas.",
-    href: "/governanca-de-dados",
-    icon: ShieldCheck,
-  },
-  {
-    title: "E-commerce",
-    description: "Tenha sua loja escalavel com a Condertech.",
-    href: "/ecommerce",
-    icon: ShoppingBag,
-  },
-  {
-    title: "Sistemas Personalizados",
-    description: "Desenvolvimento personalizado para sua empresa.",
-    href: "/sistemainterno",
-    icon: Monitor,
-  },
-  {
-    title: "Infraestrutura",
-    description: "Migracao, estrutura segura, escalavel e preparada para crescimento.",
-    href: "/solucoes-de-tecnologia",
-    icon: Server,
-  },
-  {
-    title: "Governo",
-    description: "Conte com a ConderTech para gerenciar desafios da administracao publica.",
-    href: "/empresa-de-tecnologia/brasilia",
-    icon: Landmark,
-  },
-];
+const serviceIcons = [ShieldCheck, ShoppingBag, Monitor, Server, Landmark];
 
 function getCardStyle(index: number, active: number) {
   const offset = index - active;
@@ -61,7 +29,7 @@ function getCardStyle(index: number, active: number) {
     translateX: offset * 275,
     scale: absOffset === 0 ? 1 : absOffset === 1 ? 0.78 : 0.62,
     rotateY: offset * -22,
-    zIndex: services.length - absOffset,
+    zIndex: serviceIcons.length - absOffset,
     opacity: absOffset === 0 ? 1 : absOffset === 1 ? 0.72 : 0.38,
     blur: absOffset === 0 ? 0 : absOffset === 1 ? 0 : 2,
     pointerEvents: "auto" as const,
@@ -69,6 +37,11 @@ function getCardStyle(index: number, active: number) {
 }
 
 export function SegmentSolutionsSection() {
+  const { t } = useLanguage();
+  const services = t.segments.items.map((item, idx) => ({
+    ...item,
+    icon: serviceIcons[idx],
+  }));
   const [active, setActive] = useState(1);
 
   useEffect(() => {
@@ -77,15 +50,15 @@ export function SegmentSolutionsSection() {
     }, SLIDE_DURATION);
 
     return () => window.clearTimeout(timeout);
-  }, [active]);
+  }, [active, services.length]);
 
   const prev = useCallback(() => {
     setActive((current) => (current - 1 + services.length) % services.length);
-  }, []);
+  }, [services.length]);
 
   const next = useCallback(() => {
     setActive((current) => (current + 1) % services.length);
-  }, []);
+  }, [services.length]);
 
   return (
     <section
@@ -105,8 +78,8 @@ export function SegmentSolutionsSection() {
       <div className="relative mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12">
         <div className="mb-12 text-center sm:mb-16">
           <h1 className="mx-auto max-w-[13ch] font-inter text-2xl font-semibold leading-tight text-white sm:max-w-none sm:text-5xl lg:text-6xl">
-            Solucoes especializadas para o seu{" "}
-            <span className="italic text-[#e22d2e]">segmento</span>
+            {t.segments.headline1}{" "}
+            <span className="italic text-[#e22d2e]">{t.segments.accent}</span>
           </h1>
         </div>
 
@@ -142,8 +115,7 @@ export function SegmentSolutionsSection() {
                 className="w-[300px]"
                 whileHover={!isActive ? { scale: (scale ?? 0.78) + 0.04 } : {}}
               >
-                <Link
-                  href={service.href}
+                <div
                   className={`relative block min-h-[255px] rounded-2xl bg-white p-8 text-center transition-shadow duration-300 ${
                     isActive ? "shadow-[0_30px_80px_rgba(0,0,0,0.45)]" : "shadow-lg"
                   }`}
@@ -160,7 +132,7 @@ export function SegmentSolutionsSection() {
                   <p className="font-inter text-sm font-light leading-relaxed text-slate-500">
                     {service.description}
                   </p>
-                </Link>
+                </div>
               </motion.div>
             );
           })}
@@ -183,10 +155,7 @@ export function SegmentSolutionsSection() {
                       isActive ? "scale-100 opacity-100" : "scale-90 opacity-45"
                     }`}
                   >
-                    <Link
-                      href={service.href}
-                      className="relative block min-h-[150px] rounded-lg bg-white px-4 py-6 text-center shadow-[0_20px_60px_rgba(0,0,0,0.35)]"
-                    >
+                    <div className="relative block min-h-[150px] rounded-lg bg-white px-4 py-6 text-center shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
                       {isActive && (
                         <span className="absolute left-6 right-6 top-0 h-[2px] rounded-full bg-[#e22d2e]" />
                       )}
@@ -199,7 +168,7 @@ export function SegmentSolutionsSection() {
                       <p className="font-inter text-[10px] leading-4 text-slate-500">
                         {service.description}
                       </p>
-                    </Link>
+                    </div>
                   </div>
                 );
               })}
@@ -209,7 +178,7 @@ export function SegmentSolutionsSection() {
           <div className="mt-8 flex items-center justify-center gap-4">
             <button
               onClick={prev}
-              aria-label="Anterior"
+              aria-label={t.segments.prev}
               className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white/60"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
@@ -219,7 +188,7 @@ export function SegmentSolutionsSection() {
                 <button
                   key={service.title}
                   onClick={() => setActive(index)}
-                  aria-label={`Ir para ${service.title}`}
+                  aria-label={t.segments.goTo(service.title)}
                   className="h-2 overflow-hidden rounded-full bg-white/30 transition-all duration-300"
                   style={{ width: index === active ? 24 : 8 }}
                 >
@@ -235,7 +204,7 @@ export function SegmentSolutionsSection() {
             </div>
             <button
               onClick={next}
-              aria-label="Proximo"
+              aria-label={t.segments.next}
               className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white/60"
             >
               <ArrowRight className="h-3.5 w-3.5" />
@@ -246,7 +215,7 @@ export function SegmentSolutionsSection() {
         <div className="mt-10 hidden items-center justify-center gap-8 md:flex">
           <button
             onClick={prev}
-            aria-label="Anterior"
+            aria-label={t.segments.prev}
             className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-white/70 transition-all duration-200 hover:border-[#e22d2e] hover:text-[#e22d2e]"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -257,7 +226,7 @@ export function SegmentSolutionsSection() {
               <button
                 key={service.title}
                 onClick={() => setActive(index)}
-                aria-label={`Ir para ${service.title}`}
+                aria-label={t.segments.goTo(service.title)}
                 className={`rounded-full transition-all duration-300 ${
                   index === active ? "h-2 w-6 bg-[#e22d2e]" : "h-2 w-2 bg-white/30 hover:bg-white/60"
                 }`}
@@ -267,7 +236,7 @@ export function SegmentSolutionsSection() {
 
           <button
             onClick={next}
-            aria-label="Proximo"
+            aria-label={t.segments.next}
             className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-white/70 transition-all duration-200 hover:border-[#e22d2e] hover:text-[#e22d2e]"
           >
             <ArrowRight className="h-4 w-4" />

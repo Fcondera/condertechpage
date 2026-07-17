@@ -1,6 +1,8 @@
 import { useState } from "react";
+import Link from "next/link";
 import { useGsapReveal } from "@hooks/useGsapReveal";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { getLocalizedPath } from "@/utils/locale";
 
 interface FAQItem {
   question: string;
@@ -8,7 +10,7 @@ interface FAQItem {
 }
 
 const FAQSection = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const titleRef = useGsapReveal<HTMLDivElement>();
   const contentRef = useGsapReveal<HTMLDivElement>({
@@ -49,12 +51,12 @@ const FAQSection = () => {
           <p className="mb-5 font-inter text-sm text-slate-600">
             {t.faq.not_found}
           </p>
-          <a
-            href="/#contato"
+          <Link
+            href={`${getLocalizedPath(lang, "/")}#contato`}
             className="inline-flex items-center gap-2 bg-[#090909] rounded-full px-8 py-4 font-inter text-sm font-semibold uppercase tracking-widest text-white transition-colors duration-200 hover:bg-[#e22d2e]"
           >
             {t.faq.cta}
-          </a>
+          </Link>
         </div>
       </div>
     </section>

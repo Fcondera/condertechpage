@@ -1,5 +1,5 @@
 /**
- * Tipos para o Simulador de Orçamento Condertech
+ * Tipos para o Simulador de Orçamento ConderTech
  */
 
 // Tipo de projeto selecionado
@@ -46,5 +46,4 @@ export interface PriceConfig {
   basePrice: number;
   maxPrice: number;
   estimatedDays: number;
-  description: string;
 }
