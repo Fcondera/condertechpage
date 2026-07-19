@@ -24,31 +24,29 @@ export default function EcommercePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
             <div>
               <img
-                src="/image/hero-05.png"
+                src="/image/logoecommerce.png"
                 alt="CONDERTECH"
-                className="h-14 md:h-20 mb-6"
+                className="h-44 md:h-56 w-auto mx-auto md:mx-0 mb-6"
               />
               <h1 className="font-cabinet text-4xl md:text-5xl lg:text-6xl font-medium text-black mb-6 leading-tight">
-                Lucre até{" "}
+                Sua empresa merece vender muito além da{" "}
                 <span className="text-red-500 italic font-semibold tracking-wide md:tracking-wider">
-                  R$10mil por mês
-                </span>{" "}
-                <span className="text-red-500 italic font-semibold tracking-wide md:tracking-wider">
-                  com uma loja online
+                  porta da loja.
                 </span>
-                , sem precisar ter dor de cabeça.
               </h1>
               <p className="text-base md:text-lg font-light text-slate-700 mb-10 leading-relaxed max-w-3xl">
-                Com a condertech venda produto na sua cidade com checkout
-                integrado, catálago inteligente e painel administrativo
-                completo.
+                Venda pelo seu site, apareça para novos clientes da sua cidade e
+                acompanhe tudo em um só lugar. A Condertech deixa sua empresa
+                pronta para vender online de forma simples e profissional.
               </p>
-              <button
-                type="button"
+              <a
+                href="https://wa.me/5592982054683?text=Olá!%20Quero%20conhecer%20a%20Condertech%20Commerce%20e%20vender%20mais%20pela%20internet."
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-[rgb(124,179,66)] text-white text-lg font-semibold shadow-md hover:bg-[rgb(104,159,46)] transition-colors"
               >
-                Quero falar com especialista
-              </button>
+                Quero vender mais
+              </a>
             </div>
             <div className="relative">
               <img
@@ -71,27 +69,24 @@ export default function EcommercePage() {
                   <div className="spark-border rounded-full p-[2px]">
                     <div className="inline-flex items-center gap-2 bg-slate-100 rounded-full px-4 py-2">
                       <span className="text-sm font-medium text-slate-900">
-                        Começar é rápido e simples
+                        Sua empresa pronta para vender em poucos dias
                       </span>
                     </div>
                   </div>
                 </div>
                 <h2 className="font-cabinet text-3xl md:text-4xl font-medium text-black mb-6 leading-tight">
-                  O que é a{" "}
-                  <span className="text-red-500 italic">
-                    condertech Ecommerce?
-                  </span>
+                  Muito mais que uma{" "}
+                  <span className="text-red-500 italic">loja virtual.</span>
                 </h2>
                 <p className="text-lg text-slate-600 mb-6 leading-relaxed">
-                  Uma plataforma completa criada para pequenos empresas e
-                  empreendedores que querem vender online de forma profissional
-                  sem precisar investir milhares em desenvolvimento.
+                  A Condertech foi criada para empresas que querem vender mais
+                  sem complicar a rotina. Nós preparamos sua loja, organizamos
+                  seus pedidos e deixamos tudo pronto para você começar.
                 </p>
                 <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                  Enquanto outras plataformas entregam apenas uma loja virtual,
-                  a condertech conecta sua empresa dentro de um ecossistema
-                  regional, com uma ótima base de clientes e visibilidade local
-                  para sua marca.
+                  Além da sua própria loja, sua empresa também aparece em um
+                  espaço regional onde novos clientes podem encontrar sua marca
+                  e comprar com facilidade.
                 </p>
                 <img
                   src="/image/hero-03.jpeg"
@@ -102,34 +97,34 @@ export default function EcommercePage() {
               <div>
                 <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
                   <h3 className="text-xl font-medium text-slate-900 mb-6">
-                    Sua empresa ganha:
+                    Sua empresa recebe uma estrutura completa
                   </h3>
                   <div className="space-y-4">
                     {[
                       {
                         icon: Store,
-                        text: "Loja virtual própria",
-                        desc: "Design profissional e personalizável",
+                        text: "Loja virtual profissional",
+                        desc: "Com a identidade da sua empresa",
                       },
                       {
                         icon: Package,
-                        text: "Painel administrativo",
-                        desc: "Gerencie produtos e pedidos",
+                        text: "Pedidos organizados",
+                        desc: "Acompanhe cada venda em um só lugar",
                       },
                       {
                         icon: ShoppingBag,
-                        text: "Checkout integrado",
-                        desc: "PIX e cartão de crédito",
+                        text: "Pagamento fácil",
+                        desc: "Receba por PIX e cartão",
                       },
                       {
                         icon: TrendingUp,
-                        text: "Analytics completo",
-                        desc: "Acompanhe suas vendas",
+                        text: "Acompanhamento das vendas",
+                        desc: "Veja o que vende e como sua empresa cresce",
                       },
                       {
                         icon: MapPin,
-                        text: "Marketplace regional",
-                        desc: "Visibilidade na sua cidade",
+                        text: "Mais visibilidade na cidade",
+                        desc: "Novos clientes podem encontrar sua empresa",
                       },
                     ].map((item, idx) => (
                       <div
@@ -163,11 +158,11 @@ export default function EcommercePage() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="font-cabinet text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                Marketplace Regional
+                Sua empresa pode ser encontrada todos os dias
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                Sua empresa aparecendo para toda sua cidade com visibilidade
-                profissional.
+                Além da sua loja, sua marca também aparece para pessoas que
+                procuram produtos e serviços na sua cidade.
               </p>
             </div>
 
@@ -175,7 +170,7 @@ export default function EcommercePage() {
               <img
                 src="/image/hero-02.jpeg"
                 alt="Marketplace regional CONDERTECH"
-                className="w-full max-w-4xl mx-auto h-auto rounded-xl object-contain"
+                className="w-[90%] md:w-full max-w-4xl mx-auto h-auto rounded-xl object-contain"
               />
             </div>
 
@@ -185,12 +180,13 @@ export default function EcommercePage() {
                   <div className="inline-flex items-center gap-2 bg-white border border-slate-200 rounded-lg px-4 py-2 mb-4">
                     <MapPin className="w-4 h-4 text-slate-700" />
                     <span className="text-sm font-medium text-slate-700">
-                      Presença regional
+                      Mais pessoas encontrando sua empresa
                     </span>
                   </div>
                   <p className="text-lg text-slate-700 mb-6 leading-relaxed">
-                    Além da loja virtual própria, sua empresa também aparece
-                    dentro do marketplace regional da CONDERTECH.
+                    Sua empresa ganha uma página própria e também aparece no
+                    Marketplace Regional Condertech, aumentando as chances de
+                    ser encontrada por novos clientes.
                   </p>
                   <div className="bg-white rounded-lg p-4 border border-slate-200">
                     <p className="text-xs font-semibold text-slate-500 mb-2">
@@ -206,28 +202,24 @@ export default function EcommercePage() {
                     <BarChart3 className="w-6 h-6 text-red-500 flex-shrink-0" />
                     <div>
                       <span className="text-xl font-bold text-slate-900">
-                        5x mais
+                        Mais
                       </span>
                       <span className="text-sm text-slate-600 ml-1">
-                        alcance na região
+                        oportunidades de venda
                       </span>
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-x-6 gap-y-2">
                     <div>
                       <p className="text-xs font-semibold text-slate-500 uppercase mb-2">
-                        Clientes encontram
+                        Sua empresa ganha
                       </p>
                       <ul className="space-y-1.5">
                         {[
-                          "Restaurantes",
-                          "Marmitarias",
-                          "Lojas de roupas",
-                          "Cosméticos",
-                          "Conveniências",
-                          "Farmácias",
-                          "Eletrônicos",
-                          "Serviços locais",
+                          "Mais visitas para sua loja",
+                          "Mais pessoas conhecendo sua marca",
+                          "Mais chances de vender",
+                          "Mais presença na cidade",
                         ].map((item, idx) => (
                           <li
                             key={idx}
@@ -241,14 +233,14 @@ export default function EcommercePage() {
                     </div>
                     <div>
                       <p className="text-xs font-semibold text-slate-500 uppercase mb-2">
-                        Isso gera
+                        Na prática
                       </p>
                       <ul className="space-y-1.5">
                         {[
-                          "Mais visibilidade orgânica",
-                          "Tráfego compartilhado",
-                          "Descoberta facilitada",
-                          "Crescimento regional",
+                          "O cliente encontra",
+                          "Escolhe os produtos",
+                          "Faz o pagamento",
+                          "Você recebe o pedido",
                         ].map((item, idx) => (
                           <li
                             key={idx}
@@ -274,10 +266,13 @@ export default function EcommercePage() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="font-cabinet text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">
-                Como <span className="text-red-500 italic">funciona?</span>
+                Começar é{" "}
+                <span className="text-red-500 italic">
+                  mais fácil do que parece.
+                </span>
               </h2>
               <p className="text-lg text-slate-600">
-                Processo simples e rápido em 4 etapas
+                Nossa equipe prepara tudo para você em quatro etapas
               </p>
             </div>
 
@@ -285,23 +280,23 @@ export default function EcommercePage() {
               {[
                 {
                   step: "1",
-                  title: "Criamos sua estrutura",
-                  desc: "Configuramos sua loja profissional com sua identidade.",
+                  title: "Criamos sua loja",
+                  desc: "Configuramos a página com a identidade da sua empresa.",
                 },
                 {
                   step: "2",
-                  title: "Sua empresa entra no marketplace",
-                  desc: "Sua marca começa a aparecer regionalmente.",
+                  title: "Sua empresa ganha visibilidade",
+                  desc: "Novos clientes passam a encontrar seu negócio.",
                 },
                 {
                   step: "3",
-                  title: "Você recebe pedidos online",
-                  desc: "Tudo centralizado em um painel administrativo simples.",
+                  title: "Você começa a vender",
+                  desc: "Os pedidos chegam organizados em um único lugar.",
                 },
                 {
                   step: "4",
-                  title: "Sua operação cresce",
-                  desc: "Mais clientes, mais presença digital e mais vendas.",
+                  title: "Sua empresa cresce",
+                  desc: "Mais clientes, mais organização e mais vendas.",
                 },
               ].map((item, idx) => (
                 <div
@@ -335,13 +330,33 @@ export default function EcommercePage() {
         </div>
       </section>
 
+      {/* Venda 24 horas */}
+      <section className="py-20 bg-slate-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto text-center">
+            <span className="inline-flex items-center rounded-full bg-white border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 mb-6">
+              Sua loja continua vendendo mesmo quando você fecha as portas
+            </span>
+            <h2 className="font-cabinet text-3xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
+              Sua empresa aberta para vendas{" "}
+              <span className="text-red-500 italic">24 horas por dia.</span>
+            </h2>
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+              Seus clientes podem conhecer seus produtos, fazer o pedido e pagar
+              de onde estiverem. Você recebe tudo de forma organizada e
+              acompanha as vendas em um único lugar.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Planos */}
       <section id="planos" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="mb-16">
               <h2 className="font-cabinet text-4xl md:text-6xl font-medium text-slate-900 mb-8 leading-tight">
-                Planos e preços para o{" "}
+                Escolha o plano ideal para o{" "}
                 <span className="text-red-500 italic">seu negócio.</span>
               </h2>
 
@@ -393,7 +408,8 @@ export default function EcommercePage() {
                       </div>
                     </div>
                     <p className="text-slate-600 mb-6 text-sm">
-                      Ideal para pequenos negócios começarem a vender online.
+                      Para pequenos negócios que querem começar de forma
+                      simples.
                     </p>
 
                     <ul className="space-y-3 mb-8">
@@ -442,7 +458,8 @@ export default function EcommercePage() {
                       </div>
                     </div>
                     <p className="text-white/80 mb-6 text-sm">
-                      Nosso plano mais recomendado para empresas em crescimento.
+                      Para empresas que querem vender mais e crescer com
+                      organização.
                     </p>
 
                     <ul className="space-y-3 mb-8">
@@ -490,7 +507,8 @@ export default function EcommercePage() {
                       </div>
                     </div>
                     <p className="text-slate-600 mb-6 text-sm">
-                      Para operações maiores e empresas que querem escalar.
+                      Para empresas maiores que precisam de mais controle e
+                      atendimento.
                     </p>
 
                     <ul className="space-y-3 mb-8">
@@ -576,7 +594,7 @@ export default function EcommercePage() {
               <img
                 src="/image/ecme-06.PNG"
                 alt="Demonstração do ecommerce"
-                className="w-full h-auto object-contain rounded-xl shadow-md"
+                className="w-[90%] md:w-full mx-auto h-auto object-contain rounded-xl shadow-md"
               />
             </div>
           </div>
@@ -590,10 +608,11 @@ export default function EcommercePage() {
             <div className="text-center mb-16">
               <h2 className="font-cabinet text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">
                 Por que escolher a{" "}
-                <span className="text-red-500 italic">condertech?</span>
+                <span className="text-red-500 italic">Condertech?</span>
               </h2>
               <p className="text-lg text-slate-600">
-                Tecnologia profissional com estrutura empresarial
+                Porque vender online precisa ser simples para você e para o
+                cliente
               </p>
             </div>
 
@@ -605,33 +624,33 @@ export default function EcommercePage() {
               />
               <div className="bg-white p-8 rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
                 <h3 className="text-xl font-bold text-slate-900 mb-4">
-                  Estrutura completa para crescer
+                  Tudo o que sua empresa precisa para vender melhor
                 </h3>
                 <ul className="space-y-3">
                   {[
                     {
                       icon: Shield,
-                      text: "Estrutura profissional pronta para operar",
+                      text: "Loja pronta para receber pedidos",
                     },
                     {
                       icon: MapPin,
-                      text: "Marketplace regional para ampliar alcance",
+                      text: "Mais visibilidade para sua marca na cidade",
                     },
                     {
                       icon: ShoppingBag,
-                      text: "Checkout completo com PIX e cartão",
+                      text: "Pagamento por PIX e cartão",
                     },
                     {
                       icon: Zap,
-                      text: "Performance otimizada para seus clientes",
+                      text: "Compra rápida pelo celular ou computador",
                     },
                     {
                       icon: TrendingUp,
-                      text: "Crescimento escalável conforme sua operação",
+                      text: "Planos que acompanham o crescimento da empresa",
                     },
                     {
                       icon: BarChart3,
-                      text: "Analytics integrado para decisões mais rápidas",
+                      text: "Relatórios simples para acompanhar as vendas",
                     },
                   ].map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3 text-sm">
@@ -652,11 +671,12 @@ export default function EcommercePage() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="font-cabinet text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">
-                Para quem é essa{" "}
-                <span className="text-red-500 italic">solução?</span>
+                Feito para empresas que{" "}
+                <span className="text-red-500 italic">querem crescer.</span>
               </h2>
               <p className="text-lg text-slate-600">
-                A Condertech Ecommerce é ideal para diversos tipos de negócios:
+                Se sua empresa vende produtos ou serviços, ela pode vender mais
+                e trabalhar com mais organização.
               </p>
             </div>
 
@@ -695,18 +715,28 @@ export default function EcommercePage() {
               <div className="spark-border rounded-full p-[2px]">
                 <div className="inline-flex items-center gap-2 bg-slate-100 rounded-full px-4 py-2">
                   <span className="text-sm font-medium text-slate-900">
-                    Começar é rápido e simples
+                    Sua empresa pronta para vender em poucos dias
                   </span>
                 </div>
               </div>
             </div>
             <h2 className="font-cabinet text-3xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
-              Pronto para começar sua operação digital?
+              Sua próxima venda pode começar hoje.
             </h2>
             <p className="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl mx-auto">
-              Sua empresa pronta para vender online dentro do maior ecossistema
-              regional da cidade. Configure em 48h.
+              Todos os dias, pessoas procuram empresas como a sua na internet.
+              Com a Condertech, sua marca aparece, vende e acompanha tudo em um
+              só lugar.
             </p>
+
+            <a
+              href="https://wa.me/5592982054683?text=Olá!%20Quero%20uma%20demonstração%20da%20Condertech%20Commerce."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-[rgb(124,179,66)] text-white text-lg font-semibold shadow-md hover:bg-[rgb(104,159,46)] transition-colors"
+            >
+              Solicitar demonstração
+            </a>
 
             <div className="mt-10 pt-10 border-t border-slate-200">
               <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
@@ -714,20 +744,20 @@ export default function EcommercePage() {
                   <div className="text-3xl font-bold text-slate-900 mb-1">
                     48h
                   </div>
-                  <div className="text-sm text-slate-500">Setup completo</div>
+                  <div className="text-sm text-slate-500">Loja configurada</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-slate-900 mb-1">
                     R$0
                   </div>
-                  <div className="text-sm text-slate-500">Taxa de setup</div>
+                  <div className="text-sm text-slate-500">Para começar</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-slate-900 mb-1">
-                    24/7
+                    24h
                   </div>
                   <div className="text-sm text-slate-500">
-                    Suporte disponível
+                    Plataforma disponível
                   </div>
                 </div>
               </div>

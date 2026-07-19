@@ -36,9 +36,9 @@ function buildMetadata({
     keywords,
     metadataBase: new URL(SITE_URL),
     icons: {
-      icon: "/image/logocondertech.png",
-      shortcut: "/image/logocondertech.png",
-      apple: "/image/logocondertech.png",
+      icon: "/image/logohtml.png",
+      shortcut: "/image/logohtml.png",
+      apple: "/image/logohtml.png",
     },
     alternates: {
       canonical: url,
