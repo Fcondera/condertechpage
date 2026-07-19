@@ -168,7 +168,7 @@ export default function EcommercePage() {
 
             <div className="mb-10">
               <img
-                src="/image/hero-02.jpeg"
+                src="/image/hero-ecommecer.png"
                 alt="Marketplace regional CONDERTECH"
                 className="w-[90%] md:w-full max-w-4xl mx-auto h-auto rounded-xl object-contain"
               />
@@ -594,7 +594,7 @@ export default function EcommercePage() {
               <img
                 src="/image/ecme-06.PNG"
                 alt="Demonstração do ecommerce"
-                className="w-[90%] md:w-full mx-auto h-auto object-contain rounded-xl shadow-md"
+                className="w-[90%] md:w-[420px] mx-auto h-auto object-contain rounded-xl shadow-md"
               />
             </div>
           </div>
