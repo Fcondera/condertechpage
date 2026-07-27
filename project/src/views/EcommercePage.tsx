@@ -40,7 +40,7 @@ export default function EcommercePage() {
                 pronta para vender online de forma simples e profissional.
               </p>
               <a
-                href="https://wa.me/5592982054683?text=Olá!%20Quero%20conhecer%20a%20Condertech%20Commerce%20e%20vender%20mais%20pela%20internet."
+                href="https://wa.me/5592991817542?text=Olá!%20Quero%20conhecer%20a%20Condertech%20Commerce%20e%20vender%20mais%20pela%20internet."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-[rgb(124,179,66)] text-white text-lg font-semibold shadow-md hover:bg-[rgb(104,159,46)] transition-colors"
@@ -432,7 +432,7 @@ export default function EcommercePage() {
                     </ul>
 
                     <a
-                      href="https://wa.me/5592982054683"
+                      href="https://wa.me/5592991817542"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block w-full py-3 px-6 bg-[rgb(124,179,66)] text-white font-semibold rounded-full text-center hover:bg-[rgb(104,159,46)] transition-colors text-sm shadow-[inset_0_-2px_6px_rgba(0,0,0,0.22)]"
@@ -442,8 +442,8 @@ export default function EcommercePage() {
                   </div>
 
                   {/* BUSINESS - Destaque */}
-                  <div className="w-[82vw] max-w-[320px] shrink-0 snap-start bg-[rgb(124,179,66)] rounded-2xl p-8 border-2 border-[rgb(124,179,66)] relative z-10 md:w-auto md:max-w-none md:min-w-0 md:shrink md:flex-1 md:transform md:scale-105 shadow-lg overflow-visible">
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[rgb(104,159,46)] text-white px-4 py-1 rounded-full text-xs font-bold z-20">
+                  <div className="w-[82vw] max-w-[320px] shrink-0 snap-start bg-[rgb(124,179,66)] rounded-2xl px-8 pb-8 pt-16 border-2 border-[rgb(124,179,66)] relative z-10 md:w-auto md:max-w-none md:min-w-0 md:shrink md:flex-1 md:transform md:scale-105 md:p-8 shadow-lg overflow-visible">
+                    <div className="absolute top-4 left-1/2 -translate-x-1/2 whitespace-nowrap bg-[rgb(104,159,46)] text-white px-4 py-1 rounded-full text-xs font-bold z-20 md:-top-3">
                       RECOMENDADO
                     </div>
                     <div className="mb-6">
@@ -484,7 +484,7 @@ export default function EcommercePage() {
                     </ul>
 
                     <a
-                      href="https://wa.me/5592982054683"
+                      href="https://wa.me/5592991817542"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block w-full py-3 px-6 bg-[rgb(124,179,66)] text-white font-semibold rounded-full text-center hover:bg-[rgb(104,159,46)] transition-colors text-sm shadow-[inset_0_-2px_6px_rgba(0,0,0,0.22)]"
@@ -532,7 +532,7 @@ export default function EcommercePage() {
                     </ul>
 
                     <a
-                      href="https://wa.me/5592982054683"
+                      href="https://wa.me/5592991817542"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block w-full py-3 px-6 bg-[rgb(124,179,66)] text-white font-semibold rounded-full text-center hover:bg-[rgb(104,159,46)] transition-colors text-sm shadow-[inset_0_-2px_6px_rgba(0,0,0,0.22)]"
@@ -579,7 +579,7 @@ export default function EcommercePage() {
                   </ul>
 
                   <a
-                    href="https://wa.me/5592982054683"
+                    href="https://wa.me/5592991817542"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block w-full py-3 px-6 bg-[rgb(161,122,36)] text-white font-semibold rounded-full text-center hover:bg-[rgb(141,106,30)] transition-colors text-sm"
@@ -589,6 +589,53 @@ export default function EcommercePage() {
                 </div>
               </div>
             )}
+
+            <div className="mt-14 overflow-hidden rounded-3xl bg-slate-900 text-white shadow-xl">
+              <div className="grid items-center gap-10 p-8 md:p-12 lg:grid-cols-[1.35fr_0.65fr]">
+                <div>
+                  <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[rgb(124,179,66)]">
+                    <Store className="h-6 w-6" />
+                  </div>
+                  <h3 className="font-cabinet mb-4 text-3xl font-bold md:text-4xl">
+                    Integração com seu sistema
+                  </h3>
+                  <p className="mb-4 text-lg font-semibold text-white">
+                    Sua empresa já utiliza um ERP ou PDV? Sem problemas.
+                  </p>
+                  <p className="max-w-3xl leading-relaxed text-slate-300">
+                    A Condertech pode integrar sua loja virtual ao sistema de
+                    gestão da sua empresa, mantendo estoque, preços e pedidos
+                    sincronizados em tempo real.
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8">
+                  <ul className="mb-8 space-y-4">
+                    {[
+                      "Análise técnica gratuita",
+                      "Integração personalizada",
+                      "Implantação realizada por especialistas",
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-3">
+                        <span className="mt-0.5 inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-[rgb(124,179,66)]">
+                          <Check className="h-4 w-4 text-white" />
+                        </span>
+                        <span className="text-slate-100">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <a
+                    href="https://wa.me/5592991817542?text=Olá!%20Quero%20solicitar%20uma%20análise%20para%20integrar%20a%20loja%20virtual%20ao%20meu%20ERP%20ou%20PDV."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex w-full items-center justify-center rounded-full bg-[rgb(124,179,66)] px-6 py-3 font-semibold text-white shadow-md transition-colors hover:bg-[rgb(104,159,46)]"
+                  >
+                    Solicitar análise
+                  </a>
+                </div>
+              </div>
+            </div>
 
             <div className="mt-12 max-w-4xl mx-auto">
               <img
@@ -730,7 +777,7 @@ export default function EcommercePage() {
             </p>
 
             <a
-              href="https://wa.me/5592982054683?text=Olá!%20Quero%20uma%20demonstração%20da%20Condertech%20Commerce."
+              href="https://wa.me/5592991817542?text=Olá!%20Quero%20uma%20demonstração%20da%20Condertech%20Commerce."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-[rgb(124,179,66)] text-white text-lg font-semibold shadow-md hover:bg-[rgb(104,159,46)] transition-colors"
