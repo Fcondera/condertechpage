@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { cities } from "@/data/cities";
+import { systems, equipment } from "@/data/products";
 
 const SITE_URL = "https://www.condertech.com.br";
 
@@ -25,6 +26,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     "/produtos",
     "/marketplace",
+    ...systems.map(product => `/produtos/${product.id}`),
+    ...equipment.map(product => `/marketplace/${product.id}`),
     "",
     "/sobre",
     "/cidades",

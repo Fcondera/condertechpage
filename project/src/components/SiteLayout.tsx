@@ -19,6 +19,9 @@ const HIDDEN_NAVBAR_ONLY_ROUTES = new Set(["/portfolio-lp"]);
 export default function SiteLayout({ children }: SiteLayoutProps) {
   const pathname = usePathname();
   const bare = pathname ? stripLocalePrefix(pathname).bare : "";
+  const isCatalog = ["/produtos", "/marketplace"].some(
+    route => bare === route || bare.startsWith(`${route}/`),
+  );
   const hideChrome = pathname
     ? bare.startsWith("/ima") || HIDDEN_CHROME_ROUTES.has(bare)
     : false;
@@ -32,7 +35,7 @@ export default function SiteLayout({ children }: SiteLayoutProps) {
           {!hideNavbar && <Navbar />}
           {children}
           {!hideChrome && <Footer />}
-          {!hideChrome && <WhatsAppButton />}
+          {!hideChrome && !isCatalog && <WhatsAppButton />}
         </div>
       </LanguageProvider>
     </ErrorBoundary>

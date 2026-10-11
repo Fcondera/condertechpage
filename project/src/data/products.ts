@@ -4,19 +4,22 @@ export const salesLink = (message: string) =>
 export const systems = [
   {
     id: "nori-sistemas", name: "Nori Sistemas", category: "Gestão + PDV", number: "01",
-    description: "A gestão do seu negócio começa aqui. Organize a rotina da loja e conecte o atendimento no ponto de venda à operação da empresa.",
+    summary: "Gestão comercial, caixa e estoque em um só sistema.",
+    description: "Sistema de gestão para comércios e varejistas que reúne a operação de caixa, o cadastro de produtos e o controle de estoque.",
     features: ["Gestão comercial", "Operação de caixa e PDV", "Organização de produtos e estoque"],
     audience: "Para o comércio e o varejo",
   },
   {
     id: "sistema-de-ponto", name: "Sistema de Ponto", category: "SaaS · Gestão de jornada", number: "02",
-    description: "Mais organização para a jornada da sua equipe. Uma solução SaaS para centralizar o acompanhamento de ponto e simplificar a rotina de gestão de pessoas.",
+    summary: "Registros de ponto e acompanhamento de jornadas online.",
+    description: "Plataforma SaaS para empresas que precisam centralizar os registros de ponto e acompanhar a jornada da equipe online.",
     features: ["Acompanhamento de jornadas", "Organização de registros de ponto", "Gestão em uma plataforma online"],
     audience: "Para empresas e equipes",
   },
   {
     id: "sistema-de-agendamento", name: "Sistema de Agendamento", category: "Agenda · Atendimento", number: "03",
-    description: "Uma rotina de atendimentos mais organizada. Reúna horários, clientes e serviços em um só lugar e facilite o planejamento do seu dia.",
+    summary: "Horários, clientes e serviços em uma agenda organizada.",
+    description: "Sistema para negócios de serviços que precisam organizar horários, clientes e atendimentos em uma agenda única.",
     features: ["Organização de horários", "Cadastro de clientes e serviços", "Planejamento dos atendimentos"],
     audience: "Para negócios de serviços",
   },
