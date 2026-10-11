@@ -34,7 +34,7 @@ export default function SiteLayout({ children }: SiteLayoutProps) {
         <div className="font-inter">
           {!hideNavbar && <Navbar />}
           {children}
-          {!hideChrome && <Footer />}
+          {bare === "/" && <Footer />}
           {!hideChrome && !isCatalog && <WhatsAppButton />}
         </div>
       </LanguageProvider>

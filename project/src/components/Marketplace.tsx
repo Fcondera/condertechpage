@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Clock3, CreditCard, Minus, Monitor, Plus, Search, Trash2 } from "lucide-react";
+import { ArrowUpRight, Minus, Plus, Search, Trash2 } from "lucide-react";
 import CatalogNav from "@/components/CatalogNav";
+import ProductCardImage from "@/components/ProductCardImage";
 import { equipment, salesLink } from "@/data/products";
 
-const icons = { monitor: Monitor, clock: Clock3, card: CreditCard };
 const categories = ["Todos", "PDV", "Ponto", "NFC"];
 const normalize = (value: string) => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
@@ -83,26 +83,26 @@ export default function Marketplace() {
       </div>
       <div className="grid gap-5 md:grid-cols-3">
         {products.map(product => {
-          const Icon = icons[product.icon];
           return (
-            <article key={product.id} className="flex flex-col rounded-2xl border border-gray-200 p-6">
-              <Link href={`/marketplace/${product.id}`} className="group flex flex-1 flex-col rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600">
-                <Icon size={26} strokeWidth={1.5} className="mb-8 text-gray-500" aria-hidden="true" />
-                <h2 className="text-xl font-semibold">{product.name}</h2>
-                <p className="mb-6 mt-3 text-sm leading-6 text-gray-500">{product.description}</p>
-                <span className="mt-auto flex items-center justify-between text-sm font-medium">Ver produto <ArrowRight size={17} className="transition-transform group-hover:translate-x-1" aria-hidden="true" /></span>
+            <article key={product.id} className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white transition-shadow hover:shadow-[0_12px_32px_-16px_rgba(0,0,0,0.25)]">
+              <Link href={`/marketplace/${product.id}`} aria-label={`Conhecer ${product.name}`} className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600">
+                <ProductCardImage id={product.id} />
               </Link>
-              <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-gray-100 pt-4">
-                <span className="text-xs text-gray-500">Sob consulta</span>
+              <div className="flex flex-1 flex-col p-6">
+                <h2 className="text-xl font-semibold"><Link href={`/marketplace/${product.id}`} className="hover:text-[#b52324]">{product.name}</Link></h2>
+                <p className="mb-5 mt-3 text-sm leading-6 text-gray-500">{product.description}</p>
+                <p className="mb-5 mt-auto text-sm font-medium">Preço sob consulta</p>
+                <Link href={`/marketplace/${product.id}`} className="rounded-xl bg-[#171717] px-4 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-[#383838]">Conhecer produto</Link>
                 <button type="button" onClick={() => changeQuantity(product.id, 1)} disabled={!cartLoaded || cart[product.id] >= 999}
-                  className="inline-flex items-center gap-1.5 rounded-lg px-2 py-2 text-xs font-medium hover:bg-gray-100 disabled:opacity-40" aria-label={`Adicionar ${product.name} ao orçamento`}>
-                  <Plus size={15} aria-hidden="true" />Orçamento{cart[product.id] > 0 ? ` (${cart[product.id]})` : ""}
+                  className="mt-2 rounded-xl border border-gray-200 px-4 py-3 text-sm font-medium transition-colors hover:border-[#e22d2e] hover:bg-red-50 hover:text-[#b52324] disabled:opacity-40" aria-label={`Adicionar ${product.name} ao orçamento`}>
+                  Adicionar ao orçamento{cart[product.id] > 0 ? ` (${cart[product.id]})` : ""}
                 </button>
               </div>
             </article>
           );
         })}
       </div>
+      <p className="mt-4 text-xs text-gray-400">Imagens ilustrativas. Consulte os modelos disponíveis.</p>
       {products.length === 0 && (
         <div className="rounded-xl border border-dashed border-gray-200 p-10 text-center text-sm">
           <p className="text-gray-500">Nenhum equipamento encontrado.</p>
