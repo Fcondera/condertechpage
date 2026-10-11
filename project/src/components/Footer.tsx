@@ -13,6 +13,8 @@ const CONTACT_INFO = {
 const Footer = () => {
   const { lang, t } = useLanguage();
   const FOOTER_LINKS = [
+    { title: "Produtos", href: "/produtos" },
+    { title: "Marketplace", href: "/marketplace" },
     {
       title: t.footer.links.solutions,
       href: `${getLocalizedPath(lang, "/")}#solucoes`,

@@ -17,6 +17,8 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navLinks = [
+    { label: "Produtos", href: "/produtos" },
+    { label: "Marketplace", href: "/marketplace" },
     { label: t.nav.sobre, href: getLocalizedPath(lang, "/sobre") },
     { label: t.nav.faq, href: `${getLocalizedPath(lang, "/")}#faq` },
     { label: t.nav.contato, href: `${getLocalizedPath(lang, "/")}#contato` },
@@ -26,7 +28,7 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 w-full z-50">
       {/* ─── Desktop: barra branca ─── */}
-      <div className="hidden md:block bg-white">
+      <div className="hidden lg:block bg-white">
         <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -43,7 +45,7 @@ const Navbar = () => {
             </Link>
 
             {/* Desktop items */}
-            <div className="flex items-center gap-7">
+            <div className="flex items-center gap-4 xl:gap-7">
               {/* Links */}
               {navLinks.map((link) => (
                 <Link
@@ -100,7 +102,7 @@ const Navbar = () => {
       </div>
 
       {/* ─── Mobile: pílula flutuante ─── */}
-      <div className="md:hidden px-4 pt-3">
+      <div className="lg:hidden px-4 pt-3">
         {/* Pílula */}
         <div className="flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-[0_4px_24px_rgba(0,0,0,0.12)] border border-[#e5e5e5]">
           {/* Logo */}

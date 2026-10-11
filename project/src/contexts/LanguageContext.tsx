@@ -27,7 +27,7 @@ const ptBR = {
     question:
       "Sua empresa evoluiu, mas os processos continuam lentos, manuais ou espalhados em vários sistemas?",
     sub: "Desenvolvemos sistemas personalizados, automações e plataformas digitais que organizam operações, reduzem erros e ajudam empresas a crescer com mais eficiência, segurança e previsibilidade.",
-    note: "Cada negócio possui processos, desafios e objetivos diferentes. Por isso, acreditamos que a tecnologia deve se adaptar à sua empresa, e não o contrário.",
+    note: "Cada negócio possui processos, desafios e objetivos diferentes. Por isso, acreditamos que a tecnologia deve se adaptar à sua empresa e não o contrário.",
     cta: "Falar com um Especialista",
   },
   why: {
@@ -36,7 +36,8 @@ const ptBR = {
     accent: "personalizado?",
     body1:
       "Sistemas genéricos costumam obrigar a empresa a adaptar seus processos, contratar funcionalidades que nunca serão utilizadas e conviver com limitações que surgem conforme o negócio cresce.",
-    body2: "Um sistema personalizado é construído em torno da sua operação.",
+    body2:
+      "Um sistema personalizado é construído em torno da sua operação. Ele permite:",
     benefits: [
       "Processos alinhados à realidade da sua empresa",
       "Menos atividades manuais e menos retrabalho",
@@ -191,7 +192,8 @@ const ptBR = {
     eyebrow: "Pós-entrega",
     headline1: "A entrega é apenas o",
     accent: "começo",
-    body1: "Não acreditamos em projetos que terminam quando o sistema entra em produção.",
+    body1:
+      "Não acreditamos em projetos que terminam quando o sistema entra em produção.",
     body2:
       "Acompanhamos nossos clientes após a entrega, oferecendo suporte, identificando oportunidades de melhoria e planejando novas evoluções conforme o negócio cresce.",
     body3:
@@ -756,7 +758,8 @@ const en: T = {
           "No. We stay with our clients after delivery, offering support, identifying improvement opportunities, and planning new developments as the business grows.",
       },
       {
-        question: "Does ConderTech build AI agents and intelligent automations?",
+        question:
+          "Does ConderTech build AI agents and intelligent automations?",
         answer:
           "Yes. We design and implement AI agents, automation workflows, integrations with generative models, and AI-powered operational solutions for customer service, productivity, internal support, and scale.",
       },
@@ -1095,7 +1098,8 @@ const es: T = {
     accent: "personalizado?",
     body1:
       "Los sistemas genéricos suelen obligar a la empresa a adaptar sus procesos, pagar por funciones que nunca usará y convivir con limitaciones que surgen a medida que el negocio crece.",
-    body2: "Un sistema personalizado se construye alrededor de tu operación.",
+    body2:
+      "Un sistema personalizado se construye alrededor de tu operación. Permite:",
     benefits: [
       "Procesos alineados con la realidad de tu empresa",
       "Menos tareas manuales y menos retrabajo",
@@ -1250,7 +1254,8 @@ const es: T = {
     eyebrow: "Posentrega",
     headline1: "La entrega es solo el",
     accent: "comienzo",
-    body1: "No creemos en proyectos que terminan cuando el sistema entra en producción.",
+    body1:
+      "No creemos en proyectos que terminan cuando el sistema entra en producción.",
     body2:
       "Acompañamos a nuestros clientes después de la entrega, ofreciendo soporte, identificando oportunidades de mejora y planificando nuevas evoluciones conforme crece el negocio.",
     body3:
@@ -1284,7 +1289,8 @@ const es: T = {
           "No. Acompañamos a nuestros clientes después de la entrega, ofreciendo soporte, identificando oportunidades de mejora y planificando nuevas evoluciones conforme crece el negocio.",
       },
       {
-        question: "¿ConderTech crea agentes de IA y automatizaciones inteligentes?",
+        question:
+          "¿ConderTech crea agentes de IA y automatizaciones inteligentes?",
         answer:
           "Sí. Diseñamos e implementamos agentes de IA, flujos de automatización e integraciones con modelos generativos para atención, productividad y escala operacional.",
       },

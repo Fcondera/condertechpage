@@ -23,6 +23,8 @@ function languageAlternates(route: string) {
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
+    "/produtos",
+    "/marketplace",
     "",
     "/sobre",
     "/cidades",

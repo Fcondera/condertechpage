@@ -88,8 +88,15 @@ export function SegmentSolutionsSection() {
           style={{ height: 360, perspective: 1200 }}
         >
           {services.map((service, index) => {
-            const { translateX, scale, rotateY, zIndex, opacity, blur, pointerEvents } =
-              getCardStyle(index, active);
+            const {
+              translateX,
+              scale,
+              rotateY,
+              zIndex,
+              opacity,
+              blur,
+              pointerEvents,
+            } = getCardStyle(index, active);
             const Icon = service.icon;
             const isActive = index === active;
 
@@ -117,7 +124,9 @@ export function SegmentSolutionsSection() {
               >
                 <div
                   className={`relative block min-h-[255px] rounded-2xl bg-white p-8 text-center transition-shadow duration-300 ${
-                    isActive ? "shadow-[0_30px_80px_rgba(0,0,0,0.45)]" : "shadow-lg"
+                    isActive
+                      ? "shadow-[0_30px_80px_rgba(0,0,0,0.45)]"
+                      : "shadow-lg"
                   }`}
                 >
                   {isActive && (
@@ -142,7 +151,9 @@ export function SegmentSolutionsSection() {
           <div className="-mx-5 overflow-hidden px-5">
             <div
               className="flex transition-transform duration-500 ease-out"
-              style={{ transform: `translateX(calc(50% - ${(active + 0.5) * 190}px))` }}
+              style={{
+                transform: `translateX(calc(50% - ${(active + 0.5) * 190}px))`,
+              }}
             >
               {services.map((service, index) => {
                 const Icon = service.icon;
@@ -193,9 +204,15 @@ export function SegmentSolutionsSection() {
                   style={{ width: index === active ? 24 : 8 }}
                 >
                   <span
-                    key={index === active ? `segment-progress-${active}` : `segment-idle-${index}`}
+                    key={
+                      index === active
+                        ? `segment-progress-${active}`
+                        : `segment-idle-${index}`
+                    }
                     className={`block h-full rounded-full bg-[#e22d2e] ${
-                      index === active ? "animate-[segmentProgress_4.5s_linear]" : ""
+                      index === active
+                        ? "animate-[segmentProgress_4.5s_linear]"
+                        : ""
                     }`}
                     style={{ width: index === active ? "100%" : "0%" }}
                   />
@@ -228,7 +245,9 @@ export function SegmentSolutionsSection() {
                 onClick={() => setActive(index)}
                 aria-label={t.segments.goTo(service.title)}
                 className={`rounded-full transition-all duration-300 ${
-                  index === active ? "h-2 w-6 bg-[#e22d2e]" : "h-2 w-2 bg-white/30 hover:bg-white/60"
+                  index === active
+                    ? "h-2 w-6 bg-[#e22d2e]"
+                    : "h-2 w-2 bg-white/30 hover:bg-white/60"
                 }`}
               />
             ))}

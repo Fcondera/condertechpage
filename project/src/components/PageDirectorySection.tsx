@@ -4,6 +4,16 @@ import { useGsapReveal } from "@hooks/useGsapReveal";
 
 const pages = [
   {
+    title: "Produtos",
+    description: "Nori Sistemas, Sistema de Ponto SaaS e Sistema de Agendamento.",
+    href: "/produtos",
+  },
+  {
+    title: "Marketplace",
+    description: "Terminais PDV, relógios de ponto e cartões NFC para sua empresa.",
+    href: "/marketplace",
+  },
+  {
     title: "E-commerce",
     description: "Loja virtual moderna, escalavel e preparada para vender.",
     href: "/ecommerce",

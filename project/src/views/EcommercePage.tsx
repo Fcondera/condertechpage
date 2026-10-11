@@ -777,7 +777,7 @@ export default function EcommercePage() {
             </p>
 
             <a
-              href="https://wa.me/5592991817542?text=Olá!%20Quero%20uma%20demonstração%20da%20Condertech%20Commerce."
+              href="https://wa.me/5547992739983?text=Olá!%20Quero%20uma%20demonstração%20da%20Condertech%20Commerce."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-[rgb(124,179,66)] text-white text-lg font-semibold shadow-md hover:bg-[rgb(104,159,46)] transition-colors"
