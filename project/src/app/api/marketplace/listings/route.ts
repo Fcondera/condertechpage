@@ -2,6 +2,7 @@ import {
   authenticatedMarket,
   json,
   marketClient,
+  requireVerifiedProfile,
   sameOrigin,
   unavailable,
 } from "@/lib/marketplace/server";
@@ -13,6 +14,14 @@ export async function GET(request: Request) {
     const session = mine ? await authenticatedMarket() : null;
     if (mine && !session)
       return json({ error: "Entre para gerenciar seus anúncios." }, 401);
+    if (mine && !(await requireVerifiedProfile(session!.user)))
+      return json(
+        {
+          error:
+            "Complete seu cadastro e confirme o celular antes de gerenciar anúncios.",
+        },
+        403,
+      );
     const client = session?.client || marketClient();
     let query = client
       .from("marketplace_listings")
@@ -60,6 +69,14 @@ export async function POST(request: Request) {
   try {
     const session = await authenticatedMarket();
     if (!session) return json({ error: "Entre para anunciar." }, 401);
+    if (!(await requireVerifiedProfile(session.user)))
+      return json(
+        {
+          error:
+            "Complete seu cadastro e confirme o celular antes de anunciar.",
+        },
+        403,
+      );
     const body = await request.json().catch(() => null);
     if (
       !body ||
@@ -124,6 +141,14 @@ export async function PATCH(request: Request) {
   try {
     const session = await authenticatedMarket();
     if (!session) return json({ error: "Entre para gerenciar anúncios." }, 401);
+    if (!(await requireVerifiedProfile(session.user)))
+      return json(
+        {
+          error:
+            "Complete seu cadastro e confirme o celular antes de gerenciar anúncios.",
+        },
+        403,
+      );
     const body = await request.json().catch(() => null);
     if (
       typeof body?.id !== "string" ||

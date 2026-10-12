@@ -22,7 +22,9 @@ export function matchesCategory(product: MarketProduct, category: string) {
   return product.category === category;
 }
 
-export type MarketUser = { id: string; email: string; name: string; phone: string; company: string };
+export type MarketUser = { id: string; email: string; name: string; phone: string; company: string; isAdmin: boolean; emailVerified: boolean; profileComplete: boolean; phoneVerified: boolean };
+export type CatalogPrice = { product_id: string; price_cents: number | null; billing: "once" | "monthly" | "yearly"; active: boolean };
+export const billingLabel = (billing?: string) => billing === "monthly" ? "/mês" : billing === "yearly" ? "/ano" : "";
 export type QuoteItem = { id: string; name: string; quantity: number };
 export type MarketQuote = { id: string; created_at: string; status: "solicitado" | "em_atendimento" | "respondido" | "cancelado"; items: QuoteItem[]; notes: string };
 

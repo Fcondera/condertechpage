@@ -9,6 +9,28 @@ begin
   end if;
 end $$;
 
+create table if not exists public.marketplace_profiles (
+  user_id uuid primary key references auth.users(id) on delete cascade,
+  name text not null check (length(name) between 5 and 100),
+  phone text not null check (phone ~ '^[1-9]{2}9[0-9]{8}$'),
+  cpf text not null check (cpf ~ '^[0-9]{11}$'),
+  cep text not null check (cep ~ '^[0-9]{8}$'),
+  street text not null check (length(street) between 2 and 160),
+  number text not null check (length(number) between 1 and 20),
+  complement text not null default '' check (length(complement) <= 100),
+  neighborhood text not null check (length(neighborhood) between 2 and 100),
+  city text not null check (length(city) between 2 and 100),
+  state text not null check (state in ('AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO')),
+  company text not null default '' check (length(company) <= 160),
+  terms_accepted_at timestamptz not null,
+  phone_verified_at timestamptz,
+  updated_at timestamptz not null default now()
+);
+alter table public.marketplace_profiles enable row level security;
+revoke all on public.marketplace_profiles from anon, authenticated;
+grant all on public.marketplace_profiles to service_role;
+create index if not exists marketplace_profiles_phone on public.marketplace_profiles (phone);
+
 create table if not exists public.marketplace_quotes (
   id uuid primary key default gen_random_uuid(),
   user_id uuid not null references auth.users(id) on delete cascade,

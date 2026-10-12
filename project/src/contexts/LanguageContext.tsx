@@ -277,7 +277,8 @@ const ptBR = {
       terms: "Termos de Uso",
       governance: "Governança de Dados (LGPD)",
     },
-    rights: (company: string) => `© 2020 ${company}. Todos os direitos reservados.`,
+    rights: (company: string) =>
+      `© 2020 ${company}. Todos os direitos reservados.`,
   },
   about: {
     heading1: "Tecnologia que ajuda o seu negócio a ",
@@ -321,12 +322,14 @@ const ptBR = {
   },
   terms: {
     eyebrow: "Termos de Uso",
-    heading: "Condições gerais para utilização dos canais digitais da ConderTech.",
+    heading:
+      "Condições gerais para utilização dos canais digitais da ConderTech.",
     paragraphs: [
       "Ao navegar pelos ambientes digitais da ConderTech, você concorda em utilizar os conteúdos, formulários e materiais disponibilizados de forma lícita, responsável e compatível com a finalidade institucional e comercial da plataforma.",
       "As informações apresentadas neste site possuem caráter informativo-comercial e podem ser atualizadas a qualquer momento, sem aviso prévio, para refletir mudanças de posicionamento, portfólio, processos internos ou exigências regulatórias.",
       "É vedado reproduzir, distribuir ou explorar indevidamente os materiais proprietários da ConderTech sem autorização expressa. O envio de dados por formulários deve ocorrer apenas por pessoas autorizadas a representar a organização interessada.",
       "Dúvidas sobre uso da plataforma, propostas comerciais ou condições específicas podem ser tratadas diretamente pelos canais oficiais de contato indicados no site.",
+      "No Marketplace, o acesso é feito exclusivamente por uma conta Google. Para enviar solicitações ou anunciar, o usuário fornece nome, celular confirmado por SMS, CPF e endereço. Uma solicitação não é uma compra e não gera cobrança; nome, e-mail e itens solicitados são compartilhados com os vendedores correspondentes para atendimento.",
     ],
   },
   governance: {
@@ -336,11 +339,16 @@ const ptBR = {
       "A ConderTech trata dados pessoais com base em princípios de necessidade, finalidade, segurança e transparência, adotando controles técnicos e organizacionais compatíveis com a criticidade das informações processadas.",
       "Dados enviados por formulários, canais de contato e fluxos de atendimento podem ser utilizados para retorno comercial, qualificação de demanda, elaboração de propostas e manutenção do relacionamento institucional, sempre dentro de bases legais adequadas.",
       "Mantemos práticas voltadas à integridade, rastreabilidade e acesso controlado, com revisão periódica de processos para reforçar conformidade com a LGPD e padrões de governança aplicáveis às operações digitais que suportamos.",
+      "No Marketplace, a ConderTech recebe dados básicos de identidade do Google e armazena os dados de perfil fornecidos pelo titular, incluindo CPF, celular, endereço e aceite dos termos. O celular é confirmado por SMS. Nome, e-mail e itens de uma solicitação são compartilhados somente com vendedores relacionados aos produtos solicitados, para cadastro, segurança e atendimento da plataforma.",
       "Solicitações relacionadas a direitos do titular, atualização de dados ou esclarecimentos adicionais podem ser encaminhadas pelos canais oficiais informados no rodapé do site.",
+      "No Marketplace, a ConderTech recebe dados básicos de identidade do Google e armazena os dados de perfil fornecidos pelo titular, incluindo CPF, celular, endereço e aceite dos termos. O celular é confirmado por SMS. Nome, e-mail e itens de uma solicitação são compartilhados somente com vendedores relacionados aos produtos solicitados, para cadastro, segurança e atendimento da plataforma.",
     ],
   },
   budget: {
-    header: { title: "Simulador de Orçamento", subtitle: "ConderTech - Soluções Digitais" },
+    header: {
+      title: "Simulador de Orçamento",
+      subtitle: "ConderTech - Soluções Digitais",
+    },
     footer: {
       rights: "© 2020 ConderTech - Todos os direitos reservados",
       note: "Os valores apresentados são estimativas e podem variar",
@@ -354,7 +362,8 @@ const ptBR = {
       types: {
         institutional: {
           title: "Site Institucional",
-          description: "Site profissional para apresentar sua empresa e serviços",
+          description:
+            "Site profissional para apresentar sua empresa e serviços",
         },
         "landing-page": {
           title: "Landing Page",
@@ -378,13 +387,19 @@ const ptBR = {
       heading: "Sobre o design do projeto",
       subtext: "Responda as perguntas abaixo",
       logoQuestion: "Sua empresa já possui logotipo?",
-      logoYes: { title: "Sim, já tenho", description: "Usaremos seu logo existente" },
+      logoYes: {
+        title: "Sim, já tenho",
+        description: "Usaremos seu logo existente",
+      },
       logoNo: {
         title: "Não, preciso criar",
         description: "Criaremos um logo profissional (+R$ 500)",
       },
       premiumQuestion: "Deseja um design premium diferenciado?",
-      designStandard: { title: "Design Padrão", description: "Design profissional e clean" },
+      designStandard: {
+        title: "Design Padrão",
+        description: "Design profissional e clean",
+      },
       designPremium: {
         title: "Design Premium",
         description: "Design exclusivo e diferenciado (+R$ 2.000)",
@@ -399,7 +414,10 @@ const ptBR = {
       includedInBase: "Incluído no preço base",
       extraPages: (cost: number) => `Páginas extras: +R$ ${cost}`,
       seoQuestion: "Precisa de otimização SEO inicial?",
-      seoNo: { title: "Não precisa", description: "Podemos fazer depois se necessário" },
+      seoNo: {
+        title: "Não precisa",
+        description: "Podemos fazer depois se necessário",
+      },
       seoYes: {
         title: "Sim, preciso de SEO",
         description: "Otimização completa para buscadores (+R$ 1.500)",
@@ -411,7 +429,8 @@ const ptBR = {
       features: {
         whatsapp: {
           title: "Integração WhatsApp",
-          description: "Botão flutuante com link direto para seu WhatsApp Business",
+          description:
+            "Botão flutuante com link direto para seu WhatsApp Business",
         },
         blog: {
           title: "Sistema de Blog",
@@ -423,7 +442,8 @@ const ptBR = {
         },
         onlinePayment: {
           title: "Pagamento Online",
-          description: "Integração com gateways de pagamento (Stripe, PayPal, etc)",
+          description:
+            "Integração com gateways de pagamento (Stripe, PayPal, etc)",
         },
       },
       tipLabel: "Dica:",
@@ -477,7 +497,8 @@ const ptBR = {
     step7: {
       heading: "Seu orçamento está pronto!",
       subtext: "Confira os detalhes e escolha como prosseguir",
-      discountBadge: "Oferta exclusiva para primeira contratação: 50% de desconto",
+      discountBadge:
+        "Oferta exclusiva para primeira contratação: 50% de desconto",
       closeNowTitle: "Feche agora por apenas",
       from: "De",
       fixedPriceNote: "Valor fixo para fechar agora. Aproveite!",
@@ -869,10 +890,14 @@ const en: T = {
       "Data submitted through forms, contact channels, and service flows may be used for business follow-up, lead qualification, proposal drafting, and maintaining the institutional relationship, always within appropriate legal bases.",
       "We maintain practices focused on integrity, traceability, and controlled access, with periodic process reviews to reinforce compliance with the LGPD and governance standards applicable to the digital operations we support.",
       "Requests related to data subject rights, data updates, or further clarification can be sent through the official channels listed in the site's footer.",
+      "Marketplace access uses a Google account only. To submit inquiries or list products, users provide their name, an SMS-verified phone number, CPF, and address. An inquiry is not a purchase and does not trigger a charge. Contact details and requested items are shared with the sellers associated with those items for follow-up.",
     ],
   },
   budget: {
-    header: { title: "Budget Simulator", subtitle: "ConderTech - Digital Solutions" },
+    header: {
+      title: "Budget Simulator",
+      subtitle: "ConderTech - Digital Solutions",
+    },
     footer: {
       rights: "© 2020 ConderTech - All rights reserved",
       note: "The values shown are estimates and may vary",
@@ -886,7 +911,8 @@ const en: T = {
       types: {
         institutional: {
           title: "Institutional Website",
-          description: "Professional website to showcase your company and services",
+          description:
+            "Professional website to showcase your company and services",
         },
         "landing-page": {
           title: "Landing Page",
@@ -910,13 +936,19 @@ const en: T = {
       heading: "About the project design",
       subtext: "Answer the questions below",
       logoQuestion: "Does your company already have a logo?",
-      logoYes: { title: "Yes, I have one", description: "We'll use your existing logo" },
+      logoYes: {
+        title: "Yes, I have one",
+        description: "We'll use your existing logo",
+      },
       logoNo: {
         title: "No, I need one",
         description: "We'll create a professional logo (+R$ 500)",
       },
       premiumQuestion: "Would you like a premium, differentiated design?",
-      designStandard: { title: "Standard Design", description: "Professional, clean design" },
+      designStandard: {
+        title: "Standard Design",
+        description: "Professional, clean design",
+      },
       designPremium: {
         title: "Premium Design",
         description: "Exclusive, differentiated design (+R$ 2,000)",
@@ -931,7 +963,10 @@ const en: T = {
       includedInBase: "Included in the base price",
       extraPages: (cost: number) => `Extra pages: +R$ ${cost}`,
       seoQuestion: "Do you need initial SEO optimization?",
-      seoNo: { title: "Not needed", description: "We can do it later if needed" },
+      seoNo: {
+        title: "Not needed",
+        description: "We can do it later if needed",
+      },
       seoYes: {
         title: "Yes, I need SEO",
         description: "Full search engine optimization (+R$ 1,500)",
@@ -943,7 +978,8 @@ const en: T = {
       features: {
         whatsapp: {
           title: "WhatsApp Integration",
-          description: "Floating button linking directly to your WhatsApp Business",
+          description:
+            "Floating button linking directly to your WhatsApp Business",
         },
         blog: {
           title: "Blog System",
@@ -955,7 +991,8 @@ const en: T = {
         },
         onlinePayment: {
           title: "Online Payment",
-          description: "Integration with payment gateways (Stripe, PayPal, etc.)",
+          description:
+            "Integration with payment gateways (Stripe, PayPal, etc.)",
         },
       },
       tipLabel: "Tip:",
@@ -1016,7 +1053,8 @@ const en: T = {
       estimatedInvestment: "Estimated investment",
       startingFrom: "Starting at",
       upTo: "Up to",
-      estimatedDeadline: (days: number) => `Estimated timeline: ${days} business days`,
+      estimatedDeadline: (days: number) =>
+        `Estimated timeline: ${days} business days`,
       includedHeading: "What's included",
       formHeading: "To send the quote, please provide:",
       personTypePF: "Individual",
@@ -1340,7 +1378,8 @@ const es: T = {
       terms: "Términos de Uso",
       governance: "Gobernanza de Datos (LGPD)",
     },
-    rights: (company: string) => `© 2020 ${company}. Todos los derechos reservados.`,
+    rights: (company: string) =>
+      `© 2020 ${company}. Todos los derechos reservados.`,
   },
   about: {
     heading1: "Tecnología que ayuda a tu negocio a ",
@@ -1384,7 +1423,8 @@ const es: T = {
   },
   terms: {
     eyebrow: "Términos de Uso",
-    heading: "Condiciones generales para el uso de los canales digitales de ConderTech.",
+    heading:
+      "Condiciones generales para el uso de los canales digitales de ConderTech.",
     paragraphs: [
       "Al navegar por los entornos digitales de ConderTech, aceptas utilizar los contenidos, formularios y materiales disponibles de forma lícita, responsable y compatible con la finalidad institucional y comercial de la plataforma.",
       "La información presentada en este sitio tiene carácter informativo-comercial y puede actualizarse en cualquier momento, sin previo aviso, para reflejar cambios de posicionamiento, portafolio, procesos internos o exigencias regulatorias.",
@@ -1400,10 +1440,14 @@ const es: T = {
       "Los datos enviados por formularios, canales de contacto y flujos de atención pueden utilizarse para seguimiento comercial, calificación de la demanda, elaboración de propuestas y mantenimiento de la relación institucional, siempre dentro de bases legales adecuadas.",
       "Mantenemos prácticas orientadas a la integridad, la trazabilidad y el acceso controlado, con revisión periódica de procesos para reforzar el cumplimiento de la LGPD y los estándares de gobernanza aplicables a las operaciones digitales que respaldamos.",
       "Las solicitudes relacionadas con los derechos del titular, actualización de datos o aclaraciones adicionales pueden enviarse a través de los canales oficiales indicados en el pie de página del sitio.",
+      "El Marketplace solo permite iniciar sesión con una cuenta de Google. Para enviar consultas o publicar productos, se solicitan nombre, teléfono verificado por SMS, CPF y dirección. Una consulta no es una compra ni genera un cobro. Los datos de contacto y los productos solicitados se comparten con los vendedores correspondientes para su atención.",
     ],
   },
   budget: {
-    header: { title: "Simulador de Presupuesto", subtitle: "ConderTech - Soluciones Digitales" },
+    header: {
+      title: "Simulador de Presupuesto",
+      subtitle: "ConderTech - Soluciones Digitales",
+    },
     footer: {
       rights: "© 2020 ConderTech - Todos los derechos reservados",
       note: "Los valores presentados son estimaciones y pueden variar",
@@ -1417,11 +1461,13 @@ const es: T = {
       types: {
         institutional: {
           title: "Sitio Institucional",
-          description: "Sitio profesional para presentar tu empresa y servicios",
+          description:
+            "Sitio profesional para presentar tu empresa y servicios",
         },
         "landing-page": {
           title: "Landing Page",
-          description: "Página enfocada en conversión para productos o servicios",
+          description:
+            "Página enfocada en conversión para productos o servicios",
         },
         ecommerce: {
           title: "Tienda Virtual",
@@ -1441,13 +1487,19 @@ const es: T = {
       heading: "Sobre el diseño del proyecto",
       subtext: "Responde las preguntas a continuación",
       logoQuestion: "¿Tu empresa ya tiene logotipo?",
-      logoYes: { title: "Sí, ya tengo", description: "Usaremos tu logo existente" },
+      logoYes: {
+        title: "Sí, ya tengo",
+        description: "Usaremos tu logo existente",
+      },
       logoNo: {
         title: "No, necesito crear uno",
         description: "Crearemos un logo profesional (+R$ 500)",
       },
       premiumQuestion: "¿Deseas un diseño premium diferenciado?",
-      designStandard: { title: "Diseño Estándar", description: "Diseño profesional y limpio" },
+      designStandard: {
+        title: "Diseño Estándar",
+        description: "Diseño profesional y limpio",
+      },
       designPremium: {
         title: "Diseño Premium",
         description: "Diseño exclusivo y diferenciado (+R$ 2.000)",
@@ -1462,7 +1514,10 @@ const es: T = {
       includedInBase: "Incluido en el precio base",
       extraPages: (cost: number) => `Páginas extra: +R$ ${cost}`,
       seoQuestion: "¿Necesitas optimización SEO inicial?",
-      seoNo: { title: "No es necesario", description: "Podemos hacerlo después si es necesario" },
+      seoNo: {
+        title: "No es necesario",
+        description: "Podemos hacerlo después si es necesario",
+      },
       seoYes: {
         title: "Sí, necesito SEO",
         description: "Optimización completa para buscadores (+R$ 1.500)",
@@ -1474,7 +1529,8 @@ const es: T = {
       features: {
         whatsapp: {
           title: "Integración WhatsApp",
-          description: "Botón flotante con enlace directo a tu WhatsApp Business",
+          description:
+            "Botón flotante con enlace directo a tu WhatsApp Business",
         },
         blog: {
           title: "Sistema de Blog",
@@ -1482,11 +1538,13 @@ const es: T = {
         },
         membersArea: {
           title: "Área de Miembros",
-          description: "Sistema de inicio de sesión y área restringida para usuarios",
+          description:
+            "Sistema de inicio de sesión y área restringida para usuarios",
         },
         onlinePayment: {
           title: "Pago en Línea",
-          description: "Integración con pasarelas de pago (Stripe, PayPal, etc.)",
+          description:
+            "Integración con pasarelas de pago (Stripe, PayPal, etc.)",
         },
       },
       tipLabel: "Consejo:",
@@ -1540,14 +1598,16 @@ const es: T = {
     step7: {
       heading: "¡Tu presupuesto está listo!",
       subtext: "Revisa los detalles y elige cómo continuar",
-      discountBadge: "Oferta exclusiva para primera contratación: 50% de descuento",
+      discountBadge:
+        "Oferta exclusiva para primera contratación: 50% de descuento",
       closeNowTitle: "Cierra ahora por solo",
       from: "De",
       fixedPriceNote: "Valor fijo para cerrar ahora. ¡Aprovecha!",
       estimatedInvestment: "Inversión estimada",
       startingFrom: "Desde",
       upTo: "Hasta",
-      estimatedDeadline: (days: number) => `Plazo estimado: ${days} días hábiles`,
+      estimatedDeadline: (days: number) =>
+        `Plazo estimado: ${days} días hábiles`,
       includedHeading: "Qué está incluido",
       formHeading: "Para enviar el presupuesto, indica:",
       personTypePF: "Persona Física",
