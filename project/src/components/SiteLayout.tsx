@@ -26,7 +26,7 @@ export default function SiteLayout({ children }: SiteLayoutProps) {
     ? bare.startsWith("/ima") || HIDDEN_CHROME_ROUTES.has(bare)
     : false;
   const hideNavbar =
-    hideChrome || (pathname ? HIDDEN_NAVBAR_ONLY_ROUTES.has(bare) : false);
+    hideChrome || bare === "/marketplace" || bare.startsWith("/marketplace/") || (pathname ? HIDDEN_NAVBAR_ONLY_ROUTES.has(bare) : false);
 
   return (
     <ErrorBoundary>

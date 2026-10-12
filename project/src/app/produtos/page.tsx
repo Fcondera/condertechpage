@@ -24,7 +24,7 @@ export default function ProductsPage() {
               <div className="flex flex-1 flex-col p-6">
                 <h2 className="text-xl font-semibold">{system.name}</h2>
                 <p className="mb-7 mt-3 text-sm leading-6 text-gray-500">{system.summary}</p>
-                <span className="mt-auto rounded-xl bg-[#e22d2e] px-5 py-3 text-center text-sm font-semibold text-white transition-colors group-hover:bg-[#b52324]">Conhecer produto</span>
+                <span className="mt-auto flex min-h-14 items-center justify-center rounded-xl border border-[#bd2025] bg-[#cf252b] px-5 py-4 text-center text-base font-bold text-white shadow-[0_6px_16px_-5px_rgba(207,37,43,0.5)] transition-all duration-200 group-hover:bg-[#b51d23] group-hover:shadow-[0_8px_20px_-5px_rgba(207,37,43,0.6)] motion-safe:group-hover:-translate-y-0.5">Conhecer produto</span>
               </div>
             </Link>
           );

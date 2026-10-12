@@ -1,0 +1,13 @@
+.market { color-scheme: dark; }
+.market :is(button, a, input, select, textarea):focus-visible { outline: 2px solid #ff777d; outline-offset: 4px; }
+.market input, .market textarea, .market select { color-scheme: dark; }
+.market-primary { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; border: 1px solid #f24a51; border-radius: .7rem; background: #cf252b; padding: .7rem 1rem; color: white; font-size: .875rem; font-weight: 700; box-shadow: 0 4px 18px -7px #e22d2e99; transition: background .2s, box-shadow .2s; }
+.market-primary:hover { background: #e22d2e; box-shadow: 0 5px 24px -7px #e22d2ebb; }
+.market-secondary { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; border: 1px solid #ffffff20; border-radius: .7rem; background: #ffffff04; padding: .7rem 1rem; color: #eeeef0; font-size: .875rem; font-weight: 600; transition: background .2s; }
+.market-secondary:hover { background: #ffffff0c; }
+.market button:disabled { opacity: .45; cursor: not-allowed; }
+.market-input { width: 100%; border: 1px solid #ffffff20; border-radius: .7rem; background: #0c0d12; padding: .8rem 1rem; color: #f4f4f5; font-size: .875rem; }
+.market-input::placeholder { color: #71717a; }
+.market-panel { border: 1px solid #ffffff12; border-radius: 1rem; background: #121319; }
+.market-error { border: 1px solid #ef444440; border-radius: .7rem; background: #ef44440a; padding: 1rem; color: #fca5a5; font-size: .875rem; }
+.market-success { border: 1px solid #34d39940; border-radius: .7rem; background: #34d3990a; padding: 1rem; color: #6ee7b7; font-size: .875rem; }

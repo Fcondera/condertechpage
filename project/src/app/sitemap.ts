@@ -28,6 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/marketplace",
     ...systems.map(product => `/produtos/${product.id}`),
     ...equipment.map(product => `/marketplace/${product.id}`),
+    ...systems.map(product => `/marketplace/${product.id}`),
     "",
     "/sobre",
     "/cidades",

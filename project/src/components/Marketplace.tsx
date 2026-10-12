@@ -1,137 +1,329 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Minus, Plus, Search, Trash2 } from "lucide-react";
-import CatalogNav from "@/components/CatalogNav";
-import ProductCardImage from "@/components/ProductCardImage";
-import { equipment, salesLink } from "@/data/products";
+import { useSearchParams, useRouter } from "next/navigation";
+import { ArrowUpRight, Search, ArrowRight } from "lucide-react";
+import {
+  marketCategories,
+  marketProducts,
+  matchesCategory,
+} from "@/data/marketplace";
+import MarketCard from "@/components/marketplace/MarketCard";
+import {
+  marketRequest,
+  type Listing,
+} from "@/components/marketplace/MarketProvider";
 
-const categories = ["Todos", "PDV", "Ponto", "NFC"];
-const normalize = (value: string) => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+const normalize = (text: string) =>
+  text
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
 
-export default function Marketplace() {
-  const [category, setCategory] = useState("Todos");
-  const [search, setSearch] = useState("");
-  const [cart, setCart] = useState<Record<string, number>>({});
-  const [cartLoaded, setCartLoaded] = useState(false);
-
+function Storefront() {
+  const params = useSearchParams();
+  const router = useRouter();
+  const query = params.get("q") || "";
+  const category = params.get("categoria") || "Todos";
+  const [input, setInput] = useState(query);
+  const [sort, setSort] = useState("destaques");
+  const [listings, setListings] = useState<Listing[]>([]);
+  const [listingState, setListingState] = useState("loading");
   useEffect(() => {
-    try {
-      const saved: unknown = JSON.parse(sessionStorage.getItem("condertech-quote") || "{}");
-      if (saved && typeof saved === "object") {
-        const valid: Record<string, number> = {};
-        for (const product of equipment) {
-          const quantity = (saved as Record<string, unknown>)[product.id];
-          if (typeof quantity === "number" && Number.isInteger(quantity) && quantity > 0) {
-            valid[product.id] = Math.min(999, quantity);
-          }
+    setInput(query);
+  }, [query]);
+  useEffect(() => {
+    let alive = true;
+    marketRequest("listings")
+      .then((data) => {
+        if (alive) {
+          setListings(data.listings);
+          setListingState("ready");
         }
-        setCart(valid);
-      }
-    } catch {
-      // The catalog also works when browser storage is unavailable.
-    }
-    setCartLoaded(true);
+      })
+      .catch(() => {
+        if (alive) setListingState("error");
+      });
+    return () => {
+      alive = false;
+    };
   }, []);
-
-  useEffect(() => {
-    if (!cartLoaded) return;
-    try {
-      sessionStorage.setItem("condertech-quote", JSON.stringify(cart));
-    } catch {
-      // Keep the current selection in memory if storage is unavailable.
-    }
-  }, [cart, cartLoaded]);
-  const products = equipment.filter(product =>
-    (category === "Todos" || product.category === category) &&
-    normalize(`${product.name} ${product.description}`).includes(normalize(search.trim()))
+  const products = marketProducts.filter(
+    (product) =>
+      matchesCategory(product, category) &&
+      normalize(`${product.name} ${product.summary} ConderTech`).includes(
+        normalize(query),
+      ),
   );
-  const selected = equipment.filter(product => cart[product.id] > 0);
-  const count = selected.reduce((total, product) => total + cart[product.id], 0);
-
-  function changeQuantity(id: string, amount: number) {
-    setCart(current => ({ ...current, [id]: Math.max(0, Math.min(999, (current[id] || 0) + amount)) }));
+  const vendorProducts = listings.filter(
+    (item) =>
+      (category === "Todos" || category === item.category) &&
+      normalize(
+        `${item.title} ${item.description} ${item.marketplace_sellers?.name || ""}`,
+      ).includes(normalize(query)),
+  );
+  const sorted = [...vendorProducts].sort((a, b) =>
+    sort === "menor"
+      ? a.price_cents - b.price_cents
+      : sort === "maior"
+        ? b.price_cents - a.price_cents
+        : b.created_at.localeCompare(a.created_at),
+  );
+  function filter(value: string) {
+    router.push(
+      `/marketplace?categoria=${encodeURIComponent(value)}${query ? `&q=${encodeURIComponent(query)}` : ""}#catalogo`,
+    );
   }
-
-  const quote = salesLink(`Olá! Gostaria de solicitar um orçamento no marketplace ConderTech:\n${selected.map(product => `• ${product.name}: ${cart[product.id]} unidade(s)`).join("\n")}\nPodem informar modelos, valores, disponibilidade e entrega?`);
-
   return (
-    <main className="mx-auto min-h-[65vh] max-w-6xl px-6 pb-20 pt-28 text-gray-950 sm:px-8">
-      <CatalogNav active="equipment" />
-      <div className="flex flex-wrap items-center justify-between gap-4">
-        <div>
-          <h1 className="text-3xl font-semibold tracking-tight">Equipamentos</h1>
-          <p className="mt-3 text-gray-500">PDV, relógios de ponto e cartões NFC.</p>
-        </div>
-        {count > 0 && <a href="#orcamento" className="rounded-lg border border-gray-200 px-4 py-3 text-sm hover:bg-gray-50">Ver seleção ({count})</a>}
-      </div>
-      <div className="my-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
-        <div className="flex flex-wrap gap-2" aria-label="Categorias de equipamentos">
-          {categories.map(item => (
-            <button type="button" key={item} onClick={() => setCategory(item)} aria-pressed={category === item}
-              className={`rounded-lg px-4 py-2.5 text-sm transition-colors ${category === item ? "bg-gray-100 font-medium text-gray-950" : "text-gray-500 hover:bg-gray-50"}`}>
-              {item}
+    <main>
+      <section className="relative overflow-hidden border-b border-white/[0.04]">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(226,45,46,0.13),transparent_65%)]"
+        />
+        <div className="relative mx-auto max-w-4xl px-5 pb-14 pt-14 text-center sm:px-8 sm:pb-20 sm:pt-20">
+          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-red-400/20 bg-red-500/5 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-red-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#e22d2e]" />
+            Tecnologia para o seu negócio
+          </p>
+          <h1 className="text-4xl font-semibold leading-[1.1] tracking-tight sm:text-6xl lg:text-[68px]">
+            O próximo passo começa
+            <br />
+            <span className="bg-gradient-to-r from-[#ff999d] via-[#f0444c] to-[#df252f] bg-clip-text text-transparent">
+              com a tecnologia certa.
+            </span>
+          </h1>
+          <p className="mx-auto mt-6 max-w-xl text-sm leading-7 text-zinc-400 sm:text-base">
+            Equipamentos, sistemas e soluções da ConderTech e de vendedores
+            parceiros. Tudo em um só lugar.
+          </p>
+          <form
+            onSubmit={(event) => {
+              event.preventDefault();
+              router.push(
+                `/marketplace?q=${encodeURIComponent(input)}#catalogo`,
+              );
+            }}
+            className="mx-auto mt-8 flex max-w-xl items-center gap-3 rounded-2xl border border-white/15 bg-[#14151b] p-2 pl-4 shadow-xl"
+          >
+            <Search
+              size={19}
+              className="shrink-0 text-zinc-500"
+              aria-hidden="true"
+            />
+            <label htmlFor="hero-search" className="sr-only">
+              O que você procura?
+            </label>
+            <input
+              id="hero-search"
+              value={input}
+              onChange={(event) => setInput(event.target.value)}
+              placeholder="O que você procura?"
+              className="min-w-0 flex-1 bg-transparent py-3 text-sm outline-none placeholder:text-zinc-500"
+            />
+            <button className="market-primary">Buscar</button>
+          </form>
+          <div className="mt-5 flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs text-zinc-500">
+            <span>Explore por categoria</span>
+            <button onClick={() => filter("PDV")} className="hover:text-white">
+              PDV
             </button>
-          ))}
+            <button
+              onClick={() => filter("Software")}
+              className="hover:text-white"
+            >
+              Sistemas
+            </button>
+            <button
+              onClick={() => filter("Ponto")}
+              className="hover:text-white"
+            >
+              Ponto
+            </button>
+          </div>
         </div>
-        <label className="flex items-center gap-2 rounded-lg border border-gray-200 px-3 py-2.5 focus-within:ring-2 focus-within:ring-gray-400">
-          <Search size={16} className="shrink-0 text-gray-400" aria-hidden="true" />
-          <span className="sr-only">Buscar equipamentos</span>
-          <input type="search" value={search} onChange={event => setSearch(event.target.value)} placeholder="Buscar" className="min-w-0 w-full bg-transparent text-sm outline-none sm:w-40" />
-        </label>
-      </div>
-      <div className="grid gap-5 md:grid-cols-3">
-        {products.map(product => {
-          return (
-            <article key={product.id} className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white transition-shadow hover:shadow-[0_12px_32px_-16px_rgba(0,0,0,0.25)]">
-              <Link href={`/marketplace/${product.id}`} aria-label={`Conhecer ${product.name}`} className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-600">
-                <ProductCardImage id={product.id} />
-              </Link>
-              <div className="flex flex-1 flex-col p-6">
-                <h2 className="text-xl font-semibold"><Link href={`/marketplace/${product.id}`} className="hover:text-[#b52324]">{product.name}</Link></h2>
-                <p className="mb-5 mt-3 text-sm leading-6 text-gray-500">{product.description}</p>
-                <p className="mb-5 mt-auto text-sm font-medium">Preço sob consulta</p>
-                <Link href={`/marketplace/${product.id}`} className="rounded-xl bg-[#171717] px-4 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-[#383838]">Conhecer produto</Link>
-                <button type="button" onClick={() => changeQuantity(product.id, 1)} disabled={!cartLoaded || cart[product.id] >= 999}
-                  className="mt-2 rounded-xl border border-gray-200 px-4 py-3 text-sm font-medium transition-colors hover:border-[#e22d2e] hover:bg-red-50 hover:text-[#b52324] disabled:opacity-40" aria-label={`Adicionar ${product.name} ao orçamento`}>
-                  Adicionar ao orçamento{cart[product.id] > 0 ? ` (${cart[product.id]})` : ""}
+      </section>
+      <div className="mx-auto max-w-7xl px-5 pb-16 sm:px-8">
+        <section className="py-9" aria-labelledby="categories-title">
+          <div className="mb-5 flex items-center justify-between">
+            <h2
+              id="categories-title"
+              className="text-xl font-semibold tracking-tight"
+            >
+              Explore as categorias
+            </h2>
+            <Link
+              href="/marketplace/vender"
+              className="hidden items-center gap-1 text-xs text-zinc-400 hover:text-white sm:flex"
+            >
+              Anuncie na plataforma <ArrowUpRight size={14} />
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+            {marketCategories
+              .filter((item) => item.id !== "Todos")
+              .map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => filter(item.id)}
+                  aria-pressed={category === item.id}
+                  className={`group flex items-center gap-3 overflow-hidden rounded-xl border bg-[#14151b] pr-3 text-left transition-colors hover:border-red-400/60 ${category === item.id ? "border-red-400/70" : "border-white/10"}`}
+                >
+                  <div className="relative h-20 w-20 shrink-0 overflow-hidden">
+                    <Image
+                      src={`/image/products/${item.image}.png`}
+                      alt=""
+                      fill
+                      sizes="80px"
+                      className="object-cover transition-transform group-hover:scale-110"
+                    />
+                  </div>
+                  <span className="text-xs font-semibold leading-5 sm:text-sm">
+                    {item.name}
+                  </span>
                 </button>
-              </div>
-            </article>
-          );
-        })}
-      </div>
-      <p className="mt-4 text-xs text-gray-400">Imagens ilustrativas. Consulte os modelos disponíveis.</p>
-      {products.length === 0 && (
-        <div className="rounded-xl border border-dashed border-gray-200 p-10 text-center text-sm">
-          <p className="text-gray-500">Nenhum equipamento encontrado.</p>
-          <button onClick={() => { setSearch(""); setCategory("Todos"); }} className="mt-4 font-medium underline">Limpar filtros</button>
-        </div>
-      )}
-      <div aria-live="polite" className="sr-only">{count} unidades selecionadas para orçamento.</div>
-      {selected.length > 0 && (
-        <section id="orcamento" className="mt-10 scroll-mt-24 border-t border-gray-200 pt-8" aria-labelledby="quote-title">
-          <h2 id="quote-title" className="text-xl font-semibold">Seu orçamento</h2>
-          <ul className="mt-4 divide-y divide-gray-100">
-            {selected.map(product => (
-              <li key={product.id} className="flex flex-wrap items-center justify-between gap-4 py-4">
-                <Link href={`/marketplace/${product.id}`} className="text-sm hover:underline">{product.name}</Link>
-                <div className="flex items-center gap-3">
-                  <button onClick={() => changeQuantity(product.id, -1)} className="rounded-lg border p-2.5 hover:bg-gray-50" aria-label={`Diminuir quantidade de ${product.name}`}><Minus size={16} /></button>
-                  <span className="min-w-6 text-center text-sm" aria-label={`Quantidade de ${product.name}`}>{cart[product.id]}</span>
-                  <button onClick={() => changeQuantity(product.id, 1)} disabled={cart[product.id] >= 999} className="rounded-lg border p-2.5 hover:bg-gray-50 disabled:opacity-40" aria-label={`Aumentar quantidade de ${product.name}`}><Plus size={16} /></button>
-                  <button onClick={() => setCart(current => ({ ...current, [product.id]: 0 }))} className="rounded-lg p-2.5 text-gray-500 hover:bg-gray-50" aria-label={`Remover ${product.name}`}><Trash2 size={16} /></button>
-                </div>
-              </li>
-            ))}
-          </ul>
-          <div className="mt-5 flex flex-wrap items-center gap-4">
-            <a href={quote} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 rounded-lg bg-[#e22d2e] px-5 py-3 text-sm font-medium text-white hover:bg-[#b52324]">Solicitar pelo WhatsApp <ArrowUpRight size={16} aria-hidden="true" /></a>
-            <p className="text-xs text-gray-500">Valores, disponibilidade e entrega a confirmar.</p>
+              ))}
           </div>
         </section>
-      )}
+        <section
+          id="catalogo"
+          className="scroll-mt-40 pt-4"
+          aria-labelledby="catalog-title"
+        >
+          <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <h2
+                id="catalog-title"
+                className="text-2xl font-semibold tracking-tight"
+              >
+                {query
+                  ? `Resultados para “${query}”`
+                  : category === "Todos"
+                    ? "Encontre sua próxima solução"
+                    : marketCategories.find((item) => item.id === category)
+                        ?.name || category}
+              </h2>
+              <p className="mt-2 text-xs text-zinc-500">
+                {products.length + sorted.length} produtos encontrados
+              </p>
+            </div>
+            <label className="flex items-center gap-2 text-xs text-zinc-400">
+              Ordenar anúncios parceiros
+              <select
+                value={sort}
+                onChange={(event) => setSort(event.target.value)}
+                className="rounded-lg border border-white/10 bg-[#14151b] px-3 py-2 text-zinc-200"
+              >
+                <option value="destaques">Mais recentes</option>
+                <option value="menor">Menor preço</option>
+                <option value="maior">Maior preço</option>
+              </select>
+            </label>
+          </div>
+          <div className="mb-6 flex flex-wrap gap-2">
+            {[...marketCategories, { id: "Outros", name: "Outros" }].map(
+              (item) => (
+                <button
+                  key={item.id}
+                  onClick={() => filter(item.id)}
+                  aria-pressed={category === item.id}
+                  className={`rounded-full border px-4 py-2 text-xs font-medium ${category === item.id ? "border-[#e22d2e] bg-[#e22d2e] text-white" : "border-white/10 text-zinc-400 hover:text-white"}`}
+                >
+                  {item.name}
+                </button>
+              ),
+            )}
+          </div>
+          {products.length + sorted.length === 0 ? (
+            <div className="market-panel p-12 text-center">
+              <p className="text-zinc-400">
+                Nenhum produto encontrado com esses filtros.
+              </p>
+              <Link
+                href="/marketplace#catalogo"
+                className="market-secondary mt-5"
+              >
+                Limpar filtros
+              </Link>
+            </div>
+          ) : (
+            <>
+              {sorted.length > 0 && (
+                <div className="mb-6 grid grid-cols-1 gap-4 min-[480px]:grid-cols-2 lg:grid-cols-4">
+                  {sorted.map((listing) => (
+                    <MarketCard key={listing.id} listing={listing} />
+                  ))}
+                </div>
+              )}
+              {products.length > 0 && (
+                <>
+                  <div className="mb-4 flex items-center gap-3">
+                    <span className="text-xs font-medium text-zinc-400">
+                      Seleção ConderTech
+                    </span>
+                    <span className="h-px flex-1 bg-white/5" />
+                  </div>
+                  <div className="grid grid-cols-1 gap-4 min-[480px]:grid-cols-2 lg:grid-cols-3">
+                    {products.map((product) => (
+                      <MarketCard key={product.id} product={product} />
+                    ))}
+                  </div>
+                </>
+              )}
+            </>
+          )}
+          {listingState === "loading" && (
+            <p role="status" className="mt-5 text-xs text-zinc-500">
+              Carregando anúncios de parceiros...
+            </p>
+          )}
+          {listingState === "error" && (
+            <p role="status" className="mt-5 text-xs text-zinc-400">
+              Os anúncios de parceiros estão temporariamente indisponíveis. A
+              seleção ConderTech continua disponível.
+            </p>
+          )}
+          <p className="mt-5 text-[11px] text-zinc-500">
+            Imagens ConderTech ilustrativas. Valores e condições dos itens sob
+            consulta são confirmados no orçamento.
+          </p>
+        </section>
+        <section className="mt-14 flex flex-col justify-between gap-6 rounded-2xl border border-red-400/15 bg-gradient-to-r from-[#261317] to-[#131419] p-7 sm:flex-row sm:items-center sm:p-9">
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-red-300">
+              Para quem vende tecnologia
+            </p>
+            <h2 className="mt-3 text-2xl font-semibold">
+              Sua loja também pode estar aqui.
+            </h2>
+            <p className="mt-3 text-sm text-zinc-400">
+              Crie sua conta, cadastre sua loja e envie seu primeiro anúncio.
+            </p>
+          </div>
+          <Link
+            href="/marketplace/vender"
+            className="market-primary shrink-0 self-start sm:self-center"
+          >
+            Começar a vender <ArrowRight size={16} />
+          </Link>
+        </section>
+      </div>
     </main>
+  );
+}
+
+export default function Marketplace() {
+  return (
+    <Suspense
+      fallback={
+        <div className="p-12 text-center text-zinc-400">
+          Carregando catálogo...
+        </div>
+      }
+    >
+      <Storefront />
+    </Suspense>
   );
 }
