@@ -2,27 +2,41 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { Search, ShoppingBag, UserRound, ArrowUpRight } from "lucide-react";
-import { useState, type ReactNode } from "react";
+import { Search, ShoppingBag, UserRound, ArrowUpRight, Sun, Moon } from "lucide-react";
+import { useEffect, useState, type ReactNode } from "react";
 import { MarketProvider, useMarket } from "./MarketProvider";
 
 function Shell({ children }: { children: ReactNode }) {
   const { user, loading, cart, notice } = useMarket();
   const [search, setSearch] = useState("");
+  const [theme, setTheme] = useState<"light" | "dark">("dark");
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("ct-market-theme");
+      setTheme(saved === "light" || saved === "dark" ? saved : window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+    } catch {
+      setTheme(window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+    }
+  }, []);
+  function toggleTheme() {
+    const next = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    try { localStorage.setItem("ct-market-theme", next); } catch { return; }
+  }
   const router = useRouter();
   const pathname = usePathname();
   const count = cart.reduce((sum, row) => sum + row.quantity, 0);
-  return <div className="market min-h-screen bg-[#090a0d] text-[#f4f4f5]">
+  return <div data-theme={theme} className="market min-h-screen bg-[#090a0d] text-[#f4f4f5]">
     <header className="sticky top-0 z-40 border-b border-white/[0.08] bg-[#090a0d]/95 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-4 px-5 py-4 sm:px-8 lg:gap-7">
-        <Link href="/marketplace" aria-label="ConderTech Marketplace" className="shrink-0 rounded-xl bg-white px-3 py-2">
-          <img src="/image/hero-lpg-01.png" alt="ConderTech" width={6400} height={1180} className="h-auto w-32 sm:w-40" />
-          <span className="mt-1 block text-center text-[9px] uppercase tracking-[0.35em] text-zinc-600">Marketplace</span>
+        <Link href="/marketplace" aria-label="ConderTech Marketplace" className="market-brand flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white p-1.5">
+          <img src="/image/logohtml.png" alt="ConderTech" width={1563} height={1563} className="h-9 w-9 object-contain" />
         </Link>
         <form onSubmit={event => { event.preventDefault(); router.push(`/marketplace?q=${encodeURIComponent(search)}#catalogo`); }} className="order-3 flex w-full items-center gap-3 rounded-xl border border-white/10 bg-[#14151b] px-4 lg:order-none lg:w-auto lg:flex-1">
           <Search size={17} className="shrink-0 text-zinc-500" aria-hidden="true" /><label className="sr-only" htmlFor="market-search">Buscar produtos e vendedores</label><input id="market-search" value={search} onChange={event => setSearch(event.target.value)} placeholder="Buscar produtos, sistemas, vendedores..." className="w-full bg-transparent py-3 text-sm text-white outline-none placeholder:text-zinc-500" /><button className="text-xs font-semibold text-zinc-300 hover:text-white">Buscar</button>
         </form>
         <div className="ml-auto flex items-center gap-2 sm:gap-3">
+          <button type="button" onClick={toggleTheme} aria-label={theme === "dark" ? "Ativar tema claro" : "Ativar tema escuro"} title={theme === "dark" ? "Ativar tema claro" : "Ativar tema escuro"} className="market-theme-toggle flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 text-zinc-300 hover:bg-white/5">{theme === "dark" ? <Sun size={20} aria-hidden="true" /> : <Moon size={20} aria-hidden="true" />}</button>
           <Link href="/marketplace/carrinho" aria-label={`Carrinho com ${count} itens`} className="relative rounded-xl p-3 text-zinc-300 hover:bg-white/5"><ShoppingBag size={21} />{count > 0 && <span className="absolute -right-0.5 top-0 rounded-full bg-[#e22d2e] px-1.5 py-0.5 text-[10px] font-bold text-white">{count}</span>}</Link>
           {loading ? <span className="h-10 w-20 animate-pulse rounded-xl bg-white/5" aria-label="Carregando conta" /> : user ? <Link href="/marketplace/conta" className="market-secondary inline-flex gap-2"><UserRound size={16} /><span className="hidden sm:inline">Minha conta</span><span className="sm:hidden">Conta</span></Link> : <><Link href="/marketplace/entrar" className="market-secondary">Entrar</Link><Link href="/marketplace/cadastro" className="market-primary">Criar conta</Link></>}
         </div>
