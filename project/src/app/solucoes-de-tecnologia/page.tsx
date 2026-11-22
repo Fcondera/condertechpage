@@ -9,15 +9,15 @@ import {
 const url = "https://www.condertech.com.br/solucoes-de-tecnologia";
 
 export const metadata: Metadata = {
-  title: "Empresa de Tecnologia e Soluções de TI | ConderTech",
+  title: "Cibersegurança, migração cloud e IA personalizada | ConderTech",
   description:
-    "Soluções completas de tecnologia: software, IA, automação, painel de LED, monitoramento de PDV, cloud, IoT, dados, segurança e infraestrutura.",
+    "Cibersegurança empresarial, migração para a nuvem e IA personalizada com RAG, MCP e LLMs. Atendimento no Amazonas e em todo o Brasil.",
   keywords: technologyKeywords,
   alternates: { canonical: url },
   openGraph: {
-    title: "Soluções completas de tecnologia | ConderTech",
+    title: "Cibersegurança, nuvem e IA personalizada | ConderTech",
     description:
-      "Tecnologia para software, varejo, comunicação digital, infraestrutura, dados, automação e operações empresariais.",
+      "Proteção de dados e sistemas, planejamento de migração cloud e desenvolvimento de IA personalizada para empresas.",
     url,
   },
 };
@@ -55,12 +55,13 @@ export default function TechnologySolutionsPage() {
             ConderTech · Tecnologia de ponta a ponta
           </p>
           <h1 className="mt-6 max-w-5xl text-4xl font-medium leading-tight sm:text-6xl lg:text-7xl">
-            Soluções de tecnologia para transformar qualquer operação.
+            Cibersegurança, migração para a nuvem e IA personalizada.
           </h1>
           <p className="mt-8 max-w-3xl text-base leading-8 text-white/65 sm:text-lg">
-            Da estratégia ao suporte: software, inteligência artificial,
-            infraestrutura, varejo, dados, automação e comunicação digital
-            integrados às necessidades do seu negócio.
+            Três prioridades para sua empresa: proteger dados e sistemas,
+            modernizar a infraestrutura e aplicar inteligência artificial aos
+            processos. Atendimento no Amazonas e em todo o Brasil, com escopo
+            definido conforme sua operação.
           </p>
           <a
             href="#contato-tecnologia"
@@ -71,6 +72,26 @@ export default function TechnologySolutionsPage() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-7xl space-y-12 px-6 py-20 sm:px-8 lg:px-12" aria-label="Serviços prioritários">
+        <article id="ciberseguranca" className="scroll-mt-28 rounded-2xl border border-slate-200 p-7 sm:p-10">
+          <h2 className="text-3xl font-medium text-[#383E42]">Cibersegurança para empresas</h2>
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">Avaliação de riscos, controle de acesso e proteção de aplicações e dados. O trabalho começa pelo levantamento dos sistemas, usuários e pontos críticos para definir as medidas adequadas à operação.</p>
+          <ul className="mt-5 list-disc space-y-3 pl-5 leading-7 text-slate-600"><li>Revisão de permissões, autenticação e acessos aos sistemas.</li><li>Planejamento de backup, recuperação e continuidade do negócio.</li><li>Priorização de melhorias e orientação à equipe conforme os riscos identificados.</li></ul>
+          <Link href="/#contato" className="mt-7 inline-block font-semibold text-[#c22425] underline underline-offset-4">Conversar sobre cibersegurança</Link>
+        </article>
+        <article id="infraestrutura" className="scroll-mt-28 rounded-2xl border border-slate-200 p-7 sm:p-10">
+          <h2 className="text-3xl font-medium text-[#383E42]">Migração para a nuvem e infraestrutura cloud</h2>
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">Planejamento da migração de aplicações, servidores e bancos de dados para a nuvem. Avaliamos dependências, capacidade, custos e requisitos de acesso antes de definir as etapas da mudança.</p>
+          <ul className="mt-5 list-disc space-y-3 pl-5 leading-7 text-slate-600"><li>Inventário do ambiente atual e definição da arquitetura de destino.</li><li>Backup, testes de migração e plano de retorno em caso de falha.</li><li>Validação da operação, monitoramento e acompanhamento dos custos.</li></ul>
+          <p className="mt-5 leading-7 text-slate-600">Prazos, janelas de indisponibilidade e responsabilidades são definidos na proposta conforme a complexidade do ambiente.</p>
+          <Link href="/#contato" className="mt-7 inline-block font-semibold text-[#c22425] underline underline-offset-4">Planejar minha migração para a nuvem</Link>
+        </article>
+        <article className="rounded-2xl border border-slate-200 p-7 sm:p-10">
+          <h2 className="text-3xl font-medium text-[#383E42]">IA personalizada com RAG, MCP e LLMs</h2>
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">Assistentes e agentes adaptados aos documentos, ferramentas e processos da empresa. Definimos as fontes de conhecimento, as permissões e os critérios de avaliação antes da implantação.</p>
+          <Link href="/solucoes/inteligencia-artificial-personalizada" className="mt-7 inline-block font-semibold text-[#c22425] underline underline-offset-4">Conhecer o desenvolvimento de IA personalizada</Link>
+        </article>
+      </section>
       <BusinessSolutionsSection />
       <section className="mx-auto max-w-7xl px-6 py-20 sm:px-8 sm:py-28 lg:px-12">
         <div className="max-w-3xl">
@@ -85,7 +106,6 @@ export default function TechnologySolutionsPage() {
           {technologyServices.map((service, index) => (
             <article
               key={service.name}
-              id={service.shortName === "Cibersegurança" ? "ciberseguranca" : service.shortName === "Cloud e infraestrutura" ? "infraestrutura" : undefined}
               className="border border-slate-200 p-7 transition-colors hover:border-[#e22d2e]"
             >
               <span className="text-xs font-semibold text-[#e22d2e]">

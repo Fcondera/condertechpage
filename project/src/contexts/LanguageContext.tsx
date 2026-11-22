@@ -22,11 +22,11 @@ const ptBR = {
     cta: "Falar Conosco",
   },
   hero: {
-    headline1: "Tecnologia sob medida para empresas que",
-    accent: "precisam crescer com controle",
+    headline1: "Cibersegurança, nuvem e",
+    accent: "IA personalizada",
     question:
-      "Sua empresa evoluiu, mas os processos continuam lentos, manuais ou espalhados em vários sistemas?",
-    sub: "Desenvolvemos sistemas personalizados, automações e plataformas digitais que organizam operações, reduzem erros e ajudam empresas a crescer com mais eficiência, segurança e previsibilidade.",
+      "Sua empresa precisa proteger informações, modernizar a infraestrutura ou aplicar IA aos processos?",
+    sub: "Proteja dados e sistemas, planeje sua migração para a nuvem e desenvolva IA personalizada com RAG, MCP e LLMs. A ConderTech atende empresas no Amazonas e em todo o Brasil.",
     note: "Cada negócio possui processos, desafios e objetivos diferentes. Por isso, acreditamos que a tecnologia deve se adaptar à sua empresa e não o contrário.",
     cta: "Falar com um Especialista",
   },
@@ -128,7 +128,7 @@ const ptBR = {
     accent: "segmento",
     items: [
       {
-        title: "Segurança",
+        title: "Cibersegurança",
         description:
           "Toda solução nasce com segurança como ponto de partida, protegendo seus dados e sistemas.",
       },
@@ -141,9 +141,9 @@ const ptBR = {
         description: "Desenvolvimento personalizado para sua empresa.",
       },
       {
-        title: "Infraestrutura",
+        title: "Migração para a nuvem",
         description:
-          "Migração, estrutura segura, escalável e preparada para crescimento.",
+          "Planejamento de migração cloud, backup e infraestrutura para sua empresa.",
       },
       {
         title: "Governo",
@@ -580,11 +580,11 @@ const en: T = {
     cta: "Talk to Us",
   },
   hero: {
-    headline1: "Tailor-made technology for companies that",
-    accent: "need to grow with control",
+    headline1: "Cybersecurity, cloud and",
+    accent: "custom AI",
     question:
-      "Has your company grown, but your processes are still slow, manual, or scattered across multiple systems?",
-    sub: "We develop custom systems, automations, and digital platforms that organize operations, reduce errors, and help companies grow with more efficiency, security, and predictability.",
+      "Does your company need to protect information, modernize infrastructure or apply AI to its processes?",
+    sub: "Protect data and systems, plan your cloud migration and develop custom AI with RAG, MCP and LLMs. ConderTech serves businesses in Amazonas and across Brazil.",
     note: "Every business has different processes, challenges, and goals. That's why we believe technology should adapt to your company, not the other way around.",
     cta: "Talk to a Specialist",
   },
@@ -685,7 +685,7 @@ const en: T = {
     accent: "segment",
     items: [
       {
-        title: "Security",
+        title: "Cybersecurity",
         description:
           "Every solution is built with security as a starting point, protecting your data and systems.",
       },
@@ -698,7 +698,7 @@ const en: T = {
         description: "Custom development for your business.",
       },
       {
-        title: "Infrastructure",
+        title: "Cloud migration",
         description:
           "Migration, secure structure, scalable and ready for growth.",
       },
@@ -1128,11 +1128,11 @@ const es: T = {
     cta: "Hablar con Nosotros",
   },
   hero: {
-    headline1: "Tecnología a medida para empresas que",
-    accent: "necesitan crecer con control",
+    headline1: "Ciberseguridad, nube e",
+    accent: "IA personalizada",
     question:
-      "¿Tu empresa creció, pero los procesos siguen siendo lentos, manuales o dispersos en varios sistemas?",
-    sub: "Desarrollamos sistemas personalizados, automatizaciones y plataformas digitales que organizan operaciones, reducen errores y ayudan a las empresas a crecer con más eficiencia, seguridad y previsibilidad.",
+      "¿Tu empresa necesita proteger información, modernizar la infraestructura o aplicar IA a sus procesos?",
+    sub: "Protege datos y sistemas, planifica tu migración a la nube y desarrolla IA personalizada con RAG, MCP y LLMs. ConderTech atiende empresas en Amazonas y todo Brasil.",
     note: "Cada negocio tiene procesos, desafíos y objetivos diferentes. Por eso creemos que la tecnología debe adaptarse a tu empresa, y no al revés.",
     cta: "Hablar con un Especialista",
   },
@@ -1234,7 +1234,7 @@ const es: T = {
     accent: "segmento",
     items: [
       {
-        title: "Seguridad",
+        title: "Ciberseguridad",
         description:
           "Toda solución nace con la seguridad como punto de partida, protegiendo tus datos y sistemas.",
       },
@@ -1247,7 +1247,7 @@ const es: T = {
         description: "Desarrollo personalizado para tu empresa.",
       },
       {
-        title: "Infraestructura",
+        title: "Migración a la nube",
         description:
           "Migración, estructura segura, escalable y preparada para el crecimiento.",
       },

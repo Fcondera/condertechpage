@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { SEO_CONFIGS } from "./seoConfig";
 
 const DEFAULT_TITLE =
-  "Software e IA personalizada para empresas | ConderTech";
+  "Cibersegurança, migração para nuvem e IA personalizada | ConderTech";
 const DEFAULT_DESCRIPTION =
-  "Desenvolvimento de software e IA personalizada para empresas: agentes, RAG, MCP, LLMs, integrações e automação comercial. Conheça a ConderTech.";
+  "Cibersegurança, migração para a nuvem e IA personalizada com RAG, MCP e LLMs. Soluções para empresas no Amazonas e em todo o Brasil. Fale com a ConderTech.";
 const DEFAULT_IMAGE = "https://www.condertech.com.br/image/logocondertech.png";
 const SITE_URL = "https://www.condertech.com.br";
 
@@ -89,7 +89,7 @@ function buildLanguageAlternates(path: string): Record<string, string> {
 
 export const defaultMetadata = buildMetadata({
   keywords:
-    "empresa de tecnologia, soluções de TI, desenvolvimento de software, inteligência artificial, automação, painel de LED, monitoramento de PDV, sistema para mercado, cloud, IoT, cibersegurança, infraestrutura de TI, integração de sistemas, consultoria de tecnologia",
+    "cibersegurança empresarial, migração para nuvem, IA personalizada, cibersegurança Amazonas, migração cloud Amazonas, desenvolvimento de IA, RAG, MCP, LLM, agentes de IA, segurança da informação, infraestrutura de TI, software sob medida",
   languages: buildLanguageAlternates("/"),
 });
 export const aboutMetadata = buildMetadata({
@@ -132,9 +132,9 @@ export const budgetMetadata = buildMetadata({
 const LOCALE_META = {
   en: {
     home: {
-      title: "Technology Company & IT Solutions in Brazil | ConderTech",
+      title: "Cybersecurity, Cloud Migration & Custom AI | ConderTech",
       description:
-        "Complete technology solutions: software, AI, automation, LED panels, POS monitoring, cloud, IoT, data, security, and infrastructure.",
+        "Cybersecurity, cloud migration and custom AI with RAG, MCP and LLMs. Business technology in Amazonas and across Brazil. Talk to ConderTech.",
     },
     about: {
       title: "About ConderTech - History & Mission | Web Development",
@@ -157,9 +157,9 @@ const LOCALE_META = {
   },
   es: {
     home: {
-      title: "Empresa de Tecnología y Soluciones de TI en Brasil | ConderTech",
+      title: "Ciberseguridad, migración a la nube e IA personalizada | ConderTech",
       description:
-        "Soluciones completas de tecnología: software, IA, automatización, paneles LED, monitoreo de PDV, cloud, IoT, datos, seguridad e infraestructura.",
+        "Ciberseguridad, migración a la nube e IA personalizada con RAG, MCP y LLMs. Soluciones empresariales en Amazonas y todo Brasil. Conoce ConderTech.",
     },
     about: {
       title: "Sobre ConderTech - Historia y Misión | Desarrollo Web",

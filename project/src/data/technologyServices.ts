@@ -113,12 +113,14 @@ export const technologyServices: TechnologyService[] = [
     ],
   },
   {
-    name: "Cloud, servidores e infraestrutura",
+    name: "Migração para a nuvem, cloud e infraestrutura",
     shortName: "Cloud e infraestrutura",
     description:
-      "Arquitetura em nuvem, servidores, bancos de dados, redes, backup, observabilidade, implantação e sustentação.",
+      "Planejamento de migração para a nuvem, avaliação de aplicações e bancos de dados, backup, testes de recuperação, observabilidade e acompanhamento de custos.",
     keywords: [
       "cloud computing",
+      "migração para nuvem",
+      "migração cloud",
       "servidores",
       "infraestrutura de TI",
       "redes",

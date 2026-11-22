@@ -32,6 +32,9 @@ const schema = {
     name: "Brasil",
   },
   knowsAbout: [
+    "Cibersegurança empresarial",
+    "Migração para a nuvem",
+    "IA personalizada para empresas",
     "Desenvolvimento de sites",
     "Landing pages",
     "E-commerce",

@@ -30,6 +30,7 @@ const servicePages = [
   "/solucoes/automacao-comercial",
   "/solucoes/integracao-e-automacao-de-processos",
 ];
+const serviceOrder = [0, 3, 5, 2, 1, 4, 6, 7].map(index => servicePages[index]);
 
 function getCardStyle(index: number, active: number) {
   const offset = index - active;
@@ -57,7 +58,7 @@ export function SegmentSolutionsSection() {
     ...item,
     icon: serviceIcons[idx],
     href: servicePages[idx],
-  }));
+  })).sort((a, b) => serviceOrder.indexOf(a.href) - serviceOrder.indexOf(b.href));
   const [active, setActive] = useState(1);
   const [paused, setPaused] = useState(false);
 
