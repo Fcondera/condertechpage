@@ -15,7 +15,10 @@ function Shell({ children }: { children: ReactNode }) {
   return <div className="market min-h-screen bg-[#090a0d] text-[#f4f4f5]">
     <header className="sticky top-0 z-40 border-b border-white/[0.08] bg-[#090a0d]/95 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-4 px-5 py-4 sm:px-8 lg:gap-7">
-        <Link href="/marketplace" aria-label="ConderTech Marketplace" className="shrink-0"><span className="text-xl font-bold tracking-tight">CONDER<span className="text-[#f0444c]">TECH</span></span><span className="mt-0.5 block text-[9px] uppercase tracking-[0.35em] text-zinc-500">Marketplace</span></Link>
+        <Link href="/marketplace" aria-label="ConderTech Marketplace" className="shrink-0 rounded-xl bg-white px-3 py-2">
+          <img src="/image/hero-lpg-01.png" alt="ConderTech" width={6400} height={1180} className="h-auto w-32 sm:w-40" />
+          <span className="mt-1 block text-center text-[9px] uppercase tracking-[0.35em] text-zinc-600">Marketplace</span>
+        </Link>
         <form onSubmit={event => { event.preventDefault(); router.push(`/marketplace?q=${encodeURIComponent(search)}#catalogo`); }} className="order-3 flex w-full items-center gap-3 rounded-xl border border-white/10 bg-[#14151b] px-4 lg:order-none lg:w-auto lg:flex-1">
           <Search size={17} className="shrink-0 text-zinc-500" aria-hidden="true" /><label className="sr-only" htmlFor="market-search">Buscar produtos e vendedores</label><input id="market-search" value={search} onChange={event => setSearch(event.target.value)} placeholder="Buscar produtos, sistemas, vendedores..." className="w-full bg-transparent py-3 text-sm text-white outline-none placeholder:text-zinc-500" /><button className="text-xs font-semibold text-zinc-300 hover:text-white">Buscar</button>
         </form>
