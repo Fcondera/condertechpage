@@ -8,7 +8,7 @@ export const metadata: Metadata = defaultMetadata;
 
 const schema = {
   "@context": "https://schema.org",
-  "@type": ["Organization", "ProfessionalService"],
+  "@type": "Organization",
   "@id": "https://www.condertech.com.br/#organization",
   name: "ConderTech",
   description: defaultMetadata.description,
@@ -16,17 +16,17 @@ const schema = {
   url: "https://www.condertech.com.br",
   telephone: "+55-47-9273-9983",
   email: "condertech@gmail.com",
-  address: {
+  address: [{
     "@type": "PostalAddress",
     addressLocality: "Blumenau",
     addressRegion: "SC",
     addressCountry: "BR",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: -26.9194,
-    longitude: -49.0661,
-  },
+  }, {
+    "@type": "PostalAddress",
+    streetAddress: "AM-070",
+    addressRegion: "AM",
+    addressCountry: "BR",
+  }],
   areaServed: {
     "@type": "Country",
     name: "Brasil",
@@ -50,8 +50,18 @@ const schema = {
     "Infraestrutura de TI",
   ],
   sameAs: ["https://instagram.com/condertech_"],
-  priceRange: "$$",
-  openingHours: "Mo-Fr 09:00-18:00",
+};
+
+const siteSchema = {
+  "@context": "https://schema.org",
+  "@graph": [schema, {
+    "@type": "WebSite",
+    "@id": "https://www.condertech.com.br/#website",
+    url: "https://www.condertech.com.br",
+    name: "ConderTech",
+    publisher: { "@id": schema["@id"] },
+    inLanguage: ["pt-BR", "en", "es"],
+  }],
 };
 
 export default function RootLayout({
@@ -66,7 +76,7 @@ export default function RootLayout({
         <script
           id="schema-org"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema).replace(/</g, "\\u003c") }}
         />
       </body>
     </html>

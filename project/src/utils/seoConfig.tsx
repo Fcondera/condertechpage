@@ -3,9 +3,9 @@ export const SEO_CONFIGS = {
   sobre: {
     title: "Sobre a ConderTech - História e Missão | Desenvolvimento Web",
     description:
-      "Conheça a ConderTech, empresa especializada em desenvolvimento web em Blumenau-SC. Nossa missão é transformar ideias em soluções digitais inovadoras e escaláveis.",
+      "Conheça a ConderTech: software sob medida, integrações e soluções para empresas. Blumenau/SC e AM-070, Amazonas. Converse com nossa equipe.",
     keywords:
-      "sobre condertech, empresa desenvolvimento web blumenau, agência digital santa catarina, equipe desenvolvimento web, missão visão valores",
+      "sobre condertech, software empresarial, desenvolvimento de sistemas, Blumenau, Amazonas, AM-070",
     url: "https://www.condertech.com.br/sobre",
   },
   estoque: {

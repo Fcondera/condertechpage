@@ -1,4 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext";
+import Image from "next/image";
 
 const HeroSection = () => {
   const { t } = useLanguage();
@@ -39,11 +40,14 @@ const HeroSection = () => {
 
           {/* Right — image */}
           <div className="w-full lg:w-[45%] shrink-0">
-            <img
+            <Image
               src="/image/hero01-lpgeral.jpeg"
               alt="Plataforma ConderTech"
+              width={1033}
+              height={1280}
+              sizes="(min-width: 1024px) 45vw, 100vw"
               className="w-full h-auto max-h-[70vh] object-contain"
-              loading="eager"
+              priority
             />
           </div>
         </div>

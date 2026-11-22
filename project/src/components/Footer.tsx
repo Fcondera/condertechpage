@@ -7,7 +7,7 @@ import { getLocalizedPath } from "@/utils/locale";
 const CONTACT_INFO = {
   email: "condertech@gmail.com",
   phone: "+55 (47) 9273-9983",
-  location: "Blumenau, SC.",
+  location: "Blumenau, SC · AM-070, Amazonas",
 };
 
 const Footer = () => {
@@ -17,7 +17,7 @@ const Footer = () => {
     { title: "Marketplace", href: "/marketplace" },
     {
       title: t.footer.links.solutions,
-      href: `${getLocalizedPath(lang, "/")}#solucoes`,
+      href: "/solucoes-de-tecnologia",
     },
     {
       title: t.footer.links.terms,

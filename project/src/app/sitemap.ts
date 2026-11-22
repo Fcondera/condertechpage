@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { cities } from "@/data/cities";
-import { systems, equipment } from "@/data/products";
+import { systems } from "@/data/products";
+import { marketProducts } from "@/data/marketplace";
+import { businessSolutions } from "@/data/businessSolutions";
 
 const SITE_URL = "https://www.condertech.com.br";
 
@@ -27,8 +29,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/produtos",
     "/marketplace",
     ...systems.map(product => `/produtos/${product.id}`),
-    ...equipment.map(product => `/marketplace/${product.id}`),
-    ...systems.map(product => `/marketplace/${product.id}`),
+    ...marketProducts.map(product => `/marketplace/${product.id}`),
+    ...businessSolutions.map(solution => `/solucoes/${solution.slug}`),
     "",
     "/sobre",
     "/cidades",
@@ -48,7 +50,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticPages: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
     url: `${SITE_URL}${route}`,
-    lastModified: new Date("2026-07-02"),
     changeFrequency: route === "" ? "weekly" : "monthly",
     priority: route === "" ? 1 : route === "/cidades" ? 0.9 : 0.7,
     ...(LOCALE_AWARE_ROUTES.includes(route)
@@ -60,7 +61,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     (route) =>
       (["en", "es"] as const).map((locale) => ({
         url: `${SITE_URL}/${locale}${route}`,
-        lastModified: new Date("2026-07-02"),
         changeFrequency: "monthly" as const,
         priority: route === "" ? 0.9 : 0.6,
         alternates: { languages: languageAlternates(route) },
@@ -69,7 +69,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const cityPages: MetadataRoute.Sitemap = cities.map((city) => ({
     url: `${SITE_URL}/empresa-de-tecnologia/${city.slug}`,
-    lastModified: new Date("2026-07-02"),
     changeFrequency: "monthly",
     priority: 0.7,
   }));

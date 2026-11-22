@@ -3,7 +3,7 @@ export const NAV_LINKS = [
   { name: "Marketplace", href: "/marketplace" },
   { name: "Início", href: "/" },
   { name: "Sobre", href: "/sobre" },
-  { name: "Serviços", href: "/#servicos" },
+  { name: "Serviços", href: "/solucoes-de-tecnologia" },
   { name: "Planos", href: "/#planos" },
   { name: "Portfólio", href: "/#portfolio" },
   { name: "FAQ", href: "/#faq" },

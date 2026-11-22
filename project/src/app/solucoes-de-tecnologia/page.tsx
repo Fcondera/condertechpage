@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import BusinessSolutionsSection from "@/components/BusinessSolutionsSection";
 import {
   technologyKeywords,
   technologyServices,
@@ -70,6 +71,7 @@ export default function TechnologySolutionsPage() {
         </div>
       </section>
 
+      <BusinessSolutionsSection />
       <section className="mx-auto max-w-7xl px-6 py-20 sm:px-8 sm:py-28 lg:px-12">
         <div className="max-w-3xl">
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e22d2e]">

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { SEO_CONFIGS } from "./seoConfig";
 
 const DEFAULT_TITLE =
-  "Empresa de Tecnologia e Soluções de TI no Brasil | ConderTech";
+  "Software sob medida e automação para empresas | ConderTech";
 const DEFAULT_DESCRIPTION =
-  "Soluções completas de tecnologia: software, IA, automação, painel de LED, monitoramento de PDV, cloud, IoT, dados, segurança e infraestrutura.";
+  "Desenvolvimento de software sob medida, integração de sistemas e automação comercial. Conheça as soluções B2B da ConderTech e solicite uma avaliação.";
 const DEFAULT_IMAGE = "https://www.condertech.com.br/image/logocondertech.png";
 const SITE_URL = "https://www.condertech.com.br";
 
@@ -139,7 +139,7 @@ const LOCALE_META = {
     about: {
       title: "About ConderTech - History & Mission | Web Development",
       description:
-        "Get to know ConderTech, a web development company based in Blumenau, Brazil. Our mission is to turn ideas into innovative, scalable digital solutions.",
+        "Meet ConderTech: custom software, systems integration and business technology. Blumenau, Santa Catarina, and AM-070, Amazonas, Brazil.",
     },
     terms: {
       title: "Terms of Use - ConderTech",
@@ -164,7 +164,7 @@ const LOCALE_META = {
     about: {
       title: "Sobre ConderTech - Historia y Misión | Desarrollo Web",
       description:
-        "Conoce a ConderTech, empresa especializada en desarrollo web en Blumenau, Brasil. Nuestra misión es transformar ideas en soluciones digitales innovadoras y escalables.",
+        "Conoce ConderTech: software a medida, integración de sistemas y tecnología empresarial. Blumenau, Santa Catarina, y AM-070, Amazonas, Brasil.",
     },
     terms: {
       title: "Términos de Uso - ConderTech",
