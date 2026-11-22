@@ -5,6 +5,7 @@
 O fluxo disponível é carrinho → revisão e entrega → confirmação dos valores e frete pela equipe → pagamento no Mercado Pago → acompanhamento. Produtos sob consulta precisam de preço aprovado; não existe cálculo automático de frete. A revisão identifica a conta compradora, e o acompanhamento atualiza ao voltar à aba.
 
 - Validação local sem credenciais: `npm run test:marketplace`.
+- O teste de OAuth usa o SDK real do Supabase com respostas simuladas para verificar que o cookie PKCE sobrevive ao redirecionamento e é consumido no retorno. O armazenamento OAuth aceita apenas esse verificador; a sessão do marketplace continua nos cookies HttpOnly próprios. O login real ainda depende da configuração do Google e das URLs autorizadas no Supabase.
 - Validação das migrações em PostgreSQL isolado: `npm run test:marketplace:db` (requer o motor opcional descrito em `docs/mercadopago.md`).
 - Com o site iniciado: `npm run test:marketplace:smoke -- http://localhost:3100`.
 - Publicação: `npm run build`, seguida de `npm start`.
