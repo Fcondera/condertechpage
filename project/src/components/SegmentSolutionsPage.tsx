@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import {
   ArrowLeft,
   ArrowRight,
@@ -10,12 +11,25 @@ import {
   Server,
   ShieldCheck,
   ShoppingBag,
+  BrainCircuit,
+  Store,
+  Workflow,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const SLIDE_DURATION = 4500;
 
-const serviceIcons = [ShieldCheck, ShoppingBag, Monitor, Server, Landmark];
+const serviceIcons = [ShieldCheck, ShoppingBag, Monitor, Server, Landmark, BrainCircuit, Store, Workflow];
+const servicePages = [
+  "/solucoes-de-tecnologia#ciberseguranca",
+  "/ecommerce",
+  "/solucoes/software-sob-medida",
+  "/solucoes-de-tecnologia#infraestrutura",
+  "/solucoes-de-tecnologia#contato-tecnologia",
+  "/solucoes/inteligencia-artificial-personalizada",
+  "/solucoes/automacao-comercial",
+  "/solucoes/integracao-e-automacao-de-processos",
+];
 
 function getCardStyle(index: number, active: number) {
   const offset = index - active;
@@ -37,20 +51,24 @@ function getCardStyle(index: number, active: number) {
 }
 
 export function SegmentSolutionsSection() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const learnMore = { "pt-BR": "Conhecer solução", en: "Explore solution", es: "Conocer solución" }[lang];
   const services = t.segments.items.map((item, idx) => ({
     ...item,
     icon: serviceIcons[idx],
+    href: servicePages[idx],
   }));
   const [active, setActive] = useState(1);
+  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
+    if (paused) return;
     const timeout = window.setTimeout(() => {
       setActive((current) => (current + 1) % services.length);
     }, SLIDE_DURATION);
 
     return () => window.clearTimeout(timeout);
-  }, [active, services.length]);
+  }, [active, services.length, paused]);
 
   const prev = useCallback(() => {
     setActive((current) => (current - 1 + services.length) % services.length);
@@ -63,6 +81,12 @@ export function SegmentSolutionsSection() {
   return (
     <section
       id="segmentos"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocusCapture={() => setPaused(true)}
+      onBlurCapture={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) setPaused(false);
+      }}
       className="relative overflow-hidden bg-[#383E42] py-20 text-white sm:py-28"
     >
       <div
@@ -77,10 +101,10 @@ export function SegmentSolutionsSection() {
 
       <div className="relative mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12">
         <div className="mb-12 text-center sm:mb-16">
-          <h1 className="mx-auto max-w-[13ch] font-inter text-2xl font-semibold leading-tight text-white sm:max-w-none sm:text-5xl lg:text-6xl">
+          <h2 className="mx-auto max-w-[13ch] font-inter text-2xl font-semibold leading-tight text-white sm:max-w-none sm:text-5xl lg:text-6xl">
             {t.segments.headline1}{" "}
             <span className="italic text-[#e22d2e]">{t.segments.accent}</span>
-          </h1>
+          </h2>
         </div>
 
         <div
@@ -122,7 +146,16 @@ export function SegmentSolutionsSection() {
                 className="w-[300px]"
                 whileHover={!isActive ? { scale: (scale ?? 0.78) + 0.04 } : {}}
               >
-                <div
+                <Link
+                  href={service.href}
+                  aria-label={`${learnMore}: ${service.title}`}
+                  tabIndex={isActive ? 0 : -1}
+                  onClick={(event) => {
+                    if (!isActive) {
+                      event.preventDefault();
+                      setActive(index);
+                    }
+                  }}
                   className={`relative block min-h-[255px] rounded-2xl bg-white p-8 text-center transition-shadow duration-300 ${
                     isActive
                       ? "shadow-[0_30px_80px_rgba(0,0,0,0.45)]"
@@ -135,13 +168,14 @@ export function SegmentSolutionsSection() {
                   <span className="mx-auto mb-7 flex h-20 w-20 items-center justify-center text-[#e22d2e]">
                     <Icon className="h-12 w-12" strokeWidth={1.6} />
                   </span>
-                  <h2 className="mb-3 font-inter text-xl font-semibold text-[#383E42]">
+                  <h3 className="mb-3 font-inter text-xl font-semibold text-[#383E42]">
                     {service.title}
-                  </h2>
+                  </h3>
                   <p className="font-inter text-sm font-light leading-relaxed text-slate-500">
                     {service.description}
                   </p>
-                </div>
+                  <span className="mt-4 block text-sm font-semibold text-[#c22425]">{learnMore}</span>
+                </Link>
               </motion.div>
             );
           })}
@@ -166,20 +200,21 @@ export function SegmentSolutionsSection() {
                       isActive ? "scale-100 opacity-100" : "scale-90 opacity-45"
                     }`}
                   >
-                    <div className="relative block min-h-[150px] rounded-lg bg-white px-4 py-6 text-center shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
+                    <Link href={service.href} tabIndex={isActive ? 0 : -1} className="relative block min-h-[150px] rounded-lg bg-white px-4 py-6 text-center shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
                       {isActive && (
                         <span className="absolute left-6 right-6 top-0 h-[2px] rounded-full bg-[#e22d2e]" />
                       )}
                       <span className="mx-auto mb-4 flex h-9 w-9 items-center justify-center text-[#e22d2e]">
                         <Icon className="h-7 w-7" strokeWidth={1.6} />
                       </span>
-                      <h2 className="mb-2 font-inter text-sm font-semibold text-[#383E42]">
+                      <h3 className="mb-2 font-inter text-sm font-semibold text-[#383E42]">
                         {service.title}
-                      </h2>
-                      <p className="font-inter text-[10px] leading-4 text-slate-500">
+                      </h3>
+                      <p className="font-inter text-sm leading-5 text-slate-500">
                         {service.description}
                       </p>
-                    </div>
+                      <span className="mt-3 block text-sm font-semibold text-[#c22425]">{learnMore}</span>
+                    </Link>
                   </div>
                 );
               })}

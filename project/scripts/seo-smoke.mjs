@@ -34,6 +34,11 @@ for (const path of paths) {
 }
 assert.equal(titles.size, paths.length, "Unique page titles");
 const home = await (await fetch(base)).text();
+assert.ok(!home.includes('id="business-solutions-title"'), "No separate duplicate solutions section on home");
+assert.equal((home.match(/<h1\b/g) || []).length, 1, "Home keeps one main heading");
+const carousel = home.match(/<section\b[^>]*id="segmentos"[\s\S]*?<\/section>/)?.[0];
+assert.ok(carousel, "Existing segment carousel rendered");
+for (const path of paths) assert.ok(carousel.includes(`href="${path}"`), "Solution linked inside the existing carousel");
 for (const path of paths) assert.ok(home.includes(`href="${path}"`), "Services linked from home");
 const sitemap = await (await fetch(`${base}/sitemap.xml`)).text();
 for (const path of [...paths, "/marketplace/switch-gerenciavel", "/marketplace/access-point", "/marketplace/rack-infraestrutura", "/marketplace/nobreak"]) assert.ok(sitemap.includes(`${origin}${path}`), "Public pages in sitemap");

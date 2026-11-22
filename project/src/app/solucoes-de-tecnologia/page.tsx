@@ -85,6 +85,7 @@ export default function TechnologySolutionsPage() {
           {technologyServices.map((service, index) => (
             <article
               key={service.name}
+              id={service.shortName === "Cibersegurança" ? "ciberseguranca" : service.shortName === "Cloud e infraestrutura" ? "infraestrutura" : undefined}
               className="border border-slate-200 p-7 transition-colors hover:border-[#e22d2e]"
             >
               <span className="text-xs font-semibold text-[#e22d2e]">

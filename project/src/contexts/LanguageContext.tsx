@@ -150,6 +150,9 @@ const ptBR = {
         description:
           "Conte com a ConderTech para gerenciar desafios da administração pública.",
       },
+      { title: "IA personalizada", description: "RAG, MCP, LLMs e agentes de IA conectados ao seu negócio." },
+      { title: "Automação comercial", description: "Sistemas de gestão, frente de caixa e estoque para o varejo." },
+      { title: "Integrações e automação", description: "Conecte sistemas e automatize os processos da sua empresa." },
     ],
     prev: "Anterior",
     next: "Próximo",
@@ -704,6 +707,9 @@ const en: T = {
         description:
           "Count on ConderTech to manage public administration challenges.",
       },
+      { title: "Custom AI", description: "RAG, MCP, LLMs and AI agents connected to your business." },
+      { title: "Retail automation", description: "Management systems, point of sale and inventory for retail." },
+      { title: "Integrations and automation", description: "Connect systems and automate your business processes." },
     ],
     prev: "Previous",
     next: "Next",
@@ -1250,6 +1256,9 @@ const es: T = {
         description:
           "Cuenta con ConderTech para gestionar los desafíos de la administración pública.",
       },
+      { title: "IA personalizada", description: "RAG, MCP, LLMs y agentes de IA conectados a tu negocio." },
+      { title: "Automatización comercial", description: "Sistemas de gestión, punto de venta e inventario para comercios." },
+      { title: "Integraciones y automatización", description: "Conecta sistemas y automatiza los procesos de tu empresa." },
     ],
     prev: "Anterior",
     next: "Siguiente",
