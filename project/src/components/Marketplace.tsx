@@ -85,10 +85,6 @@ function Storefront() {
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(226,45,46,0.13),transparent_65%)]"
         />
         <div className="relative mx-auto max-w-4xl px-5 pb-14 pt-14 text-center sm:px-8 sm:pb-20 sm:pt-20">
-          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-red-400/20 bg-red-500/5 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-red-300">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#e22d2e]" />
-            Tecnologia para o seu negócio
-          </p>
           <h1 className="text-4xl font-semibold leading-[1.1] tracking-tight sm:text-6xl lg:text-[68px]">
             O próximo passo começa
             <br />
