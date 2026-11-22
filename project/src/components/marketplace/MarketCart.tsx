@@ -167,7 +167,7 @@ export default function MarketCart() {
                 {error}
               </p>
             )}
-            {user && user.profileComplete && user.phoneVerified ? (
+            {user && user.profileComplete ? (
               <button
                 disabled={busy}
                 onClick={submit}
@@ -180,7 +180,7 @@ export default function MarketCart() {
                 href="/marketplace/conta"
                 className="market-primary mt-5 w-full"
               >
-                Completar cadastro e confirmar celular
+                Completar cadastro
               </Link>
             ) : (
               <Link

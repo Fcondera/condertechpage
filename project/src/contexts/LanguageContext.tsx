@@ -329,7 +329,7 @@ const ptBR = {
       "As informações apresentadas neste site possuem caráter informativo-comercial e podem ser atualizadas a qualquer momento, sem aviso prévio, para refletir mudanças de posicionamento, portfólio, processos internos ou exigências regulatórias.",
       "É vedado reproduzir, distribuir ou explorar indevidamente os materiais proprietários da ConderTech sem autorização expressa. O envio de dados por formulários deve ocorrer apenas por pessoas autorizadas a representar a organização interessada.",
       "Dúvidas sobre uso da plataforma, propostas comerciais ou condições específicas podem ser tratadas diretamente pelos canais oficiais de contato indicados no site.",
-      "No Marketplace, o acesso é feito exclusivamente por uma conta Google. Para enviar solicitações ou anunciar, o usuário fornece nome, celular confirmado por SMS, CPF e endereço. Uma solicitação não é uma compra e não gera cobrança; nome, e-mail e itens solicitados são compartilhados com os vendedores correspondentes para atendimento.",
+      "No Marketplace, o acesso é feito exclusivamente por uma conta Google. Para enviar solicitações ou anunciar, o usuário fornece nome, celular, CPF e endereço. Uma solicitação não é uma compra e não gera cobrança; nome, e-mail e itens solicitados são compartilhados com os vendedores correspondentes para atendimento.",
     ],
   },
   governance: {
@@ -339,9 +339,9 @@ const ptBR = {
       "A ConderTech trata dados pessoais com base em princípios de necessidade, finalidade, segurança e transparência, adotando controles técnicos e organizacionais compatíveis com a criticidade das informações processadas.",
       "Dados enviados por formulários, canais de contato e fluxos de atendimento podem ser utilizados para retorno comercial, qualificação de demanda, elaboração de propostas e manutenção do relacionamento institucional, sempre dentro de bases legais adequadas.",
       "Mantemos práticas voltadas à integridade, rastreabilidade e acesso controlado, com revisão periódica de processos para reforçar conformidade com a LGPD e padrões de governança aplicáveis às operações digitais que suportamos.",
-      "No Marketplace, a ConderTech recebe dados básicos de identidade do Google e armazena os dados de perfil fornecidos pelo titular, incluindo CPF, celular, endereço e aceite dos termos. O celular é confirmado por SMS. Nome, e-mail e itens de uma solicitação são compartilhados somente com vendedores relacionados aos produtos solicitados, para cadastro, segurança e atendimento da plataforma.",
+      "No Marketplace, a ConderTech recebe dados básicos de identidade do Google e armazena os dados de perfil fornecidos pelo titular, incluindo CPF, celular, endereço e aceite dos termos. Nome, e-mail e itens de uma solicitação são compartilhados somente com vendedores relacionados aos produtos solicitados, para cadastro, segurança e atendimento da plataforma.",
       "Solicitações relacionadas a direitos do titular, atualização de dados ou esclarecimentos adicionais podem ser encaminhadas pelos canais oficiais informados no rodapé do site.",
-      "No Marketplace, a ConderTech recebe dados básicos de identidade do Google e armazena os dados de perfil fornecidos pelo titular, incluindo CPF, celular, endereço e aceite dos termos. O celular é confirmado por SMS. Nome, e-mail e itens de uma solicitação são compartilhados somente com vendedores relacionados aos produtos solicitados, para cadastro, segurança e atendimento da plataforma.",
+      "No Marketplace, a ConderTech recebe dados básicos de identidade do Google e armazena os dados de perfil fornecidos pelo titular, incluindo CPF, celular, endereço e aceite dos termos. Nome, e-mail e itens de uma solicitação são compartilhados somente com vendedores relacionados aos produtos solicitados, para cadastro, segurança e atendimento da plataforma.",
     ],
   },
   budget: {
@@ -890,7 +890,7 @@ const en: T = {
       "Data submitted through forms, contact channels, and service flows may be used for business follow-up, lead qualification, proposal drafting, and maintaining the institutional relationship, always within appropriate legal bases.",
       "We maintain practices focused on integrity, traceability, and controlled access, with periodic process reviews to reinforce compliance with the LGPD and governance standards applicable to the digital operations we support.",
       "Requests related to data subject rights, data updates, or further clarification can be sent through the official channels listed in the site's footer.",
-      "Marketplace access uses a Google account only. To submit inquiries or list products, users provide their name, an SMS-verified phone number, CPF, and address. An inquiry is not a purchase and does not trigger a charge. Contact details and requested items are shared with the sellers associated with those items for follow-up.",
+      "Marketplace access uses a Google account only. To submit inquiries or list products, users provide their name, a phone number, CPF, and address. An inquiry is not a purchase and does not trigger a charge. Contact details and requested items are shared with the sellers associated with those items for follow-up.",
     ],
   },
   budget: {
@@ -1440,7 +1440,7 @@ const es: T = {
       "Los datos enviados por formularios, canales de contacto y flujos de atención pueden utilizarse para seguimiento comercial, calificación de la demanda, elaboración de propuestas y mantenimiento de la relación institucional, siempre dentro de bases legales adecuadas.",
       "Mantenemos prácticas orientadas a la integridad, la trazabilidad y el acceso controlado, con revisión periódica de procesos para reforzar el cumplimiento de la LGPD y los estándares de gobernanza aplicables a las operaciones digitales que respaldamos.",
       "Las solicitudes relacionadas con los derechos del titular, actualización de datos o aclaraciones adicionales pueden enviarse a través de los canales oficiales indicados en el pie de página del sitio.",
-      "El Marketplace solo permite iniciar sesión con una cuenta de Google. Para enviar consultas o publicar productos, se solicitan nombre, teléfono verificado por SMS, CPF y dirección. Una consulta no es una compra ni genera un cobro. Los datos de contacto y los productos solicitados se comparten con los vendedores correspondientes para su atención.",
+      "El Marketplace solo permite iniciar sesión con una cuenta de Google. Para enviar consultas o publicar productos, se solicitan nombre, teléfono, CPF y dirección. Una consulta no es una compra ni genera un cobro. Los datos de contacto y los productos solicitados se comparten con los vendedores correspondientes para su atención.",
     ],
   },
   budget: {

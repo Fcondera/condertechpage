@@ -72,12 +72,12 @@ function Account() {
       <p className="mt-3 text-sm text-zinc-400">
         Acompanhe suas solicitações e encontre suas próximas soluções.
       </p>
-      {!user.profileComplete || !user.phoneVerified ? (
+      {!user.profileComplete ? (
         <div className="market-panel mt-6 flex flex-wrap items-center justify-between gap-4 border border-amber-300/20 p-5">
           <div>
             <p className="font-semibold">Complete a validação da sua conta</p>
             <p className="mt-2 text-sm text-zinc-400">
-              Preencha os dados e confirme o celular para enviar solicitações ou
+              Preencha os dados para enviar solicitações ou
               vender.
             </p>
           </div>

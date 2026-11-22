@@ -21,7 +21,7 @@ export default function MarketCheckout() {
   const [requestId, setRequestId] = useState("");
   const [retry, setRetry] = useState(0);
   const key = JSON.stringify(cart.map(row => ({ id: row.id, quantity: row.quantity })));
-  const eligible = Boolean(user?.profileComplete && user?.phoneVerified);
+  const eligible = Boolean(user?.profileComplete);
   const identityKey = `${user?.id || ""}:${key}`;
   const current = reviewKey === identityKey ? review : null;
   useEffect(() => {
@@ -53,7 +53,7 @@ export default function MarketCheckout() {
     : !ready || loading ? <p role="status">Carregando checkout...</p>
     : !cart.length ? <section className="market-panel p-8"><h2 className="text-xl">Seu carrinho está vazio.</h2><Link href="/marketplace#catalogo" className="market-primary mt-5">Explorar produtos</Link></section>
     : !user ? <section className="market-panel p-8"><h2 className="text-xl">Entre para continuar</h2><p className="mt-3 text-sm text-zinc-400">Seu carrinho será mantido neste navegador.</p><Link href="/marketplace/entrar?next=/marketplace/checkout" className="market-primary mt-5">Continuar com Google</Link></section>
-    : !eligible ? <section className="market-panel p-8"><h2 className="text-xl">Complete seus dados</h2><p className="mt-3 text-sm text-zinc-400">Precisamos do endereço e da confirmação do seu celular para o atendimento. Depois, retorne ao checkout.</p><Link href="/marketplace/conta" className="market-primary mt-5">Completar cadastro</Link></section>
+    : !eligible ? <section className="market-panel p-8"><h2 className="text-xl">Complete seus dados</h2><p className="mt-3 text-sm text-zinc-400">Precisamos dos seus dados e endereço para o atendimento. Depois, retorne ao checkout.</p><Link href="/marketplace/conta" className="market-primary mt-5">Completar cadastro</Link></section>
     : <><div className="grid items-start gap-6 lg:grid-cols-[1fr_360px]">
       <div className="space-y-5">
         {current ? <>

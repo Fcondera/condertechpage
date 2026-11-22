@@ -57,36 +57,9 @@ export default function MarketProfile() {
       const data = await marketRequest("auth", body, "PATCH");
       setUser(data.user);
       setProfile(data.profile);
-      setMessage(
-        data.user.phoneVerified
-          ? "Cadastro atualizado."
-          : "Dados salvos. Agora confirme seu celular por SMS.",
-      );
+      setMessage("Cadastro atualizado.");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Não foi possível salvar.");
-    } finally {
-      setBusy(false);
-    }
-  }
-
-  async function phoneAction(action: "send" | "verify", code?: string) {
-    setBusy(true);
-    setError("");
-    setMessage("");
-    try {
-      const data = await marketRequest("auth/phone", { action, code });
-      setMessage(data.message);
-      if (data.verified) {
-        const refreshed = await marketRequest("auth");
-        setUser(refreshed.user);
-        setProfile(refreshed.profile);
-      }
-    } catch (err) {
-      setError(
-        err instanceof Error
-          ? err.message
-          : "Não foi possível confirmar o celular.",
-      );
     } finally {
       setBusy(false);
     }
@@ -252,49 +225,7 @@ export default function MarketProfile() {
         </button>
       </form>
 
-      {profile?.terms_accepted_at && (
-        <section className="market-panel max-w-2xl space-y-4 p-6">
-          <h3 className="font-semibold">Confirmação do celular</h3>
-          <p className="text-sm text-zinc-400">
-            {user.phoneVerified
-              ? "Celular confirmado. Compras e vendas liberadas."
-              : "Confirme que este celular é seu. O Google continuará sendo seu único método de login."}
-          </p>
-          {!user.phoneVerified && (
-            <>
-              <button
-                type="button"
-                disabled={busy}
-                onClick={() => void phoneAction("send")}
-                className="market-secondary"
-              >
-                {busy ? "Aguarde..." : "Enviar código por SMS"}
-              </button>
-              <form
-                onSubmit={(event) => {
-                  event.preventDefault();
-                  const form = new FormData(event.currentTarget);
-                  void phoneAction("verify", String(form.get("code") || ""));
-                }}
-                className="flex flex-wrap gap-3"
-              >
-                <input
-                  name="code"
-                  required
-                  inputMode="numeric"
-                  pattern="[0-9]{6}"
-                  maxLength={6}
-                  placeholder="Código de 6 dígitos"
-                  className="market-input min-w-0 flex-1"
-                />
-                <button disabled={busy} className="market-primary">
-                  Confirmar código
-                </button>
-              </form>
-            </>
-          )}
-        </section>
-      )}
+
     </div>
   );
 }

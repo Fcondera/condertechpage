@@ -7,7 +7,7 @@ export async function POST(request: Request) {
   try {
     const session = await authenticatedMarket();
     if (!session) return json({ error: "Entre para pagar seu pedido." }, 401);
-    if (!(await requireVerifiedProfile(session.user))) return json({ error: "Complete o cadastro e confirme seu celular antes de pagar." }, 403);
+    if (!(await requireVerifiedProfile(session.user))) return json({ error: "Complete o cadastro antes de pagar." }, 403);
     const body = await request.json().catch(() => null);
     if (!isUuid(body?.orderId) || body.acceptTotal !== true) return json({ error: "Revise e aceite o total do pedido." }, 400);
     const result = await session.client.from("marketplace_orders").select("*").eq("id", body.orderId).eq("user_id", session.user.id).maybeSingle();

@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "test:marketplace": "node scripts/oauth-test.mjs && node scripts/checkout-test.mjs && node scripts/chat-test.mjs && node scripts/payments-test.mjs",
+    "test:marketplace": "node scripts/seller-test.mjs && node scripts/quotes-test.mjs && node scripts/admin-test.mjs && node scripts/oauth-test.mjs && node scripts/checkout-test.mjs && node scripts/chat-test.mjs && node scripts/payments-test.mjs",
     "test:marketplace:db": "node scripts/payments-db-test.mjs",
     "test:marketplace:smoke": "node scripts/marketplace-smoke.mjs",
     "preview": "next start"

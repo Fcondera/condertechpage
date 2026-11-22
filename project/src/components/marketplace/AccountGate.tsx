@@ -61,14 +61,14 @@ export default function AccountGate({
         </div>
       </div>
     );
-  if (seller && (!user.profileComplete || !user.phoneVerified))
+  if (seller && (!user.profileComplete))
     return (
       <div className="mx-auto max-w-lg px-5 py-16">
         <div className="market-panel p-8">
           <h1 className="text-2xl font-semibold">Finalize seu cadastro</h1>
           <p className="mt-4 text-sm leading-6 text-zinc-400">
             Para proteger compradores e vendedores, complete seus dados e
-            confirme o celular antes de anunciar.
+            aceite os termos antes de anunciar.
           </p>
           <Link href="/marketplace/conta" className="market-primary mt-6">
             Completar cadastro

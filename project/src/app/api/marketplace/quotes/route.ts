@@ -13,13 +13,21 @@ export async function GET() {
     const session = await authenticatedMarket();
     if (!session)
       return json({ error: "Entre na sua conta para continuar." }, 401);
-    const { data, error } = await session.client
+    const queryQuotes = (columns: string) => session.client
       .from("marketplace_quotes")
-      .select("id, created_at, status, items, notes, checkout")
+      .select(columns)
       .eq("user_id", session.user.id)
       .order("created_at", { ascending: false })
       .limit(100);
-    if (error) return unavailable();
+    let { data, error } = await queryQuotes("id, created_at, status, items, notes, checkout");
+    // Older installations may not have applied marketplace-checkout.sql yet.
+    if (error && ["42703", "PGRST204"].includes(error.code) && /\bcheckout\b/i.test(error.message)) {
+      ({ data, error } = await queryQuotes("id, created_at, status, items, notes"));
+    }
+    if (error) {
+      console.error("marketplace.quotes.read", { code: error.code });
+      return unavailable();
+    }
     return json({ quotes: data });
   } catch {
     return unavailable();
@@ -36,7 +44,7 @@ export async function POST(request: Request) {
       return json(
         {
           error:
-            "Complete seu cadastro e confirme o celular na área da conta antes de enviar a solicitação.",
+            "Complete seu cadastro na área da conta antes de enviar a solicitação.",
         },
         403,
       );

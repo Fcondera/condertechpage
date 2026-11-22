@@ -6,7 +6,7 @@ export async function POST(request: Request) {
   try {
     const session = await authenticatedMarket();
     if (!session) return json({ error: "Entre na sua conta para continuar." }, 401);
-    if (!(await requireVerifiedProfile(session.user))) return json({ error: "Complete o cadastro e confirme seu celular na área da conta." }, 403);
+    if (!(await requireVerifiedProfile(session.user))) return json({ error: "Complete o cadastro na área da conta." }, 403);
     const body = await request.json().catch(() => null);
     let items;
     try { items = await resolveCheckoutItems(session.client, body?.items); }

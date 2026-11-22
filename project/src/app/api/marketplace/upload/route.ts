@@ -17,7 +17,7 @@ export async function POST(request: Request) {
       return json(
         {
           error:
-            "Complete seu cadastro e confirme o celular antes de anunciar.",
+            "Complete seu cadastro antes de anunciar.",
         },
         403,
       );

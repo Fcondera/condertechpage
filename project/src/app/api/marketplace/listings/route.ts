@@ -18,7 +18,7 @@ export async function GET(request: Request) {
       return json(
         {
           error:
-            "Complete seu cadastro e confirme o celular antes de gerenciar anúncios.",
+            "Complete seu cadastro antes de gerenciar anúncios.",
         },
         403,
       );
@@ -73,7 +73,7 @@ export async function POST(request: Request) {
       return json(
         {
           error:
-            "Complete seu cadastro e confirme o celular antes de anunciar.",
+            "Complete seu cadastro antes de anunciar.",
         },
         403,
       );
@@ -145,7 +145,7 @@ export async function PATCH(request: Request) {
       return json(
         {
           error:
-            "Complete seu cadastro e confirme o celular antes de gerenciar anúncios.",
+            "Complete seu cadastro antes de gerenciar anúncios.",
         },
         403,
       );

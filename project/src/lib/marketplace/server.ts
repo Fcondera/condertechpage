@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import { createClient, type Session, type User } from "@supabase/supabase-js";
 import type { PrivateProfile } from "./validation";
 import { digits } from "./validation";
+import { ensureMarketplaceAdmin } from "./admin";
 
 // A fresh instance for every request prevents sessions from leaking between users.
 export function marketClient() {
@@ -58,7 +59,7 @@ export async function authenticatedMarket() {
       user &&
       user.identities?.some((identity) => identity.provider === "google")
     )
-      return { client, user, access, refresh };
+      return { client, user: await ensureMarketplaceAdmin(user, client), access, refresh };
   }
   if (refresh) {
     const { data, error } = await client.auth.refreshSession({
@@ -72,7 +73,7 @@ export async function authenticatedMarket() {
       await saveSession(data.session);
       return {
         client: marketClient(),
-        user: data.user,
+        user: await ensureMarketplaceAdmin(data.user, client),
         access: data.session.access_token,
         refresh: data.session.refresh_token,
       };
@@ -119,7 +120,7 @@ export async function publicUser(user: User) {
 export async function requireVerifiedProfile(user: User) {
   const profile = await publicUser(user);
   return (
-    profile.profileComplete && profile.phoneVerified && profile.emailVerified
+    profile.profileComplete && profile.emailVerified
   );
 }
 
