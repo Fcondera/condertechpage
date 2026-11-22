@@ -86,7 +86,7 @@ export async function POST(request: Request) {
       typeof body.description !== "string" ||
       body.description.trim().length < 20 ||
       body.description.length > 4000 ||
-      !["PDV", "Ponto", "NFC", "Software", "Outros"].includes(body.category) ||
+      !["PDV", "Ponto", "NFC", "Software", "Redes", "Infraestrutura", "Energia", "Outros"].includes(body.category) ||
       !Number.isInteger(body.price_cents) ||
       body.price_cents < 100 ||
       body.price_cents > 100000000 ||

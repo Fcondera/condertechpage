@@ -26,7 +26,7 @@ export async function GET() {
     if (error) return unavailable();
     const requests = await session.client
       .from("marketplace_quotes")
-      .select("id, created_at, status, items, notes, customer_contact")
+      .select("id, created_at, status, items, notes, customer_contact, checkout")
       .contains("items", [{ seller_id: session.user.id }])
       .order("created_at", { ascending: false })
       .limit(100);
@@ -35,6 +35,7 @@ export async function GET() {
       seller: data,
       requests: (requests.data || []).map((row) => ({
         ...row,
+        checkout: row.checkout ? { address: row.checkout.address, payment_preference: row.checkout.payment_preference } : null,
         items: row.items.filter(
           (item: { seller_id?: string }) => item.seller_id === session.user.id,
         ),

@@ -15,7 +15,7 @@ export function validCpf(value: string) {
 export function validPhone(value: string) { return /^[1-9]{2}9\d{8}$/.test(digits(value)); }
 export function validCep(value: string) { return /^\d{8}$/.test(digits(value)) && !/^(\d)\1{7}$/.test(digits(value)); }
 export function safeNext(value: unknown) {
-  return typeof value === "string" && ["/marketplace/conta", "/marketplace/carrinho", "/marketplace/vender", "/marketplace/admin"].includes(value) ? value : "/marketplace/conta";
+  return typeof value === "string" && ["/marketplace/conta", "/marketplace/carrinho", "/marketplace/checkout", "/marketplace/mensagens", "/marketplace/pagamento", "/marketplace/administracao/pagamentos", "/marketplace/vender", "/marketplace/admin"].includes(value) ? value : "/marketplace/conta";
 }
 
 export type PrivateProfile = {

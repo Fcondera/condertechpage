@@ -7,6 +7,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { ArrowUpRight, Search, ArrowRight } from "lucide-react";
 import {
   marketCategories,
+  marketProductImage,
   marketProducts,
   matchesCategory,
 } from "@/data/marketplace";
@@ -161,7 +162,7 @@ function Storefront() {
               Anuncie na plataforma <ArrowUpRight size={14} />
             </Link>
           </div>
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
             {marketCategories
               .filter((item) => item.id !== "Todos")
               .map((item) => (
@@ -173,7 +174,7 @@ function Storefront() {
                 >
                   <div className="relative h-20 w-20 shrink-0 overflow-hidden">
                     <Image
-                      src={`/image/products/${item.image}.png`}
+                      src={marketProductImage(item.image)}
                       alt=""
                       fill
                       sizes="80px"

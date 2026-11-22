@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 
 const origin = process.argv[2] || "http://localhost:3100";
-const paths = ["/marketplace", "/marketplace/entrar", "/marketplace/cadastro", "/marketplace/recuperar", "/marketplace/redefinir-senha", "/marketplace/conta", "/marketplace/vender", "/marketplace/carrinho", "/marketplace/pdv", "/marketplace/relogio-de-ponto", "/marketplace/cartao-nfc", "/marketplace/nori-sistemas", "/marketplace/sistema-de-ponto", "/marketplace/sistema-de-agendamento"];
+const paths = ["/marketplace", "/marketplace/entrar", "/marketplace/cadastro", "/marketplace/recuperar", "/marketplace/redefinir-senha", "/marketplace/conta", "/marketplace/mensagens", "/marketplace/vender", "/marketplace/carrinho", "/marketplace/checkout", "/marketplace/pagamento", "/marketplace/administracao/pagamentos", "/marketplace/switch-gerenciavel", "/marketplace/access-point", "/marketplace/rack-infraestrutura", "/marketplace/nobreak", "/marketplace/pdv", "/marketplace/relogio-de-ponto", "/marketplace/cartao-nfc", "/marketplace/nori-sistemas", "/marketplace/sistema-de-ponto", "/marketplace/sistema-de-agendamento"];
 for (const path of paths) {
   const response = await fetch(origin + path);
   assert.equal(response.status, 200, path);
@@ -16,17 +16,17 @@ for (const path of ["/marketplace/produto-inexistente", "/marketplace/anuncio/in
   assert.equal(response.status, 404, path);
   console.log(`PASS unknown route: ${path}`);
 }
-for (const endpoint of ["quotes", "seller", "listings?mine=1"]) {
+for (const endpoint of ["quotes", "seller", "listings?mine=1", "messages", "orders"]) {
   const response = await fetch(`${origin}/api/marketplace/${endpoint}`);
   assert.equal(response.status, 401, `unauthenticated ${endpoint}`);
   console.log(`PASS protected GET ${endpoint}`);
 }
-for (const endpoint of ["auth", "quotes", "seller", "listings", "upload"]) {
+for (const endpoint of ["auth", "quotes", "seller", "listings", "upload", "checkout", "messages", "orders", "payments", "payments/sync", "payments/recover"]) {
   const response = await fetch(`${origin}/api/marketplace/${endpoint}`, { method: "POST", headers: { Origin: "https://untrusted.example", "Content-Type": "application/json" }, body: "{}" });
   assert.equal(response.status, 403, `cross-origin ${endpoint}`);
   console.log(`PASS origin check ${endpoint}`);
 }
-for (const endpoint of ["quotes", "seller", "listings", "upload"]) {
+for (const endpoint of ["quotes", "seller", "listings", "upload", "checkout", "messages", "orders", "payments", "payments/sync", "payments/recover"]) {
   const response = await fetch(`${origin}/api/marketplace/${endpoint}`, { method: "POST", headers: { Origin: origin, "Content-Type": "application/json" }, body: "{}" });
   assert.equal(response.status, 401, `unauthenticated write ${endpoint}`);
   console.log(`PASS protected POST ${endpoint}`);
@@ -40,3 +40,7 @@ for (const image of ["pdv", "relogio-de-ponto", "cartao-nfc", "nori-sistemas", "
   assert.equal(response.status, 200, `image ${image}`);
 }
 console.log("PASS marketplace smoke checks. No accounts created or external data modified.");
+
+for (const id of ["switch-gerenciavel", "access-point", "rack-infraestrutura", "nobreak"]) {
+  assert.equal((await fetch(`${origin}/image/products/${id}.svg`)).status, 200);
+}

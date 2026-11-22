@@ -25,11 +25,12 @@ function Shell({ children }: { children: ReactNode }) {
         </div>
       </div>
       <nav aria-label="Marketplace" className="mx-auto flex max-w-7xl gap-6 overflow-x-auto px-5 pb-3 text-xs font-medium sm:px-8">
-        {[{ href: "/marketplace", label: "Explorar" }, { href: "/marketplace?categoria=Software#catalogo", label: "Sistemas" }, { href: "/marketplace?categoria=PDV#catalogo", label: "PDV e automação" }, { href: "/marketplace?categoria=Ponto#catalogo", label: "Controle de ponto" }, { href: "/marketplace?categoria=NFC#catalogo", label: "NFC" }, { href: "/marketplace/vender", label: "Quero vender" }].map(item => <Link key={item.href} href={item.href} className={`shrink-0 py-1 transition-colors hover:text-white ${pathname === item.href ? "text-[#ff777d]" : "text-zinc-400"}`}>{item.label}</Link>)}
+        {[{ href: "/marketplace", label: "Explorar" }, { href: "/marketplace?categoria=Software#catalogo", label: "Sistemas" }, { href: "/marketplace?categoria=PDV#catalogo", label: "PDV e automação" }, { href: "/marketplace?categoria=Ponto#catalogo", label: "Controle de ponto" }, { href: "/marketplace?categoria=NFC#catalogo", label: "NFC" }, { href: "/marketplace/mensagens", label: "Mensagens" }, { href: "/marketplace/vender", label: "Quero vender" }].map(item => <Link key={item.href} href={item.href} className={`shrink-0 py-1 transition-colors hover:text-white ${pathname === item.href ? "text-[#ff777d]" : "text-zinc-400"}`}>{item.label}</Link>)}
         <Link href="/" className="ml-auto flex shrink-0 items-center gap-1 text-zinc-500 hover:text-white">Site ConderTech <ArrowUpRight size={12} /></Link>
       </nav>
     </header>
     {children}
+    <div className="border-t border-white/10 px-5 py-8 sm:px-8"><div className="mx-auto flex max-w-7xl flex-col justify-between gap-5 text-xs text-zinc-500 sm:flex-row"><p>ConderTech Marketplace · Tecnologia para o seu negócio</p><nav aria-label="Atendimento e informações" className="flex flex-wrap gap-5"><Link href="/marketplace/pagamento" className="hover:text-white">Meus pagamentos</Link><Link href="/marketplace/mensagens" className="hover:text-white">Atendimento</Link><Link href="/termos-de-uso" className="hover:text-white">Termos de uso</Link><Link href="/governanca-de-dados" className="hover:text-white">Dados e privacidade</Link></nav></div></div>
     <div role="status" aria-live="polite" className={notice ? "fixed bottom-6 left-1/2 z-50 w-[calc(100%-2rem)] max-w-md -translate-x-1/2 rounded-xl border border-white/15 bg-[#22242c] px-5 py-4 text-center text-sm shadow-xl" : "sr-only"}>{notice}</div>
   </div>;
 }

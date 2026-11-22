@@ -6,9 +6,11 @@ import { useMarket } from "./MarketProvider";
 export default function AccountGate({
   children,
   seller = false,
+  returnTo,
 }: {
   children: ReactNode;
   seller?: boolean;
+  returnTo?: string;
 }) {
   const { user, loading, authError, refreshUser } = useMarket();
   if (loading)
@@ -50,7 +52,7 @@ export default function AccountGate({
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
-              href={`/marketplace/entrar${seller ? "?next=/marketplace/vender" : ""}`}
+              href={`/marketplace/entrar?next=${encodeURIComponent(returnTo || (seller ? "/marketplace/vender" : "/marketplace/conta"))}`}
               className="market-primary"
             >
               Continuar com Google

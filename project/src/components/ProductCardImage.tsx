@@ -1,3 +1,4 @@
+import { marketProductImage } from "@/data/marketplace";
 import Image from "next/image";
 
 const descriptions: Record<string, string> = {
@@ -12,7 +13,7 @@ const descriptions: Record<string, string> = {
 export default function ProductCardImage({ id }: { id: string }) {
   return (
     <div className="relative aspect-[3/2] overflow-hidden bg-[#f3f3f1]">
-      <Image src={`/image/products/${id}.png`} alt={descriptions[id] || "Imagem ilustrativa do produto"}
+      <Image src={marketProductImage(id)} alt={descriptions[id] || "Imagem ilustrativa do produto"}
         fill sizes="(max-width: 767px) 100vw, (max-width: 1152px) 33vw, 360px"
         className="object-cover transition-transform duration-500 motion-safe:group-hover:scale-[1.04]" />
     </div>

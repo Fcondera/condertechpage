@@ -4,13 +4,13 @@ import Link from "next/link";
 import { Heart } from "lucide-react";
 import ProductCardImage from "@/components/ProductCardImage";
 import { money, useMarket, type Listing } from "./MarketProvider";
-import type { MarketProduct } from "@/data/marketplace";
+import { marketProductImage, type MarketProduct } from "@/data/marketplace";
 
 export default function MarketCard({ product, listing }: { product?: MarketProduct; listing?: Listing }) {
   const { favorites, toggleFavorite, add, ready } = useMarket();
   const id = product?.id || listing!.id;
   const name = product?.name || listing!.title;
-  const image = product ? `/image/products/${id}.png` : listing!.image_url;
+  const image = product ? marketProductImage(id) : listing!.image_url;
   const seller = product ? "ConderTech" : listing?.marketplace_sellers?.name || "Vendedor parceiro";
   const price = listing?.price_cents ?? null;
   const href = product ? `/marketplace/${id}` : `/marketplace/anuncio/${id}`;

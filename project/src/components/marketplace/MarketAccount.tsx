@@ -111,6 +111,9 @@ function Account() {
                 {label}
               </button>
             ))}
+            <Link href="/marketplace/pagamento" className="flex items-center gap-3 rounded-lg px-4 py-3 text-sm text-zinc-400 hover:bg-white/5">Meus pagamentos</Link>
+            {user.isAdmin && <Link href="/marketplace/administracao/pagamentos" className="flex items-center gap-3 rounded-lg px-4 py-3 text-sm text-red-300 hover:bg-white/5">Administrar pagamentos</Link>}
+            <Link href="/marketplace/mensagens" className="flex items-center gap-3 rounded-lg px-4 py-3 text-sm text-zinc-400 hover:bg-white/5"><MessageCircle size={17} />Mensagens</Link>
             <Link
               href="/marketplace/vender"
               className="flex items-center gap-3 rounded-lg px-4 py-3 text-sm text-zinc-400 hover:bg-white/5"
@@ -223,6 +226,9 @@ function Account() {
                           </li>
                         ))}
                       </ul>
+                      {quote.checkout && <p className="mt-4 text-xs leading-6 text-zinc-400">Entrega: {quote.checkout.address.street}, {quote.checkout.address.number} · {quote.checkout.address.city}/{quote.checkout.address.state}. Frete e pagamento a confirmar no atendimento.</p>}
+                      <Link href="/marketplace/pagamento" className="market-primary mr-3 mt-5">Ver pagamento</Link>
+                      <Link href={`/marketplace/mensagens?solicitacao=${quote.id}`} className="market-secondary mt-5">Conversar com o vendedor</Link>
                       {quote.notes && (
                         <p className="mt-4 text-xs leading-5 text-zinc-500">
                           {quote.notes}

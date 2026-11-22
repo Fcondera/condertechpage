@@ -149,6 +149,8 @@ export default function MarketCart() {
                 pagamento será cobrado nesta etapa.
               </p>
             </div>
+            <Link href="/marketplace/checkout" className="market-primary mb-6 w-full">Continuar para o checkout</Link>
+            <p className="mb-4 text-xs text-zinc-500">Ou envie uma consulta rápida abaixo:</p>
             <label className="text-xs text-zinc-400">
               Observações
               <textarea

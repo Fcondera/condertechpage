@@ -11,3 +11,8 @@
 .market-panel { border: 1px solid #ffffff12; border-radius: 1rem; background: #121319; }
 .market-error { border: 1px solid #ef444440; border-radius: .7rem; background: #ef44440a; padding: 1rem; color: #fca5a5; font-size: .875rem; }
 .market-success { border: 1px solid #34d39940; border-radius: .7rem; background: #34d3990a; padding: 1rem; color: #6ee7b7; font-size: .875rem; }
+.market-checkout { overflow-wrap: anywhere; }
+.market-checkout li > span { flex-shrink: 0; }
+@media (min-width: 1024px) {
+  .market-checkout aside { position: sticky; top: 10rem; }
+}

@@ -6,7 +6,7 @@ import {
   sameOrigin,
   unavailable,
 } from "@/lib/marketplace/server";
-import { marketProducts } from "@/data/marketplace";
+import { checkoutSubtotal, paymentPreferences, resolveCheckoutItems } from "@/lib/marketplace/checkout";
 
 export async function GET() {
   try {
@@ -15,7 +15,7 @@ export async function GET() {
       return json({ error: "Entre na sua conta para continuar." }, 401);
     const { data, error } = await session.client
       .from("marketplace_quotes")
-      .select("id, created_at, status, items, notes")
+      .select("id, created_at, status, items, notes, checkout")
       .eq("user_id", session.user.id)
       .order("created_at", { ascending: false })
       .limit(100);
@@ -56,52 +56,8 @@ export async function POST(request: Request) {
         { error: "Revise os produtos, quantidades e observações." },
         400,
       );
-    const items = [];
-    const seen = new Set<string>();
-    for (const row of body.items) {
-      if (
-        !row ||
-        typeof row.id !== "string" ||
-        seen.has(row.id) ||
-        !Number.isInteger(row.quantity) ||
-        row.quantity < 1 ||
-        row.quantity > 999
-      )
-        return json({ error: "Produto ou quantidade inválida." }, 400);
-      seen.add(row.id);
-      const product = marketProducts.find((product) => product.id === row.id);
-      if (product) {
-        items.push({
-          id: product.id,
-          name: product.name,
-          quantity: row.quantity,
-          seller_id: null,
-          price_cents: null,
-        });
-        continue;
-      }
-      const { data: listing, error } = await session.client
-        .from("marketplace_listings")
-        .select("id, title, seller_id, price_cents, stock")
-        .eq("id", row.id)
-        .eq("status", "aprovado")
-        .maybeSingle();
-      if (error || !listing || listing.stock < row.quantity)
-        return json(
-          {
-            error:
-              "Um dos anúncios não está disponível na quantidade selecionada. Revise o carrinho.",
-          },
-          400,
-        );
-      items.push({
-        id: listing.id,
-        name: listing.title,
-        quantity: row.quantity,
-        seller_id: listing.seller_id,
-        price_cents: listing.price_cents,
-      });
-    }
+    if (body.checkout && (!paymentPreferences.includes(body.paymentPreference) || body.acceptConditions !== true))
+      return json({ error: "Revise as condições e a preferência de pagamento." }, 400);
     const existing = await session.client
       .from("marketplace_quotes")
       .select("id")
@@ -109,10 +65,29 @@ export async function POST(request: Request) {
       .eq("request_id", body.requestId)
       .maybeSingle();
     if (existing.data) return json({ id: existing.data.id });
+    let items;
+    try { items = await resolveCheckoutItems(session.client, body.items); }
+    catch (error) { return json({ error: error instanceof Error ? error.message : "Revise o carrinho." }, 400); }
     const profile = await getProfile(session.user.id, session.client);
+    if (body.checkout && (!Array.isArray(body.reviewedItems) || JSON.stringify(body.reviewedItems) !== JSON.stringify(items)))
+      return json({ error: "Os produtos ou preços mudaram. Atualize a revisão antes de continuar." }, 409);
+    if (body.checkout && !profile) return json({ error: "Complete seu cadastro." }, 403);
+    const address = profile ? { name: profile.name, cep: profile.cep, street: profile.street, number: profile.number, complement: profile.complement, neighborhood: profile.neighborhood, city: profile.city, state: profile.state } : null;
+    if (body.checkout && JSON.stringify(body.reviewedAddress) !== JSON.stringify(address))
+      return json({ error: "O endereço mudou. Atualize a revisão antes de continuar." }, 409);
     const { data, error } = await session.client
       .from("marketplace_quotes")
       .insert({
+        ...(body.checkout ? { checkout: {
+          version: 1,
+          payment_status: "not_started",
+          payment_preference: body.paymentPreference,
+          shipping_status: "to_quote",
+          subtotal_cents: checkoutSubtotal(items),
+          has_unpriced_items: items.some(item => item.price_cents === null),
+          address,
+          conditions_accepted_at: new Date().toISOString(),
+        } } : {}),
         user_id: session.user.id,
         request_id: body.requestId,
         items,
@@ -125,7 +100,13 @@ export async function POST(request: Request) {
       })
       .select("id")
       .single();
-    if (error) return unavailable();
+    if (error) {
+      if (error.code === "23505") {
+        const retry = await session.client.from("marketplace_quotes").select("id").eq("user_id", session.user.id).eq("request_id", body.requestId).maybeSingle();
+        if (retry.data) return json({ id: retry.data.id });
+      }
+      return unavailable();
+    }
     return json({ id: data.id }, 201);
   } catch {
     return unavailable();
