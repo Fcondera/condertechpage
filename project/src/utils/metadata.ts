@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { SEO_CONFIGS } from "./seoConfig";
 
 const DEFAULT_TITLE =
-  "Software sob medida e automação para empresas | ConderTech";
+  "Software e IA personalizada para empresas | ConderTech";
 const DEFAULT_DESCRIPTION =
-  "Desenvolvimento de software sob medida, integração de sistemas e automação comercial. Conheça as soluções B2B da ConderTech e solicite uma avaliação.";
+  "Desenvolvimento de software e IA personalizada para empresas: agentes, RAG, MCP, LLMs, integrações e automação comercial. Conheça a ConderTech.";
 const DEFAULT_IMAGE = "https://www.condertech.com.br/image/logocondertech.png";
 const SITE_URL = "https://www.condertech.com.br";
 

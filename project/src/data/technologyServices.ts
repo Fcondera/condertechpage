@@ -35,13 +35,16 @@ export const technologyServices: TechnologyService[] = [
     name: "Inteligência artificial e automação",
     shortName: "IA e automação",
     description:
-      "Agentes de IA, chatbots, modelos de linguagem, automação de tarefas, atendimento e análise inteligente de dados.",
+      "Desenvolvimento de IA personalizada com LLMs, RAG para bases de conhecimento, integrações MCP, agentes e assistentes para processos empresariais.",
     keywords: [
       "inteligência artificial",
       "agente de IA",
       "chatbot",
       "automação",
       "LLM",
+      "RAG",
+      "MCP",
+      "IA personalizada",
     ],
   },
   {

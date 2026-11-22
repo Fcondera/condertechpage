@@ -1,5 +1,27 @@
 export const businessSolutions = [
   {
+    slug: "inteligencia-artificial-personalizada",
+    name: "Desenvolvimento de IA personalizada para empresas",
+    description: "Empresa de desenvolvimento de IA personalizada: agentes, assistentes com RAG, integração MCP e aplicações com LLMs para os processos do seu negócio.",
+    intro: "A ConderTech desenvolve soluções de inteligência artificial personalizadas para a rotina da sua empresa: assistentes que consultam documentos, agentes conectados a ferramentas e aplicações com modelos de linguagem. O projeto parte de um problema concreto, das fontes de informação disponíveis e das ações que a IA poderá executar.",
+    audience: "Empresas que precisam consultar conhecimento interno, apoiar equipes de atendimento ou integrar inteligência artificial aos seus sistemas, com permissões e critérios de qualidade definidos.",
+    needs: ["Consultar manuais, procedimentos e documentos internos em linguagem natural, com referência às fontes recuperadas.", "Criar assistentes de atendimento e apoio operacional adaptados ao contexto da empresa.", "Integrar agentes de IA a sistemas e ferramentas, com ações autorizadas e revisão humana quando necessário."],
+    scope: ["Levantamento do caso de uso, organização das fontes e definição de quem pode acessar cada informação.", "Escolha do LLM e da arquitetura: RAG, APIs, servidores MCP e ferramentas conforme a necessidade do projeto.", "Avaliação com perguntas reais, tratamento de respostas sem evidência e definição de custos, monitoramento e suporte."],
+    technologies: [
+      { name: "RAG e bases de conhecimento", description: "RAG combina a recuperação de trechos relevantes de documentos com a geração de respostas por um modelo. Pode apoiar consultas a manuais e procedimentos, respeitando as permissões das fontes; não equivale a treinar o modelo e não elimina respostas incorretas." },
+      { name: "MCP e conexão com ferramentas", description: "O Model Context Protocol padroniza a conexão de aplicações de IA a ferramentas e fontes de dados. Desenvolvemos integrações e servidores MCP conforme o escopo, com autenticação, permissões e limites para as ações disponíveis." },
+      { name: "LLMs e aplicações empresariais", description: "Modelos de linguagem podem apoiar busca, classificação, extração de informações e geração de texto. A seleção considera a tarefa, o idioma, os custos e os requisitos de implantação e tratamento dos dados." },
+      { name: "Agentes de IA personalizados", description: "Agentes combinam instruções, contexto e ferramentas para executar etapas de um processo. Definimos quais ações podem realizar, quando precisam de aprovação e como registrar resultados e falhas." },
+    ],
+    preparation: "Descreva o processo que deseja melhorar, quem usará a solução e quais documentos ou sistemas ela precisará consultar. Podemos começar com exemplos anonimizados para avaliar a viabilidade, sem compartilhar credenciais ou dados confidenciais no primeiro contato.",
+    related: [{ name: "Integração e automação de processos", href: "/solucoes/integracao-e-automacao-de-processos" }, { name: "Software sob medida", href: "/solucoes/software-sob-medida" }],
+    faq: [
+      { question: "A ConderTech desenvolve IA personalizada com RAG, MCP e LLMs?", answer: "Sim. Desenvolvemos aplicações com modelos de linguagem, recuperação de conhecimento com RAG e conexão a ferramentas por APIs ou MCP. A combinação depende do caso de uso, das fontes disponíveis e das permissões exigidas." },
+      { question: "IA personalizada exige treinar um modelo do zero?", answer: "Não. A personalização pode envolver instruções, RAG, ferramentas e integração de modelos existentes. Ajuste fino ou outras estratégias são avaliados quando há dados e critérios que justifiquem essa escolha." },
+      { question: "Como são tratados os dados e a qualidade das respostas?", answer: "Definimos as fontes autorizadas, as permissões dos usuários e a política de tratamento de dados do provedor escolhido. O projeto deve incluir avaliações com exemplos reais, referências quando aplicável e revisão humana para decisões que a exijam. RAG não garante respostas sempre corretas." },
+    ],
+  },
+  {
     slug: "software-sob-medida",
     name: "Desenvolvimento de software sob medida",
     description: "Sistemas web, aplicativos e integrações para processos empresariais. Defina o escopo do seu software com a ConderTech.",

@@ -2,12 +2,15 @@ import assert from "node:assert/strict";
 
 const base = process.env.SEO_TEST_URL || "http://127.0.0.1:3010";
 const origin = "https://www.condertech.com.br";
-const paths = ["/solucoes/software-sob-medida", "/solucoes/automacao-comercial", "/solucoes/integracao-e-automacao-de-processos"];
+const paths = ["/solucoes/inteligencia-artificial-personalizada", "/solucoes/software-sob-medida", "/solucoes/automacao-comercial", "/solucoes/integracao-e-automacao-de-processos"];
 const titles = new Set();
 for (const path of paths) {
   const response = await fetch(`${base}${path}`);
   assert.equal(response.status, 200, path);
   const html = await response.text();
+  if (path.endsWith("inteligencia-artificial-personalizada")) {
+    for (const term of ["RAG", "MCP", "LLMs", "Agentes de IA personalizados"]) assert.ok(html.includes(term), `AI service explains ${term}`);
+  }
   const title = html.match(/<title>([^<]+)<\/title>/)?.[1];
   assert.ok(title?.includes("ConderTech"));
   titles.add(title);
