@@ -38,6 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/estoque",
     "/ecommerce",
     "/landing",
+    "/curso",
     "/uiux",
     "/sistemainterno",
     "/plataformaensino",

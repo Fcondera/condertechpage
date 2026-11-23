@@ -13,7 +13,7 @@ interface SiteLayoutProps {
   children: ReactNode;
 }
 
-const HIDDEN_CHROME_ROUTES = new Set(["/orcamento", "/ima", "/ecommerce"]);
+const HIDDEN_CHROME_ROUTES = new Set(["/orcamento", "/ima", "/ecommerce", "/curso"]);
 const HIDDEN_NAVBAR_ONLY_ROUTES = new Set(["/portfolio-lp"]);
 
 export default function SiteLayout({ children }: SiteLayoutProps) {
